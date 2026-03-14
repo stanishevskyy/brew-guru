@@ -1,19 +1,23 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 import { motion, AnimatePresence } from 'framer-motion';
 
 import styles from './ConfirmEmail.module.scss';
-import { useNavigate } from 'react-router-dom';
+
+import { useAppSelector } from '../../../store/hooks';
 
 export const ConfirmEmail = () => {
-  const code = '123456'.split('');
   const navigate = useNavigate();
-  const [currentCode, setCurrentCode] = useState<string[]>(
-    Array(code.length).fill(''),
-  );
+  const [currentCode, setCurrentCode] = useState<string[]>(Array(6).fill(''));
   const isAvailable = currentCode.every(el => el !== '');
+  const userData = useAppSelector(state => state.registration);
 
   const inputsRef = useRef<HTMLInputElement[]>([]);
+
+  const handleBackButton = () => {
+    navigate('/auth/register');
+  };
 
   const handleKeyDown = async (
     event: React.KeyboardEvent<HTMLInputElement>,
@@ -58,9 +62,23 @@ export const ConfirmEmail = () => {
     }
   };
 
-  const handleSumbit = (event: React.SubmitEvent) => {
+  const handleSumbit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
+
+  useEffect(() => {
+    const staticCode = '123456';
+
+    setCurrentCode(staticCode.split(''));
+
+    if (inputsRef.current[staticCode.length - 1]) {
+      inputsRef.current[staticCode.length - 1].focus();
+    }
+  }, []);
+
+  if (!userData.data.email) {
+    return <Navigate to="/auth/register" />;
+  }
 
   return (
     <AnimatePresence mode="wait">
@@ -86,8 +104,8 @@ export const ConfirmEmail = () => {
             </h3>
 
             <p className={styles.confirm__info}>
-              A message with a verification code has been sent to
-              Name@example.com. Enter the code to finish this registration
+              {`A message with a verification code has been sent to
+              ${userData.data?.email}. Enter the code to finish this registration`}
             </p>
 
             <form
@@ -124,15 +142,18 @@ export const ConfirmEmail = () => {
               </a>
 
               <fieldset className={styles.login__buttons}>
-                <button className={styles.login__buttonSecondary}>Back</button>
                 <button
+                  type="button"
+                  className={styles.login__buttonSecondary}
+                  onClick={handleBackButton}
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
                   className={styles.login__buttonPrimary}
                   disabled={!isAvailable}
-                  onClick={() =>
-                    navigate('/auth/register/create-password', {
-                      replace: true,
-                    })
-                  }
+                  onClick={() => navigate('/auth/register/create-password')}
                 >
                   Continue
                 </button>

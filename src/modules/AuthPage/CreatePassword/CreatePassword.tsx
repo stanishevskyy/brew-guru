@@ -1,62 +1,71 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-
+import { Navigate, useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import classNames from 'classnames';
 
-import { motion, AnimatePresence } from 'framer-motion';
-
 import styles from './CreatePassword.module.scss';
+
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 
 import { PasswordType } from '../../../shared/types/PasswordType';
 
 import ErrorIcon from '../../../assets/icons/form-icons-validation/error.svg';
-//eslint-disable-next-line
-import WarningIcon from '../../../assets/icons/form-icons-validation/warning.svg';
 import CheckIcon from '../../../assets/icons/form-icons-validation/check.svg';
 import CrossIcon from '../../../assets/icons/form-icons-validation/cross.svg';
+//eslint-disable-next-line
+import WarningIcon from '../../../assets/icons/form-icons-validation/warning.svg';
+import { updateData } from '../../../store/registration/registrationSlice';
 
 export const CreatePassword = () => {
-  const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
-  const { register, handleSubmit } = useForm<PasswordType>({
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const userData = useAppSelector(state => state.registration);
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors, isValid },
+  } = useForm<PasswordType>({
     mode: 'onChange',
   });
 
+  const password = watch('password', '');
   const [passwordStrength, setPasswordStrength] = useState('0');
-  const [errorPassword, setErrorPassword] = useState({
-    isEightCharacters: false,
-    hasNumber: false,
-    hasSpecialCharacter: false,
-  });
-  const [isError, setIsError] = useState(false);
+  const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.currentTarget.value;
-    let score = 0;
+  const handleBackButton = () => {
+    navigate('/auth/register/confirm-email');
+  };
 
-    if (!value) {
+  useEffect(() => {
+    if (!password) {
       setPasswordStrength('0');
-      setErrorPassword({
-        isEightCharacters: false,
-        hasNumber: false,
-        hasSpecialCharacter: false,
-      });
 
       return;
     }
 
-    if (value.length >= 8) {
+    const isEightCharacters = password.length >= 8;
+    const hasNumber = /[0-9]/.test(password);
+    const hasSpecialCharacter = /[^A-Za-z0-9]/.test(password);
+    const hasUppercase = /[A-Z]/.test(password);
+
+    let score = 0;
+
+    if (isEightCharacters) {
       score++;
     }
 
-    if (/[0-9]/.test(value)) {
+    if (hasNumber) {
       score++;
     }
 
-    if (/[^A-Za-z0-9]/.test(value)) {
+    if (hasSpecialCharacter) {
       score++;
     }
 
-    if (/[A-Z]/.test(value)) {
+    if (hasUppercase) {
       score++;
     }
 
@@ -68,27 +77,16 @@ export const CreatePassword = () => {
     };
 
     setPasswordStrength(strengthMap[score] || '0');
+  }, [password]);
 
-    setErrorPassword({
-      isEightCharacters: value.length >= 8,
-      hasNumber: /[0-9]/.test(value),
-      hasSpecialCharacter: /[^A-Za-z0-9]/.test(value),
-    });
+  const onSubmit = (data: PasswordType) => {
+    dispatch(updateData({ password: data.password }));
+    navigate('/auth/register/create-user');
   };
 
-  const onSubmit = async (data: PasswordType) => {
-    const hasPasswordError = Object.values(errorPassword).some(value => !value);
-
-    const passwordsDoNotMatch = data.password !== data.confirmPassword;
-
-    if (hasPasswordError || passwordsDoNotMatch) {
-      setIsError(true);
-
-      return;
-    }
-
-    setIsError(false);
-  };
+  if (!userData.data.email) {
+    return <Navigate to="/auth/register" />;
+  }
 
   return (
     <AnimatePresence mode="wait">
@@ -110,7 +108,7 @@ export const CreatePassword = () => {
         >
           <article className={styles.password}>
             <h3 id="password-title" className={styles.password__title}>
-              <span>Create password</span>
+              <span>Create account</span>
               <span>password</span>
             </h3>
 
@@ -120,34 +118,44 @@ export const CreatePassword = () => {
               aria-describedby="password-help"
               onSubmit={handleSubmit(onSubmit)}
             >
+              {/* Password Field */}
               <fieldset className={styles.password__createPassword}>
-                <label
-                  htmlFor="current-password"
-                  className={styles.password__label}
-                >
+                <label htmlFor="password" className={styles.password__label}>
                   Password
                 </label>
                 <input
-                  className={classNames(`${styles.password__input}`, {
-                    [styles.password__inputError]: isError,
-                  })}
-                  type="text"
-                  id="current-password"
+                  id="password"
+                  type="password"
                   placeholder="Type here"
-                  required
                   autoComplete="off"
                   aria-required="true"
-                  {...register('password')}
-                  onChange={handleChange}
+                  className={classNames(styles.password__input, {
+                    [styles.password__inputError]: !!errors.password,
+                  })}
+                  {...register('password', {
+                    required: 'Password is required',
+                    validate: value => {
+                      const isEightCharacters = value.length >= 8;
+                      const hasNumber = /[0-9]/.test(value);
+                      const hasSpecialCharacter = /[^A-Za-z0-9]/.test(value);
+
+                      return (
+                        (isEightCharacters &&
+                          hasNumber &&
+                          hasSpecialCharacter) ||
+                        'Password does not meet requirements'
+                      );
+                    },
+                  })}
                 />
-                {isError && (
+                {errors.password && (
                   <p
                     className={styles.password__errorMessage}
                     onMouseMove={() => setIsDescriptionOpen(true)}
                     onMouseLeave={() => setIsDescriptionOpen(false)}
                   >
                     <img src={WarningIcon} alt="" />
-                    The password does not match
+                    {errors.password.message}
                   </p>
                 )}
 
@@ -155,7 +163,7 @@ export const CreatePassword = () => {
                   <div className={styles.password__wrapperError}>
                     <div className={styles.password__descriptionError}>
                       <p className={styles.password__strength}>
-                        Password strength: {`${passwordStrength}`}%
+                        Password strength: {passwordStrength}%
                       </p>
                       <div
                         className={classNames(
@@ -165,11 +173,7 @@ export const CreatePassword = () => {
                       <ul className={styles.password__errorList}>
                         <li className={styles.password__errorItem}>
                           <img
-                            src={
-                              errorPassword.isEightCharacters
-                                ? CheckIcon
-                                : CrossIcon
-                            }
+                            src={password.length >= 8 ? CheckIcon : CrossIcon}
                             alt=""
                             className={styles.password__icon}
                           />
@@ -177,9 +181,7 @@ export const CreatePassword = () => {
                         </li>
                         <li className={styles.password__errorItem}>
                           <img
-                            src={
-                              errorPassword.hasNumber ? CheckIcon : CrossIcon
-                            }
+                            src={/[0-9]/.test(password) ? CheckIcon : CrossIcon}
                             alt=""
                             className={styles.password__icon}
                           />
@@ -188,7 +190,7 @@ export const CreatePassword = () => {
                         <li className={styles.password__errorItem}>
                           <img
                             src={
-                              errorPassword.hasSpecialCharacter
+                              /[^A-Za-z0-9]/.test(password)
                                 ? CheckIcon
                                 : CrossIcon
                             }
@@ -202,38 +204,53 @@ export const CreatePassword = () => {
                   </div>
                 )}
               </fieldset>
+
+              {/* Confirm Password Field */}
               <fieldset className={styles.password__confirmPassword}>
                 <label
-                  htmlFor="confirm-password"
+                  htmlFor="confirmPassword"
                   className={styles.password__label}
                 >
                   Confirm password
                 </label>
                 <input
-                  className={classNames(`${styles.password__input}`, {
-                    [styles.password__inputErrorConfirm]: isError,
-                  })}
-                  type="text"
-                  id="confirm-password"
+                  id="confirmPassword"
+                  type="password"
                   placeholder="Type here"
-                  required
                   autoComplete="off"
                   aria-required="true"
-                  {...register('confirmPassword')}
+                  className={classNames(styles.password__input, {
+                    [styles.password__inputErrorConfirm]:
+                      !!errors.confirmPassword,
+                  })}
+                  {...register('confirmPassword', {
+                    required: 'Please confirm your password',
+                    validate: value =>
+                      value === password || 'Passwords do not match',
+                  })}
                 />
-                {isError && (
+                {errors.confirmPassword && (
                   <p className={styles.password__errorMessageConfirm}>
                     <img src={ErrorIcon} alt="" />
-                    The password does not match
+                    {errors.confirmPassword.message}
                   </p>
                 )}
               </fieldset>
 
+              {/* Buttons */}
               <fieldset className={styles.password__buttons}>
-                <button className={styles.password__buttonSecondary}>
+                <button
+                  type="button"
+                  className={styles.password__buttonSecondary}
+                  onClick={handleBackButton}
+                >
                   Back
                 </button>
-                <button className={styles.password__buttonPrimary}>
+                <button
+                  type="submit"
+                  className={styles.password__buttonPrimary}
+                  disabled={!isValid}
+                >
                   Continue
                 </button>
               </fieldset>

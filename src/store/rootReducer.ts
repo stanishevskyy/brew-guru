@@ -1,7 +1,8 @@
 import { combineSlices, configureStore } from '@reduxjs/toolkit';
 import { userSlice } from './users/userSlice';
+import { registrationSlice } from './registration/registrationSlice';
 
-const rootReducer = combineSlices(userSlice);
+const rootReducer = combineSlices(userSlice, registrationSlice);
 
 export const store = configureStore({
   reducer: rootReducer,

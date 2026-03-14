@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 
 import styles from './CreateUser.module.scss';
+
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import { registerUserThunk } from '../../../store/users/userSlice';
+//eslint-disable-next-line
+import { resetRegistration } from '../../../store/registration/registrationSlice';
 
 //eslint-disable-next-line
 import ArrowDown from '../../../assets/icons/form-icons-validation/arrow-down.svg';
@@ -13,16 +17,7 @@ import ErrorIcon from '../../../assets/icons/form-icons-validation/error.svg';
 
 import { UserInfo } from '../../../shared/types/UserInfo';
 
-const countries = [
-  'Ukraine',
-  'Poland',
-  'Germany',
-  'France',
-  'Spain',
-  'Italy',
-  'United Kingdom',
-  'United States',
-];
+import { User } from '../../../shared/types/user/user.type';
 
 export const CreateUser = () => {
   const {
@@ -32,14 +27,49 @@ export const CreateUser = () => {
     formState: { errors },
   } = useForm<UserInfo>({ mode: 'onSubmit' });
 
-  const [isCountryOpen, setIsCountryOpen] = useState(false);
   const [isDayOpen, setIsDayOpen] = useState(false);
   const [isMonthOpen, setIsMonthOpen] = useState(false);
   const [isYearOpen, setIsYearOpen] = useState(false);
 
   const currentYear = new Date().getFullYear();
 
-  const onSubmit = (data: UserInfo) => {};
+  const navigate = useNavigate();
+  const userData = useAppSelector(state => state.registration);
+  const userState = useAppSelector(state => state.user);
+  const dispatch = useAppDispatch();
+
+  const handleBackButton = () => {
+    navigate('/auth/register/create-password');
+  };
+
+  const onSubmit = async (data: UserInfo) => {
+    const { day, month, year, ...rest } = data;
+
+    const normalizedDay = day!.toString().padStart(2, '0');
+    const normalizedMonth = month!.toString().padStart(2, '0');
+
+    const dateOfBirth = `${year}-${normalizedMonth}-${normalizedDay}`;
+
+    const newUser: Omit<User, 'id'> = {
+      ...rest,
+      email: userData.data.email!,
+      password: userData.data.password!,
+      dateOfBirth,
+      emailVerified: true,
+      twoFactorEnabled: false,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    };
+
+    await dispatch(registerUserThunk({ newUser, stayLoggedIn: false }));
+    dispatch(resetRegistration());
+
+    navigate('/profile');
+  };
+
+  if (!userData.data.email && !userData.data.password) {
+    return <Navigate to="/auth/register" />;
+  }
 
   return (
     <AnimatePresence mode="wait">
@@ -128,72 +158,12 @@ export const CreateUser = () => {
               </fieldset>
 
               {/* Country */}
-              <Controller
-                name="country"
-                control={control}
-                defaultValue="Ukraine"
-                rules={{ required: 'Country is required' }}
-                render={({ field }) => (
-                  <div className={styles.create__countryWrapper}>
-                    <p className={styles.create__label}>Country/region</p>
-                    <div className={styles.create__wrapper}>
-                      <button
-                        type="button"
-                        role="combobox"
-                        aria-expanded={isCountryOpen}
-                        aria-controls="country-listbox"
-                        aria-haspopup="listbox"
-                        className={styles.create__btn}
-                        onClick={() => setIsCountryOpen(prev => !prev)}
-                      >
-                        {field.value ?? 'Country'}
-                        <img src={ArrowDown} alt="" aria-hidden="true" />
-                      </button>
-
-                      {isCountryOpen && (
-                        <ul
-                          id="country-listbox"
-                          role="listbox"
-                          className={styles.create__list}
-                        >
-                          {countries.map(country => (
-                            <li
-                              key={country}
-                              role="option"
-                              aria-selected={field.value === country}
-                              tabIndex={0}
-                              onClick={() => {
-                                field.onChange(country);
-                                setIsCountryOpen(false);
-                              }}
-                              onKeyDown={e => {
-                                if (e.key === 'Enter') {
-                                  field.onChange(country);
-                                  setIsCountryOpen(false);
-                                }
-                              }}
-                              className={styles.create__item}
-                            >
-                              {country}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-
-                      {errors.country && (
-                        <p className={styles.create__errorMessage}>
-                          <img
-                            src={ErrorIcon}
-                            alt="Іконка помилки"
-                            className={styles.create__errorIcon}
-                          />
-                          {errors.country.message}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                )}
-              />
+              <div className={styles.create__countryWrapper}>
+                <p className={styles.create__label}>Country/region</p>
+                <div className={styles.create__wrapper}>
+                  <div className={styles.create__country}>Ukraine</div>
+                </div>
+              </div>
 
               {/* Date of Birth */}
               <fieldset className={styles.create__dates}>
@@ -213,11 +183,21 @@ export const CreateUser = () => {
                           aria-expanded={isDayOpen}
                           aria-controls="day-listbox"
                           aria-haspopup="listbox"
-                          className={styles.create__btn}
+                          className={classNames(`${styles.create__btn}`, {
+                            [styles.create__btnActive]: isDayOpen,
+                          })}
                           onClick={() => setIsDayOpen(prev => !prev)}
+                          onBlur={() => setIsDayOpen(false)}
                         >
                           {field.value ?? 'Day'}
-                          <img src={ArrowDown} alt="" aria-hidden="true" />
+                          <img
+                            src={ArrowDown}
+                            alt=""
+                            aria-hidden="true"
+                            className={classNames(`${styles.create__btnIcon}`, {
+                              [styles.create__btnIconActive]: isDayOpen,
+                            })}
+                          />
                         </button>
 
                         {isDayOpen && (
@@ -233,7 +213,7 @@ export const CreateUser = () => {
                                   role="option"
                                   aria-selected={field.value === day.toString()}
                                   tabIndex={0}
-                                  onClick={() => {
+                                  onMouseDown={() => {
                                     field.onChange(day);
                                     setIsDayOpen(false);
                                   }}
@@ -280,11 +260,21 @@ export const CreateUser = () => {
                           aria-expanded={isMonthOpen}
                           aria-controls="month-listbox"
                           aria-haspopup="listbox"
-                          className={styles.create__btn}
+                          className={classNames(`${styles.create__btn}`, {
+                            [styles.create__btnActive]: isMonthOpen,
+                          })}
                           onClick={() => setIsMonthOpen(prev => !prev)}
+                          onBlur={() => setIsMonthOpen(false)}
                         >
                           {field.value ?? 'Month'}
-                          <img src={ArrowDown} alt="" aria-hidden="true" />
+                          <img
+                            src={ArrowDown}
+                            alt=""
+                            aria-hidden="true"
+                            className={classNames(styles.create__btnIcon, {
+                              [styles.create__btnIconActive]: isMonthOpen,
+                            })}
+                          />
                         </button>
 
                         {isMonthOpen && (
@@ -302,7 +292,7 @@ export const CreateUser = () => {
                                     field.value === month.toString()
                                   }
                                   tabIndex={0}
-                                  onClick={() => {
+                                  onMouseDown={() => {
                                     field.onChange(month);
                                     setIsMonthOpen(false);
                                   }}
@@ -349,11 +339,21 @@ export const CreateUser = () => {
                           aria-expanded={isYearOpen}
                           aria-controls="year-listbox"
                           aria-haspopup="listbox"
-                          className={styles.create__btn}
+                          className={classNames(`${styles.create__btn}`, {
+                            [styles.create__btnActive]: isYearOpen,
+                          })}
                           onClick={() => setIsYearOpen(prev => !prev)}
+                          onBlur={() => setIsYearOpen(false)}
                         >
                           {field.value ?? 'Year'}
-                          <img src={ArrowDown} alt="" aria-hidden="true" />
+                          <img
+                            src={ArrowDown}
+                            alt=""
+                            aria-hidden="true"
+                            className={classNames(`${styles.create__btnIcon}`, {
+                              [styles.create__btnIconActive]: isYearOpen,
+                            })}
+                          />
                         </button>
 
                         {isYearOpen && (
@@ -373,7 +373,7 @@ export const CreateUser = () => {
                                     field.value === year.toString()
                                   }
                                   tabIndex={0}
-                                  onClick={() => {
+                                  onMouseDown={() => {
                                     field.onChange(year);
                                     setIsYearOpen(false);
                                   }}
@@ -413,10 +413,17 @@ export const CreateUser = () => {
                 <button
                   type="button"
                   className={styles.create__buttonSecondary}
+                  onClick={handleBackButton}
                 >
                   Back
                 </button>
-                <button className={styles.create__buttonPrimary} type="submit">
+                <button
+                  className={classNames(styles.create__buttonPrimary, {
+                    [styles.create__buttonPrimaryLoading]: userState.loading,
+                  })}
+                  disabled={userState.loading}
+                  type="submit"
+                >
                   Continue
                 </button>
               </fieldset>

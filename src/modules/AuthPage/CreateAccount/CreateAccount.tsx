@@ -1,33 +1,43 @@
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, Navigate } from 'react-router-dom';
-
-import classNames from 'classnames';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import classNames from 'classnames';
+
 import styles from './CreateAccount.module.scss';
+
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 
 //eslint-disable-next-line
 import ErrorIcon from '../../../assets/icons/form-icons-validation/error.svg';
 
 import { AccountType } from '../../../shared/types/AccountType';
+import {
+  resetRegistration,
+  updateData,
+} from '../../../store/registration/registrationSlice';
+import { authService } from '../../../services/authService';
 
 export const CreateAccount = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors, isValid, isValidating },
   } = useForm<AccountType>({ mode: 'onChange' });
+  const navigate = useNavigate();
+  const userData = useAppSelector(state => state.registration);
+  const dispatch = useAppDispatch();
 
-  const [isSuccess, setIsSuccess] = useState(false);
-
-  const onSubmit = async (data: AccountType) => {
-    setIsSuccess(true);
+  const handleBackButton = () => {
+    dispatch(resetRegistration());
+    navigate('/auth/login');
   };
 
-  if (isSuccess) {
-    return <Navigate to="/auth/register/confirm-email" replace />;
-  }
+  const onSubmit = async (data: AccountType) => {
+    dispatch(updateData({ ...data }));
+
+    navigate('/auth/register/confirm-email');
+  };
 
   return (
     <AnimatePresence mode="wait">
@@ -71,11 +81,29 @@ export const CreateAccount = () => {
                   id="email"
                   placeholder="Name@example.com"
                   autoComplete="off"
+                  defaultValue={userData.data.email ? userData.data?.email : ''}
                   {...register('email', {
-                    required: "Email обов'язковий",
+                    required: 'Email is required',
                     pattern: {
                       value: /^\S+@\S+\.\S+$/i,
-                      message: 'Email має бути у форматі example@mail.com',
+                      message: 'Email must be in the format example@mail.com',
+                    },
+                    validate: async value => {
+                      const emailRegex = /^\S+@\S+\.\S+$/i;
+
+                      if (!value || !emailRegex.test(value)) {
+                        return true;
+                      }
+
+                      try {
+                        await authService.checkEmailExist(value);
+
+                        return true;
+                      } catch (error) {
+                        return error instanceof Error
+                          ? error.message
+                          : 'Email already registered';
+                      }
                     },
                   })}
                 />
@@ -83,7 +111,7 @@ export const CreateAccount = () => {
                 {errors.email && (
                   <p className={styles.account__errorMessage}>
                     <img src={ErrorIcon} alt="" />
-                    {errors.email.message}
+                    {errors.email?.message}
                   </p>
                 )}
               </fieldset>
@@ -92,13 +120,16 @@ export const CreateAccount = () => {
                 <button
                   type="button"
                   className={styles.account__buttonSecondary}
+                  onClick={handleBackButton}
                 >
                   Back
                 </button>
                 <button
                   type="submit"
-                  className={styles.account__buttonPrimary}
-                  disabled={!isValid}
+                  className={classNames(styles.account__buttonPrimary, {
+                    [styles.account__buttonPrimaryLoading]: isValidating,
+                  })}
+                  disabled={!isValid || isValidating}
                 >
                   Continue
                 </button>

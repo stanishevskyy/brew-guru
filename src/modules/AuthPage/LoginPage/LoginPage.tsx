@@ -37,6 +37,10 @@ export const LoginPage = () => {
 
   useEffect(() => {
     dispatch(clearError());
+
+    return () => {
+      dispatch(clearError());
+    };
   }, []);
 
   if (userState.user) {
