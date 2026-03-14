@@ -1,0 +1,363 @@
+@import '../../assets/styles/main';
+
+.cafe {
+  min-height: 100vh;
+  background-color: $color-background;
+
+  @include content-padding;
+}
+
+.cafe__back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 24px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  background-color: inherit;
+  cursor: pointer;
+
+  img {
+    transition: transform 0.2s ease;
+  }
+
+  &:hover img {
+    transform: translateX(-4px);
+  }
+}
+
+.cafe__container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-block: 16px 40px;
+
+  @include on-desktop {
+    padding-block: 24px 40px;
+    gap: 90px;
+  }
+}
+
+.cafe__header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid $color-stroke;
+  border-radius: 24px;
+  background-color: $color-white;
+
+  @include on-tablet {
+    gap: 24px;
+  }
+
+  @include on-desktop {
+    @include page-grid;
+  }
+}
+
+.cafe__image {
+  position: relative;
+
+  @include on-desktop {
+    grid-column: span 4;
+  }
+}
+
+.cafe__mainImage {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.cafe__label {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  padding: 4px 6px;
+
+  border-radius: 4px;
+  font-size: 12px;
+
+  font-weight: 400;
+  line-height: 15px;
+  color: $color-white;
+  background-color: $color-text-primary;
+
+  transform: translate(8px, -8px);
+}
+
+.cafe__info {
+  grid-column: 1/-1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-inline: 16px;
+  padding-bottom: 16px;
+
+  @include on-tablet {
+    padding-inline: 24px;
+    padding-bottom: 24px;
+  }
+
+  @include on-desktop {
+    padding-top: 24px;
+    padding-left: 0;
+    grid-column: 5/-1;
+  }
+}
+
+.cafe__details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include on-tablet {
+    gap: 24px;
+  }
+}
+
+.cafe__title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 41px;
+  color: $color-text-primary;
+
+  @include on-tablet {
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  @include on-desktop {
+    font-size: 60px;
+    font-weight: 600;
+
+    line-height: 89%;
+  }
+}
+
+.cafe__infoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  @include on-tablet {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  @include on-desktop-extra {
+    flex-direction: row;
+  }
+}
+
+.cafe__detailsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @include on-tablet {
+    flex-direction: row;
+    gap: 16px;
+  }
+}
+
+.cafe__information {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+
+  font-weight: 400;
+  line-height: 15px;
+
+  color: $color-text-secondary;
+
+  @include on-tablet {
+    font-size: 20px;
+    font-weight: 700;
+
+    line-height: 26px;
+  }
+
+  @include on-desktop {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 89%;
+    color: #585858;
+  }
+}
+
+.cafe__iconStar {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url('../../assets/icons/cafe-icons/star-icon-desktop.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @include on-desktop {
+    width: 24px;
+    height: 24px;
+    background-image: url('../../assets/icons/cafe-icons/star-icon-desktop.svg');
+  }
+}
+
+.cafe__iconClcok {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url('../../assets/icons/cafe-icons/clock-icon-desktop.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @include on-desktop {
+    width: 24px;
+    height: 24px;
+    background-image: url('../../assets/icons/cafe-icons/clock-icon-desktop.svg');
+  }
+}
+
+.cafe__iconPin {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url('../../assets/icons/cafe-icons/location-icon-desktop.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @include on-desktop {
+    width: 24px;
+    height: 24px;
+    background-image: url('../../assets/icons/cafe-icons/location-icon-desktop.svg');
+  }
+}
+
+.cafe__iconPhone {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url('../../assets/icons/cafe-icons/phone-icon-desktop.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @include on-desktop {
+    width: 24px;
+    height: 24px;
+    background-image: url('../../assets/icons/cafe-icons/phone-icon-desktop.svg');
+  }
+}
+
+.cafe__descriptions {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.cafe__descriptionsDetails {
+  position: relative;
+  overflow: hidden;
+  max-height: 65px;
+  font-size: 16px;
+
+  font-weight: 400;
+  line-height: 20px;
+  color: $color-text-primary;
+  transition: max-height 0.4s ease;
+  border-bottom: 1px solid $color-stroke;
+  text-wrap: balance;
+
+  &::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    content: '';
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  @include on-desktop {
+    max-height: 39px;
+    color: #949494;
+  }
+
+  @include on-desktop-extra {
+    max-height: 86px;
+    color: #949494;
+  }
+}
+
+.cafe__descriptionsDetailsActive {
+  max-height: 1000px;
+}
+
+.cafe__descriptionsDetailsActive::after {
+  opacity: 0;
+}
+
+.cafe__viewAll {
+  align-self: flex-start;
+  margin-right: auto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #204dee;
+  background-color: inherit;
+  cursor: pointer;
+  padding-block: 10px;
+}
+
+.cafe__viewOnMap {
+  border: 1px solid #7e99f6;
+  border-radius: 8px;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  line-height: 20px;
+  color: $color-white;
+  background-color: #204dee;
+  cursor: pointer;
+  padding-block: 12px;
+
+  @include on-desktop {
+    margin-right: auto;
+    padding-inline: 45px;
+  }
+
+  &:hover {
+    background-color: #5b7efa;
+  }
+
+  &:active {
+    background-color: #2044c7;
+    outline: 1.5px solid #15339e;
+  }
+
+  &:disabled {
+    color: #b4c4fd;
+    background-color: #7e99f6;
+    cursor: default;
+  }
+}
+
+.cafe__apply {
+  width: 100%;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #b4c4fd;
+  background-color: #7e99f6;
+  padding-block: 12px;
+
+  @include on-desktop {
+    width: 331px;
+  }
+}

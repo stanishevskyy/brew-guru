@@ -1,0 +1,118 @@
+@import '../../../../../assets/styles/main';
+
+.menu__orderCounter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  @include on-tablet {
+    margin-left: auto;
+  }
+}
+
+.menu__counterControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu__decreaseBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 44px;
+  height: 44px;
+  background-color: inherit;
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  @include on-desktop {
+    width: 58px;
+    height: 58px;
+  }
+}
+
+.menu__quantity {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #0a0a0c;
+
+  @include on-desktop {
+    font-size: 24px;
+    font-weight: 700;
+
+    line-height: 31px;
+  }
+}
+
+.menu__increaseBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 44px;
+  height: 44px;
+  background-color: inherit;
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  @include on-desktop {
+    width: 58px;
+    height: 58px;
+  }
+}
+
+.menu__decreaseBtn:hover,
+.menu__increaseBtn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: scale(1.1);
+}
+
+.menu__addBtn {
+  padding: 12px 22px;
+
+  border: 1px solid #7e99f6;
+  border-radius: 8px;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  line-height: 20px;
+  color: $color-white;
+  background-color: #204dee;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #5b7efa;
+  }
+
+  &:active {
+    background-color: #2044c7;
+    outline: 1.5px solid #15339e;
+  }
+
+  &:disabled {
+    color: #b4c4fd;
+    background-color: #7e99f6;
+    cursor: default;
+  }
+
+  @include on-desktop {
+    padding: 16px 44px;
+
+    font-size: 20px;
+
+    line-height: 26px;
+  }
+}

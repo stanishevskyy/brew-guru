@@ -1,0 +1,187 @@
+@import '../../../../../assets/styles/main';
+
+.menu {
+  margin: auto;
+}
+
+.menu__container {
+  display: flex;
+  flex-direction: column;
+  width: 288px;
+
+  // height: 396px;
+
+  @include on-tablet {
+    width: 378px;
+    height: 433px;
+  }
+
+  @include on-desktop {
+    width: 846px;
+    height: 931px;
+  }
+}
+
+.menu__link {
+  position: relative;
+  width: 100%;
+  height: 216px;
+
+  @include on-tablet {
+    height: 283px;
+  }
+
+  @include on-desktop {
+    height: 634px;
+  }
+}
+
+.menu__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu__label {
+  position: relative;
+
+  padding: 4px 8px;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 15px;
+  color: $color-white;
+  background-color: $color-system-error;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+
+  @include on-desktop {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.menu__close {
+  position: absolute;
+  top: 8px;
+
+  right: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  color: $color-white;
+  cursor: pointer;
+
+  @include on-desktop {
+    top: 24px;
+    right: 24px;
+  }
+}
+
+.menu__closeIcon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.menu__close:hover .menu__closeIcon {
+  transform: rotate(90deg);
+}
+
+.menu__info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-right: auto;
+  background-color: $color-white;
+  padding-block: 8px;
+  padding-inline: 16px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+
+  @include on-desktop {
+    padding: 24px;
+  }
+}
+
+.menu__dish {
+  font-size: 16px;
+  font-weight: 600;
+
+  line-height: 20px;
+
+  color: #0a0a0c;
+
+  @include on-desktop {
+    font-size: 48px;
+    font-weight: 700;
+
+    line-height: 56px;
+  }
+}
+
+.menu__infoWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu__price {
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 15px;
+
+  color: #0a0a0c;
+
+  @include on-desktop {
+    font-size: 32px;
+    font-weight: 700;
+
+    line-height: 41px;
+  }
+}
+
+.menu__regular {
+  color: $color-text-secondary;
+  text-decoration: line-through;
+}
+
+.menu__discount {
+  color: #204dee;
+}
+
+.menu__portion {
+  font-size: 12px;
+  font-weight: 400;
+
+  line-height: 15px;
+
+  color: #0a0a0c;
+
+  @include on-desktop {
+    font-size: 20px;
+    font-weight: 700;
+
+    line-height: 26px;
+  }
+}
+
+.menu__description {
+  font-size: 12px;
+  font-weight: 400;
+
+  line-height: 15px;
+  color: #696977;
+
+  @include on-desktop {
+    font-size: 20px;
+    font-weight: 700;
+
+    line-height: 26px;
+  }
+}

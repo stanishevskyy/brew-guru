@@ -1,0 +1,119 @@
+@import '../../../assets/styles/main';
+
+.currentView {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.currentView__applied {
+  display: none;
+
+  @include on-desktop {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+.currentView__appliedInfo {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  color: $color-text-primary;
+}
+
+.currentView__appliedSpec {
+  margin-left: 16px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: $color-text-secondary;
+}
+
+.currentView__appliedClear {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 15px;
+
+  color: $color-primary-500;
+  background-color: inherit;
+
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  padding-block: 8px;
+
+  text-decoration: underline;
+  text-decoration-thickness: 9%;
+  text-underline-offset: 3px;
+}
+
+.currentView__appliedClear:hover {
+  opacity: 0.7;
+}
+
+.currentView__location {
+  display: flex;
+  flex-direction: column;
+
+  @include on-desktop {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+.currentView__locationInfo {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  white-space: nowrap;
+  color: $color-text-secondary;
+
+  @include on-desktop {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+    color: $color-text-primary;
+  }
+}
+
+.currentView__locationSpec {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+  color: $color-text-primary;
+
+  @include on-desktop {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: $color-text-secondary;
+  }
+}
+
+.currentView__locationChange {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 15px;
+
+  color: $color-primary-500;
+
+  cursor: pointer;
+  transition:
+    opacity 0.2s ease,
+    transform 0.15s ease;
+  padding-block: 8px;
+
+  text-decoration: underline;
+  text-decoration-thickness: 9%;
+  text-underline-offset: 3px;
+}
+
+.currentView__locationChange:hover {
+  opacity: 0.7;
+}
+
+.currentView__locationChange:active {
+  transform: translateY(1px);
+}

@@ -1,0 +1,50 @@
+@import '../../../../../assets/styles/main';
+
+.detailsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+
+  padding-inline: 16px;
+}
+
+.detailsHeader__Title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0;
+  color: $color-text-primary;
+
+  @include on-tablet {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 31px;
+  }
+
+  @include on-desktop {
+    font-size: 32px;
+    line-height: 41px;
+    letter-spacing: 0;
+  }
+}
+
+.detailsHeader__btnClose {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background-color: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.detailsHeader__btnClose:hover {
+  transform: scale(1.1);
+}
+
+.detailsHeader__btnImg {
+  width: 24px;
+  height: 24px;
+}

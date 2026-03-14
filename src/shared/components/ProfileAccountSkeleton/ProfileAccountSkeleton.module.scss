@@ -1,0 +1,89 @@
+@import '../../../assets/styles/main';
+
+.profile__accountInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px;
+  border: 1px solid $color-stroke;
+  border-radius: 8px;
+  background-color: $color-white;
+
+  @include on-tablet {
+    gap: 32px;
+    padding: 16px;
+  }
+}
+
+.profile__img {
+  width: 76px;
+  height: 76px;
+
+  @include on-tablet {
+    width: 153px;
+    height: 153px;
+  }
+}
+
+.profile__acoountWprapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__accountName {
+  width: 113px;
+  height: 20px;
+  margin-bottom: 8px;
+
+  @include on-tablet {
+    width: 159px;
+    height: 31px;
+  }
+}
+
+.profile__accountEmail {
+  width: 113px;
+  height: 15px;
+  margin-bottom: 16px;
+
+  @include on-tablet {
+    width: 159px;
+    height: 15px;
+  }
+}
+
+.profile__changePhoto {
+  width: 113px;
+  height: 22px;
+
+  @include on-tablet {
+    width: 159px;
+    height: 44px;
+  }
+}
+
+.profile__img {
+  border-radius: 100%;
+
+  background: linear-gradient(110deg, #d6d6d6 8%, #e2e2e2 18%, #d6d6d6 33%);
+
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+
+.profile__accountName,
+.profile__accountEmail,
+.profile__changePhoto {
+  border-radius: 8px;
+
+  background: linear-gradient(110deg, #d6d6d6 8%, #e2e2e2 18%, #d6d6d6 33%);
+
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}

@@ -1,0 +1,151 @@
+@import '../../../../assets/styles/main';
+
+.changePhoto {
+  position: fixed;
+  inset: 60px 0 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0a0a0c70;
+
+  @include content-padding;
+}
+
+.changePhoto__container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 288px;
+  padding: 16px;
+  border: 1px solid #dcdde6;
+  border-radius: 16px;
+  background-color: #fbfbfe;
+
+  @include on-tablet {
+    width: 330px;
+  }
+}
+
+.changePhoto__title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: center;
+  color: #0a0a0c;
+}
+
+.changePhoto__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.customButton {
+  position: relative;
+  cursor: pointer;
+}
+
+.customButton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 153px;
+  height: 153px;
+  border-radius: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.customButton::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+
+  background-image: url('../../../../assets/icons/profile-icons/camera-bold.svg');
+  background-size: contain;
+  transform: translate(-50%, -50%);
+  content: '';
+  background-repeat: no-repeat;
+}
+
+.changePhoto__file {
+  display: none;
+}
+
+.changePhoto__image {
+  width: 153px;
+  height: 153px;
+}
+
+.changePhoto__hint {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  color: #0a0a0c;
+}
+
+.changePhoto__buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.changePhoto__secondary,
+.changePhoto__primary {
+  flex: 1;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  padding-block: 12px;
+}
+
+.changePhoto__secondary {
+  border: 1px solid #204dee;
+  color: #204dee;
+  background-color: inherit;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-white;
+    background-color: #bcbcff;
+  }
+
+  &:active {
+    background-color: #7171ff;
+  }
+
+  &:disabled {
+    border: 1px solid #7e99f6;
+    color: #7e99f6;
+    background-color: $color-white;
+  }
+}
+
+.changePhoto__primary {
+  border: 1px solid #7e99f6;
+  color: $color-white;
+  background-color: #204dee;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #5b7efa;
+  }
+
+  &:active {
+    background-color: #2044c7;
+    outline: 1.5px solid #15339e;
+  }
+
+  &:disabled {
+    color: #b4c4fd;
+    background-color: #7e99f6;
+    cursor: default;
+  }
+}

@@ -1,0 +1,22 @@
+@import '../../../assets/styles/main';
+
+.cafe__back {
+  width: 68px;
+  height: 24px;
+  margin-top: 24px;
+}
+
+.cafe__back {
+  border-radius: 5px;
+
+  background: linear-gradient(110deg, #d6d6d6 8%, #e2e2e2 18%, #d6d6d6 33%);
+
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}

@@ -1,0 +1,196 @@
+@import '../../../assets/styles/main';
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 8px;
+
+  background-color: $color-white;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  grid-column: span 4;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @include on-tablet {
+    grid-column: span 3;
+  }
+
+  @include on-desktop {
+    grid-column: span 4;
+  }
+
+  @include on-desktop-extra {
+    grid-column: span 3;
+  }
+}
+
+.card__container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  @include on-desktop {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.card__link {
+  display: block;
+  overflow: hidden;
+  width: 87px;
+  height: 87px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+
+  @include on-desktop {
+    width: 242px;
+    height: 210px;
+  }
+}
+
+.card__img {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.card__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .cardCafe__cardImg {
+  transform: scale(1.1);
+}
+
+.card:hover .cardCafe__cardOverlay {
+  opacity: 0.3;
+}
+
+.card__label {
+  position: absolute;
+  left: 0;
+  padding: 4px 8px;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 15px;
+  color: $color-white;
+  background-color: $color-system-error;
+  border-top-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+
+  @include on-desktop {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.card__info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding-block: 8px;
+  padding-inline: 16px 8px;
+
+  @include on-desktop {
+    padding-block: 8px 16px;
+    padding-inline: 16px;
+    width: 100%;
+  }
+}
+
+.card__dish {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  color: $color-text-primary;
+
+  @include on-desktop {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+  }
+}
+
+.card__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__price {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.card__regular {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  color: $color-text-secondary;
+  text-decoration: line-through;
+
+  @include on-desktop {
+    font-size: 24px;
+    line-height: 31px;
+  }
+}
+
+.card__discount {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+  color: #204dee;
+
+  @include on-desktop {
+    font-size: 24px;
+    line-height: 31px;
+  }
+}
+
+.card__portion {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  color: $color-text-secondary;
+
+  @include on-desktop {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+}
+
+.card__addDish {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: 6px;
+  background-color: inherit;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+
+.card__addDish:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

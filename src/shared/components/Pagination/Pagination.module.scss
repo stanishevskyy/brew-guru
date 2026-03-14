@@ -1,0 +1,53 @@
+@import '../../../assets/styles/main';
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1/-1;
+}
+
+.pagination__LeftBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 44px;
+  height: 44px;
+
+  background-color: $color-background;
+  cursor: pointer;
+}
+
+.pagination__LeftImg {
+  width: 100%;
+  height: 100%;
+}
+
+.pagination__paginationNums {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 44px;
+  height: 44px;
+  font-size: 20px;
+
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0;
+
+  background-color: $color-background;
+}
+
+.pagination__rightBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 32px;
+  height: 32px;
+
+  background-color: $color-background;
+  cursor: pointer;
+}

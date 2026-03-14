@@ -1,0 +1,269 @@
+@import '../../../assets/styles/main';
+
+.footer {
+  @include content-padding;
+
+  padding-block: 16px;
+
+  @include on-tablet {
+    padding-block: 40px;
+  }
+
+  // color: $color-white;
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+
+  @include on-tablet {
+    flex-direction: row;
+    margin-bottom: 24px;
+  }
+
+  @include on-desktop {
+    justify-content: space-between;
+  }
+}
+
+.footer__contact {
+  grid-column: 1/-1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 32px;
+
+  @include on-tablet {
+    margin-bottom: 0;
+  }
+}
+
+.footer__contactTitle {
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: $color-text-secondary;
+
+  @include on-tablet {
+    max-width: 154px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+  }
+}
+
+.footer__contactDesc {
+  max-width: 213px;
+
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31px;
+  letter-spacing: 0;
+  color: $color-text-primary;
+
+  @include on-tablet {
+    max-width: 154px;
+    font-size: 32px;
+    line-height: 41px;
+  }
+
+  @include on-desktop {
+    max-width: 60%;
+  }
+}
+
+.footer__contactMailWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer__contactMailInfo {
+  width: 230px;
+  padding: 11px;
+  border: 1px solid $color-stroke;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: $color-text-primary;
+}
+
+.footer__contactMailCopy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background-color: $color-primary-500;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.footer__contactMailCopy:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: scale(1.1);
+}
+
+.footer__contactMailCopyImg {
+  width: 24px;
+  height: 24px;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.footer__contactMailCopy:hover .footer__contactMailCopyImg {
+  transform: scale(1.15);
+  filter: brightness(1.2);
+}
+
+.footer__infoWrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 24px;
+}
+
+.footer__linksTitle {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: $color-text-secondary;
+
+  @include on-tablet {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+    white-space: nowrap;
+  }
+}
+
+.footer__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 24px;
+}
+
+.footer__item {
+  display: flex;
+  align-items: center;
+  height: 15px; /* або потрібна висота з макету */
+  white-space: nowrap;
+}
+
+.footer__link {
+  display: inline-flex;
+  align-items: center;
+  height: 15px;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 16px;
+  color: $color-text-primary;
+  transition: color 0.25s ease;
+}
+
+.footer__link:hover {
+  color: $color-primary-500;
+}
+
+.footer__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 24px;
+}
+
+.footer__infoTitle {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: $color-text-secondary;
+
+  @include on-tablet {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+    white-space: nowrap;
+  }
+}
+
+.footer__down {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__hr {
+  margin-bottom: 32px;
+  border: 1px solid $color-stroke;
+
+  @include on-tablet {
+    margin-bottom: 24px;
+  }
+}
+
+.footer__downWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include on-tablet {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.footer__desc {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-align: center;
+  color: $color-text-primary;
+}
+
+.footer__nav {
+  margin: auto;
+
+  @include on-tablet {
+    margin: 0;
+  }
+}
+
+.footer__navSocial {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer__socialLink {
+  display: block;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.footer__socialLink:hover {
+  opacity: 0.8;
+  transform: scale(1.2);
+}

@@ -1,0 +1,159 @@
+@import '../../../assets/styles/main';
+
+.confirm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  width: 288px;
+
+  background-color: inherit;
+
+  @include on-desktop {
+    width: 458px;
+    padding: 24px 25px;
+  }
+}
+
+.confirm__info {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  color: #252626;
+}
+
+.login__title {
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+
+  font-weight: 700;
+  line-height: 31px;
+  text-align: center;
+
+  color: #0a0a0c;
+
+  @include on-desktop {
+    font-size: 32px;
+    line-height: 41px;
+  }
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login__code {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  margin-bottom: 24px;
+
+  @include on-desktop {
+    padding-inline: 33px;
+  }
+}
+
+.login__input {
+  width: 32px;
+  height: 32px;
+  margin: auto;
+  border: 1px solid #dcdde6;
+  border-radius: 8px;
+  text-align: center;
+  background-color: red;
+  background-color: #fbfbfe;
+  -moz-appearance: textfield;
+
+  @include on-desktop {
+    width: 43px;
+    height: 43px;
+  }
+}
+
+.login__input::-webkit-outer-spin-button,
+.login__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.login__resend {
+  margin: auto;
+
+  margin-bottom: 24px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #204dee;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 9%;
+  text-decoration-skip-ink: auto;
+}
+
+.login__buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.login__buttonSecondary,
+.login__buttonPrimary {
+  flex: 1;
+  box-sizing: border-box;
+
+  padding: 12px;
+
+  border-radius: 8px;
+  font-size: 16px;
+
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+}
+
+.login__buttonSecondary {
+  border: 1px solid #204dee;
+  color: #204dee;
+  background-color: inherit;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-white;
+    background-color: #bcbcff;
+  }
+
+  &:active {
+    background-color: #7171ff;
+  }
+
+  &:disabled {
+    border: 1px solid #7e99f6;
+    color: #7e99f6;
+    background-color: $color-white;
+  }
+}
+
+.login__buttonPrimary {
+  border: 1px solid #7e99f6;
+  color: $color-white;
+  background-color: #204dee;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #5b7efa;
+  }
+
+  &:active {
+    background-color: #2044c7;
+    outline: 1.5px solid #15339e;
+  }
+
+  &:disabled {
+    color: #b4c4fd;
+    background-color: #7e99f6;
+    cursor: default;
+  }
+}

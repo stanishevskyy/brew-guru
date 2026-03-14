@@ -1,0 +1,98 @@
+@import '../../../../../assets/styles/main';
+
+.buttons {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  grid-column: 1 / -1;
+  padding-bottom: 16px;
+  padding-inline: 16px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    width: 95%;
+    height: 1px;
+    background-color: $color-stroke;
+    transform: translateX(-50%);
+  }
+
+  @include on-desktop {
+    padding-inline: 0;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.buttons__apply {
+  flex: 1;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-align: center;
+  color: $color-white;
+  background-color: $color-primary-500;
+  padding-block: 12px;
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+
+  &:hover {
+    background-color: #5b7efa;
+  }
+
+  &:active {
+    background-color: #2044c7;
+    outline: 1.5px solid #15339e;
+  }
+
+  &:disabled {
+    color: #b4c4fd;
+    background-color: #7e99f6;
+  }
+}
+
+.buttons__cancel {
+  flex: 1;
+  border: 1px solid $color-primary-500;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-align: center;
+
+  color: $color-primary-500;
+  background-color: $color-white;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+  padding-block: 12px;
+
+  &:hover {
+    color: $color-white;
+    background-color: #bcbcff;
+  }
+
+  &:active {
+    background-color: #7171ff;
+  }
+
+  &:disabled {
+    border: 1px solid #7e99f6;
+    color: #7e99f6;
+    background-color: $color-white;
+  }
+}

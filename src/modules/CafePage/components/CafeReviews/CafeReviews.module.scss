@@ -1,0 +1,171 @@
+@import '../../../../assets/styles/main';
+
+.reviews__container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.reviews__info {
+  display: flex;
+  flex-direction: column;
+
+  @include on-desktop {
+    gap: 16px;
+  }
+}
+
+.reviews__title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31px;
+  color: $color-text-primary;
+
+  @include on-desktop {
+    font-size: 32px;
+    line-height: 41px;
+  }
+}
+
+.reviews__rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+
+  font-weight: 400;
+  line-height: 15px;
+  color: $color-text-primary;
+
+  @include on-desktop {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 31px;
+    color: #585858;
+  }
+}
+
+.reviews__icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url('../../../../assets/icons/cafe-icons/star-icon.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @include on-desktop {
+    width: 24px;
+    height: 24px;
+    background-image: url('../../../../assets/icons/cafe-icons/star-icon-desktop.svg');
+  }
+}
+
+.reviews__header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: $color-white;
+
+  @include on-desktop {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.reviews__details {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reviews__avatar {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+}
+
+.reviews__name {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31px;
+  color: $color-text-primary;
+}
+
+.reviews__form {
+  @include on-desktop {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 24px;
+  }
+}
+
+.reviews__comment {
+  width: 100%;
+  padding: 20px 50px 16px 20px;
+  border: 1px solid $color-stroke;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: $color-text-primary;
+
+  background-image: url('../../../../assets/icons/reviews-icons/send.svg');
+  background-size: 36px 24px;
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+
+  @include on-desktop {
+    flex: 1;
+    padding: 12px 50px 12px 20px;
+    padding: 12px 8px;
+    background-image: none;
+  }
+}
+
+.reviews__comment::placeholder {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: $color-text-primary;
+}
+
+.reviews__button {
+  display: none;
+
+  @include on-desktop {
+    display: block;
+    padding: 12px 77px;
+    border: 1px solid #7e99f6;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    color: $color-white;
+    background-color: #204dee;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #5b7efa;
+    }
+
+    &:active {
+      background-color: #2044c7;
+      outline: 1.5px solid #15339e;
+    }
+
+    &:disabled {
+      color: #b4c4fd;
+      background-color: #7e99f6;
+      cursor: default;
+    }
+  }
+}
+
+.reviews__comments {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

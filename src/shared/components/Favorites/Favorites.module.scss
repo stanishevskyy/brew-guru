@@ -1,0 +1,137 @@
+@import '../../../assets/styles/main';
+
+.favourites {
+  position: fixed;
+  inset: 60px 0 0;
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  min-height: auto;
+  padding-top: 24px;
+  background: #0a0a0c3e;
+  transition: transform 0.3s ease;
+
+  transform: translateX(-100%);
+
+  @include on-tablet {
+    padding-top: 104px;
+  }
+
+  @include on-desktop {
+    flex-direction: row-reverse;
+    padding: 0;
+  }
+}
+
+.favouritesActive {
+  transform: translateX(0);
+}
+
+.favourites__container {
+  width: 100%;
+  background-color: $color-background;
+  overflow-y: auto;
+
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+
+  padding-block: 16px;
+
+  /* Firefox */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  @include content-padding;
+
+  @include on-desktop {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding-block: 40px 45px;
+    max-width: 778px;
+  }
+
+  @include on-desktop-extra {
+    max-width: 900px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
+}
+
+.favourites__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.favourites__title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31px;
+  letter-spacing: 0;
+  color: $color-text-primary;
+}
+
+.favourites__closeBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background-color: inherit;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.favourites__closeBtn:hover {
+  background-color: inherit;
+  transform: scale(1.05);
+}
+
+.favourites__closeBtn:active {
+  transform: scale(0.95);
+}
+
+.favourites__closeImg {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+
+.favourites__closeBtn:hover .favourites__closeImg {
+  transform: rotate(90deg);
+}
+
+.favourites__gridLayout {
+  --columns: 4;
+  --columns-width: 60px;
+
+  display: grid;
+  grid-template-columns: repeat(
+    var(--columns),
+    minmax(var(--columns-width), 1fr)
+  );
+
+  gap: 16px;
+
+  column-gap: 16px;
+
+  @include on-tablet {
+    --columns: 6;
+    --columns-width: 82px;
+  }
+}
+
+.favourites__cafe {
+  grid-column: 1 / -1;
+
+  @include on-tablet {
+    grid-column: span 3;
+  }
+}

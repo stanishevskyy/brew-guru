@@ -1,0 +1,83 @@
+@import '../../assets/styles/main';
+
+.reserv {
+  min-height: 100vh;
+  background-color: $color-background;
+  padding-block: 24px 40px;
+
+  @include content-padding;
+
+  @include on-tablet {
+    padding-block: 32px 40px;
+  }
+
+  @include on-desktop {
+    padding-block: 48px 40px;
+  }
+}
+
+.reserv__container {
+  gap: 16px;
+
+  @include page-grid;
+
+  @include on-desktop {
+    gap: 24px;
+  }
+}
+
+.reserv__Title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31px;
+  letter-spacing: 0;
+  color: $color-text-primary;
+  grid-column: 1/-1;
+
+  @include on-desktop {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+
+.reserv__Details {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: none;
+
+  // padding-block: 410px;
+
+  @include content-padding;
+
+  @include on-tablet {
+    // padding-block: 171px;
+  }
+
+  @include on-desktop {
+    // padding-block: 171px;
+  }
+}
+
+.reser__modal {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
+}

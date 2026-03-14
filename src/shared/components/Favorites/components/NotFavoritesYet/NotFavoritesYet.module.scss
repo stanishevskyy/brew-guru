@@ -1,0 +1,38 @@
+@import '../../../../../assets/styles/main';
+
+.notFavorites {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding-block: 120px 152px;
+}
+
+.notFavorites__img {
+  display: inline-block;
+  width: 133px;
+  height: 133px;
+}
+
+.notFavorites__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.notFavorites__title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31px;
+  text-align: center;
+  color: #0a0a0c;
+}
+
+.notFavorites__description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  color: #696977;
+}

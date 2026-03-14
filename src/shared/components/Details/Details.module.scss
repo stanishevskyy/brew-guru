@@ -1,0 +1,137 @@
+@import '../../../assets/styles/main';
+
+.details {
+  box-sizing: border-box;
+
+  overflow-y: auto;
+
+  width: 100%;
+  max-height: 800px;
+  margin: auto 0;
+  border-radius: 16px;
+  background-color: $color-white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: max-height 0.3s ease-in;
+}
+
+.detailsActive {
+  max-height: 2000px;
+}
+
+.detailsOnCafePage {
+  background-color: #e9eaef;
+  box-shadow: none;
+}
+
+.details__container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include on-desktop {
+    gap: 20px;
+  }
+}
+
+.details__form {
+  display: flex;
+  flex-direction: column;
+
+  @include on-desktop {
+    padding-inline: 16px;
+  }
+}
+
+.details__wrapper {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 32px;
+
+  @include on-desktop {
+    flex-direction: row;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  @include on-desktop-extra {
+    flex-direction: row;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+}
+
+// bottom
+.details__times {
+  display: none;
+
+  @include on-desktop {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-bottom: 32px;
+
+    // padding-inline: 16px;
+  }
+}
+
+.details__timesTitle {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31px;
+  letter-spacing: 0;
+  color: #4f4f4f;
+}
+
+.details__timesContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 16px;
+  padding-bottom: 16px;
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, minmax(65px, 1fr));
+    padding: 0;
+  }
+
+  @include on-desktop-extra {
+    grid-template-columns: repeat(14, minmax(65px, 1fr));
+  }
+}
+
+.details__button {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 7px;
+  border: 1px solid #dcdde6;
+  border-radius: 8px;
+  font-size: 16px;
+
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: #000;
+  background-color: #fbfbfe;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  grid-column: span 2;
+
+  @include on-tablet {
+    padding-block: 20px;
+  }
+
+  @include on-desktop {
+    padding-block: 12px;
+  }
+}
+
+.details__buttonSpec {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+}

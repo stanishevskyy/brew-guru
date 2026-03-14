@@ -1,0 +1,79 @@
+@import '../../../assets/styles/main';
+
+.cardContainer {
+  grid-column: 1/-1;
+
+  @include page-grid;
+
+  align-items: center;
+  row-gap: 16px;
+
+  @include on-tablet {
+    row-gap: 32px;
+  }
+}
+
+.cardContainer__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-column: 1/-1;
+  padding-block: 5px;
+}
+
+.cardContainer__title {
+  width: 225px;
+  height: 31px;
+
+  @include on-desktop {
+    height: 41px;
+  }
+}
+
+.cardContainer__info {
+  width: 225px;
+  height: 40px;
+
+  @include on-tablet {
+    width: 368px;
+    height: 26px;
+  }
+
+  @include on-desktop {
+    width: 441;
+    height: 31px;
+  }
+}
+
+.cardContainer__btnWrapper {
+  width: 62px;
+  height: 24px;
+
+  @include on-tablet {
+    width: 81px;
+  }
+}
+
+.cardContainer__cards {
+  row-gap: 16px;
+  grid-column: 1/-1;
+
+  @include page-grid;
+}
+
+.cardContainer__title,
+.cardContainer__info,
+.cardContainer__btnWrapper {
+  border-radius: 5px;
+
+  background: linear-gradient(110deg, #d6d6d6 8%, #e2e2e2 18%, #d6d6d6 33%);
+
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}

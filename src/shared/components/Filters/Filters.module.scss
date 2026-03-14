@@ -1,0 +1,242 @@
+@import '../../../assets/styles/main';
+
+.filters {
+  overflow: hidden auto;
+}
+
+.filters__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-block: 6px;
+}
+
+.filters__title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31px;
+  letter-spacing: 0;
+  color: $color-text-primary;
+}
+
+.filters__closeBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  background-color: inherit;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
+
+  @include on-desktop {
+    display: none;
+  }
+}
+
+.filters__closeBtn:hover {
+  background-color: inherit;
+  transform: scale(1.05);
+}
+
+.filters__closeBtn:active {
+  transform: scale(0.95);
+}
+
+.filters__closeBtnIcon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+
+.filters__closeBtnDesktop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  background-color: inherit;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
+
+  &:hover {
+    background-color: inherit;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.filters__closeBtnIconDesktop {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+
+.filters__content {
+  flex: 1; // займати всю висоту, що залишилась
+  overflow-y: auto; // внутрішній скрол
+  margin-top: 16px;
+}
+
+.filters__filterBy {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.filters__filterTitleBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 16px;
+  font-size: 20px;
+
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0;
+  background-color: $color-white;
+  padding-block: 9px;
+  cursor: pointer;
+}
+
+.filters__filterIcon {
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
+
+  background-image: url('../../../assets/icons/search-icons/arrow-down.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  transition: transform 0.25s ease;
+}
+
+.filters__filterIconActive {
+  transform: rotate(180deg);
+}
+
+.filters__filterCheckBox {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+
+  max-height: 0;
+
+  padding: 0 24px;
+  opacity: 0;
+
+  transition:
+    max-height 0.35s ease,
+    opacity 0.25s ease,
+    padding 0.35s ease;
+}
+
+.filters__active {
+  max-height: 500px;
+
+  padding: 8px 24px;
+  opacity: 1;
+}
+
+.filters__filterCheckBoxWrapp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filters__checkBox {
+  width: 16px;
+  height: 16px;
+  accent-color: $color-primary-500;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.filters__checkBoxText {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: $color-text-primary;
+  cursor: pointer;
+}
+
+.filters__buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.filters__btnClear {
+  flex: 1;
+  border: none;
+  border: 1px solid #204dee;
+  border-radius: 8px;
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+  color: #204dee;
+  background-color: inherit;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+  padding-block: 12px;
+  flex-grow: 1;
+
+  @include on-desktop {
+    display: none;
+  }
+}
+
+.filters__btnApply {
+  flex: 1;
+  padding-block: 12px;
+  border: none;
+  border-radius: 8px;
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+  color: $color-white;
+  background-color: $color-primary-500;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+  flex-grow: 1;
+}
+
+.filters__btnApply:hover {
+  background-color: #5b7efa;
+}
+
+.filters__btnApply:active {
+  background-color: #2044c7;
+  outline: 1.5px solid #15339e;
+}
+
+.filters__btnApply:disabled {
+  color: #b4c4fd;
+  background-color: #7e99f6;
+}

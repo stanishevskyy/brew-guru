@@ -1,0 +1,66 @@
+@import '../../../assets/styles/main';
+
+.currentView {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.currentView__applied {
+  display: none;
+
+  @include on-desktop {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+.currentView__appliedInfo {
+  width: 645px;
+  height: 31px;
+}
+
+.currentView__appliedClear {
+  width: 42px;
+  height: 31px;
+}
+
+.currentView__location {
+  display: flex;
+  flex-direction: column;
+
+  @include on-desktop {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+.currentView__locationInfo {
+  width: 288px;
+  height: 31px;
+}
+
+.currentView__locationChange {
+  width: 122px;
+  height: 31px;
+}
+
+.currentView__appliedInfo,
+.currentView__appliedClear,
+.currentView__locationInfo,
+.currentView__locationChange {
+  border-radius: 8px;
+
+  background: linear-gradient(110deg, #d6d6d6 8%, #e2e2e2 18%, #d6d6d6 33%);
+
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}

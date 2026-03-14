@@ -1,0 +1,135 @@
+@import '../../../../../assets/styles/main';
+
+.seats {
+  display: flex;
+  flex-direction: column;
+
+  padding-inline: 16px;
+  margin-bottom: 32px;
+
+  @include on-tablet {
+    margin-bottom: 24px;
+  }
+
+  @include on-desktop {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.seats__title {
+  margin-bottom: 4px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0;
+  color: $color-text-primary;
+}
+
+.seats__button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 8px;
+  border: 1px solid $color-text-secondary;
+
+  border-radius: 8px;
+  font-family: Mulish, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0;
+  text-align: left;
+  color: $color-text-primary;
+  background-color: $color-white;
+  cursor: pointer;
+
+  transition: all 0.3s ease-in-out;
+
+  @include on-desktop {
+    margin-bottom: 16px;
+  }
+}
+
+.seats__buttonActive {
+  border: 1px solid $color-primary-500;
+}
+
+.seats__icon {
+  display: block;
+
+  width: 24px;
+  height: 24px;
+
+  background-image: url('../../../../../assets/icons/details-icons/arrow-down.svg');
+  background-repeat: no-repeat;
+  transition: all 0.3s ease-in-out;
+}
+
+.seats__iconActive {
+  transform: rotate(180deg);
+}
+
+.seats__radios {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+
+  max-height: 0;
+  padding: 8px 24px;
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0;
+
+  transition:
+    max-height 0.3s ease,
+    opacity 0.3s ease,
+    padding 0.3s ease;
+
+  @include on-desktop {
+    padding: 16px;
+  }
+}
+
+.seats__radiosActive {
+  max-height: 500px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  opacity: 1;
+
+  @include on-desktop {
+    padding: 16px;
+    border: 1px solid $color-primary-500;
+    border-radius: 8px;
+  }
+}
+
+.seats__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: Mulish, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0;
+  cursor: pointer;
+
+  @include on-desktop {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.seats__radio {
+  width: 16px;
+  height: 16px;
+  outline: none;
+  accent-color: $color-primary-500;
+  cursor: pointer;
+}

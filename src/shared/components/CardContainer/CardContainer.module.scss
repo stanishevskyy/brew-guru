@@ -1,0 +1,80 @@
+@import '../../../assets/styles/main';
+
+.cardContainer {
+  // @include page-grid;
+  display: flex;
+  flex-direction: column;
+
+  // align-items: center;
+  gap: 8px;
+}
+
+.cardContainer__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  // grid-column: 1/-1;
+  padding-block: 7px;
+}
+
+.cardContainer__title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0;
+  color: $color-text-primary;
+
+  @include on-desktop {
+    font-size: 24px;
+    line-height: 31px;
+  }
+
+  @include on-desktop-extra {
+    font-size: 32px;
+    line-height: 41px;
+  }
+}
+
+.cardContainer__btnWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.cardContainer__btnInfo {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+  white-space: nowrap;
+  color: $color-text-primary;
+
+  transition: color 0.25s ease;
+}
+
+.cardContainer__btnInfoImage {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.cardContainer__cards {
+  // grid-column: 1/-1;
+  // grid-auto-flow: column;
+  overflow: hidden;
+
+  @include page-grid;
+}
+
+/* Hover ефект */
+.cardContainer__btnWrapper:hover .cardContainer__btnInfo {
+  color: $color-primary-500; // змінюємо колір тексту на акцентний
+}
+
+.cardContainer__btnWrapper:hover .cardContainer__btnInfoImage {
+  transform: translateX(4px); // рухаємо стрілку вправо
+}

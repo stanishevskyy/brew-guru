@@ -1,0 +1,100 @@
+@import '../../../assets/styles/main';
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid $color-stroke;
+  border-radius: 16px;
+  background-color: $color-white;
+}
+
+.review__info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.review__img {
+  width: 64px;
+  height: 64px;
+}
+
+.review__userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.review__user {
+  width: 182px;
+  height: 62px;
+
+  @include on-tablet {
+    width: 214px;
+    height: 31px;
+  }
+}
+
+.review__userRate {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.review__rate {
+  width: 36px;
+  height: 16px;
+}
+
+.review__rateDate {
+  width: 67px;
+  height: 15px;
+
+  @include on-tablet {
+    width: 524px;
+  }
+}
+
+.review__comment {
+  width: 254px;
+  height: 20px;
+}
+
+.review__action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.review__actionInfo {
+  width: 64px;
+  height: 44px;
+}
+
+.review__dropWrapper {
+  width: 64px;
+  height: 44px;
+}
+
+.review__img,
+.review__user,
+.review__rate,
+.review__rateDate,
+.review__comment,
+.review__actionInfo,
+.review__dropWrapper {
+  border-radius: 8px;
+
+  background: linear-gradient(110deg, #d6d6d6 8%, #e2e2e2 18%, #d6d6d6 33%);
+
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}

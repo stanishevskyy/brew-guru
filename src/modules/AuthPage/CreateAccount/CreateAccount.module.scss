@@ -1,0 +1,190 @@
+@import '../../../assets/styles/main';
+
+.account {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  width: 288px;
+
+  background-color: inherit;
+
+  @include on-desktop {
+    width: 500px;
+    padding: 24px 40px;
+  }
+}
+
+.account__title {
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+
+  font-weight: 700;
+  line-height: 31px;
+  text-align: center;
+
+  color: #0a0a0c;
+
+  @include on-desktop {
+    font-size: 32px;
+    line-height: 41px;
+  }
+}
+
+.account__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.account__email {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  margin-bottom: 24px;
+}
+
+.account__label {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  color: #0a0a0c;
+}
+
+.account__input {
+  border: 1px solid #dcdde6;
+
+  border-width: 1px;
+  border-radius: 8px;
+
+  color: #0a0a0c;
+
+  padding-block: 12px;
+  padding-inline: 8px;
+}
+
+.account__input::placeholder {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+
+  color: #9a9aa9;
+}
+
+.account__input:focus::placeholder {
+  opacity: 0;
+}
+
+.account__inputError {
+  border: 1px solid #b70000;
+}
+
+.account__errorMessage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #b70000;
+}
+
+.account__errorIcon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+.account__buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.account__buttonSecondary {
+  flex: 1;
+  padding-block: 12px;
+  border: 1px solid #204dee;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+  color: #204dee;
+  background-color: inherit;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-white;
+    background-color: #bcbcff;
+  }
+
+  &:active {
+    background-color: #7171ff;
+  }
+
+  &:disabled {
+    border: 1px solid #7e99f6;
+    color: #7e99f6;
+    background-color: $color-white;
+  }
+}
+
+.account__buttonPrimary {
+  flex: 1;
+  padding-block: 12px;
+  border: 1px solid #7e99f6;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+  color: $color-white;
+  background-color: #204dee;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #5b7efa;
+  }
+
+  &:active {
+    background-color: #2044c7;
+    outline: 1.5px solid #15339e;
+  }
+
+  &:disabled {
+    color: #b4c4fd;
+    background-color: #7e99f6;
+    cursor: default;
+  }
+}
+
+.account__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin: auto;
+
+  @include on-desktop {
+    flex-direction: row;
+  }
+}
+
+.account__isRegister {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #252626;
+}
+
+.account__signIn {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #204dee;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 9%;
+  text-decoration-skip-ink: auto;
+}

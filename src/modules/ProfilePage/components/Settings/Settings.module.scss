@@ -1,0 +1,257 @@
+@import '../../../../assets/styles/main';
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  grid-column: 1/-1;
+}
+
+.settings__interface {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid #dcdde6;
+  border-radius: 16px;
+  background-color: #fbfbfe;
+
+  @include on-tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.settings__interfaceTitle {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  color: #0a0a0c;
+
+  @include on-tablet {
+    font-size: 24px;
+    line-height: 31px;
+    white-space: nowrap;
+  }
+}
+
+.settings__language {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #dcdde6;
+  border-radius: 8px;
+  font-size: 16px;
+
+  font-weight: 400;
+  line-height: 20px;
+  background-color: #fbfbfe;
+
+  @include on-tablet {
+    width: 204px;
+  }
+}
+
+.settings__message {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @include on-tablet {
+    gap: 16px;
+  }
+}
+
+.settings__title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  color: #0a0a0c;
+
+  @include on-tablet {
+    font-size: 24px;
+    line-height: 31px;
+  }
+}
+
+.settings__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid #dcdde6;
+  border-radius: 16px;
+  background-color: #fbfbfe;
+}
+
+.settings__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settings__description {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 160px;
+
+  @include on-tablet {
+    width: fit-content;
+    margin-right: 24px;
+  }
+
+  @include on-desktop {
+    margin: 0;
+  }
+}
+
+.settings__label {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #0a0a0c;
+
+  @include on-tablet {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+  }
+}
+
+.settings__text {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  color: #37373d;
+
+  @include on-tablet {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.settings__switch {
+  position: relative;
+  display: inline-block;
+  width: 59px;
+  height: 29px;
+}
+
+.settings__slider {
+  position: absolute;
+  inset: 0;
+  border-radius: 29px;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: 0.4s;
+
+  &::before {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background-color: white;
+    transition: 0.4s;
+    content: '';
+  }
+}
+
+.settings__checkbox {
+  width: 0;
+  height: 0;
+  opacity: 0;
+
+  &:checked + .settings__slider {
+    background-color: #9cb1ff;
+
+    &::before {
+      transform: translateX(26px);
+    }
+  }
+
+  &:focus + .settings__slider {
+    box-shadow: 0 0 1px #9cb1ff;
+  }
+}
+
+.settings__line {
+  width: 100%;
+  height: 1px;
+  border: none;
+  background-color: #dcdde6;
+}
+
+.settings__contentBottom {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include on-tablet {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.settings__deleteButton,
+.settings__logoutButton {
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  padding-block: 12px;
+
+  @include on-tablet {
+    width: 198px;
+    margin-left: auto;
+  }
+}
+
+.settings__deleteButton {
+  border: 1px solid #204dee;
+  color: #204dee;
+  background-color: inherit;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-white;
+    background-color: #bcbcff;
+  }
+
+  &:active {
+    background-color: #7171ff;
+  }
+
+  &:disabled {
+    border: 1px solid #7e99f6;
+    color: #7e99f6;
+    background-color: $color-white;
+  }
+}
+
+.settings__logoutButton {
+  border: 1px solid #7e99f6;
+  color: $color-white;
+  background-color: #204dee;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #5b7efa;
+  }
+
+  &:active {
+    background-color: #2044c7;
+    outline: 1.5px solid #15339e;
+  }
+
+  &:disabled {
+    color: #b4c4fd;
+    background-color: #7e99f6;
+    cursor: default;
+  }
+}

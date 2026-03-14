@@ -1,0 +1,161 @@
+@import '../../../assets/styles/main';
+
+.history__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  grid-column: 1/-1;
+
+  @include on-tablet {
+    flex-direction: row;
+  }
+
+  @include on-desktop {
+    grid-column: span 6;
+  }
+}
+
+.history__cardLink {
+  width: 288px;
+  height: 203px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+
+  @include on-tablet {
+    width: 276px;
+    height: 186px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 0;
+  }
+}
+
+.history__bottom {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: $color-white;
+  box-shadow: 1px 2px 10px 0 #0000001a;
+  padding-block: 8px 16px;
+  padding-inline: 16px;
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+
+  @include on-tablet {
+    padding-inline: 24px 16px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 0;
+    height: 183px;
+  }
+}
+
+.history__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.history__cardTitle {
+  width: 144px;
+  height: 31px;
+}
+
+.history__btnBin {
+  width: 44px;
+  height: 44px;
+}
+
+.history__wrappInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.history__wrappLocation {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.history__locationIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.history__locationInfo {
+  width: 97px;
+  height: 24px;
+}
+
+.history__wrappTime {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.history__timeIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.history__timeInfo {
+  width: 97px;
+  height: 24px;
+}
+
+.history__buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+  @include on-tablet {
+    gap: 18px;
+  }
+}
+
+.history__button {
+  width: 199px;
+  height: 44px;
+
+  @include on-desktop {
+    width: 135px;
+  }
+
+  @include on-desktop-extra {
+    width: 255px;
+  }
+}
+
+.history__time {
+  width: 40px;
+  height: 20px;
+}
+
+.history__cardLink,
+.history__cardTitle,
+.history__btnBin,
+.history__locationIcon,
+.history__locationInfo,
+.history__timeIcon,
+.history__timeInfo,
+.history__button,
+.history__time {
+  border-radius: 8px;
+
+  background: linear-gradient(110deg, #d6d6d6 8%, #e2e2e2 18%, #d6d6d6 33%);
+
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}

@@ -1,0 +1,248 @@
+@import '../../../assets/styles/main';
+
+.form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form__input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+
+  padding: 12px 8px 12px 44px;
+  border: 1px solid $color-stroke;
+  border-radius: 8px;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+
+  background-image: url('../../../assets/icons/search-icons/search-icon.svg');
+  background-repeat: no-repeat;
+  background-position: left 12px center;
+  background-size: 24px 24px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form__input:focus {
+  outline: none;
+  border-color: $color-primary-500;
+  box-shadow: 0 0 0 3px rgba(56, 97, 251, 0.15);
+}
+
+.form__sortBtnDesktop {
+  display: none;
+
+  @include on-desktop {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 44px;
+    max-width: 157px;
+    padding: 12px 10px;
+
+    border: 1px solid $color-stroke;
+    border-radius: 8px;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: $color-text-primary;
+    background-color: $color-white;
+
+    cursor: pointer;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    flex-shrink: 0;
+  }
+}
+
+.form__sortBtnDesktop:hover {
+  border-color: $color-primary-500;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.form__arrowSort {
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
+
+  background-image: url('../../../assets/icons/search-icons/arrow-down.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  transition: transform 0.25s ease;
+}
+
+.form__arrowSortActive {
+  transform: rotate(180deg);
+}
+
+.form__sortBy {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+  width: 100%;
+  max-height: 0;
+  margin-top: 4px;
+  padding: 8px 0;
+  border: 1px solid $color-stroke;
+  border-radius: 8px;
+  background-color: $color-white;
+  opacity: 0;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition:
+    max-height 0.3s ease,
+    opacity 0.25s ease;
+}
+
+.form__sortByActive {
+  display: flex;
+  max-height: 500px;
+  opacity: 1;
+}
+
+.form__sortList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-inline: 16px;
+}
+
+.form__sortItem {
+  display: flex;
+  align-items: center;
+}
+
+.form__labelRadio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.form__labelInput {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.form__filterBtn {
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  width: 44px;
+  height: 44px;
+
+  border: 1px solid $color-stroke;
+  border-radius: 8px;
+  background-color: $color-primary-500;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
+  flex-shrink: 0;
+
+  @include on-desktop {
+    display: none;
+  }
+}
+
+.form__sortBtn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  width: 44px;
+  height: 44px;
+
+  border: 1px solid $color-stroke;
+  border-radius: 8px;
+  background-color: $color-primary-500;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
+  flex-shrink: 0;
+
+  @include on-desktop {
+    display: none;
+  }
+}
+
+.form__filterBtn:hover,
+.form__sortBtn:hover {
+  background-color: $color-primary-500;
+}
+
+.form__filterImg,
+.form__sortImg {
+  width: 24px;
+  height: 24px;
+}
+
+.form__sortMobile {
+  position: absolute;
+}
+
+.form__sortByMobile {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 10;
+
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+  width: auto;
+  width: 100%;
+  max-height: 0;
+  margin-top: 4px;
+  padding: 8px 0;
+  border: 1px solid $color-stroke;
+  border-radius: 8px;
+  background-color: $color-white;
+  opacity: 0;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition:
+    max-height 0.3s ease,
+    opacity 0.25s ease;
+}
+
+.form__sortByMobileActive {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  width: 200px;
+  max-height: 500px;
+  opacity: 1;
+}

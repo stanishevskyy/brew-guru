@@ -1,0 +1,79 @@
+@import '../../../assets/styles/main';
+
+.form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form__input {
+  flex: 1;
+  width: 100%;
+  height: 45px;
+  min-width: 0;
+}
+
+.form__sortBtnDesktop {
+  display: none;
+
+  @include on-desktop {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 44px;
+    max-width: 157px;
+
+    background-color: inherit;
+
+    flex-shrink: 0;
+  }
+}
+
+.form__filterBtn {
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  width: 44px;
+  height: 44px;
+
+  @include on-desktop {
+    display: none;
+  }
+}
+
+.form__sortBtn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  width: 44px;
+  height: 44px;
+
+  flex-shrink: 0;
+
+  @include on-desktop {
+    display: none;
+  }
+}
+
+.form__input,
+.form__sortBtnDesktop,
+.form__filterBtn,
+.form__sortBtn {
+  border-radius: 8px;
+
+  background: linear-gradient(110deg, #d6d6d6 8%, #e2e2e2 18%, #d6d6d6 33%);
+
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}

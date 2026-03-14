@@ -1,0 +1,115 @@
+{
+  "meta": {
+    "title": "BrewGuru API",
+    "version": "v1"
+  },
+
+  "resources": {
+    "cafes": {
+      "list": {
+        "method": "GET",
+        "url": "/api/v1/brewguru/cafes",
+        "query": [
+          "page",
+          "per_page",
+          "search",
+          "city",
+          "rating",
+          "sort_by",
+          "sort_order"
+        ],
+        "response": "CafeListResponse"
+      },
+      "detail": {
+        "method": "GET",
+        "url": "/api/v1/brewguru/cafes/{cafe_id}",
+        "response": "CafeDetail"
+      },
+      "create": {
+        "method": "POST",
+        "url": "/api/v1/brewguru/cafes",
+        "body": "CafeCreate"
+      },
+      "update": {
+        "method": "PATCH",
+        "url": "/api/v1/brewguru/cafes/{cafe_id}",
+        "body": "CafeUpdate"
+      },
+      "delete": {
+        "method": "DELETE",
+        "url": "/api/v1/brewguru/cafes/{cafe_id}"
+      }
+    },
+
+    "auth": {
+      "register": {
+        "method": "POST",
+        "url": "/api/v1/accounts/register"
+      },
+      "login": {
+        "method": "POST",
+        "url": "/api/v1/accounts/login"
+      },
+      "logout": {
+        "method": "POST",
+        "url": "/api/v1/accounts/logout"
+      },
+      "refresh": {
+        "method": "POST",
+        "url": "/api/v1/accounts/refresh"
+      },
+      "activate": {
+        "method": "POST",
+        "url": "/api/v1/accounts/activate"
+      }
+    },
+
+    "user": {
+      "changePassword": {
+        "method": "POST",
+        "url": "/api/v1/accounts/change-password"
+      },
+      "passwordReset": {
+        "request": "/api/v1/accounts/password-reset/request",
+        "confirm": "/api/v1/accounts/reset-password/complete"
+      }
+    },
+
+    "favourites": {
+      "list": {
+        "method": "GET",
+        "url": "/api/v1/favourites/user/favourites"
+      },
+      "add": {
+        "method": "POST",
+        "url": "/api/v1/favourites/user/favourites/{cafe_id}"
+      },
+      "remove": {
+        "method": "DELETE",
+        "url": "/api/v1/favourites/user/favourites/{cafe_id}"
+      }
+    },
+
+    "ratings": {
+      "rate": {
+        "method": "POST",
+        "url": "/api/v1/ratings/cafes/{cafe_id}/ratings"
+      }
+    },
+
+    "reviews": {
+      "list": {
+        "method": "GET",
+        "url": "/api/v1/reviews/cafes/{cafe_id}/reviews"
+      },
+      "create": {
+        "method": "POST",
+        "url": "/api/v1/reviews/cafes/{cafe_id}/reviews"
+      },
+      "delete": {
+        "method": "DELETE",
+        "url": "/api/v1/reviews/cafes/{cafe_id}/reviews/{review_id}"
+      }
+    }
+  }
+}
