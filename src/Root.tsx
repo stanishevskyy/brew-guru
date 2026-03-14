@@ -25,6 +25,7 @@ import { Reviews } from './modules/ProfilePage/components/Reviews';
 import { Review } from './shared/components/Review';
 import { Reports } from './modules/ProfilePage/components/Reports';
 import { Settings } from './modules/ProfilePage/components/Settings';
+import { PrivateRoute } from './shared/components/PrivateRoute';
 
 export const Root = () => {
   return (
@@ -33,15 +34,35 @@ export const Root = () => {
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<HomePageCafes />} />
-
-            <Route path=":slug" element={<CafePage />} />
-            <Route path=":slug/menu" element={<HomePageMenu />} />
+            <Route
+              path=":slug"
+              element={
+                <PrivateRoute>
+                  <CafePage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path=":slug/menu"
+              element={
+                <PrivateRoute>
+                  <HomePageMenu />
+                </PrivateRoute>
+              }
+            />
             <Route path="home" element={<Navigate to="/" replace />} />
 
             <Route path="about-us" element={<AboutUsPage />} />
 
             <Route path="reservations">
-              <Route index element={<Reservations />} />
+              <Route
+                index
+                element={
+                  <PrivateRoute>
+                    <Reservations />
+                  </PrivateRoute>
+                }
+              />
             </Route>
 
             <Route path="auth" element={<AuthPage />}>
@@ -54,7 +75,14 @@ export const Root = () => {
               </Route>
             </Route>
 
-            <Route path="profile" element={<ProfilePage />}>
+            <Route
+              path="profile"
+              element={
+                <PrivateRoute>
+                  <ProfilePage />
+                </PrivateRoute>
+              }
+            >
               <Route index element={<UserProfile />} />
               <Route path="history" element={<History />} />
               <Route path="reviews" element={<Reviews />}>

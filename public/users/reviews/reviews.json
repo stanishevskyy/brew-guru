@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "cafeId": 1,
+    "user": {
+      "id": 1,
+      "img": "https://example.com/avatar1.jpg",
+      "firstName": "John",
+      "lastName": "Doe"
+    },
+    "rating": 5,
+    "createdAt": "2026-03-04T11:00:00Z",
+    "comment": "Дуже затишне місце та смачна кава!",
+    "like": 12,
+    "dislike": 1,
+    "replies": [
+      {
+        "id": 1,
+        "reviewId": 1,
+        "user": {
+          "id": 2,
+          "img": "https://example.com/avatar2.jpg",
+          "firstName": "Jane",
+          "lastName": "Smith"
+        },
+        "createdAt": "2026-03-04T12:00:00Z",
+        "comment": "Погоджуюсь, тут найкращий латте!",
+        "like": 4,
+        "dislike": 0
+      },
+      {
+        "id": 2,
+        "reviewId": 1,
+        "user": {
+          "id": 3,
+          "img": "https://example.com/avatar3.jpg",
+          "firstName": "Alice",
+          "lastName": "Johnson"
+        },
+        "createdAt": "2026-03-04T13:30:00Z",
+        "comment": "Треба буде зайти сюди на вихідних.",
+        "like": null,
+        "dislike": 0
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "cafeId": 2,
+    "user": {
+      "id": 2,
+      "img": "https://example.com/avatar2.jpg",
+      "firstName": "Jane",
+      "lastName": "Smith"
+    },
+    "rating": 4,
+    "createdAt": "2026-03-03T15:20:00Z",
+    "comment": "Хороший інтер’єр, але було трохи шумно.",
+    "like": 6,
+    "dislike": 2
+  },
+  {
+    "id": 3,
+    "cafeId": 3,
+    "user": {
+      "id": 3,
+      "img": "https://example.com/avatar3.jpg",
+      "firstName": "Alice",
+      "lastName": "Johnson"
+    },
+    "rating": 3,
+    "createdAt": "2026-03-02T10:15:00Z",
+    "comment": "Кава непогана, але чекала довго.",
+    "like": 2,
+    "dislike": 3,
+    "replies": [
+      {
+        "id": 3,
+        "reviewId": 3,
+        "user": {
+          "id": 1,
+          "img": "https://example.com/avatar1.jpg",
+          "firstName": "John",
+          "lastName": "Doe"
+        },
+        "createdAt": "2026-03-02T11:00:00Z",
+        "comment": "Мені пощастило — обслуговували швидко.",
+        "like": 1,
+        "dislike": 0
+      }
+    ]
+  }
+]

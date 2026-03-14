@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "userId": 1,
+    "emailNotifications": true,
+    "pushNotifications": false,
+    "nearestReservationReminder": true,
+    "commentReplyNotification": true,
+    "savedPaymentMethods": true,
+    "allowAnalytics": false
+  },
+  {
+    "id": 2,
+    "userId": 2,
+    "emailNotifications": false,
+    "pushNotifications": true,
+    "nearestReservationReminder": false,
+    "commentReplyNotification": true,
+    "savedPaymentMethods": false,
+    "allowAnalytics": true
+  },
+  {
+    "id": 3,
+    "userId": 3,
+    "emailNotifications": true,
+    "pushNotifications": true,
+    "nearestReservationReminder": true,
+    "commentReplyNotification": false,
+    "savedPaymentMethods": true,
+    "allowAnalytics": true
+  }
+]

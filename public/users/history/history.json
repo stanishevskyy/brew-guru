@@ -1,0 +1,224 @@
+[
+  {
+    "id": 1,
+    "userId": 1,
+    "date": "2026-03-04",
+    "items": [
+      {
+        "id": 1,
+        "cafe": {
+          "id": 1,
+          "img": "https://example.com/cafe1.jpg",
+          "name": "Cafe Aroma",
+          "address": "123 Main St, Kyiv, Ukraine",
+          "openingHours": [
+            {
+              "id": 1,
+              "weekday": 1,
+              "cafeId": 1,
+              "openTime": "08:00",
+              "closeTime": "22:00",
+              "isOpen": true
+            }
+          ]
+        },
+        "time": "2026-03-04T10:30:00Z"
+      },
+      {
+        "id": 4,
+        "cafe": {
+          "id": 4,
+          "img": "https://example.com/cafe4.jpg",
+          "name": "Morning Brew",
+          "address": "12 Coffee Lane, Kyiv, Ukraine",
+          "openingHours": [
+            {
+              "id": 4,
+              "weekday": 1,
+              "cafeId": 4,
+              "openTime": "07:30",
+              "closeTime": "20:00",
+              "isOpen": true
+            }
+          ]
+        },
+        "time": "2026-03-04T15:20:00Z"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "userId": 1,
+    "date": "2026-03-01",
+    "items": [
+      {
+        "id": 5,
+        "cafe": {
+          "id": 5,
+          "img": "https://example.com/cafe5.jpg",
+          "name": "Urban Coffee",
+          "address": "7 Central Square, Kyiv, Ukraine",
+          "openingHours": [
+            {
+              "id": 5,
+              "weekday": 7,
+              "cafeId": 5,
+              "openTime": "09:00",
+              "closeTime": "23:00",
+              "isOpen": true
+            }
+          ]
+        },
+        "time": "2026-03-01T18:45:00Z"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "userId": 2,
+    "date": "2026-03-03",
+    "items": [
+      {
+        "id": 2,
+        "cafe": {
+          "id": 2,
+          "img": "https://example.com/cafe2.jpg",
+          "name": "Coffee House",
+          "address": "45 Liberty Ave, Kyiv, Ukraine",
+          "openingHours": [
+            {
+              "id": 2,
+              "weekday": 1,
+              "cafeId": 2,
+              "openTime": "09:00",
+              "closeTime": "21:00",
+              "isOpen": true
+            }
+          ]
+        },
+        "time": "2026-03-03T14:00:00Z"
+      },
+      {
+        "id": 6,
+        "cafe": {
+          "id": 6,
+          "img": "https://example.com/cafe6.jpg",
+          "name": "Roast Lab",
+          "address": "101 Baker St, Kyiv, Ukraine",
+          "openingHours": [
+            {
+              "id": 6,
+              "weekday": 2,
+              "cafeId": 6,
+              "openTime": "08:30",
+              "closeTime": "22:30",
+              "isOpen": true
+            }
+          ]
+        },
+        "time": "2026-03-03T19:10:00Z"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "userId": 2,
+    "date": "2026-02-28",
+    "items": [
+      {
+        "id": 7,
+        "cafe": {
+          "id": 7,
+          "img": "https://example.com/cafe7.jpg",
+          "name": "Bean Corner",
+          "address": "22 River Rd, Kyiv, Ukraine",
+          "openingHours": [
+            {
+              "id": 7,
+              "weekday": 6,
+              "cafeId": 7,
+              "openTime": "10:00",
+              "closeTime": "21:00",
+              "isOpen": true
+            }
+          ]
+        },
+        "time": "2026-02-28T11:05:00Z"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "userId": 3,
+    "date": "2026-03-02",
+    "items": [
+      {
+        "id": 3,
+        "cafe": {
+          "id": 3,
+          "img": "https://example.com/cafe3.jpg",
+          "name": "Espresso Bar",
+          "address": "78 Green St, Lviv, Ukraine",
+          "openingHours": [
+            {
+              "id": 3,
+              "weekday": 1,
+              "cafeId": 3,
+              "openTime": "07:00",
+              "closeTime": "20:00",
+              "isOpen": true
+            }
+          ]
+        },
+        "time": "2026-03-02T12:15:00Z"
+      },
+      {
+        "id": 8,
+        "cafe": {
+          "id": 8,
+          "img": "https://example.com/cafe8.jpg",
+          "name": "Lviv Coffee Hub",
+          "address": "15 Market Square, Lviv, Ukraine",
+          "openingHours": [
+            {
+              "id": 8,
+              "weekday": 1,
+              "cafeId": 8,
+              "openTime": "08:00",
+              "closeTime": "23:00",
+              "isOpen": true
+            }
+          ]
+        },
+        "time": "2026-03-02T17:30:00Z"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "userId": 3,
+    "date": "2026-02-27",
+    "items": [
+      {
+        "id": 9,
+        "cafe": {
+          "id": 9,
+          "img": "https://example.com/cafe9.jpg",
+          "name": "Old Town Cafe",
+          "address": "9 Cathedral St, Lviv, Ukraine",
+          "openingHours": [
+            {
+              "id": 9,
+              "weekday": 5,
+              "cafeId": 9,
+              "openTime": "09:00",
+              "closeTime": "22:00",
+              "isOpen": true
+            }
+          ]
+        },
+        "time": "2026-02-27T09:40:00Z"
+      }
+    ]
+  }
+]
