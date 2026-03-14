@@ -64,6 +64,10 @@
 
   padding-block: 12px;
   padding-inline: 8px;
+
+  &:focus {
+    border: 1px solid #204dee;
+  }
 }
 
 .create__inputError {
@@ -77,6 +81,7 @@
   font-size: 12px;
   font-weight: 400;
   color: #b70000;
+  white-space: nowrap;
 }
 
 .create__errorIcon {
@@ -149,6 +154,7 @@
   font-size: 12px;
   font-weight: 600;
   line-height: 20px;
+  cursor: pointer;
 
   color: #9a9aa9;
   background-color: #fbfbfe;
@@ -158,12 +164,24 @@
     font-weight: 500;
     line-height: 20px;
   }
+
+  &:hover {
+    border: 1px solid #204dee;
+  }
+}
+
+.create__btnActive {
+  border: 1px solid #204dee;
 }
 
 .create__btnIcon {
   display: inline-block;
   width: 24px;
   height: 24px;
+}
+
+.create__btnIconActive {
+  transform: rotate(180deg);
 }
 
 .create__list {
@@ -174,7 +192,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
   width: 100%;
   height: 101px;
   padding: 12px 8px;
@@ -187,14 +204,24 @@
 }
 
 .create__item {
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
   font-size: 12px;
   font-weight: 600;
   line-height: 20px;
+  padding: 8px;
 
   @include on-tablet {
     font-size: 16px;
     font-weight: 500;
     line-height: 20px;
+  }
+
+  &:hover {
+    color: white;
+    border-radius: 8px;
+    background-color: rgba(104, 103, 103, 0.814);
   }
 }
 
@@ -259,35 +286,6 @@
     color: #b4c4fd;
     background-color: #7e99f6;
     cursor: default;
-  }
-}
-
-.create__buttonPrimaryLoading {
-  position: relative;
-  color: transparent;
-  cursor: default;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 20px;
-    height: 20px;
-    margin: -10px 0 0 -10px;
-    border: 2px solid #ffffff;
-    border-top-color: transparent;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-  }
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
   }
 }
 
