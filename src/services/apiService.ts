@@ -1,5 +1,5 @@
 export const wait = () => {
-  return new Promise(resolve => setTimeout(resolve, 300));
+  return new Promise(resolve => setTimeout(resolve, 1300));
 };
 
 type RequestMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
@@ -32,6 +32,8 @@ export const request = async <T>(
   method: RequestMethod = 'GET',
   data: any = null,
 ): Promise<T> => {
+  await wait();
+
   let token = localStorage.getItem('accessToken');
   const options: RequestInit = { method };
 
@@ -48,8 +50,6 @@ export const request = async <T>(
       'Content-Type': 'application/json; charset=utf-8',
     };
   }
-
-  await wait();
 
   try {
     let response = await fetch(url, options);

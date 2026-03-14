@@ -116,6 +116,9 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
+    clearError: state => {
+      state.error = null;
+    },
     logout(state) {
       state.user = null;
       state.stayLoggedIn = false;
@@ -185,5 +188,7 @@ export const userSlice = createSlice({
       });
   },
 });
+
+export const { clearError, logout } = userSlice.actions;
 
 export default userSlice.reducer;

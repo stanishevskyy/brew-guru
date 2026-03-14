@@ -1,16 +1,19 @@
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, Navigate, replace } from 'react-router-dom';
-
-import classNames from 'classnames';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import classNames from 'classnames';
+
 import styles from './LoginPage.module.scss';
+
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 
 import { LoginType } from '../../../shared/types/LoginType';
 
 //eslint-disable-next-line
 import ErrorIcon from '../../../assets/icons/form-icons-validation/error.svg';
+import { clearError, loginUserThunk } from '../../../store/users/userSlice';
+import { useEffect } from 'react';
 
 export const LoginPage = () => {
   const {
@@ -18,14 +21,26 @@ export const LoginPage = () => {
     handleSubmit,
     formState: { errors, isValid },
   } = useForm<LoginType>({ mode: 'onChange' });
-  const [isSuccess, setIsSuccess] = useState(false);
+  const location = useLocation();
+  const from = location.state?.from || '/';
+  const navigate = useNavigate();
+  const userState = useAppSelector(state => state.user);
+  const dispatch = useAppDispatch();
 
-  const onSubmit = async (data: LoginType) => {
-    setIsSuccess(true);
+  const handleBackButton = () => {
+    navigate('/');
   };
 
-  if (isSuccess) {
-    return <Navigate to="/search" replace />;
+  const onSubmit = async (data: LoginType) => {
+    await dispatch(loginUserThunk(data));
+  };
+
+  useEffect(() => {
+    dispatch(clearError());
+  }, []);
+
+  if (userState.user) {
+    return <Navigate to={from} replace />;
   }
 
   return (
@@ -64,25 +79,18 @@ export const LoginPage = () => {
                 </label>
                 <input
                   className={classNames(`${styles.login__input}`, {
-                    [styles.login__inputError]: errors.email,
+                    [styles.login__inputError]: errors.email || userState.error,
                   })}
                   type="email"
                   id="email"
                   placeholder="Name@example.com"
-                  required
-                  autoComplete="off"
-                  aria-required="true"
+                  autoComplete="email"
                   {...register('email', {
-                    required: "Email обов'язковий",
+                    required: 'Email is required',
                     pattern: {
                       value: /^\S+@\S+\.\S+$/i,
-                      message: 'Email має бути у форматі example@mail.com',
+                      message: 'Email must be in the format example@mail.com',
                     },
-                    // validate: async value => {
-                    //   const exists = await checkEmailExists(value);
-
-                    //   return !exists || 'Email вже зайнятий';
-                    // },
                   })}
                 />
                 {errors.email && (
@@ -103,30 +111,25 @@ export const LoginPage = () => {
                 </label>
                 <input
                   className={classNames(`${styles.login__input}`, {
-                    [styles.login__inputError]: errors.password,
+                    [styles.login__inputError]:
+                      errors.password || userState.error,
                   })}
                   type="password"
                   id="password"
                   placeholder="Type here"
                   autoComplete="current-password"
-                  aria-required="true"
                   {...register('password', {
-                    required: "Пароль обов'язковий",
-                    // pattern: {
-                    //   value: /^(?=.*[A-Z])(?=.*\d).{6,}$/,
-                    //   message:
-                    //     'Пароль має містити мінімум 6 символів,та одну велику літеру',
-                    // },
+                    required: 'Password is required',
                   })}
                 />
-                {errors.password && (
+                {(errors.password || userState.error) && (
                   <p className={styles.login__errorMessage}>
                     <img
                       src={ErrorIcon}
                       alt="Іконка помилки"
                       className={styles.login__errorIcon}
                     />
-                    {errors.password.message}
+                    {errors.password?.message || userState.error}
                   </p>
                 )}
               </fieldset>
@@ -150,13 +153,19 @@ export const LoginPage = () => {
               </fieldset>
 
               <fieldset className={styles.login__buttons}>
-                <button type="button" className={styles.login__buttonSecondary}>
+                <button
+                  type="button"
+                  className={styles.login__buttonSecondary}
+                  onClick={handleBackButton}
+                >
                   Back
                 </button>
                 <button
                   type="submit"
-                  className={styles.login__buttonPrimary}
-                  disabled={!isValid}
+                  className={classNames(`${styles.login__buttonPrimary}`, {
+                    [styles.login__buttonPrimaryLoading]: userState.loading,
+                  })}
+                  disabled={!isValid || userState.loading}
                 >
                   Continue
                 </button>
@@ -167,11 +176,7 @@ export const LoginPage = () => {
               <p className={styles.login__isRegister}>
                 Don&apos;t have an account?
               </p>
-              <Link
-                to="/auth/register"
-                {...replace}
-                className={styles.login__signup}
-              >
+              <Link to="/auth/register" className={styles.login__signup}>
                 Create an account
               </Link>
             </div>

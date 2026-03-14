@@ -1,5 +1,9 @@
 @import './assets/styles/main';
 
+.main {
+  min-height: calc(100vh - 60px);
+}
+
 .mainModified {
   position: relative;
   top: 60px;

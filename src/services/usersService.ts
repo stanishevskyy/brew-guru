@@ -1,4 +1,4 @@
-import { request } from './apiService';
+import { request, wait } from './apiService';
 
 import { User } from '../shared/types/user/user.type';
 
@@ -7,6 +7,8 @@ const STORAGE_KEY = 'users';
 export const usersService = {
   getUsers: async (): Promise<User[]> => {
     try {
+      await wait();
+
       const users = localStorage.getItem(STORAGE_KEY);
 
       if (users) {
