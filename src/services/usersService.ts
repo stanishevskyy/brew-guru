@@ -15,7 +15,7 @@ export const usersService = {
         return JSON.parse(users);
       }
 
-      const data = await request<User[]>('./users/users.json');
+      const data = await request<User[]>('users/users.json');
 
       localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 
