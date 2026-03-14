@@ -2,12 +2,22 @@ import { useState, useEffect } from 'react';
 
 import styles from './ChangePhotoModal.module.scss';
 
+import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
+
 //eslint-disable-next-line
 import Avatar from '../../../../assets/images/profile-images/avatar-tablet-more.png';
+import { updateUserThunk } from '../../../../store/users/userSlice';
 
-export const ChangePhotoModal = () => {
+type Props = {
+  setIsChangePhotoOpen: (value: boolean) => void;
+};
+
+export const ChangePhotoModal: React.FC<Props> = ({ setIsChangePhotoOpen }) => {
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
+
+  const userState = useAppSelector(state => state.user.user);
+  const dispatch = useAppDispatch();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
@@ -17,6 +27,18 @@ export const ChangePhotoModal = () => {
     }
 
     setFile(selectedFile);
+  };
+
+  const handleSave = () => {
+    if (!file || !userState || !preview) {
+      return;
+    }
+
+    const newUser = { ...userState, img: preview };
+
+    dispatch(updateUserThunk(newUser));
+
+    setIsChangePhotoOpen(false);
   };
 
   useEffect(() => {
@@ -29,8 +51,6 @@ export const ChangePhotoModal = () => {
     const objectUrl = URL.createObjectURL(file);
 
     setPreview(objectUrl);
-
-    return () => URL.revokeObjectURL(objectUrl);
   }, [file]);
 
   return (
@@ -61,8 +81,15 @@ export const ChangePhotoModal = () => {
         </div>
 
         <div className={styles.changePhoto__buttons}>
-          <button className={styles.changePhoto__secondary}>Cancel</button>
-          <button className={styles.changePhoto__primary}>Save</button>
+          <button
+            className={styles.changePhoto__secondary}
+            onClick={() => setIsChangePhotoOpen(false)}
+          >
+            Cancel
+          </button>
+          <button className={styles.changePhoto__primary} onClick={handleSave}>
+            Save
+          </button>
         </div>
       </div>
     </section>

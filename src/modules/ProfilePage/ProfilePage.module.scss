@@ -1,7 +1,7 @@
 @import '../../assets/styles/main';
 
 .profile {
-  min-height: calc(100vh - 60px - 530px);
+  min-height: calc(100vh - 60px);
   background-color: $color-background;
 
   @include page-grid;
@@ -122,9 +122,34 @@
   position: relative;
 }
 
+.profile__disableItem {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #d2d2e1;
+  cursor: default;
+
+  @include on-tablet {
+    padding: 20px 19px;
+    font-weight: 700;
+  }
+
+  @include on-desktop {
+    padding: 14px 16px;
+    font-size: 24px;
+    line-height: 31px;
+  }
+}
+
 .profile__linkSelect {
   position: relative;
   display: inline-block;
+  width: 100%;
 
   padding: 16px;
   font-size: 16px;
@@ -317,10 +342,26 @@
   line-height: 10px;
   color: $color-white;
   background-color: #204dee;
+  cursor: pointer;
 
   @include on-tablet {
     padding: 12px 26px;
     font-size: 16px;
     line-height: 20px;
+  }
+
+  &:hover {
+    background-color: #5b7efa;
+  }
+
+  &:active {
+    background-color: #2044c7;
+    outline: 1.5px solid #15339e;
+  }
+
+  &:disabled {
+    color: #b4c4fd;
+    background-color: #7e99f6;
+    cursor: default;
   }
 }
