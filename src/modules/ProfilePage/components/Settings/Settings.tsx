@@ -7,8 +7,8 @@ import styles from './Settings.module.scss';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
 //eslint-disable-next-line
 import {
-  fetchUserSettings,
-  updateUserSettings,
+  fetchUserSettingsThunk,
+  updateUserSettingsThunk,
 } from '../../../../store/settingsSlice/settingsSlice';
 import { UserSettings } from '../../../../shared/types/user/user-settings.type';
 import { deleteUserThunk, logout } from '../../../../store/users/userSlice';
@@ -32,7 +32,7 @@ export const Settings = () => {
       setIsUpdating(key);
 
       dispatch(
-        updateUserSettings({
+        updateUserSettingsThunk({
           ...userSettings.settings,
           [key]: e.target.checked,
         }),
@@ -50,7 +50,7 @@ export const Settings = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchUserSettings(userState.user?.id as number));
+    dispatch(fetchUserSettingsThunk(userState.user?.id as number));
   }, []);
 
   return (

@@ -16,7 +16,7 @@ const initialState: SettingsState = {
   error: null,
 };
 
-export const fetchUserSettings = createAsyncThunk<
+export const fetchUserSettingsThunk = createAsyncThunk<
   UserSettings | null,
   number,
   { rejectValue: string }
@@ -36,7 +36,7 @@ export const fetchUserSettings = createAsyncThunk<
   }
 });
 
-export const updateUserSettings = createAsyncThunk<
+export const updateUserSettingsThunk = createAsyncThunk<
   UserSettings,
   UserSettings,
   { rejectValue: string }
@@ -61,29 +61,29 @@ export const settingsSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(fetchUserSettings.pending, state => {
+      .addCase(fetchUserSettingsThunk.pending, state => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchUserSettings.fulfilled, (state, action) => {
+      .addCase(fetchUserSettingsThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
         state.settings = action.payload;
       })
-      .addCase(fetchUserSettings.rejected, (state, action) => {
+      .addCase(fetchUserSettingsThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload || 'Failed';
       })
-      .addCase(updateUserSettings.pending, state => {
+      .addCase(updateUserSettingsThunk.pending, state => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(updateUserSettings.fulfilled, (state, action) => {
+      .addCase(updateUserSettingsThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.settings = action.payload;
         state.error = null;
       })
-      .addCase(updateUserSettings.rejected, (state, action) => {
+      .addCase(updateUserSettingsThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload || 'Failed';
       });
