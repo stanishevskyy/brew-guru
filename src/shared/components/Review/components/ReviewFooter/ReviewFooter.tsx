@@ -8,13 +8,18 @@ import { useAppDispatch, useAppSelector } from '../../../../../store/hooks';
 import { UserReview } from '../../../../types/user/user-review.type';
 
 import HeartIcon from '../../../../../assets/icons/reviews-icons/heart-icon.svg';
+import LikeIcon from '../../../../../assets/icons/reviews-icons/like.svg';
 import HeartBrokenIcon from '../../../../../assets/icons/reviews-icons/heart-broken-icon.svg';
+import DislikeIcon from '../../../../../assets/icons/reviews-icons/dislike.svg';
 import CommentIcon from '../../../../../assets/icons/reviews-icons/comment-icon.svg';
 import DotsIcon from '../../../../../assets/icons/reviews-icons/dots-icon.svg';
 import FlagIcon from '../../../../../assets/icons/reviews-icons/flag-outline-icon.svg';
 import PencilIcon from '../../../../../assets/icons/reviews-icons/pencil-icon.svg';
 import BinIcon from '../../../../../assets/icons/reviews-icons/bin-icon.svg';
-import { deleteReviewThunk } from '../../../../../store/reviewsSlice/reviewsSlice';
+import {
+  deleteReviewThunk,
+  updateUserReviewThunk,
+} from '../../../../../store/reviewsSlice/reviewsSlice';
 
 type Props = {
   review: UserReview;
@@ -26,6 +31,51 @@ export const ReviewFooter: React.FC<Props> = ({ review, setDeletedReview }) => {
 
   const userId = useAppSelector(state => state.user.user?.id);
   const dispatch = useAppDispatch();
+
+  const [localLike, setLocalLike] = useState(review.like);
+  const [localDislike, setLocalDislike] = useState(review.dislike);
+
+  const handleLike = async () => {
+    if (!userId) {
+      return;
+    }
+
+    const newLike = localLike.includes(userId)
+      ? localLike.filter(id => id !== userId)
+      : [...localLike, userId];
+
+    const newDislike = localDislike.filter(id => id !== userId);
+
+    setLocalLike(newLike);
+    setLocalDislike(newDislike);
+
+    const updatedReview = { ...review, like: newLike, dislike: newDislike };
+
+    await dispatch(updateUserReviewThunk(updatedReview));
+  };
+
+  const handleDislike = async () => {
+    if (!userId) {
+      return;
+    }
+
+    const newDislike = localDislike.includes(userId)
+      ? localDislike.filter(id => id !== userId)
+      : [...localDislike, userId];
+
+    const newLike = localLike.filter(id => id !== userId);
+
+    setLocalDislike(newDislike);
+    setLocalLike(newLike);
+
+    const updatedReview: UserReview = {
+      ...review,
+      like: newLike,
+      dislike: newDislike,
+    };
+
+    await dispatch(updateUserReviewThunk(updatedReview));
+  };
 
   const handleDelete = async () => {
     setDeletedReview(review.id);
@@ -41,28 +91,34 @@ export const ReviewFooter: React.FC<Props> = ({ review, setDeletedReview }) => {
         type="button"
         className={styles.review__actionInfo}
         aria-label="Like review"
+        onClick={handleLike}
       >
         <img
-          src={HeartIcon}
+          src={userId && localLike.includes(userId) ? LikeIcon : HeartIcon}
           alt=""
           className={styles.review__actionIcon}
           aria-hidden="true"
         />
-        {review.like.length || 0}
+        {localLike.length}
       </button>
 
       <button
         type="button"
         className={styles.review__actionInfo}
         aria-label="Dislike review"
+        onClick={handleDislike}
       >
         <img
-          src={HeartBrokenIcon}
+          src={
+            userId && localDislike.includes(userId)
+              ? DislikeIcon
+              : HeartBrokenIcon
+          }
           alt=""
           className={styles.review__actionIcon}
           aria-hidden="true"
         />
-        {review.dislike.length || 0}
+        {localDislike.length}
       </button>
 
       <button

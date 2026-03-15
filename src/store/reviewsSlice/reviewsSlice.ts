@@ -160,6 +160,17 @@ export const reviewsSlice = createSlice({
       })
       .addCase(deleteReplyThunk.rejected, (state, action) => {
         state.error = action.payload || 'Failed to delete reply';
+      })
+      .addCase(updateUserReviewThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        state.reviews = state.reviews.map(r =>
+          r.id === action.payload.id ? action.payload : r,
+        );
+      })
+      .addCase(updateUserReviewThunk.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || 'Failed';
       });
   },
 });

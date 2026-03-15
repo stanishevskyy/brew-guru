@@ -72,7 +72,8 @@ export const Review: React.FC<Props> = ({
 
               {/* actions */}
               <ReplyFooter
-                review={reply}
+                review={review}
+                reply={reply}
                 setIsCommentFormOpen={setIsCommentFormOpen}
                 setDeletedReply={setDeletedReply}
               />
