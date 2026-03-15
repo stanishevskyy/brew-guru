@@ -22,7 +22,7 @@ export const Reviews = () => {
   const [isRatingOpen, setIsRatingOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  const reviews = useAppSelector(state => state.reviews);
+  const reviewsState = useAppSelector(state => state.reviews);
 
   useEffect(() => {
     setTimeout(() => {
@@ -218,8 +218,12 @@ export const Reviews = () => {
           </ul>
         </nav>
         {isSectionOpen.reviews &&
-          reviews.reviews.map(review => (
-            <Review key={review.id} review={review} />
+          reviewsState.reviews.map(review => (
+            <Review
+              key={review.id}
+              isLoadingState={reviewsState.loading}
+              review={review}
+            />
           ))}
         {isSectionOpen.reports && <Reports />}
       </div>

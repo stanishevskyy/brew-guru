@@ -1,11 +1,11 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
 
-import styles from './ReviewFooter.module.scss';
+import styles from './ReplyFooter.module.scss';
 
 import { useAppDispatch, useAppSelector } from '../../../../../store/hooks';
 
-import { UserReview } from '../../../../types/user/user-review.type';
+import { Reply } from '../../../../types/user/user-replies.type';
 
 import HeartIcon from '../../../../../assets/icons/reviews-icons/heart-icon.svg';
 import HeartBrokenIcon from '../../../../../assets/icons/reviews-icons/heart-broken-icon.svg';
@@ -14,23 +14,21 @@ import DotsIcon from '../../../../../assets/icons/reviews-icons/dots-icon.svg';
 import FlagIcon from '../../../../../assets/icons/reviews-icons/flag-outline-icon.svg';
 import PencilIcon from '../../../../../assets/icons/reviews-icons/pencil-icon.svg';
 import BinIcon from '../../../../../assets/icons/reviews-icons/bin-icon.svg';
-import { deleteReviewThunk } from '../../../../../store/reviewsSlice/reviewsSlice';
 
 type Props = {
-  review: UserReview;
+  review: Reply;
+  setIsCommentFormOpen: (value: boolean) => void;
 };
 
-export const ReviewFooter: React.FC<Props> = ({ review }) => {
-  const [isModalOpen, setIsModalOpen] = useState<number | null>(null);
-
+export const ReplyFooter: React.FC<Props> = ({
+  review,
+  setIsCommentFormOpen,
+}) => {
   const userId = useAppSelector(state => state.user.user?.id);
+  const [isReplyModalOpen, setIsReplyModalOpen] = useState<number | null>(null);
   const dispatch = useAppDispatch();
 
-  const handleDelete = async () => {
-    await dispatch(deleteReviewThunk(review.id));
-
-    setIsModalOpen(null);
-  };
+  const handleDelete = () => {};
 
   return (
     <footer className={styles.review}>
@@ -66,6 +64,7 @@ export const ReviewFooter: React.FC<Props> = ({ review }) => {
         type="button"
         className={styles.review__actionInfo}
         aria-label="Comment on review"
+        onClick={() => setIsCommentFormOpen(true)}
       >
         <img
           src={CommentIcon}
@@ -73,7 +72,6 @@ export const ReviewFooter: React.FC<Props> = ({ review }) => {
           className={styles.review__actionIcon}
           aria-hidden="true"
         />
-        {review.replies?.length !== 0 ? review.replies?.length : ''}
       </button>
 
       <div className={styles.review__dropWrapper}>
@@ -84,17 +82,17 @@ export const ReviewFooter: React.FC<Props> = ({ review }) => {
           aria-expanded={false}
           aria-label="Open review actions menu"
           onClick={() => {
-            if (!isModalOpen) {
-              setIsModalOpen(review.id);
+            if (!isReplyModalOpen) {
+              setIsReplyModalOpen(review.id);
             } else {
-              setIsModalOpen(null);
+              setIsReplyModalOpen(null);
             }
           }}
-          onBlur={() => setIsModalOpen(null)}
+          onBlur={() => setIsReplyModalOpen(null)}
         >
           <img src={DotsIcon} alt="" aria-hidden="true" />
         </button>
-        {isModalOpen === review.id &&
+        {isReplyModalOpen === review.id &&
           (userId === review.user.id ? (
             <div className={styles.review__menu} role="menu">
               <ul>

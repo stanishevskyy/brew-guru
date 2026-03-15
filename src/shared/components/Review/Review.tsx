@@ -6,7 +6,9 @@ import styles from './Review.module.scss';
 
 import { ReviewSkeleton } from '../ReviewSkeleton';
 import { ReviewHeader } from './components/ReviewHeader';
+import { ReplyHeader } from './components/ReplyHeader';
 import { ReviewFooter } from './components/ReviewFooter';
+import { ReplyFooter } from './components/ReplyFooter';
 import { ReviewForm } from './components/ReviewForm';
 
 import { UserReview } from '../../types/user/user-review.type';
@@ -15,16 +17,17 @@ import { UserReview } from '../../types/user/user-review.type';
 import Arrow from '../../../assets/icons/reviews-icons/arrow-down.svg';
 
 type Props = {
+  isLoadingState: boolean;
   review: UserReview;
 };
 
-export const Review: React.FC<Props> = ({ review }) => {
+export const Review: React.FC<Props> = ({ isLoadingState, review }) => {
   const [isAnswerOpen, setIsAnswerOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const { pathname } = useLocation();
-  const isVisibeleButton = pathname === '/profile/reviews';
+  const isVisibleButton = pathname === '/profile/reviews';
 
-  const [isCommentModalOpen, setIsCommentModalOpen] = useState(false);
+  const [isCommentFormOpen, setIsCommentFormOpen] = useState(false);
 
   useEffect(() => {
     const timerId = setTimeout(() => {
@@ -41,45 +44,41 @@ export const Review: React.FC<Props> = ({ review }) => {
   return (
     <article className={styles.review}>
       {/* header of review */}
-      <ReviewHeader
-        firstName={review.user.firstName}
-        lastName={review.user.lastName}
-        img={review.user.img}
-        rating={review.rating!}
-        createdAt={review.createdAt}
-      />
+      <ReviewHeader review={review} />
 
       {/* review text */}
       <p className={styles.review__comment}>{review.comment}</p>
 
       {/* actions */}
-      <ReviewFooter
-        like={review.like}
-        dislike={review.dislike}
-        replies={review.replies!}
-      />
+      <ReviewFooter review={review} />
 
       {isAnswerOpen &&
-        review.replies?.map(reply => (
-          <article className={styles.reviewAsnwer} key={reply.id}>
-            {/* header of answer */}
-            <ReviewHeader
-              firstName={reply.user.firstName}
-              lastName={reply.user.lastName}
-              img={reply.user.img}
-              rating={null}
-              createdAt={reply.createdAt}
-            />
+        review.replies?.map(reply =>
+          isLoadingState ? (
+            <ReviewSkeleton key={reply.id} />
+          ) : (
+            <article className={styles.reviewAsnwer} key={reply.id}>
+              {/* header of answer */}
+              <ReplyHeader review={reply} />
 
-            {/* answer text */}
-            <p className={styles.review__comment}>{reply.comment}</p>
+              {/* answer text */}
+              <p className={styles.review__comment}>{reply.comment}</p>
 
-            {/* actions */}
-            <ReviewFooter like={reply.like} dislike={reply.dislike} />
-          </article>
-        ))}
+              {/* actions */}
+              <ReplyFooter
+                review={reply}
+                setIsCommentFormOpen={setIsCommentFormOpen}
+              />
+            </article>
+          ),
+        )}
 
-      {false && <ReviewForm />}
+      {isCommentFormOpen && (
+        <ReviewForm
+          reviewId={review.id}
+          setIsCommentFormOpen={setIsCommentFormOpen}
+        />
+      )}
 
       <div className={styles.review__buttons}>
         {review.replies?.length !== 0 && (
@@ -89,7 +88,7 @@ export const Review: React.FC<Props> = ({ review }) => {
             className={styles.review__answer}
             onClick={() => setIsAnswerOpen(!isAnswerOpen)}
           >
-            <span>1 answer</span>
+            <span>{`${review.replies?.length} answer`}</span>
             <img
               src={Arrow}
               className={classNames(`${styles.review__answerIcon}`, {
@@ -100,7 +99,7 @@ export const Review: React.FC<Props> = ({ review }) => {
             />
           </button>
         )}
-        {isVisibeleButton && (
+        {isVisibleButton && (
           <button type="button" className={styles.review__viewOnPage}>
             View on Page
           </button>

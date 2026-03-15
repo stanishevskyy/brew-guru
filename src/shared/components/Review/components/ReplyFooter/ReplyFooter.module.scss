@@ -1,0 +1,77 @@
+@import '../../../../../assets/styles/main';
+
+.review {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.review__actionInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  height: 44px;
+  font-size: 16px;
+
+  font-weight: 400;
+  line-height: 20px;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.review__actionIcon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+.review__dropWrapper {
+  position: relative;
+}
+
+.review__dropDown {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.review__menu {
+  position: absolute;
+  right: 0;
+  margin-top: 8px;
+  z-index: 100;
+
+  border: 1px solid $color-stroke;
+  border-radius: 8px;
+  background-color: #f3f3f8;
+}
+
+.review__menuItem {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 98px;
+
+  padding: 10px 8px;
+  font-size: 16px;
+  font-weight: 700;
+
+  line-height: 20px;
+  color: $color-text-primary;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: rgb(134, 136, 134);
+  }
+}
+
+.review__iconItem {
+  display: block;
+  width: 24px;
+  height: 24px;
+}

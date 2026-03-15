@@ -1,24 +1,19 @@
 import React from 'react';
 
-import styles from './ReviewHeader.module.scss';
+import styles from './ReplyHeader.module.scss';
+
+import { Reply } from '../../../../types/user/user-replies.type';
 
 import { timeAgo } from '../../utils/timeAgo';
 
 //eslint-disable-next-line
 import PersonImage from '../../../../../assets/images/cafe-images/cafe-reviews-image/Picture.png';
-import { UserReview } from '../../../../types/user/user-review.type';
 
 type Props = {
-  review: UserReview;
+  review: Reply;
 };
 
-export const ReviewHeader: React.FC<Props> = ({ review }) => {
-  const preparedRating = review.rating
-    ? Number.isInteger(review.rating)
-      ? `${review.rating}.0`
-      : review.rating.toString()
-    : '';
-
+export const ReplyHeader: React.FC<Props> = ({ review }) => {
   return (
     <header className={styles.review}>
       {!review.user.img ? (
@@ -41,13 +36,6 @@ export const ReviewHeader: React.FC<Props> = ({ review }) => {
         >{`${review.user.firstName} ${review.user.lastName}`}</p>
 
         <div className={styles.review__userRate}>
-          {review.rating && (
-            <p className={styles.review__rate}>
-              <span className={styles.review__icon} aria-hidden="true"></span>
-              {preparedRating}
-            </p>
-          )}
-
           <time
             className={styles.review__rateDate}
             dateTime={timeAgo(review.createdAt)}
