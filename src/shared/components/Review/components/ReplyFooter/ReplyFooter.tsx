@@ -14,21 +14,30 @@ import DotsIcon from '../../../../../assets/icons/reviews-icons/dots-icon.svg';
 import FlagIcon from '../../../../../assets/icons/reviews-icons/flag-outline-icon.svg';
 import PencilIcon from '../../../../../assets/icons/reviews-icons/pencil-icon.svg';
 import BinIcon from '../../../../../assets/icons/reviews-icons/bin-icon.svg';
+import { deleteReplyThunk } from '../../../../../store/reviewsSlice/reviewsSlice';
 
 type Props = {
   review: Reply;
   setIsCommentFormOpen: (value: boolean) => void;
+  setDeletedReply: (value: number | null) => void;
 };
 
 export const ReplyFooter: React.FC<Props> = ({
   review,
   setIsCommentFormOpen,
+  setDeletedReply,
 }) => {
   const userId = useAppSelector(state => state.user.user?.id);
   const [isReplyModalOpen, setIsReplyModalOpen] = useState<number | null>(null);
   const dispatch = useAppDispatch();
 
-  const handleDelete = () => {};
+  const handleDelete = async () => {
+    setDeletedReply(review.id);
+    await dispatch(
+      deleteReplyThunk({ reviewId: review.reviewId, replyId: review.id }),
+    );
+    setDeletedReply(null);
+  };
 
   return (
     <footer className={styles.review}>

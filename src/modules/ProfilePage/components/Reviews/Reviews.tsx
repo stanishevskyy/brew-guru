@@ -13,6 +13,7 @@ import ArrowIcon from '../../../../assets/icons/reviews-icons/arrow-down.svg';
 import { RatingSkeleton } from '../../../../shared/components/RatingSkeleton';
 import { Review } from '../../../../shared/components/Review';
 import { Reports } from '../Reports';
+import { ReviewSkeleton } from '../../../../shared/components/ReviewSkeleton';
 
 export const Reviews = () => {
   const [isSectionOpen, setIsSectionOpen] = useState({
@@ -23,6 +24,8 @@ export const Reviews = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const reviewsState = useAppSelector(state => state.reviews);
+
+  const [deletedReview, setDeletedReview] = useState<number | null>(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -218,13 +221,18 @@ export const Reviews = () => {
           </ul>
         </nav>
         {isSectionOpen.reviews &&
-          reviewsState.reviews.map(review => (
-            <Review
-              key={review.id}
-              isLoadingState={reviewsState.loading}
-              review={review}
-            />
-          ))}
+          reviewsState.reviews.map(review =>
+            deletedReview === review.id ? (
+              <ReviewSkeleton key={review.id} />
+            ) : (
+              <Review
+                key={review.id}
+                isLoadingState={reviewsState.loading}
+                review={review}
+                setDeletedReview={setDeletedReview}
+              />
+            ),
+          )}
         {isSectionOpen.reports && <Reports />}
       </div>
     </section>

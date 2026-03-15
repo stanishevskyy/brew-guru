@@ -60,8 +60,8 @@ export const updateUserReviewThunk = createAsyncThunk<
 });
 
 export const deleteReviewThunk = createAsyncThunk<
-  number, // повертаємо reviewId
-  number, // приймаємо reviewId
+  number,
+  number,
   { rejectValue: string }
 >('reviews/deleteReview', async (reviewId, { rejectWithValue }) => {
   try {
@@ -71,6 +71,22 @@ export const deleteReviewThunk = createAsyncThunk<
   } catch (error) {
     return rejectWithValue(
       error instanceof Error ? error.message : 'Failed to delete review',
+    );
+  }
+});
+
+export const deleteReplyThunk = createAsyncThunk<
+  { reviewId: number; replyId: number },
+  { reviewId: number; replyId: number },
+  { rejectValue: string }
+>('reviews/deleteReply', async ({ reviewId, replyId }, { rejectWithValue }) => {
+  try {
+    await userReviewsService.deleteReply(reviewId, replyId);
+
+    return { reviewId, replyId };
+  } catch (error) {
+    return rejectWithValue(
+      error instanceof Error ? error.message : 'Failed to delete reply',
     );
   }
 });
@@ -132,6 +148,18 @@ export const reviewsSlice = createSlice({
       .addCase(deleteReviewThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload || 'Failed to delete review';
+      })
+      .addCase(deleteReplyThunk.fulfilled, (state, action) => {
+        state.error = null;
+        const { reviewId, replyId } = action.payload;
+        const review = state.reviews.find(r => r.id === reviewId);
+
+        if (review?.replies) {
+          review.replies = review.replies.filter(r => r.id !== replyId);
+        }
+      })
+      .addCase(deleteReplyThunk.rejected, (state, action) => {
+        state.error = action.payload || 'Failed to delete reply';
       });
   },
 });

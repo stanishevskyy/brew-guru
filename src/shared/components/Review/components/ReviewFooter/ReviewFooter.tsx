@@ -18,17 +18,20 @@ import { deleteReviewThunk } from '../../../../../store/reviewsSlice/reviewsSlic
 
 type Props = {
   review: UserReview;
+  setDeletedReview: (value: number | null) => void;
 };
 
-export const ReviewFooter: React.FC<Props> = ({ review }) => {
+export const ReviewFooter: React.FC<Props> = ({ review, setDeletedReview }) => {
   const [isModalOpen, setIsModalOpen] = useState<number | null>(null);
 
   const userId = useAppSelector(state => state.user.user?.id);
   const dispatch = useAppDispatch();
 
   const handleDelete = async () => {
+    setDeletedReview(review.id);
     await dispatch(deleteReviewThunk(review.id));
 
+    setDeletedReview(null);
     setIsModalOpen(null);
   };
 

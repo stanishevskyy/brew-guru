@@ -19,15 +19,21 @@ import Arrow from '../../../assets/icons/reviews-icons/arrow-down.svg';
 type Props = {
   isLoadingState: boolean;
   review: UserReview;
+  setDeletedReview: (value: number | null) => void;
 };
 
-export const Review: React.FC<Props> = ({ isLoadingState, review }) => {
-  const [isAnswerOpen, setIsAnswerOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+export const Review: React.FC<Props> = ({
+  review,
+  isLoadingState,
+  setDeletedReview,
+}) => {
   const { pathname } = useLocation();
   const isVisibleButton = pathname === '/profile/reviews';
 
+  const [isLoading, setIsLoading] = useState(true);
+  const [isAnswerOpen, setIsAnswerOpen] = useState(false);
   const [isCommentFormOpen, setIsCommentFormOpen] = useState(false);
+  const [deletedReply, setDeletedReply] = useState<number | null>(null);
 
   useEffect(() => {
     const timerId = setTimeout(() => {
@@ -50,11 +56,11 @@ export const Review: React.FC<Props> = ({ isLoadingState, review }) => {
       <p className={styles.review__comment}>{review.comment}</p>
 
       {/* actions */}
-      <ReviewFooter review={review} />
+      <ReviewFooter review={review} setDeletedReview={setDeletedReview} />
 
       {isAnswerOpen &&
         review.replies?.map(reply =>
-          isLoadingState ? (
+          deletedReply === reply.id || isLoadingState ? (
             <ReviewSkeleton key={reply.id} />
           ) : (
             <article className={styles.reviewAsnwer} key={reply.id}>
@@ -68,6 +74,7 @@ export const Review: React.FC<Props> = ({ isLoadingState, review }) => {
               <ReplyFooter
                 review={reply}
                 setIsCommentFormOpen={setIsCommentFormOpen}
+                setDeletedReply={setDeletedReply}
               />
             </article>
           ),

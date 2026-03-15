@@ -1,5 +1,5 @@
 export const wait = () => {
-  return new Promise(resolve => setTimeout(resolve, 1300));
+  return new Promise(resolve => setTimeout(resolve, 300));
 };
 
 type RequestMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
@@ -32,8 +32,6 @@ export const request = async <T>(
   method: RequestMethod = 'GET',
   data: any = null,
 ): Promise<T> => {
-  await wait();
-
   let token = localStorage.getItem('accessToken');
   const options: RequestInit = { method };
 
