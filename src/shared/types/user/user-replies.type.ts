@@ -9,6 +9,6 @@ export interface Reply {
   };
   createdAt: string;
   comment: string;
-  like: number | null;
-  dislike: number | null;
+  like: number[];
+  dislike: number[];
 }

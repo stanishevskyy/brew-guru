@@ -2,18 +2,27 @@ import { useEffect, useState } from 'react';
 
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
+import classNames from 'classnames';
 
 import styles from './Reviews.module.scss';
 
+import { useAppSelector } from '../../../../store/hooks';
+
 import ArrowIcon from '../../../../assets/icons/reviews-icons/arrow-down.svg';
-import classNames from 'classnames';
-import { NavLink, Outlet } from 'react-router-dom';
-import { getClassLink } from '../../../../shared/utils/getActiveClass';
+
 import { RatingSkeleton } from '../../../../shared/components/RatingSkeleton';
+import { Review } from '../../../../shared/components/Review';
+import { Reports } from '../Reports';
 
 export const Reviews = () => {
+  const [isSectionOpen, setIsSectionOpen] = useState({
+    reviews: true,
+    reports: false,
+  });
   const [isRatingOpen, setIsRatingOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
+  const reviews = useAppSelector(state => state.reviews);
 
   useEffect(() => {
     setTimeout(() => {
@@ -177,54 +186,42 @@ export const Reviews = () => {
         <nav className={styles.reviews__nav}>
           <ul className={styles.reviews__list}>
             <li className={styles.reviews__item}>
-              <NavLink
-                to="/profile/reviews"
-                end
-                className={({ isActive }) =>
-                  getClassLink({
-                    isActive,
-                    baseClass: styles.reviews__link,
-                    activeClass: styles.reviews__linkActive,
-                  })
+              <div
+                className={classNames(`${styles.reviews__link}`, {
+                  [styles.reviews__linkActive]: isSectionOpen.reviews,
+                })}
+                onClick={() =>
+                  setIsSectionOpen(() => ({
+                    reports: false,
+                    reviews: true,
+                  }))
                 }
               >
                 My reviews
-              </NavLink>
+              </div>
             </li>
             <li className={styles.reviews__item}>
-              <NavLink
-                to="/profile/reviews/answer"
-                end
-                className={({ isActive }) =>
-                  getClassLink({
-                    isActive,
-                    baseClass: styles.reviews__link,
-                    activeClass: styles.reviews__linkActive,
-                  })
-                }
-              >
-                Answer
-              </NavLink>
-            </li>
-            <li className={styles.reviews__item}>
-              <NavLink
-                to="/profile/reviews/reports"
-                end
-                className={({ isActive }) =>
-                  getClassLink({
-                    isActive,
-                    baseClass: styles.reviews__link,
-                    activeClass: styles.reviews__linkActive,
-                  })
+              <div
+                className={classNames(`${styles.reviews__link}`, {
+                  [styles.reviews__linkActive]: isSectionOpen.reports,
+                })}
+                onClick={() =>
+                  setIsSectionOpen(() => ({
+                    reports: true,
+                    reviews: false,
+                  }))
                 }
               >
                 Reports
-              </NavLink>
+              </div>
             </li>
           </ul>
         </nav>
-
-        <Outlet />
+        {isSectionOpen.reviews &&
+          reviews.reviews.map(review => (
+            <Review key={review.id} review={review} />
+          ))}
+        {isSectionOpen.reports && <Reports />}
       </div>
     </section>
   );

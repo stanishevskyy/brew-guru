@@ -1,0 +1,59 @@
+@import '../../../../../assets/styles/main';
+
+.review {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.review__img {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+}
+
+.review__userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.review__user {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31px;
+  color: $color-text-primary;
+}
+
+.review__userRate {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.review__rate {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+
+  font-weight: 400;
+  line-height: 15px;
+  color: $color-text-primary;
+}
+
+.review__icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url('../../../../../assets/icons/cafe-icons/star-icon.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.review__rateDate {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  color: #7f7f94;
+}

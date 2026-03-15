@@ -18,11 +18,13 @@ import { ChangePhotoModal } from './components/ChangePhotoModal';
 import AvatarMobile from '../../assets/images/profile-images/avatar-mobile.png';
 //eslint-disable-next-line
 import AvatarAll from '../../assets/images/profile-images/avatar-tablet-more.png';
+import { fetchUserReviewsThunk } from '../../store/reviewsSlice/reviewsSlice';
 
 export const ProfilePage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const userState = useAppSelector(state => state.user);
+  const userReviews = useAppSelector(state => state.reviews.reviews);
   const userHistories = useAppSelector(state => state.history.history);
   const dispatch = useAppDispatch();
 
@@ -30,7 +32,9 @@ export const ProfilePage = () => {
   const [isChangePhotoOpen, setIsChangePhotoOpen] = useState(false);
 
   const isHistoryDisabled = userHistories.length === 0;
+  const isReviewsDisabled = userReviews.length === 0;
   const [isHistoryLabelOpen, setIsHistoryLabelOpen] = useState(false);
+  const [isReviewsLabelOpen, setIsReviewsLabelOpen] = useState(false);
 
   useEffect(() => {
     const timeId = setTimeout(() => {
@@ -44,6 +48,7 @@ export const ProfilePage = () => {
 
   useEffect(() => {
     dispatch(fetchUserHistoryThunk(userState.user?.id as number));
+    dispatch(fetchUserReviewsThunk(userState.user?.id as number));
   }, []);
 
   useEffect(() => {
@@ -106,22 +111,39 @@ export const ProfilePage = () => {
                     </NavLink>
                   </li>
                   <li role="none" className={styles.profile__itemSelect}>
-                    <NavLink
-                      to="/profile/reviews"
-                      end
-                      role="menuitem"
-                      className={({ isActive }) =>
-                        getClassLink({
-                          isActive,
-                          baseClass: styles.profile__linkSelect,
-                          activeClass: styles.profile__linkSelectMobileActive,
-                        })
-                      }
-                      onClick={() => setIsNavSelectOpen(false)}
-                    >
-                      Reviews
-                    </NavLink>
-                    {false && (
+                    {isReviewsDisabled ? (
+                      <div
+                        className={styles.profile__disableItem}
+                        onClick={() => {
+                          setIsReviewsLabelOpen(true);
+
+                          const timer = setTimeout(() => {
+                            setIsReviewsLabelOpen(false);
+                          }, 1500);
+
+                          return () => clearTimeout(timer);
+                        }}
+                      >
+                        Reviews
+                      </div>
+                    ) : (
+                      <NavLink
+                        to="/profile/reviews"
+                        end
+                        role="menuitem"
+                        className={({ isActive }) =>
+                          getClassLink({
+                            isActive,
+                            baseClass: styles.profile__linkSelect,
+                            activeClass: styles.profile__linkSelectMobileActive,
+                          })
+                        }
+                        onClick={() => setIsNavSelectOpen(false)}
+                      >
+                        Reviews
+                      </NavLink>
+                    )}
+                    {isReviewsLabelOpen && (
                       <div className={styles.profile__message}>
                         This tab will become active when you have history.
                       </div>

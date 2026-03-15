@@ -12,7 +12,7 @@ export interface UserReview {
   rating?: number;
   createdAt: string;
   comment: string;
-  like: number | null;
-  dislike: number | null;
+  like: number[];
+  dislike: number[];
   replies?: Reply[];
 }
