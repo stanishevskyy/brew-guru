@@ -26,11 +26,16 @@
   color: $color-text-primary;
 }
 
+.review__buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .review__answer {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-right: auto;
   padding: 9px 10px;
   font-size: 16px;
   font-weight: 400;
@@ -50,6 +55,33 @@
 
 .review__answerIconActive {
   transform: rotate(180deg);
+}
+
+.review__viewOnPage {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #204dee;
+  color: #204dee;
+  background-color: inherit;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-white;
+    background-color: #bcbcff;
+  }
+
+  &:active {
+    background-color: #7171ff;
+  }
+
+  &:disabled {
+    border: 1px solid #7e99f6;
+    color: #7e99f6;
+    background-color: $color-white;
+  }
 }
 
 .reviews__form {

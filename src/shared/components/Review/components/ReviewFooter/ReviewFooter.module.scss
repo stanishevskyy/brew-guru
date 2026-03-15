@@ -43,23 +43,30 @@
   position: absolute;
   right: 0;
   margin-top: 8px;
-  padding: 10px 8px;
+
   border: 1px solid $color-stroke;
   border-radius: 8px;
   background-color: #f3f3f8;
 }
 
 .review__menuItem {
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 4px;
   width: 98px;
 
+  padding: 10px 8px;
   font-size: 16px;
   font-weight: 700;
 
   line-height: 20px;
   color: $color-text-primary;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: rgb(134, 136, 134);
+  }
 }
 
 .review__iconItem {

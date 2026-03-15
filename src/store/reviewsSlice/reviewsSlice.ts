@@ -30,6 +30,20 @@ export const fetchUserReviewsThunk = createAsyncThunk<
   }
 });
 
+export const updateUserReviewThunk = createAsyncThunk<
+  UserReview,
+  UserReview,
+  { rejectValue: string }
+>('reviews/updateUserReview', async (review, { rejectWithValue }) => {
+  try {
+    return await userReviewsService.updateUserReview(review);
+  } catch (error) {
+    return rejectWithValue(
+      error instanceof Error ? error.message : 'Failed to update review',
+    );
+  }
+});
+
 export const reviewsSlice = createSlice({
   name: 'reviews',
   initialState,

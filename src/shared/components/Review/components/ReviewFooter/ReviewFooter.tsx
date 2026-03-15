@@ -1,27 +1,33 @@
+/* eslint-disable max-len */
 import React from 'react';
 
 import styles from './ReviewFooter.module.scss';
 
+import { useAppDispatch } from '../../../../../store/hooks';
+
 import { Reply } from '../../../../types/user/user-replies.type';
 
-//eslint-disable-next-line
 import HeartIcon from '../../../../../assets/icons/reviews-icons/heart-icon.svg';
-//eslint-disable-next-line
 import HeartBrokenIcon from '../../../../../assets/icons/reviews-icons/heart-broken-icon.svg';
-//eslint-disable-next-line
 import CommentIcon from '../../../../../assets/icons/reviews-icons/comment-icon.svg';
-//eslint-disable-next-line
 import DotsIcon from '../../../../../assets/icons/reviews-icons/dots-icon.svg';
-//eslint-disable-next-line
 import FlagIcon from '../../../../../assets/icons/reviews-icons/flag-outline-icon.svg';
+import PencilIcon from '../../../../../assets/icons/reviews-icons/pencil-icon.svg';
+import BinIcon from '../../../../../assets/icons/reviews-icons/bin-icon.svg';
 
 type Props = {
   like: number[];
   dislike: number[];
-  replies: Reply[];
+  replies?: Reply[];
 };
 
-export const ReviewFooter: React.FC<Props> = ({ like, dislike, replies }) => {
+export const ReviewFooter: React.FC<Props> = ({
+  like,
+  dislike,
+  replies = [],
+}) => {
+  const dispatch = useAppDispatch();
+
   return (
     <footer className={styles.review}>
       <button
@@ -63,7 +69,7 @@ export const ReviewFooter: React.FC<Props> = ({ like, dislike, replies }) => {
           className={styles.review__actionIcon}
           aria-hidden="true"
         />
-        {replies?.length}
+        {replies?.length !== 0 ? replies?.length : ''}
       </button>
 
       <div className={styles.review__dropWrapper}>
@@ -76,22 +82,48 @@ export const ReviewFooter: React.FC<Props> = ({ like, dislike, replies }) => {
         >
           <img src={DotsIcon} alt="" aria-hidden="true" />
         </button>
-        {false && (
-          <div className={styles.review__menu} role="menu">
-            <ul>
-              <li>
-                <button role="menuitem" className={styles.review__menuItem}>
-                  <img
-                    src={FlagIcon}
-                    alt=""
-                    className={styles.review__iconItem}
-                  />
-                  Report
-                </button>
-              </li>
-            </ul>
-          </div>
-        )}
+        {false &&
+          (false ? (
+            <div className={styles.review__menu} role="menu">
+              <ul>
+                <li>
+                  <button role="menuitem" className={styles.review__menuItem}>
+                    <img
+                      src={PencilIcon}
+                      alt=""
+                      className={styles.review__iconItem}
+                    />
+                    Edit
+                  </button>
+                </li>
+                <li>
+                  <button role="menuitem" className={styles.review__menuItem}>
+                    <img
+                      src={BinIcon}
+                      alt=""
+                      className={styles.review__iconItem}
+                    />
+                    Delete
+                  </button>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <div className={styles.review__menu} role="menu">
+              <ul>
+                <li>
+                  <button role="menuitem" className={styles.review__menuItem}>
+                    <img
+                      src={FlagIcon}
+                      alt=""
+                      className={styles.review__iconItem}
+                    />
+                    Report
+                  </button>
+                </li>
+              </ul>
+            </div>
+          ))}
       </div>
     </footer>
   );

@@ -10,13 +10,15 @@ import PersonImage from '../../../../../assets/images/cafe-images/cafe-reviews-i
 type Props = {
   firstName: string;
   lastName: string;
-  rating: number | undefined;
+  img: string;
+  rating: number | null;
   createdAt: string;
 };
 
 export const ReviewHeader: React.FC<Props> = ({
   firstName,
   lastName,
+  img,
   rating,
   createdAt,
 }) => {
@@ -28,20 +30,30 @@ export const ReviewHeader: React.FC<Props> = ({
 
   return (
     <header className={styles.review}>
-      <img
-        src={PersonImage}
-        alt="User avatar Darlene Robertson"
-        className={styles.review__img}
-      />
+      {!img ? (
+        <img
+          src={img}
+          alt="User avatar Darlene Robertson"
+          className={styles.review__img}
+        />
+      ) : (
+        <img
+          src={PersonImage}
+          alt="User avatar Darlene Robertson"
+          className={styles.review__img}
+        />
+      )}
 
       <div className={styles.review__userInfo}>
         <p className={styles.review__user}>{`${firstName} ${lastName}`}</p>
 
         <div className={styles.review__userRate}>
-          <p className={styles.review__rate}>
-            <span className={styles.review__icon} aria-hidden="true"></span>
-            {preparedRating}
-          </p>
+          {rating && (
+            <p className={styles.review__rate}>
+              <span className={styles.review__icon} aria-hidden="true"></span>
+              {preparedRating}
+            </p>
+          )}
 
           <time
             className={styles.review__rateDate}

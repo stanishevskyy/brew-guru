@@ -7,12 +7,12 @@ import styles from './Review.module.scss';
 import { ReviewSkeleton } from '../ReviewSkeleton';
 import { ReviewHeader } from './components/ReviewHeader';
 import { ReviewFooter } from './components/ReviewFooter';
+import { ReviewForm } from './components/ReviewForm';
 
 import { UserReview } from '../../types/user/user-review.type';
 
 //eslint-disable-next-line
 import Arrow from '../../../assets/icons/reviews-icons/arrow-down.svg';
-import { ReviewForm } from './components/ReviewForm';
 
 type Props = {
   review: UserReview;
@@ -22,6 +22,9 @@ export const Review: React.FC<Props> = ({ review }) => {
   const [isAnswerOpen, setIsAnswerOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const { pathname } = useLocation();
+  const isVisibeleButton = pathname === '/profile/reviews';
+
+  const [isCommentModalOpen, setIsCommentModalOpen] = useState(false);
 
   useEffect(() => {
     const timerId = setTimeout(() => {
@@ -41,7 +44,8 @@ export const Review: React.FC<Props> = ({ review }) => {
       <ReviewHeader
         firstName={review.user.firstName}
         lastName={review.user.lastName}
-        rating={review.rating}
+        img={review.user.img}
+        rating={review.rating!}
         createdAt={review.createdAt}
       />
 
@@ -55,49 +59,53 @@ export const Review: React.FC<Props> = ({ review }) => {
         replies={review.replies!}
       />
 
-      {isAnswerOpen && (
-        <article className={styles.reviewAsnwer}>
-          {/* header of answer */}
-          <ReviewHeader
-            firstName={review.user.firstName}
-            lastName={review.user.lastName}
-            rating={review.rating}
-            createdAt={review.createdAt}
-          />
+      {isAnswerOpen &&
+        review.replies?.map(reply => (
+          <article className={styles.reviewAsnwer} key={reply.id}>
+            {/* header of answer */}
+            <ReviewHeader
+              firstName={reply.user.firstName}
+              lastName={reply.user.lastName}
+              img={reply.user.img}
+              rating={null}
+              createdAt={reply.createdAt}
+            />
 
-          {/* answer text */}
-          <p className={styles.review__comment}>
-            I agree but when I sat under the air conditioner it was very hot. I
-            do not recommend these seats.
-          </p>
+            {/* answer text */}
+            <p className={styles.review__comment}>{reply.comment}</p>
 
-          {/* actions */}
-          <ReviewFooter
-            like={review.like}
-            dislike={review.dislike}
-            replies={review.replies!}
-          />
-        </article>
-      )}
+            {/* actions */}
+            <ReviewFooter like={reply.like} dislike={reply.dislike} />
+          </article>
+        ))}
 
       {false && <ReviewForm />}
 
-      <button
-        type="button"
-        aria-label={isAnswerOpen ? 'Hide answer' : 'Show answer'}
-        className={styles.review__answer}
-        onClick={() => setIsAnswerOpen(!isAnswerOpen)}
-      >
-        <span>1 answer</span>
-        <img
-          src={Arrow}
-          className={classNames(`${styles.review__answerIcon}`, {
-            [styles.review__answerIconActive]: isAnswerOpen,
-          })}
-          alt=""
-          aria-hidden="true"
-        />
-      </button>
+      <div className={styles.review__buttons}>
+        {review.replies?.length !== 0 && (
+          <button
+            type="button"
+            aria-label={isAnswerOpen ? 'Hide answer' : 'Show answer'}
+            className={styles.review__answer}
+            onClick={() => setIsAnswerOpen(!isAnswerOpen)}
+          >
+            <span>1 answer</span>
+            <img
+              src={Arrow}
+              className={classNames(`${styles.review__answerIcon}`, {
+                [styles.review__answerIconActive]: isAnswerOpen,
+              })}
+              alt=""
+              aria-hidden="true"
+            />
+          </button>
+        )}
+        {isVisibeleButton && (
+          <button type="button" className={styles.review__viewOnPage}>
+            View on Page
+          </button>
+        )}
+      </div>
     </article>
   );
 };
