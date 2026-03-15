@@ -67,6 +67,19 @@
   background-color: inherit;
 }
 
+.user__inputDefault {
+  flex: 2;
+  height: 40px;
+  padding: 10px 8px;
+  border: 1px solid $color-stroke;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: $color-text-primary;
+  background-color: inherit;
+}
+
 .user__phone {
   display: flex;
   flex-direction: column;
@@ -78,9 +91,19 @@
   }
 }
 
+.user__inputPhone,
+.user__inputEmail,
+.user__inputPassword {
+  border: 1px solid #204dee;
+}
+
 .user__inputSkeletonSpec {
   flex: 2;
   height: 42px;
+}
+
+.user__error {
+  color: red;
 }
 
 .user__changeBtn {
@@ -263,6 +286,34 @@
 
   &:focus + .user__slider {
     box-shadow: 0 0 1px #9cb1ff;
+  }
+}
+
+.settings__loaderOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.settings__loaderOverlay::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  border-top: 2px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 
