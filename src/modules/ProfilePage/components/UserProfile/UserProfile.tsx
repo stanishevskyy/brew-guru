@@ -65,6 +65,8 @@ export const UserProfile = () => {
     };
 
     await dispatch(updateUserThunk(updatedUser));
+
+    setChangeData({ phone: false, email: false, password: false });
   };
 
   useEffect(() => {
