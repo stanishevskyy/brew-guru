@@ -11,6 +11,7 @@ import {
 
 import { UserReview } from '../../../../types/user/user-review.type';
 import { Reply } from '../../../../types/user/user-replies.type';
+import { EditType } from '../../Review';
 
 import HeartIcon from '../../../../../assets/icons/reviews-icons/heart-icon.svg';
 import LikeIcon from '../../../../../assets/icons/reviews-icons/like.svg';
@@ -27,6 +28,7 @@ type Props = {
   reply: Reply;
   setIsCommentFormOpen: (value: boolean) => void;
   setDeletedReply: (value: number | null) => void;
+  setIsEdit: React.Dispatch<React.SetStateAction<EditType | null>>;
 };
 
 export const ReplyFooter: React.FC<Props> = ({
@@ -34,6 +36,7 @@ export const ReplyFooter: React.FC<Props> = ({
   reply,
   setIsCommentFormOpen,
   setDeletedReply,
+  setIsEdit,
 }) => {
   const userId = useAppSelector(state => state.user.user?.id);
   const [isReplyModalOpen, setIsReplyModalOpen] = useState<number | null>(null);
@@ -169,7 +172,13 @@ export const ReplyFooter: React.FC<Props> = ({
             <div className={styles.review__menu} role="menu">
               <ul>
                 <li>
-                  <button role="menuitem" className={styles.review__menuItem}>
+                  <button
+                    role="menuitem"
+                    className={styles.review__menuItem}
+                    onMouseDown={() =>
+                      setIsEdit({ type: 'reply', id: reply.id })
+                    }
+                  >
                     <img
                       src={PencilIcon}
                       alt=""

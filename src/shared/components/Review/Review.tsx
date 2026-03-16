@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/indent */
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import classNames from 'classnames';
@@ -16,6 +17,16 @@ import { UserReview } from '../../types/user/user-review.type';
 //eslint-disable-next-line
 import Arrow from '../../../assets/icons/reviews-icons/arrow-down.svg';
 
+export type EditType = {
+  type: 'review' | 'reply';
+  id: number;
+};
+
+export type LoadingType = {
+  reviewId: number | null;
+  replyId: number | null;
+};
+
 type Props = {
   isLoadingState: boolean;
   review: UserReview;
@@ -33,6 +44,11 @@ export const Review: React.FC<Props> = ({
   const [isLoading, setIsLoading] = useState(true);
   const [isAnswerOpen, setIsAnswerOpen] = useState(false);
   const [isCommentFormOpen, setIsCommentFormOpen] = useState(false);
+  const [isEdit, setIsEdit] = useState<EditType | null>(null);
+  const [isEditLoading, setIsEditLoading] = useState<LoadingType>({
+    reviewId: null,
+    replyId: null,
+  });
   const [deletedReply, setDeletedReply] = useState<number | null>(null);
 
   useEffect(() => {
@@ -43,7 +59,7 @@ export const Review: React.FC<Props> = ({
     return () => clearTimeout(timerId);
   }, [pathname]);
 
-  if (isLoading) {
+  if (isLoading || isEditLoading.reviewId === review.id) {
     return <ReviewSkeleton />;
   }
 
@@ -56,11 +72,17 @@ export const Review: React.FC<Props> = ({
       <p className={styles.review__comment}>{review.comment}</p>
 
       {/* actions */}
-      <ReviewFooter review={review} setDeletedReview={setDeletedReview} />
+      <ReviewFooter
+        review={review}
+        setDeletedReview={setDeletedReview}
+        setIsEdit={setIsEdit}
+      />
 
       {isAnswerOpen &&
         review.replies?.map(reply =>
-          deletedReply === reply.id || isLoadingState ? (
+          deletedReply === reply.id ||
+          isLoadingState ||
+          isEditLoading?.replyId === reply.id ? (
             <ReviewSkeleton key={reply.id} />
           ) : (
             <article className={styles.reviewAsnwer} key={reply.id}>
@@ -76,15 +98,19 @@ export const Review: React.FC<Props> = ({
                 reply={reply}
                 setIsCommentFormOpen={setIsCommentFormOpen}
                 setDeletedReply={setDeletedReply}
+                setIsEdit={setIsEdit}
               />
             </article>
           ),
         )}
 
-      {isCommentFormOpen && (
+      {(isCommentFormOpen || isEdit?.id) && (
         <ReviewForm
           reviewId={review.id}
           setIsCommentFormOpen={setIsCommentFormOpen}
+          isEdit={isEdit}
+          setIsEdit={setIsEdit}
+          setIsEditLoading={setIsEditLoading}
         />
       )}
 

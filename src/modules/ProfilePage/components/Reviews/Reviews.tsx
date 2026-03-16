@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
@@ -32,6 +33,10 @@ export const Reviews = () => {
       setIsLoading(false);
     }, 300);
   }, []);
+
+  if (reviewsState.reviews.length === 0) {
+    return <Navigate to="/profile" />;
+  }
 
   return (
     <section className={styles.reviews}>

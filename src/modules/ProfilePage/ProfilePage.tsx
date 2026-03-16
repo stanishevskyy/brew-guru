@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 
 import styles from './ProfilePage.module.scss';
@@ -22,6 +22,7 @@ import { fetchUserReviewsThunk } from '../../store/reviewsSlice/reviewsSlice';
 
 export const ProfilePage = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const { pathname } = useLocation();
 
   const userState = useAppSelector(state => state.user);
   const userReviews = useAppSelector(state => state.reviews.reviews);
@@ -49,7 +50,8 @@ export const ProfilePage = () => {
   useEffect(() => {
     dispatch(fetchUserHistoryThunk(userState.user?.id as number));
     dispatch(fetchUserReviewsThunk(userState.user?.id as number));
-  }, []);
+    dispatch(fetchUserReviewsThunk(userState.user?.id as number));
+  }, [pathname, dispatch, userState.user?.id]);
 
   useEffect(() => {
     if (isChangePhotoOpen) {
@@ -145,7 +147,7 @@ export const ProfilePage = () => {
                     )}
                     {isReviewsLabelOpen && (
                       <div className={styles.profile__message}>
-                        This tab will become active when you have history.
+                        This tab will become active when you have reviews.
                       </div>
                     )}
                   </li>
@@ -230,21 +232,31 @@ export const ProfilePage = () => {
               </NavLink>
             </li>
             <li className={styles.profile__itemSelect}>
-              <NavLink
-                to="/profile/reviews"
-                className={({ isActive }) =>
-                  getClassLink({
-                    isActive,
-                    baseClass: styles.profile__linkSelect,
-                    activeClass: styles.profile__linkSelectActive,
-                  })
-                }
-              >
-                Reviews
-              </NavLink>
-              {false && (
+              {isReviewsDisabled ? (
+                <div
+                  className={styles.profile__disableItem}
+                  onMouseOver={() => setIsReviewsLabelOpen(true)}
+                  onMouseLeave={() => setIsReviewsLabelOpen(false)}
+                >
+                  Reviews
+                </div>
+              ) : (
+                <NavLink
+                  to="/profile/reviews"
+                  className={({ isActive }) =>
+                    getClassLink({
+                      isActive,
+                      baseClass: styles.profile__linkSelect,
+                      activeClass: styles.profile__linkSelectActive,
+                    })
+                  }
+                >
+                  Reviews
+                </NavLink>
+              )}
+              {isReviewsLabelOpen && (
                 <div className={styles.profile__message}>
-                  This tab will become active when you have history.
+                  This tab will become active when you have reviews.
                 </div>
               )}
             </li>

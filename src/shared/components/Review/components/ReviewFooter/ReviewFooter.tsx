@@ -4,8 +4,13 @@ import React, { useState } from 'react';
 import styles from './ReviewFooter.module.scss';
 
 import { useAppDispatch, useAppSelector } from '../../../../../store/hooks';
+import {
+  deleteReviewThunk,
+  updateUserReviewThunk,
+} from '../../../../../store/reviewsSlice/reviewsSlice';
 
 import { UserReview } from '../../../../types/user/user-review.type';
+import { EditType } from '../../Review';
 
 import HeartIcon from '../../../../../assets/icons/reviews-icons/heart-icon.svg';
 import LikeIcon from '../../../../../assets/icons/reviews-icons/like.svg';
@@ -16,17 +21,18 @@ import DotsIcon from '../../../../../assets/icons/reviews-icons/dots-icon.svg';
 import FlagIcon from '../../../../../assets/icons/reviews-icons/flag-outline-icon.svg';
 import PencilIcon from '../../../../../assets/icons/reviews-icons/pencil-icon.svg';
 import BinIcon from '../../../../../assets/icons/reviews-icons/bin-icon.svg';
-import {
-  deleteReviewThunk,
-  updateUserReviewThunk,
-} from '../../../../../store/reviewsSlice/reviewsSlice';
 
 type Props = {
   review: UserReview;
   setDeletedReview: (value: number | null) => void;
+  setIsEdit: React.Dispatch<React.SetStateAction<EditType | null>>;
 };
 
-export const ReviewFooter: React.FC<Props> = ({ review, setDeletedReview }) => {
+export const ReviewFooter: React.FC<Props> = ({
+  review,
+  setDeletedReview,
+  setIsEdit,
+}) => {
   const [isModalOpen, setIsModalOpen] = useState<number | null>(null);
 
   const userId = useAppSelector(state => state.user.user?.id);
@@ -158,7 +164,13 @@ export const ReviewFooter: React.FC<Props> = ({ review, setDeletedReview }) => {
             <div className={styles.review__menu} role="menu">
               <ul>
                 <li>
-                  <button role="menuitem" className={styles.review__menuItem}>
+                  <button
+                    role="menuitem"
+                    className={styles.review__menuItem}
+                    onMouseDown={() =>
+                      setIsEdit({ type: 'review', id: review.id })
+                    }
+                  >
                     <img
                       src={PencilIcon}
                       alt=""
