@@ -4,8 +4,8 @@ import { UserReport } from '../shared/types/user/user-reports.type';
 
 const STORAGE_KEY = 'reports';
 
-export const settingsService = {
-  getSettings: async (): Promise<UserReport[]> => {
+export const reportsService = {
+  getReports: async (): Promise<UserReport[]> => {
     try {
       await wait();
 
