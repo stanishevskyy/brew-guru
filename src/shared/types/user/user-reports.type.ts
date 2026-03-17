@@ -1,14 +1,9 @@
 export type ReportStatus = 'Warning' | 'Under review' | 'Complaint Dismissed';
 
-export type ReportTargetType = 'review' | 'reply';
-
 export interface UserReport {
   id: number;
 
-  cafeId: number;
-
   targetId: number;
-  targetType: ReportTargetType;
 
   reportedUserId: number;
   reportedBy: {
