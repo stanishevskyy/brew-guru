@@ -15,7 +15,9 @@ export const settingsService = {
         return JSON.parse(stored);
       }
 
-      const data = await request<UserReport[]>('users/reports/reports.json');
+      const data = await request<UserReport[]>(
+        'users/review-reports/review-reports.json',
+      );
 
       localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 

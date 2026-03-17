@@ -1,0 +1,87 @@
+[
+  {
+    "id": 1,
+    "targetId": 1,
+    "targetType": "review",
+    "reportedUserId": 1,
+    "cafeName": "Coffee House",
+    "reportedBy": {
+      "id": 2,
+      "firstName": "Jane",
+      "lastName": "Smith"
+    },
+    "createdAt": "2026-03-05T10:00:00Z",
+    "comment": "Дуже затишне місце та смачна кава!",
+    "reportReason": "Spam",
+    "systemMessage": "Report received and pending moderation.",
+    "status": "Under review"
+  },
+  {
+    "id": 2,
+    "targetId": 1,
+    "targetType": "review",
+    "reportedUserId": 1,
+    "cafeName": "Coffee House",
+    "reportedBy": {
+      "id": 3,
+      "firstName": "Alice",
+      "lastName": "Johnson"
+    },
+    "createdAt": "2026-03-05T11:30:00Z",
+    "comment": "Дуже затишне місце та смачна кава!",
+    "reportReason": "Spam",
+    "systemMessage": "User warned by moderator.",
+    "status": "Warning"
+  },
+  {
+    "id": 3,
+    "targetId": 2,
+    "targetType": "review",
+    "reportedUserId": 2,
+    "cafeName": "Latte Cafe",
+    "reportedBy": {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Doe"
+    },
+    "createdAt": "2026-03-06T09:15:00Z",
+    "comment": "Погоджуюсь, тут найкращий латте!",
+    "reportReason": "Spam",
+    "systemMessage": "Complaint dismissed after moderation.",
+    "status": "Complaint Dismissed"
+  },
+  {
+    "id": 4,
+    "targetId": 3,
+    "targetType": "review",
+    "reportedUserId": 3,
+    "cafeName": "Weekend Coffee",
+    "reportedBy": {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Doe"
+    },
+    "createdAt": "2026-03-06T12:45:00Z",
+    "comment": "Треба буде зайти сюди на вихідних.",
+    "reportReason": "Spam",
+    "systemMessage": "Report is being reviewed.",
+    "status": "Under review"
+  },
+  {
+    "id": 5,
+    "targetId": 2,
+    "targetType": "reply",
+    "reportedUserId": 3,
+    "cafeName": "Coffee House",
+    "reportedBy": {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Doe"
+    },
+    "createdAt": "2026-03-07T14:20:00Z",
+    "comment": "Треба буде зайти сюди на вихідних.",
+    "reportReason": "Offensive content",
+    "systemMessage": "Reply report is under moderation.",
+    "status": "Under review"
+  }
+]
