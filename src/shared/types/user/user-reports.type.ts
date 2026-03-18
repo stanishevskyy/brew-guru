@@ -4,7 +4,7 @@ export interface UserReport {
   id: number;
 
   targetId: number;
-
+  cafeName: string;
   reportedUserId: number;
   reportedBy: {
     id: number;

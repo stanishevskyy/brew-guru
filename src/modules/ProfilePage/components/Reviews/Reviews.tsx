@@ -13,7 +13,7 @@ import ArrowIcon from '../../../../assets/icons/reviews-icons/arrow-down.svg';
 
 import { RatingSkeleton } from '../../../../shared/components/RatingSkeleton';
 import { Review } from '../../../../shared/components/Review';
-import { Reports } from '../Reports';
+import { UserReports } from '../UserReports';
 import { ReviewSkeleton } from '../../../../shared/components/ReviewSkeleton';
 
 export const Reviews = () => {
@@ -25,6 +25,7 @@ export const Reviews = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const reviewsState = useAppSelector(state => state.reviews);
+  const reportsState = useAppSelector(state => state.reports);
 
   const [deletedReview, setDeletedReview] = useState<number | null>(null);
 
@@ -238,7 +239,10 @@ export const Reviews = () => {
               />
             ),
           )}
-        {isSectionOpen.reports && <Reports />}
+        {isSectionOpen.reports &&
+          reportsState.reports.map(report => (
+            <UserReports key={report.id} report={report} />
+          ))}
       </div>
     </section>
   );

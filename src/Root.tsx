@@ -22,8 +22,6 @@ import { CreateUser } from './modules/AuthPage/CreateUser';
 import { UserProfile } from './modules/ProfilePage/components/UserProfile';
 import { History } from './modules/ProfilePage/components/History';
 import { Reviews } from './modules/ProfilePage/components/Reviews';
-import { Review } from './shared/components/Review';
-import { Reports } from './modules/ProfilePage/components/Reports';
 import { Settings } from './modules/ProfilePage/components/Settings';
 import { PrivateRoute } from './shared/components/PrivateRoute';
 
@@ -85,11 +83,7 @@ export const Root = () => {
             >
               <Route index element={<UserProfile />} />
               <Route path="history" element={<History />} />
-              <Route path="reviews" element={<Reviews />}>
-                <Route index element={<Review />} />
-                <Route path="answer" element={<Review />} />
-                <Route path="reports" element={<Reports />} />
-              </Route>
+              <Route path="reviews" element={<Reviews />} />
               <Route path="settings" element={<Settings />} />
             </Route>
           </Route>

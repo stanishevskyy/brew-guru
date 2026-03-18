@@ -19,6 +19,7 @@ import AvatarMobile from '../../assets/images/profile-images/avatar-mobile.png';
 //eslint-disable-next-line
 import AvatarAll from '../../assets/images/profile-images/avatar-tablet-more.png';
 import { fetchUserReviewsThunk } from '../../store/reviewsSlice/reviewsSlice';
+import { fetchReportsThunk } from '../../store/reportsSlice/reportsSlice';
 
 export const ProfilePage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -51,6 +52,7 @@ export const ProfilePage = () => {
     dispatch(fetchUserHistoryThunk(userState.user?.id as number));
     dispatch(fetchUserReviewsThunk(userState.user?.id as number));
     dispatch(fetchUserReviewsThunk(userState.user?.id as number));
+    dispatch(fetchReportsThunk(userState.user?.id as number));
   }, [pathname, dispatch, userState.user?.id]);
 
   useEffect(() => {

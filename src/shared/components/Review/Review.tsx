@@ -115,7 +115,7 @@ export const Review: React.FC<Props> = ({
       )}
 
       <div className={styles.review__buttons}>
-        {review.replies?.length !== 0 && (
+        {review.replies && review.replies?.length !== 0 && (
           <button
             type="button"
             aria-label={isAnswerOpen ? 'Hide answer' : 'Show answer'}
