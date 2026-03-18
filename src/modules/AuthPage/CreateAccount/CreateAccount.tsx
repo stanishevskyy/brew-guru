@@ -84,6 +84,7 @@ export const CreateAccount = () => {
                   defaultValue={userData.data.email ? userData.data?.email : ''}
                   {...register('email', {
                     required: 'Email is required',
+                    maxLength: { value: 254, message: 'Maximum length 254' },
                     pattern: {
                       value: /^\S+@\S+\.\S+$/i,
                       message: 'Email must be in the format example@mail.com',

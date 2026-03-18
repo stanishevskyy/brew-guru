@@ -295,6 +295,9 @@
 .profile__acoountWprapper {
   display: flex;
   flex-direction: column;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .profile__accountName {
@@ -317,6 +320,19 @@
   }
 }
 
+.profile__user {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @include on-desktop {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    overflow-wrap: anywhere;
+  }
+}
+
 .profile__accountEmail {
   margin-bottom: 8px;
 
@@ -325,17 +341,28 @@
   line-height: 15px;
   color: $color-text-primary;
 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   @include on-tablet {
     margin-bottom: 16px;
     font-size: 16px;
 
     line-height: 20px;
   }
+
+  @include on-desktop {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    overflow-wrap: anywhere;
+  }
 }
 
 .profile__changePhoto {
   padding: 6px 13px;
-  border-radius: 8px;
+  border-radius: 4px;
 
   font-size: 8px;
   font-weight: 700;
@@ -343,11 +370,13 @@
   color: $color-white;
   background-color: #204dee;
   cursor: pointer;
+  max-width: 82px;
 
   @include on-tablet {
     padding: 12px 26px;
     font-size: 16px;
     line-height: 20px;
+    max-width: 165px;
   }
 
   &:hover {

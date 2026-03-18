@@ -333,8 +333,12 @@ export const ProfilePage = () => {
 
             <div className={styles.profile__acoountWprapper}>
               <p className={styles.profile__accountName}>
-                <span>{userState.user?.firstName}</span>{' '}
-                <span>{userState.user?.lastName}</span>
+                <span className={styles.profile__user}>
+                  {userState.user?.firstName}
+                </span>{' '}
+                <span className={styles.profile__user}>
+                  {userState.user?.lastName}
+                </span>
               </p>
               <p className={styles.profile__accountEmail}>
                 {userState.user?.email}

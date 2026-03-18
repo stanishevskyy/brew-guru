@@ -114,6 +114,10 @@ export const CreateUser = () => {
                     })}
                     {...register('firstName', {
                       required: 'First name is required',
+                      maxLength: {
+                        value: 72,
+                        message: 'Maximum length is 100 characters',
+                      },
                     })}
                   />
                   {errors.firstName && (
@@ -142,6 +146,10 @@ export const CreateUser = () => {
                     })}
                     {...register('lastName', {
                       required: 'Last name is required',
+                      maxLength: {
+                        value: 72,
+                        message: 'Maximum length is 100 characters',
+                      },
                     })}
                   />
                   {errors.lastName && (

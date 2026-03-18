@@ -134,6 +134,10 @@ export const CreatePassword = () => {
                   })}
                   {...register('password', {
                     required: 'Password is required',
+                    maxLength: {
+                      value: 72,
+                      message: 'Maximum length is 72 characters',
+                    },
                     validate: value => {
                       const isEightCharacters = value.length >= 8;
                       const hasNumber = /[0-9]/.test(value);

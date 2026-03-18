@@ -90,9 +90,15 @@ export const UserProfile = () => {
             {isLoading || userState.loading ? (
               <div className={styles.user__inputSkeleton}></div>
             ) : (
-              <div className={styles.user__input}>
-                {userState.user?.firstName}
-              </div>
+              // <div className={styles.user__input}>
+              //   {userState.user?.firstName}
+              // </div>
+              <input
+                type="text"
+                disabled
+                value={userState.user?.firstName}
+                className={styles.user__input}
+              />
             )}
           </div>
 
@@ -103,9 +109,15 @@ export const UserProfile = () => {
             {isLoading || userState.loading ? (
               <div className={styles.user__inputSkeleton}></div>
             ) : (
-              <div className={styles.user__input}>
-                {userState.user?.lastName}
-              </div>
+              // <div className={styles.user__input}>
+              //   {userState.user?.lastName}
+              // </div>
+              <input
+                type="text"
+                disabled
+                value={userState.user?.lastName}
+                className={styles.user__input}
+              />
             )}
           </div>
 
@@ -231,9 +243,15 @@ export const UserProfile = () => {
                   })}
                 />
               ) : (
-                <div className={styles.user__inputDefault}>
-                  {userState.user?.email}
-                </div>
+                // <div className={styles.user__inputDefault}>
+                //   {userState.user?.email}
+                // </div>
+                <input
+                  type="text"
+                  disabled
+                  value={userState.user?.email}
+                  className={styles.user__input}
+                />
               )}
               {!changeData.email ? (
                 <button
