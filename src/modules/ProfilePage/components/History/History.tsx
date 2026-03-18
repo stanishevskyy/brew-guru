@@ -12,7 +12,7 @@ import {
 
 import { getWeekdayFromDate } from './utils/getWeekdayFromDate';
 import { getOpeningHour } from './utils/getOpeningHour';
-import { formatTime } from './utils/formatTime';
+import { formatTime } from '../../../../shared/utils/formatTime';
 
 import CardImage from '../../../../assets/images/history-images/card-image.png';
 //eslint-disable-next-line

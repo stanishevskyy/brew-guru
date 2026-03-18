@@ -2,6 +2,11 @@ import { useEffect, useState } from 'react';
 
 import styles from './UserReports.module.scss';
 
+import { useAppDispatch } from '../../../../store/hooks';
+import { updateReportThunk } from '../../../../store/reportsSlice/reportsSlice';
+
+import { timeAgo } from '../../../../shared/utils/timeAgo';
+
 //eslint-disable-next-line
 import CheckIcon from '../../../../assets/icons/reports-icons/check-mark-icon.svg';
 //eslint-disable-next-line
@@ -11,8 +16,6 @@ import ErrorIcon from '../../../../assets/icons/reports-icons/error-icon.svg';
 import { ReportsSkeleton } from '../../../../shared/components/ReportsSkeleton';
 import { UserReport } from '../../../../shared/types/user/user-reports.type';
 import { ReportStatus } from '../../../../shared/constants/reportStatus';
-import { useAppDispatch } from '../../../../store/hooks';
-import { updateReportThunk } from '../../../../store/reportsSlice/reportsSlice';
 
 type Props = {
   report: UserReport;
@@ -91,7 +94,7 @@ export const UserReports: React.FC<Props> = ({ report }) => {
 
             <div className={styles.report__meta}>
               <time className={styles.report__date} dateTime="2026-02-16">
-                {report.createdAt}
+                {timeAgo(report.createdAt)}
               </time>
 
               <div
@@ -140,96 +143,6 @@ export const UserReports: React.FC<Props> = ({ report }) => {
           )}
         </article>
       )}
-
-      {/* <article
-        className={`${styles.report} ${styles['report__status-warning-main']}`}
-        role="article"
-        aria-labelledby="report2-title"
-        aria-describedby="report2-desc"
-      >
-        <header className={styles.report__header}>
-          <p id="report2-title" className={styles.report__title}>
-            Black Honey
-          </p>
-          <div className={styles.report__meta}>
-            <time className={styles.report__date} dateTime="2026-02-16">
-              2 days ago
-            </time>
-            <div
-              className={`${styles.report__status} ${styles['report__status-warning']}`}
-              aria-label="Under review status"
-            >
-              <img
-                src={WarningIcon}
-                alt=""
-                aria-hidden="true"
-                className={styles.report__statusIcon}
-              />
-              Under review
-            </div>
-          </div>
-        </header>
-
-        <div id="report2-desc" className={styles.report__body}>
-          <p className={styles.report__reviewText}>
-            Waiters are extremely slow and unprofessional
-          </p>
-          <div className={styles.report__details}>
-            <p className={styles.report__reason}>
-              <span className={styles.report__label}>Report reason:</span> Spam
-            </p>
-            <p className={styles.report__systemMessage}>
-              <span className={styles.report__label}>System message:</span>{' '}
-              Please edit your review to follow community guidelines
-            </p>
-          </div>
-        </div>
-      </article>
-
-      <article
-        className={`${styles.report} ${styles['report__status-check-main']}`}
-        role="article"
-        aria-labelledby="report3-title"
-        aria-describedby="report3-desc"
-      >
-        <header className={styles.report__header}>
-          <p id="report3-title" className={styles.report__title}>
-            Black Honey
-          </p>
-          <div className={styles.report__meta}>
-            <time className={styles.report__date} dateTime="2026-02-16">
-              2 days ago
-            </time>
-            <div
-              className={`${styles.report__status} ${styles['report__status-check']}`}
-              aria-label="Resolved status"
-            >
-              <img
-                src={CheckIcon}
-                alt=""
-                aria-hidden="true"
-                className={styles.report__statusIcon}
-              />
-              Complaint Dismissed
-            </div>
-          </div>
-        </header>
-
-        <div id="report3-desc" className={styles.report__body}>
-          <p className={styles.report__reviewText}>
-            Waiters are extremely slow and unprofessional
-          </p>
-          <div className={styles.report__details}>
-            <p className={styles.report__reason}>
-              <span className={styles.report__label}>Report reason:</span> Spam
-            </p>
-            <p className={styles.report__systemMessage}>
-              <span className={styles.report__label}>System message:</span>{' '}
-              Please edit your review to follow community guidelines
-            </p>
-          </div>
-        </div>
-      </article> */}
     </>
   );
 };
