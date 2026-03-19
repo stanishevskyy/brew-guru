@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SetURLSearchParams } from 'react-router-dom';
 
 import classNames from 'classnames';
 
@@ -8,13 +9,40 @@ import { sortLabels } from '../../constants/SortLabels';
 
 import FilterIcon from '../../../assets/icons/search-icons/filter-icon.svg';
 import SortIcon from '../../../assets/icons/search-icons/sort-icon.svg';
+import { getSearchWith } from '../../utils/getSearchWith';
 
 type Props = {
+  query: string;
+  perPage: string | number;
+  searchParams: URLSearchParams;
+  setSearchParams: SetURLSearchParams;
   setIsSideFiltersOpen: (value: boolean) => void;
 };
 
-export const FormWrapper: React.FC<Props> = ({ setIsSideFiltersOpen }) => {
+export const FormWrapper: React.FC<Props> = ({
+  query,
+  perPage,
+  searchParams,
+  setSearchParams,
+  setIsSideFiltersOpen,
+}) => {
   const [isSortOpen, setIsSortOpen] = useState(false);
+
+  const handleChangeQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+
+    const params = getSearchWith(searchParams, {
+      query: value,
+      page: '1',
+      perPage: perPage.toString(),
+    });
+
+    setSearchParams(params);
+  };
+
+  const handleChangeSort = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+  };
 
   return (
     <form className={styles.form}>
@@ -23,6 +51,8 @@ export const FormWrapper: React.FC<Props> = ({ setIsSideFiltersOpen }) => {
         className={styles.form__input}
         placeholder="Search"
         aria-label="Search cafes"
+        value={query}
+        onChange={handleChangeQuery}
       />
 
       {/* Desktop sorting */}
@@ -65,6 +95,10 @@ export const FormWrapper: React.FC<Props> = ({ setIsSideFiltersOpen }) => {
                       name="sort"
                       value={value}
                       className={styles.form__labelInput}
+                      onChange={event => {
+                        handleChangeSort(event);
+                        setIsSortOpen(false);
+                      }}
                     />
                     {label}
                   </label>

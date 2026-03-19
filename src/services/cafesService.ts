@@ -49,8 +49,6 @@ export const cafesService = {
             });
 
             break;
-
-          case CafeQueryParam.Filter:
         }
       });
 

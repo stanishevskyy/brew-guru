@@ -17,7 +17,7 @@ import CloseIcon from '../../../../../assets/icons/reviews-icons/close-icon.svg'
 
 type Props = {
   reviewId: number;
-  setIsCommentFormOpen: (value: boolean) => void;
+  setIsCommentFormOpen: (value: number | null) => void;
   isEdit: EditType | null;
   setIsEdit: React.Dispatch<React.SetStateAction<EditType | null>>;
   setIsEditLoading: React.Dispatch<React.SetStateAction<LoadingType>>;
@@ -63,7 +63,7 @@ export const ReviewForm: React.FC<Props> = ({
         dislike: [],
       };
 
-      setIsCommentFormOpen(false);
+      setIsCommentFormOpen(null);
 
       await dispatch(addUserReplyThunk(comment));
 
@@ -82,7 +82,7 @@ export const ReviewForm: React.FC<Props> = ({
           comment: newComment,
         };
 
-        setIsCommentFormOpen(false);
+        setIsCommentFormOpen(null);
 
         await dispatch(updateUserReviewThunk(updatedReview));
 
@@ -109,7 +109,7 @@ export const ReviewForm: React.FC<Props> = ({
           replies: updatedReplies,
         };
 
-        setIsCommentFormOpen(false);
+        setIsCommentFormOpen(null);
 
         await dispatch(updateUserReviewThunk(updatedReview));
 
@@ -142,7 +142,7 @@ export const ReviewForm: React.FC<Props> = ({
         type="button"
         className={styles.reviews__cancel}
         onClick={() => {
-          setIsCommentFormOpen(false);
+          setIsCommentFormOpen(null);
           setIsEdit(null);
         }}
       >
@@ -155,7 +155,7 @@ export const ReviewForm: React.FC<Props> = ({
         type="button"
         className={styles.reviews__secondary}
         onClick={() => {
-          setIsCommentFormOpen(false);
+          setIsCommentFormOpen(null);
           setIsEdit(null);
         }}
       >

@@ -36,9 +36,10 @@ export const HomePageCafes = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') || '';
+  const sortBy = searchParams.get('sortBy') || 'popular';
   const currentPage = searchParams.get('page') || '1';
   const perPage =
-    searchParams.get('perPage') || getItemPerPage(isTablet, isDesktop);
+    searchParams.get('perPage') || +getItemPerPage(isTablet, isDesktop);
 
   useEffect(() => {
     setTimeout(() => {
@@ -49,14 +50,12 @@ export const HomePageCafes = () => {
   useEffect(() => {
     dispatch(
       fetchCafesThunk({
-        perPage: 9,
-        page: 2,
-        sortBy: 'popular',
-        sortOrder: 'desc',
-        filter: ['Open now', 'Call Zone'],
+        query,
+        page: +currentPage,
+        perPage: +perPage,
       }),
     );
-  }, []);
+  }, [query, currentPage, perPage]);
 
   return (
     <div className={styles.searchPage} role="main">
@@ -87,7 +86,13 @@ export const HomePageCafes = () => {
           {isLoading ? (
             <FormSkeleton />
           ) : (
-            <FormWrapper setIsSideFiltersOpen={setIsSideFiltersOpen} />
+            <FormWrapper
+              query={query}
+              perPage={perPage}
+              searchParams={searchParams}
+              setSearchParams={setSearchParams}
+              setIsSideFiltersOpen={setIsSideFiltersOpen}
+            />
           )}
         </section>
 

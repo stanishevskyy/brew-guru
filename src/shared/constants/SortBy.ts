@@ -1,6 +1,6 @@
 export enum SortBy {
   Popular = 'popular',
-  Discounts = 'discounts',
-  FromLower = 'lowerPrice',
-  FromHigher = 'higherPrice',
+  Price = 'price',
+  FromLower = 'asc',
+  FromHigher = 'desc',
 }

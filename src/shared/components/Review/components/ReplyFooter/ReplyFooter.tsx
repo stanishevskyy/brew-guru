@@ -26,7 +26,7 @@ import BinIcon from '../../../../../assets/icons/reviews-icons/bin-icon.svg';
 type Props = {
   review: UserReview;
   reply: Reply;
-  setIsCommentFormOpen: (value: boolean) => void;
+  setIsCommentFormOpen: (value: number | null) => void;
   setDeletedReply: (value: number | null) => void;
   setIsEdit: React.Dispatch<React.SetStateAction<EditType | null>>;
 };
@@ -139,7 +139,7 @@ export const ReplyFooter: React.FC<Props> = ({
         type="button"
         className={styles.review__actionInfo}
         aria-label="Comment on reply"
-        onClick={() => setIsCommentFormOpen(true)}
+        onClick={() => setIsCommentFormOpen(reply.id)}
       >
         <img
           src={CommentIcon}
@@ -175,9 +175,10 @@ export const ReplyFooter: React.FC<Props> = ({
                   <button
                     role="menuitem"
                     className={styles.review__menuItem}
-                    onMouseDown={() =>
-                      setIsEdit({ type: 'reply', id: reply.id })
-                    }
+                    onMouseDown={() => {
+                      setIsEdit({ type: 'reply', id: reply.id });
+                      setIsCommentFormOpen(reply.id);
+                    }}
                   >
                     <img
                       src={PencilIcon}

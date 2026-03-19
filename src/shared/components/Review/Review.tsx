@@ -43,7 +43,9 @@ export const Review: React.FC<Props> = ({
 
   const [isLoading, setIsLoading] = useState(true);
   const [isAnswerOpen, setIsAnswerOpen] = useState(false);
-  const [isCommentFormOpen, setIsCommentFormOpen] = useState(false);
+  const [isCommentFormOpen, setIsCommentFormOpen] = useState<number | null>(
+    null,
+  );
   const [isEdit, setIsEdit] = useState<EditType | null>(null);
   const [isEditLoading, setIsEditLoading] = useState<LoadingType>({
     reviewId: null,
@@ -78,6 +80,16 @@ export const Review: React.FC<Props> = ({
         setIsEdit={setIsEdit}
       />
 
+      {isEdit?.type === 'review' && isEdit?.id === review.id && (
+        <ReviewForm
+          reviewId={review.id}
+          setIsCommentFormOpen={setIsCommentFormOpen}
+          isEdit={isEdit}
+          setIsEdit={setIsEdit}
+          setIsEditLoading={setIsEditLoading}
+        />
+      )}
+
       {isAnswerOpen &&
         review.replies?.map(reply =>
           deletedReply === reply.id ||
@@ -100,19 +112,20 @@ export const Review: React.FC<Props> = ({
                 setDeletedReply={setDeletedReply}
                 setIsEdit={setIsEdit}
               />
+
+              {(isCommentFormOpen === reply.id ||
+                (isEdit?.type === 'reply' && isEdit?.id === reply.id)) && (
+                <ReviewForm
+                  reviewId={review.id}
+                  setIsCommentFormOpen={setIsCommentFormOpen}
+                  isEdit={isEdit}
+                  setIsEdit={setIsEdit}
+                  setIsEditLoading={setIsEditLoading}
+                />
+              )}
             </article>
           ),
         )}
-
-      {(isCommentFormOpen || isEdit?.id) && (
-        <ReviewForm
-          reviewId={review.id}
-          setIsCommentFormOpen={setIsCommentFormOpen}
-          isEdit={isEdit}
-          setIsEdit={setIsEdit}
-          setIsEditLoading={setIsEditLoading}
-        />
-      )}
 
       <div className={styles.review__buttons}>
         {review.replies && review.replies?.length !== 0 && (
