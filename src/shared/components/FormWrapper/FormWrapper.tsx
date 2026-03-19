@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+
 import classNames from 'classnames';
 
 import styles from './FormWrapper.module.scss';
 
-import { getSearchWith } from '../../utils/getSearchWith';
-import { SortBy } from '../../constants/SortBy';
-import { SeacrhParams } from '../../types/SeacrhParams';
 import { sortLabels } from '../../constants/SortLabels';
 
 import FilterIcon from '../../../assets/icons/search-icons/filter-icon.svg';
@@ -19,73 +16,6 @@ type Props = {
 export const FormWrapper: React.FC<Props> = ({ setIsSideFiltersOpen }) => {
   const [isSortOpen, setIsSortOpen] = useState(false);
 
-  // Work with SEARCH PARAMS
-  const [searchParams, setSearchParams] = useSearchParams();
-  const page = searchParams.get('page') || '1';
-  const perPage = searchParams.get('perPage') || '3';
-  const query = searchParams.get('query') || '';
-  const city = searchParams.get('city') || 'Kyiv';
-  const rating = searchParams.get('rating') || '';
-  const sortBy = searchParams.get('sort_by') || SortBy.Popular;
-  const sortOrder = searchParams.get('sort_order') || '';
-
-  const handleQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newSearch = getSearchWith(searchParams, {
-      page,
-      perPage,
-      query: event.target.value,
-      city,
-      rating,
-      sort_by: sortBy,
-      sort_order: sortOrder,
-    });
-
-    setSearchParams(newSearch);
-  };
-
-  const handleSort = (value: SortBy) => {
-    const newParams: SeacrhParams = {
-      page,
-      perPage,
-      query,
-      city,
-      rating,
-      sort_by: sortBy,
-      sort_order: sortOrder,
-    };
-
-    switch (value) {
-      case SortBy.FromLower:
-        newParams.sort_by = 'price';
-        newParams.sort_order = 'asc';
-        break;
-      case SortBy.FromHigher:
-        newParams.sort_by = 'price';
-        newParams.sort_order = 'desc';
-        break;
-      default:
-        newParams.sort_by = value;
-        newParams.sort_order = '';
-        break;
-    }
-
-    const newSearch = getSearchWith(searchParams, newParams);
-
-    setSearchParams(newSearch);
-  };
-
-  const isSortActive = (value: string) => {
-    if (value === SortBy.FromLower) {
-      return sortBy === 'price' && sortOrder === 'asc';
-    }
-
-    if (value === SortBy.FromHigher) {
-      return sortBy === 'price' && sortOrder === 'desc';
-    }
-
-    return sortBy === value;
-  };
-
   return (
     <form className={styles.form}>
       <input
@@ -93,8 +23,6 @@ export const FormWrapper: React.FC<Props> = ({ setIsSideFiltersOpen }) => {
         className={styles.form__input}
         placeholder="Search"
         aria-label="Search cafes"
-        value={query}
-        onChange={handleQuery}
       />
 
       {/* Desktop sorting */}
@@ -129,7 +57,6 @@ export const FormWrapper: React.FC<Props> = ({ setIsSideFiltersOpen }) => {
                   key={value}
                   className={styles.form__sortItem}
                   role="menuitemradio"
-                  aria-checked={isSortActive(value)}
                 >
                   <label htmlFor={radioId} className={styles.form__labelRadio}>
                     <input
@@ -138,11 +65,6 @@ export const FormWrapper: React.FC<Props> = ({ setIsSideFiltersOpen }) => {
                       name="sort"
                       value={value}
                       className={styles.form__labelInput}
-                      checked={isSortActive(value)}
-                      onChange={() => {
-                        handleSort(value as SortBy);
-                        setIsSortOpen(false);
-                      }}
                     />
                     {label}
                   </label>
@@ -201,7 +123,6 @@ export const FormWrapper: React.FC<Props> = ({ setIsSideFiltersOpen }) => {
                   key={value}
                   className={styles.form__sortItem}
                   role="menuitemradio"
-                  aria-checked={isSortActive(value)}
                 >
                   <label htmlFor={radioId} className={styles.form__labelRadio}>
                     <input
@@ -210,11 +131,6 @@ export const FormWrapper: React.FC<Props> = ({ setIsSideFiltersOpen }) => {
                       name="sort-mobile"
                       value={value}
                       className={styles.form__labelInput}
-                      checked={isSortActive(value)}
-                      onChange={() => {
-                        handleSort(value as SortBy);
-                        setIsSortOpen(false);
-                      }}
                     />
                     {label}
                   </label>

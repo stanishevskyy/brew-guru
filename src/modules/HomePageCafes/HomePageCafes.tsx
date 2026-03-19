@@ -1,8 +1,16 @@
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import classNames from 'classnames';
 
 import styles from './HomePageCafes.module.scss';
+
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { fetchCafesThunk } from '../../store/cafesSlice/cafesSlice';
+import useMediaQuery from '../../shared/hooks/useMediaQuery';
+
+// eslint-disable-next-line max-len
+import { getItemPerPage } from '../../shared/utils/pagination.ts/getItemPerPage';
 
 import { cardFilters } from '../../shared/constants/cardFilters';
 
@@ -20,10 +28,34 @@ export const HomePageCafes = () => {
   const [isSideFiltersOpen, setIsSideFiltersOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  const cafesState = useAppSelector(state => state.cafes);
+  const dispatch = useAppDispatch();
+
+  const isTablet = useMediaQuery('(min-width: 640px) and (max-width: 1022px)');
+  const isDesktop = useMediaQuery('(min-width: 1023px)');
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query') || '';
+  const currentPage = searchParams.get('page') || '1';
+  const perPage =
+    searchParams.get('perPage') || getItemPerPage(isTablet, isDesktop);
+
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
     }, 300);
+  }, []);
+
+  useEffect(() => {
+    dispatch(
+      fetchCafesThunk({
+        perPage: 9,
+        page: 2,
+        sortBy: 'popular',
+        sortOrder: 'desc',
+        filter: ['Open now', 'Call Zone'],
+      }),
+    );
   }, []);
 
   return (

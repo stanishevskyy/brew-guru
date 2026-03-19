@@ -1,0 +1,836 @@
+{
+  "cafes": [
+    {
+      "id": 1,
+      "name": "Coffee Hub",
+      "address": "123 Main Street, Kyiv",
+      "rating": 4.5,
+      "averageCheck": 150,
+      "openingHours": [
+        {
+          "id": 1,
+          "weekday": 1,
+          "cafeId": 1,
+          "openTime": "08:00:00.000Z",
+          "closeTime": "22:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 2,
+          "weekday": 2,
+          "cafeId": 1,
+          "openTime": "08:00:00.000Z",
+          "closeTime": "22:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 3,
+          "weekday": 3,
+          "cafeId": 1,
+          "openTime": "08:00:00.000Z",
+          "closeTime": "22:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 4,
+          "weekday": 4,
+          "cafeId": 1,
+          "openTime": "08:00:00.000Z",
+          "closeTime": "22:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 5,
+          "weekday": 5,
+          "cafeId": 1,
+          "openTime": "08:00:00.000Z",
+          "closeTime": "23:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 6,
+          "weekday": 6,
+          "cafeId": 1,
+          "openTime": "09:00:00.000Z",
+          "closeTime": "23:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 7,
+          "weekday": 7,
+          "cafeId": 1,
+          "openTime": null,
+          "closeTime": null,
+          "isOpen": false
+        }
+      ],
+      "amenities": ["Laptop Friendly", "Power Outlets", "Pet Friendly"],
+      "workspaces": ["Laptop Friendly", "Quiet Environment"],
+      "menu_food_options": ["Vegan Options", "Gluten-Free"],
+      "status": ["Table Booking"]
+    },
+    {
+      "id": 2,
+      "name": "Tea & Talk",
+      "address": "45 Green Avenue, Lviv",
+      "rating": 4.2,
+      "averageCheck": 120,
+      "openingHours": [
+        {
+          "id": 8,
+          "weekday": 1,
+          "cafeId": 2,
+          "openTime": "09:00:00.000Z",
+          "closeTime": "21:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 9,
+          "weekday": 2,
+          "cafeId": 2,
+          "openTime": "09:00:00.000Z",
+          "closeTime": "21:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 10,
+          "weekday": 3,
+          "cafeId": 2,
+          "openTime": "09:00:00.000Z",
+          "closeTime": "21:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 11,
+          "weekday": 4,
+          "cafeId": 2,
+          "openTime": "09:00:00.000Z",
+          "closeTime": "21:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 12,
+          "weekday": 5,
+          "cafeId": 2,
+          "openTime": "09:00:00.000Z",
+          "closeTime": "22:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 13,
+          "weekday": 6,
+          "cafeId": 2,
+          "openTime": "10:00:00.000Z",
+          "closeTime": "22:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 14,
+          "weekday": 7,
+          "cafeId": 2,
+          "openTime": "10:00:00.000Z",
+          "closeTime": "18:00:00.000Z",
+          "isOpen": true
+        }
+      ],
+      "amenities": ["Outdoor Seating", "Kids Friendly"],
+      "workspaces": ["Quiet Environment"],
+      "menu_food_options": ["All-Day Breakfast"],
+      "status": ["Open Now", "Takeaway"]
+    },
+    {
+      "id": 3,
+      "name": "Brew & Bytes",
+      "address": "78 IT Park Road, Odessa",
+      "rating": 4.8,
+      "averageCheck": 180,
+      "openingHours": [
+        {
+          "id": 15,
+          "weekday": 1,
+          "cafeId": 3,
+          "openTime": "07:30:00.000Z",
+          "closeTime": "20:30:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 16,
+          "weekday": 2,
+          "cafeId": 3,
+          "openTime": "07:30:00.000Z",
+          "closeTime": "20:30:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 17,
+          "weekday": 3,
+          "cafeId": 3,
+          "openTime": "07:30:00.000Z",
+          "closeTime": "20:30:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 18,
+          "weekday": 4,
+          "cafeId": 3,
+          "openTime": "07:30:00.000Z",
+          "closeTime": "20:30:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 19,
+          "weekday": 5,
+          "cafeId": 3,
+          "openTime": "07:30:00.000Z",
+          "closeTime": "21:30:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 20,
+          "weekday": 6,
+          "cafeId": 3,
+          "openTime": "08:00:00.000Z",
+          "closeTime": "21:30:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 21,
+          "weekday": 7,
+          "cafeId": 3,
+          "openTime": null,
+          "closeTime": null,
+          "isOpen": false
+        }
+      ],
+      "amenities": ["Laptop Friendly", "Power Outlets"],
+      "workspaces": ["Call Zone"],
+      "menu_food_options": ["Vegan Options"],
+      "status": ["Open Now", "Table Booking"]
+    },
+    {
+      "id": 4,
+      "name": "Morning Roast",
+      "address": "12 Sunrise Blvd, Dnipro",
+      "rating": 4.0,
+      "averageCheck": 140,
+      "openingHours": [
+        {
+          "id": 22,
+          "weekday": 1,
+          "cafeId": 4,
+          "openTime": "08:30:00.000Z",
+          "closeTime": "19:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 23,
+          "weekday": 2,
+          "cafeId": 4,
+          "openTime": "08:30:00.000Z",
+          "closeTime": "19:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 24,
+          "weekday": 3,
+          "cafeId": 4,
+          "openTime": "08:30:00.000Z",
+          "closeTime": "19:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 25,
+          "weekday": 4,
+          "cafeId": 4,
+          "openTime": "08:30:00.000Z",
+          "closeTime": "19:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 26,
+          "weekday": 5,
+          "cafeId": 4,
+          "openTime": "08:30:00.000Z",
+          "closeTime": "20:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 27,
+          "weekday": 6,
+          "cafeId": 4,
+          "openTime": "09:00:00.000Z",
+          "closeTime": "20:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 28,
+          "weekday": 7,
+          "cafeId": 4,
+          "openTime": null,
+          "closeTime": null,
+          "isOpen": false
+        }
+      ],
+      "amenities": ["Outdoor Seating"],
+      "workspaces": ["Quiet Environment"],
+      "menu_food_options": ["Gluten-Free"],
+      "status": ["Takeaway"]
+    },
+    {
+      "id": 5,
+      "name": "Urban Grind",
+      "address": "101 Central Square, Kharkiv",
+      "rating": 4.7,
+      "averageCheck": 160,
+      "openingHours": [
+        {
+          "id": 29,
+          "weekday": 1,
+          "cafeId": 5,
+          "openTime": "10:00:00.000Z",
+          "closeTime": "23:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 30,
+          "weekday": 2,
+          "cafeId": 5,
+          "openTime": "10:00:00.000Z",
+          "closeTime": "23:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 31,
+          "weekday": 3,
+          "cafeId": 5,
+          "openTime": "10:00:00.000Z",
+          "closeTime": "23:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 32,
+          "weekday": 4,
+          "cafeId": 5,
+          "openTime": "10:00:00.000Z",
+          "closeTime": "23:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 33,
+          "weekday": 5,
+          "cafeId": 5,
+          "openTime": "10:00:00.000Z",
+          "closeTime": "00:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 34,
+          "weekday": 6,
+          "cafeId": 5,
+          "openTime": "11:00:00.000Z",
+          "closeTime": "00:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 35,
+          "weekday": 7,
+          "cafeId": 5,
+          "openTime": "11:00:00.000Z",
+          "closeTime": "20:00:00.000Z",
+          "isOpen": true
+        }
+      ],
+      "amenities": ["Power Outlets", "Wheelchair Accessible"],
+      "workspaces": ["Laptop Friendly", "Call Zone"],
+      "menu_food_options": ["Vegan Options", "Sugar-Free"],
+      "status": ["Open Now", "Table Booking", "Takeaway"]
+    },
+    {
+      "id": 6,
+      "name": "Bean & Chill",
+      "address": "5 Riverside Street, Ternopil",
+      "rating": 4.3,
+      "averageCheck": 130,
+      "openingHours": [
+        {
+          "id": 36,
+          "weekday": 1,
+          "cafeId": 6,
+          "openTime": "07:00:00.000Z",
+          "closeTime": "18:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 37,
+          "weekday": 2,
+          "cafeId": 6,
+          "openTime": "07:00:00.000Z",
+          "closeTime": "18:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 38,
+          "weekday": 3,
+          "cafeId": 6,
+          "openTime": "07:00:00.000Z",
+          "closeTime": "18:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 39,
+          "weekday": 4,
+          "cafeId": 6,
+          "openTime": "07:00:00.000Z",
+          "closeTime": "18:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 40,
+          "weekday": 5,
+          "cafeId": 6,
+          "openTime": "07:00:00.000Z",
+          "closeTime": "19:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 41,
+          "weekday": 6,
+          "cafeId": 6,
+          "openTime": null,
+          "closeTime": null,
+          "isOpen": false
+        },
+        {
+          "id": 42,
+          "weekday": 7,
+          "cafeId": 6,
+          "openTime": null,
+          "closeTime": null,
+          "isOpen": false
+        }
+      ],
+      "amenities": ["Quiet Environment", "Outdoor Seating"],
+      "workspaces": ["Quiet Environment"],
+      "menu_food_options": ["Gluten-Free"],
+      "status": ["Open Now"]
+    },
+    {
+      "id": 7,
+      "name": "Roast Republic",
+      "address": "22 Freedom Street, Kyiv",
+      "rating": 4.6,
+      "averageCheck": 155,
+      "openingHours": [
+        {
+          "id": 43,
+          "weekday": 1,
+          "cafeId": 7,
+          "openTime": "08:00:00.000Z",
+          "closeTime": "21:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 44,
+          "weekday": 2,
+          "cafeId": 7,
+          "openTime": "08:00:00.000Z",
+          "closeTime": "21:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 45,
+          "weekday": 3,
+          "cafeId": 7,
+          "openTime": "08:00:00.000Z",
+          "closeTime": "21:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 46,
+          "weekday": 4,
+          "cafeId": 7,
+          "openTime": "08:00:00.000Z",
+          "closeTime": "21:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 47,
+          "weekday": 5,
+          "cafeId": 7,
+          "openTime": "08:00:00.000Z",
+          "closeTime": "22:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 48,
+          "weekday": 6,
+          "cafeId": 7,
+          "openTime": "09:00:00.000Z",
+          "closeTime": "22:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 49,
+          "weekday": 7,
+          "cafeId": 7,
+          "openTime": null,
+          "closeTime": null,
+          "isOpen": false
+        }
+      ],
+      "amenities": ["Laptop Friendly", "Pet Friendly"],
+      "workspaces": ["Laptop Friendly", "Call Zone"],
+      "menu_food_options": ["Vegan Options"],
+      "status": ["Open Now"]
+    },
+    {
+      "id": 8,
+      "name": "Steam & Beans",
+      "address": "90 Market Road, Lviv",
+      "rating": 4.4,
+      "averageCheck": 145,
+      "openingHours": [
+        {
+          "id": 50,
+          "weekday": 1,
+          "cafeId": 8,
+          "openTime": "09:00:00.000Z",
+          "closeTime": "22:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 51,
+          "weekday": 2,
+          "cafeId": 8,
+          "openTime": "09:00:00.000Z",
+          "closeTime": "22:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 52,
+          "weekday": 3,
+          "cafeId": 8,
+          "openTime": "09:00:00.000Z",
+          "closeTime": "22:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 53,
+          "weekday": 4,
+          "cafeId": 8,
+          "openTime": "09:00:00.000Z",
+          "closeTime": "22:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 54,
+          "weekday": 5,
+          "cafeId": 8,
+          "openTime": "09:00:00.000Z",
+          "closeTime": "23:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 55,
+          "weekday": 6,
+          "cafeId": 8,
+          "openTime": "10:00:00.000Z",
+          "closeTime": "23:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 56,
+          "weekday": 7,
+          "cafeId": 8,
+          "openTime": "10:00:00.000Z",
+          "closeTime": "18:00:00.000Z",
+          "isOpen": true
+        }
+      ],
+      "amenities": ["Quiet Environment", "Outdoor Seating"],
+      "workspaces": ["Quiet Environment"],
+      "menu_food_options": ["Sugar-Free", "All-Day Breakfast"],
+      "status": ["Open Now", "Takeaway"]
+    },
+    {
+      "id": 9,
+      "name": "Code & Coffee",
+      "address": "3 Startup Lane, Odessa",
+      "rating": 4.9,
+      "averageCheck": 190,
+      "openingHours": [
+        {
+          "id": 57,
+          "weekday": 1,
+          "cafeId": 9,
+          "openTime": "07:00:00.000Z",
+          "closeTime": "20:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 58,
+          "weekday": 2,
+          "cafeId": 9,
+          "openTime": "07:00:00.000Z",
+          "closeTime": "20:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 59,
+          "weekday": 3,
+          "cafeId": 9,
+          "openTime": "07:00:00.000Z",
+          "closeTime": "20:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 60,
+          "weekday": 4,
+          "cafeId": 9,
+          "openTime": "07:00:00.000Z",
+          "closeTime": "20:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 61,
+          "weekday": 5,
+          "cafeId": 9,
+          "openTime": "07:00:00.000Z",
+          "closeTime": "21:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 62,
+          "weekday": 6,
+          "cafeId": 9,
+          "openTime": "08:00:00.000Z",
+          "closeTime": "21:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 63,
+          "weekday": 7,
+          "cafeId": 9,
+          "openTime": null,
+          "closeTime": null,
+          "isOpen": false
+        }
+      ],
+      "amenities": ["Laptop Friendly", "Power Outlets"],
+      "workspaces": ["Laptop Friendly", "Call Zone"],
+      "menu_food_options": ["Vegan Options"],
+      "status": ["Open Now", "Table Booking"]
+    },
+    {
+      "id": 10,
+      "name": "Sunny Side Cafe",
+      "address": "14 River Park, Dnipro",
+      "rating": 4.1,
+      "averageCheck": 125,
+      "openingHours": [
+        {
+          "id": 64,
+          "weekday": 1,
+          "cafeId": 10,
+          "openTime": "08:30:00.000Z",
+          "closeTime": "19:30:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 65,
+          "weekday": 2,
+          "cafeId": 10,
+          "openTime": "08:30:00.000Z",
+          "closeTime": "19:30:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 66,
+          "weekday": 3,
+          "cafeId": 10,
+          "openTime": "08:30:00.000Z",
+          "closeTime": "19:30:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 67,
+          "weekday": 4,
+          "cafeId": 10,
+          "openTime": "08:30:00.000Z",
+          "closeTime": "19:30:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 68,
+          "weekday": 5,
+          "cafeId": 10,
+          "openTime": "08:30:00.000Z",
+          "closeTime": "20:30:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 69,
+          "weekday": 6,
+          "cafeId": 10,
+          "openTime": "09:00:00.000Z",
+          "closeTime": "20:30:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 70,
+          "weekday": 7,
+          "cafeId": 10,
+          "openTime": null,
+          "closeTime": null,
+          "isOpen": false
+        }
+      ],
+      "amenities": ["Kids Friendly", "Outdoor Seating"],
+      "workspaces": ["Quiet Environment"],
+      "menu_food_options": ["Gluten-Free"],
+      "status": ["Takeaway"]
+    },
+    {
+      "id": 11,
+      "name": "Midnight Brew",
+      "address": "77 Night Avenue, Kharkiv",
+      "rating": 4.0,
+      "averageCheck": 135,
+      "openingHours": [
+        {
+          "id": 71,
+          "weekday": 1,
+          "cafeId": 11,
+          "openTime": "16:00:00.000Z",
+          "closeTime": "02:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 72,
+          "weekday": 2,
+          "cafeId": 11,
+          "openTime": "16:00:00.000Z",
+          "closeTime": "02:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 73,
+          "weekday": 3,
+          "cafeId": 11,
+          "openTime": "16:00:00.000Z",
+          "closeTime": "02:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 74,
+          "weekday": 4,
+          "cafeId": 11,
+          "openTime": "16:00:00.000Z",
+          "closeTime": "02:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 75,
+          "weekday": 5,
+          "cafeId": 11,
+          "openTime": "16:00:00.000Z",
+          "closeTime": "03:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 76,
+          "weekday": 6,
+          "cafeId": 11,
+          "openTime": "16:00:00.000Z",
+          "closeTime": "03:00:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 77,
+          "weekday": 7,
+          "cafeId": 11,
+          "openTime": null,
+          "closeTime": null,
+          "isOpen": false
+        }
+      ],
+      "amenities": ["Quiet Environment", "Pet Friendly"],
+      "workspaces": ["Call Zone"],
+      "menu_food_options": ["Sugar-Free"],
+      "status": ["Open Now"]
+    },
+    {
+      "id": 12,
+      "name": "Green Cup",
+      "address": "8 Forest Street, Ivano-Frankivsk",
+      "rating": 4.5,
+      "averageCheck": 140,
+      "openingHours": [
+        {
+          "id": 78,
+          "weekday": 1,
+          "cafeId": 12,
+          "openTime": "07:30:00.000Z",
+          "closeTime": "18:30:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 79,
+          "weekday": 2,
+          "cafeId": 12,
+          "openTime": "07:30:00.000Z",
+          "closeTime": "18:30:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 80,
+          "weekday": 3,
+          "cafeId": 12,
+          "openTime": "07:30:00.000Z",
+          "closeTime": "18:30:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 81,
+          "weekday": 4,
+          "cafeId": 12,
+          "openTime": "07:30:00.000Z",
+          "closeTime": "18:30:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 82,
+          "weekday": 5,
+          "cafeId": 12,
+          "openTime": "07:30:00.000Z",
+          "closeTime": "19:30:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 83,
+          "weekday": 6,
+          "cafeId": 12,
+          "openTime": "08:00:00.000Z",
+          "closeTime": "19:30:00.000Z",
+          "isOpen": true
+        },
+        {
+          "id": 84,
+          "weekday": 7,
+          "cafeId": 12,
+          "openTime": null,
+          "closeTime": null,
+          "isOpen": false
+        }
+      ],
+      "amenities": ["Outdoor Seating", "Wheelchair Accessible"],
+      "workspaces": ["Laptop Friendly", "Quiet Environment"],
+      "menu_food_options": ["All-Day Breakfast"],
+      "status": ["Open Now", "Takeaway"]
+    }
+  ],
+  "prevPage": null,
+  "nextPage": null,
+  "totalPages": 1,
+  "totalItems": 6
+}

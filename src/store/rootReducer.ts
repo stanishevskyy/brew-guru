@@ -5,6 +5,7 @@ import { settingsSlice } from './settingsSlice/settingsSlice';
 import { historySlice } from './historySlice/historySlice';
 import { reviewsSlice } from './reviewsSlice/reviewsSlice';
 import { reportsSlice } from './reportsSlice/reportsSlice';
+import { cafesSlice } from './cafesSlice/cafesSlice';
 
 const rootReducer = combineSlices(
   userSlice,
@@ -13,6 +14,7 @@ const rootReducer = combineSlices(
   historySlice,
   reviewsSlice,
   reportsSlice,
+  cafesSlice,
 );
 
 export const store = configureStore({
