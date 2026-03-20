@@ -1,5 +1,9 @@
+import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+
 import styles from './CardCafe.module.scss';
+
+import { Cafe } from '../../types/user/user-cafe-history.type';
 
 import CardImage from '../../../assets/images/card-images/card-image.png';
 //eslint-disable-next-line
@@ -7,19 +11,34 @@ import LoactionIcon from '../../../assets/icons/cart-icons/location-pin-icon.svg
 import ClockIcon from '../../../assets/icons/cart-icons/clock-icon.svg';
 import FavoritesIcon from '../../../assets/icons/cart-icons/favorites-icon.svg';
 import BinIcon from '../../../assets/icons/cafe-icons/bin-icon.svg';
-import React from 'react';
 
 type Props = {
+  cafe: Cafe;
   isFavoritesOpen?: boolean;
 };
 
-export const CardCafe: React.FC<Props> = ({ isFavoritesOpen = false }) => {
+export const CardCafe: React.FC<Props> = ({
+  cafe,
+  isFavoritesOpen = false,
+}) => {
+  const currentDayIndex = ((new Date().getDay() + 6) % 7) + 1;
+
+  const currentDayWorking = cafe?.openingHours.find(
+    el => el.weekday === currentDayIndex,
+  );
+  const openTime = currentDayWorking?.openTime
+    ? currentDayWorking.openTime.slice(0, 5)
+    : '';
+  const closeTime = currentDayWorking?.closeTime
+    ? currentDayWorking.closeTime.slice(0, 5)
+    : '';
+
   return (
     <article className={styles.cardCafe__card}>
       <NavLink
         to="/cafeId"
         className={styles.cardCafe__cardLink}
-        aria-label="Go to Black Honey cafe page"
+        aria-label={`Go to ${cafe?.name} cafe page`}
       >
         <img
           src={CardImage}
@@ -30,13 +49,10 @@ export const CardCafe: React.FC<Props> = ({ isFavoritesOpen = false }) => {
           className={styles.cardCafe__cardOverlay}
           aria-hidden="true"
         ></span>
-        <span className={styles.cardCafe__cardLabel} aria-hidden="true">
-          15% OFF
-        </span>
       </NavLink>
 
       <div className={styles.cardCafe__bottom}>
-        <p className={styles.cardCafe__cardTitle}>Black Honey</p>
+        <p className={styles.cardCafe__cardTitle}>{cafe?.name}</p>
 
         <div className={styles.cardCafe__wrappInfo}>
           <div className={styles.cardCafe__wrappLocation}>
@@ -45,7 +61,7 @@ export const CardCafe: React.FC<Props> = ({ isFavoritesOpen = false }) => {
               alt="Cafe location"
               className={styles.cardCafe__locationIcon}
             />
-            <p className={styles.cardCafe__locationInfo}>Kryva Lypa, 3</p>
+            <p className={styles.cardCafe__locationInfo}>{cafe?.address}</p>
           </div>
           <div className={styles.cardCafe__wrappTime}>
             <img
@@ -53,7 +69,11 @@ export const CardCafe: React.FC<Props> = ({ isFavoritesOpen = false }) => {
               alt="Cafe opening hours"
               className={styles.cardCafe__timeIcon}
             />
-            <p className={styles.cardCafe__timeInfo}>9:00-21:00</p>
+            <p className={styles.cardCafe__timeInfo}>
+              {currentDayWorking?.openTime && currentDayWorking.closeTime
+                ? `${openTime}-${closeTime}`
+                : 'The cafe is closed today'}
+            </p>
           </div>
         </div>
 

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/indent */
+/* eslint-disable max-len */
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
@@ -8,6 +10,9 @@ import styles from './HomePageCafes.module.scss';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { fetchCafesThunk } from '../../store/cafesSlice/cafesSlice';
 import useMediaQuery from '../../shared/hooks/useMediaQuery';
+
+import { getPageNumber } from '../../shared/utils/pagination.ts/getPageNumber';
+import { getVisiblePages } from '../../shared/utils/pagination.ts/getVisiblePages';
 
 // eslint-disable-next-line max-len
 import { getItemPerPage } from '../../shared/utils/pagination.ts/getItemPerPage';
@@ -22,6 +27,7 @@ import { CardCafeSkeleton } from '../../shared/components/CardCafeSkeleton';
 import { FiltersSkeleton } from '../../shared/components/FiltersSkeleton';
 import { CardCafe } from '../../shared/components/CardCafe';
 import { Pagination } from '../../shared/components/Pagination';
+import { SortBy } from '../../shared/constants/SortBy';
 
 export const HomePageCafes = () => {
   const [filters, setFilters] = useState<string[]>([]);
@@ -36,10 +42,14 @@ export const HomePageCafes = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') || '';
-  const sortBy = searchParams.get('sortBy') || 'popular';
+
+  const sortBy = (searchParams.get('sortBy') as SortBy) || SortBy.Popular;
   const currentPage = searchParams.get('page') || '1';
   const perPage =
     searchParams.get('perPage') || +getItemPerPage(isTablet, isDesktop);
+
+  const pagesPerPage = getPageNumber(cafesState.totalPages);
+  const visilbePages = getVisiblePages(currentPage, pagesPerPage);
 
   useEffect(() => {
     setTimeout(() => {
@@ -50,11 +60,13 @@ export const HomePageCafes = () => {
   useEffect(() => {
     dispatch(
       fetchCafesThunk({
-        page: 1,
+        query,
+        sortBy,
+        page: +currentPage,
         perPage: +perPage,
       }),
     );
-  }, [perPage]);
+  }, [query, sortBy, currentPage, perPage, filters]);
 
   return (
     <div className={styles.searchPage} role="main">
@@ -105,21 +117,37 @@ export const HomePageCafes = () => {
           <CurrentView filters={filters} setFilters={setFilters} />
         </section>
 
-        {isLoading ? (
-          <div className={styles.searchPage__cafe} aria-label="Cafe card 1">
-            <CardCafeSkeleton />
-          </div>
-        ) : (
-          <div className={styles.searchPage__cafe} aria-label="Cafe card 1">
-            <CardCafe />
-          </div>
-        )}
+        {cafesState.loading
+          ? Array.from({ length: +perPage }).map((_, index) => (
+              <div
+                className={styles.searchPage__cafe}
+                aria-label={`Cafe card skeleton ${index + 1}`}
+                key={index}
+              >
+                <CardCafeSkeleton />
+              </div>
+            ))
+          : cafesState.cafes.map(cafe => (
+              <div
+                className={styles.searchPage__cafe}
+                aria-label={`Cafe card ${cafe.id}`}
+                key={cafe.id}
+              >
+                <CardCafe cafe={cafe} />
+              </div>
+            ))}
 
         <nav
           className={styles.searchPage__pagination}
           aria-label="Pagination navigation"
         >
-          <Pagination />
+          <Pagination
+            currentPage={currentPage}
+            pagesPerPage={pagesPerPage}
+            visilbePages={visilbePages}
+            searchParams={searchParams}
+            setSearchParams={setSearchParams}
+          />
         </nav>
       </div>
     </div>

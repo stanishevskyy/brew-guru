@@ -37,7 +37,22 @@
   line-height: 26px;
   letter-spacing: 0;
 
-  background-color: $color-background;
+  color: #9a9aa9;
+}
+
+.pagination__paginationNumsActive {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 44px;
+  height: 44px;
+  font-size: 20px;
+
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0;
+  color: #0a0a0c;
 }
 
 .pagination__rightBtn {

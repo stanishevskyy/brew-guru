@@ -1,4 +1,4 @@
-import { request } from './apiService';
+import { request, wait } from './apiService';
 
 import { Cafes } from '../shared/types/cafe/cafes';
 import { CafeQueryParam } from '../shared/constants/сafeQueryParam';
@@ -9,6 +9,8 @@ const STORAGE_KEY = 'cafes';
 export const cafesService = {
   getCafes: async (params?: CafeQueryParams) => {
     try {
+      await wait();
+
       const data = await request<Cafes>('cafes/cafes.json');
 
       const result = structuredClone(data);
