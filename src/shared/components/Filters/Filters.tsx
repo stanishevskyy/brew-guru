@@ -1,26 +1,31 @@
 import React, { useEffect, useState } from 'react';
+import { SetURLSearchParams } from 'react-router-dom';
+
 import classNames from 'classnames';
+
 import styles from './Filters.module.scss';
 
 //eslint-disable-next-line
 import CloseIcon from '../../../assets/icons/search-icons/close-favourites-icon.svg';
 import { FiltersType } from '../../types/FiltersType';
+import { getSearchWith } from '../../utils/getSearchWith';
 
 type Props = {
   filters: string[];
-
   isSideFiltersOpen: boolean;
   currentFilters: FiltersType;
+  searchParams: URLSearchParams;
+  setSearchParams: SetURLSearchParams;
   setIsSideFiltersOpen: (value: boolean) => void;
-  setFilters: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
 export const Filters: React.FC<Props> = ({
   filters,
   isSideFiltersOpen,
   currentFilters,
+  searchParams,
+  setSearchParams,
   setIsSideFiltersOpen,
-  setFilters,
 }) => {
   const [openCategories, setOpenCategories] = useState<Record<string, boolean>>(
     {},
@@ -39,11 +44,22 @@ export const Filters: React.FC<Props> = ({
   }, [isSideFiltersOpen]);
 
   const chooseFilters = (value: string) => {
-    if (filters.includes(value)) {
-      setFilters(prev => prev.filter(el => el !== value));
+    const current = searchParams.getAll('filter');
+
+    let newFilters: string[];
+
+    if (current.includes(value)) {
+      newFilters = current.filter(f => f !== value);
     } else {
-      setFilters(prev => [...prev, value]);
+      newFilters = [...current, value];
     }
+
+    const params = getSearchWith(searchParams, {
+      filter: newFilters,
+      page: '1',
+    });
+
+    setSearchParams(params);
   };
 
   const toggleCategory = (category: string) => {
@@ -66,18 +82,6 @@ export const Filters: React.FC<Props> = ({
             aria-hidden="true"
           />
         </button>
-        {/* <button
-          className={styles.filters__closeBtnDesktop}
-          onClick={() => setFilters([])}
-          aria-label="Close filters panel"
-        >
-          <img
-            src={CloseIcon}
-            alt=""
-            className={styles.filters__closeBtnIconDesktop}
-            aria-hidden="true"
-          />
-        </button> */}
       </div>
 
       {Object.entries(currentFilters).map(([category, options]) => {

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/indent */
 /* eslint-disable max-len */
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import classNames from 'classnames';
@@ -30,7 +30,6 @@ import { Pagination } from '../../shared/components/Pagination';
 import { SortBy } from '../../shared/constants/SortBy';
 
 export const HomePageCafes = () => {
-  const [filters, setFilters] = useState<string[]>([]);
   const [isSideFiltersOpen, setIsSideFiltersOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -44,6 +43,9 @@ export const HomePageCafes = () => {
   const query = searchParams.get('query') || '';
 
   const sortBy = (searchParams.get('sortBy') as SortBy) || SortBy.Popular;
+  const filters = useMemo(() => {
+    return searchParams.getAll('filter');
+  }, [searchParams]);
   const currentPage = searchParams.get('page') || '1';
   const perPage =
     searchParams.get('perPage') || +getItemPerPage(isTablet, isDesktop);
@@ -64,6 +66,7 @@ export const HomePageCafes = () => {
         sortBy,
         page: +currentPage,
         perPage: +perPage,
+        filter: filters,
       }),
     );
   }, [query, sortBy, currentPage, perPage, filters]);
@@ -87,8 +90,9 @@ export const HomePageCafes = () => {
               filters={filters}
               isSideFiltersOpen={isSideFiltersOpen}
               currentFilters={cardFilters}
+              searchParams={searchParams}
+              setSearchParams={setSearchParams}
               setIsSideFiltersOpen={setIsSideFiltersOpen}
-              setFilters={setFilters}
             />
           )}
         </section>
@@ -114,7 +118,11 @@ export const HomePageCafes = () => {
           })}
           aria-label="Current view settings"
         >
-          <CurrentView filters={filters} setFilters={setFilters} />
+          <CurrentView
+            filters={filters}
+            searchParams={searchParams}
+            setSearchParams={setSearchParams}
+          />
         </section>
 
         {cafesState.loading
@@ -137,18 +145,20 @@ export const HomePageCafes = () => {
               </div>
             ))}
 
-        <nav
-          className={styles.searchPage__pagination}
-          aria-label="Pagination navigation"
-        >
-          <Pagination
-            currentPage={currentPage}
-            pagesPerPage={pagesPerPage}
-            visilbePages={visilbePages}
-            searchParams={searchParams}
-            setSearchParams={setSearchParams}
-          />
-        </nav>
+        {visilbePages.length !== 0 && (
+          <nav
+            className={styles.searchPage__pagination}
+            aria-label="Pagination navigation"
+          >
+            <Pagination
+              currentPage={currentPage}
+              pagesPerPage={pagesPerPage}
+              visilbePages={visilbePages}
+              searchParams={searchParams}
+              setSearchParams={setSearchParams}
+            />
+          </nav>
+        )}
       </div>
     </div>
   );

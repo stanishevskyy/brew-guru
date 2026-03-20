@@ -1,3 +1,7 @@
 export type SeacrhParams = {
-  [key: string]: string;
+  query?: string;
+  sortBy?: string;
+  page?: string | number;
+  perPage?: string | number;
+  filter?: string[];
 };

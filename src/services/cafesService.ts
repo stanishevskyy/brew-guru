@@ -20,16 +20,81 @@ export const cafesService = {
 
       let filteredCafes = [...result.cafes];
 
-      Object.entries(params ?? {}).forEach(([key, value]) => {
-        if (typeof value !== 'string') {
-          return;
-        }
+      // Object.entries(params ?? {}).forEach(([key, value]) => {
+      //   if (typeof value !== 'string') {
+      //     return;
+      //   }
 
+      //   switch (key) {
+      //     case CafeQueryParam.Query:
+      //       filteredCafes = filteredCafes.filter(cafe =>
+      //         cafe.name.toLowerCase().includes(value.toLowerCase()),
+      //       );
+
+      //       break;
+
+      //     case CafeQueryParam.Filter:
+      //       if (Array.isArray(params?.filter) && params.filter.length > 0) {
+      //         filteredCafes = filteredCafes.filter(cafe => {
+      //           const allTags = [
+      //             ...(cafe.amenities ?? []),
+      //             ...(cafe.workspaces ?? []),
+      //             ...(cafe.menuFoodOptions ?? []),
+      //             ...(cafe.status ?? []),
+      //           ];
+
+      //           // хоча б один фільтр співпадає
+      //           return params.filter!.some(filter => allTags.includes(filter));
+      //         });
+      //       }
+
+      //       break;
+
+      //     case CafeQueryParam.SortBy:
+      //       filteredCafes.sort((a, b) => {
+      //         switch (params?.sortBy) {
+      //           case 'popular':
+      //             return (b.rating ?? 0) - (a.rating ?? 0);
+
+      //           case 'price_asc':
+      //             return (a.averageCheck ?? 0) - (b.averageCheck ?? 0);
+
+      //           case 'price_desc':
+      //             return (b.averageCheck ?? 0) - (a.averageCheck ?? 0);
+
+      //           default:
+      //             return 0;
+      //         }
+      //       });
+
+      //       break;
+      //   }
+      // });
+
+      Object.entries(params ?? {}).forEach(([key, value]) => {
         switch (key) {
           case CafeQueryParam.Query:
-            filteredCafes = filteredCafes.filter(cafe =>
-              cafe.name.toLowerCase().includes(value.toLowerCase()),
-            );
+            if (typeof value === 'string') {
+              filteredCafes = filteredCafes.filter(cafe =>
+                cafe.name.toLowerCase().includes(value.toLowerCase()),
+              );
+            }
+
+            break;
+
+          case CafeQueryParam.Filter:
+            if (Array.isArray(value) && value.length > 0) {
+              filteredCafes = filteredCafes.filter(cafe => {
+                const allTags = [
+                  ...(cafe.amenities ?? []),
+                  ...(cafe.workspaces ?? []),
+                  ...(cafe.menuFoodOptions ?? []),
+                  ...(cafe.status ?? []),
+                ];
+
+                return value.every(filter => allTags.includes(filter));
+              });
+            }
 
             break;
 
@@ -49,11 +114,9 @@ export const cafesService = {
                   return 0;
               }
             });
-
             break;
         }
       });
-
       const totalItems = filteredCafes.length;
       const totalPages = Math.ceil(totalItems / perPage!);
 

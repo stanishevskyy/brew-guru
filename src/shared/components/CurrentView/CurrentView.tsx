@@ -1,12 +1,21 @@
 import React from 'react';
+import { SetURLSearchParams } from 'react-router-dom';
+
 import styles from './CurrentView.module.scss';
+
+import { getSearchWith } from '../../utils/getSearchWith';
 
 type Props = {
   filters: string[];
-  setFilters: React.Dispatch<React.SetStateAction<string[]>>;
+  searchParams: URLSearchParams;
+  setSearchParams: SetURLSearchParams;
 };
 
-export const CurrentView: React.FC<Props> = ({ filters, setFilters }) => {
+export const CurrentView: React.FC<Props> = ({
+  filters,
+  searchParams,
+  setSearchParams,
+}) => {
   const appliedFilters = filters.join(' | ');
 
   return (
@@ -28,7 +37,14 @@ export const CurrentView: React.FC<Props> = ({ filters, setFilters }) => {
               className={styles.currentView__appliedClear}
               role="button"
               aria-label="Clear applied filters"
-              onClick={() => setFilters([])}
+              onClick={() => {
+                const params = getSearchWith(searchParams, {
+                  filter: [],
+                  page: '1',
+                });
+
+                setSearchParams(params);
+              }}
             >
               Clear
             </button>
