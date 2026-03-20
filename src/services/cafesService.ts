@@ -33,19 +33,19 @@ export const cafesService = {
 
           case CafeQueryParam.SortBy:
             filteredCafes.sort((a, b) => {
-              let compare = 0;
-
               switch (params?.sortBy) {
                 case 'popular':
-                  compare = (a.rating ?? 0) - (b.rating ?? 0);
-                  break;
+                  return (b.rating ?? 0) - (a.rating ?? 0);
 
-                case 'price':
-                  compare = (a.averageCheck ?? 0) - (b.averageCheck ?? 0);
-                  break;
+                case 'price_asc':
+                  return (a.averageCheck ?? 0) - (b.averageCheck ?? 0);
+
+                case 'price_desc':
+                  return (b.averageCheck ?? 0) - (a.averageCheck ?? 0);
+
+                default:
+                  return 0;
               }
-
-              return params?.sortOrder === 'desc' ? -compare : compare;
             });
 
             break;

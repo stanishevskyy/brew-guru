@@ -13,6 +13,7 @@ import { getSearchWith } from '../../utils/getSearchWith';
 
 type Props = {
   query: string;
+  sortBy: string;
   perPage: string | number;
   searchParams: URLSearchParams;
   setSearchParams: SetURLSearchParams;
@@ -21,6 +22,7 @@ type Props = {
 
 export const FormWrapper: React.FC<Props> = ({
   query,
+  sortBy,
   perPage,
   searchParams,
   setSearchParams,
@@ -42,6 +44,15 @@ export const FormWrapper: React.FC<Props> = ({
 
   const handleChangeSort = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
+
+    const params = getSearchWith(searchParams, {
+      query,
+      sortBy: value,
+      page: '1',
+      perPage: perPage.toString(),
+    });
+
+    setSearchParams(params);
   };
 
   return (
@@ -59,12 +70,12 @@ export const FormWrapper: React.FC<Props> = ({
       <button
         type="button"
         className={styles.form__sortBtnDesktop}
-        aria-label="Sort cafes by popularity"
         aria-expanded={isSortOpen}
         aria-controls="sort-menu-desktop"
-        onClick={() => setIsSortOpen(prev => !prev)}
+        onFocus={() => setIsSortOpen(prev => !prev)}
+        onBlur={() => setIsSortOpen(false)}
       >
-        By popularity
+        {sortLabels[sortBy as keyof typeof sortLabels]}
         <span
           className={classNames(`${styles.form__arrowSort}`, {
             [styles.form__arrowSortActive]: isSortOpen,
@@ -95,6 +106,7 @@ export const FormWrapper: React.FC<Props> = ({
                       name="sort"
                       value={value}
                       className={styles.form__labelInput}
+                      checked={sortBy === value}
                       onChange={event => {
                         handleChangeSort(event);
                         setIsSortOpen(false);
@@ -131,7 +143,8 @@ export const FormWrapper: React.FC<Props> = ({
         aria-label="Open sorting menu"
         aria-expanded={isSortOpen}
         aria-controls="sort-menu-mobile"
-        onClick={() => setIsSortOpen(prev => !prev)}
+        onFocus={() => setIsSortOpen(prev => !prev)}
+        onBlur={() => setIsSortOpen(false)}
       >
         <img
           src={SortIcon}
@@ -165,6 +178,11 @@ export const FormWrapper: React.FC<Props> = ({
                       name="sort-mobile"
                       value={value}
                       className={styles.form__labelInput}
+                      checked={sortBy === value}
+                      onChange={event => {
+                        handleChangeSort(event);
+                        setIsSortOpen(false);
+                      }}
                     />
                     {label}
                   </label>

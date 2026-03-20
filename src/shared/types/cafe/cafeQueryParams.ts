@@ -1,8 +1,7 @@
 export type CafeQueryParams = Partial<{
   query: string;
   filter: string[];
-  sortBy: 'popular' | 'price';
-  sortOrder: 'asc' | 'desc';
+  sortBy: 'popular' | 'price_asc' | 'price_desc';
   page: number;
   perPage: number;
 }>;

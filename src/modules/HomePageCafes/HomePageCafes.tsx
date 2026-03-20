@@ -50,12 +50,11 @@ export const HomePageCafes = () => {
   useEffect(() => {
     dispatch(
       fetchCafesThunk({
-        query,
-        page: +currentPage,
+        page: 1,
         perPage: +perPage,
       }),
     );
-  }, [query, currentPage, perPage]);
+  }, [perPage]);
 
   return (
     <div className={styles.searchPage} role="main">
@@ -88,6 +87,7 @@ export const HomePageCafes = () => {
           ) : (
             <FormWrapper
               query={query}
+              sortBy={sortBy}
               perPage={perPage}
               searchParams={searchParams}
               setSearchParams={setSearchParams}
