@@ -1,0 +1,212 @@
+[
+  {
+    "userId": 1,
+    "favorites": [
+      {
+        "id": 12,
+        "name": "Green Cup",
+        "address": "8 Forest Street, Ivano-Frankivsk",
+        "rating": 4.5,
+        "averageCheck": 140,
+        "openingHours": [
+          {
+            "id": 78,
+            "weekday": 1,
+            "cafeId": 12,
+            "openTime": "07:30:00.000Z",
+            "closeTime": "18:30:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 79,
+            "weekday": 2,
+            "cafeId": 12,
+            "openTime": "07:30:00.000Z",
+            "closeTime": "18:30:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 80,
+            "weekday": 3,
+            "cafeId": 12,
+            "openTime": "07:30:00.000Z",
+            "closeTime": "18:30:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 81,
+            "weekday": 4,
+            "cafeId": 12,
+            "openTime": "07:30:00.000Z",
+            "closeTime": "18:30:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 82,
+            "weekday": 5,
+            "cafeId": 12,
+            "openTime": "07:30:00.000Z",
+            "closeTime": "19:30:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 83,
+            "weekday": 6,
+            "cafeId": 12,
+            "openTime": "08:00:00.000Z",
+            "closeTime": "19:30:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 84,
+            "weekday": 7,
+            "cafeId": 12,
+            "openTime": null,
+            "closeTime": null,
+            "isOpen": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "userId": 2,
+    "favorites": [
+      {
+        "id": 12,
+        "name": "Green Cup",
+        "address": "8 Forest Street, Ivano-Frankivsk",
+        "rating": 4.5,
+        "averageCheck": 140,
+        "openingHours": [
+          {
+            "id": 78,
+            "weekday": 1,
+            "cafeId": 12,
+            "openTime": "07:30:00.000Z",
+            "closeTime": "18:30:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 79,
+            "weekday": 2,
+            "cafeId": 12,
+            "openTime": "07:30:00.000Z",
+            "closeTime": "18:30:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 80,
+            "weekday": 3,
+            "cafeId": 12,
+            "openTime": "07:30:00.000Z",
+            "closeTime": "18:30:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 81,
+            "weekday": 4,
+            "cafeId": 12,
+            "openTime": "07:30:00.000Z",
+            "closeTime": "18:30:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 82,
+            "weekday": 5,
+            "cafeId": 12,
+            "openTime": "07:30:00.000Z",
+            "closeTime": "19:30:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 83,
+            "weekday": 6,
+            "cafeId": 12,
+            "openTime": "08:00:00.000Z",
+            "closeTime": "19:30:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 84,
+            "weekday": 7,
+            "cafeId": 12,
+            "openTime": null,
+            "closeTime": null,
+            "isOpen": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "userId": 3,
+    "favorites": [
+      {
+        "id": 12,
+        "name": "Green Cup",
+        "address": "8 Forest Street, Ivano-Frankivsk",
+        "rating": 4.5,
+        "averageCheck": 140,
+        "openingHours": [
+          {
+            "id": 78,
+            "weekday": 1,
+            "cafeId": 12,
+            "openTime": "07:30:00.000Z",
+            "closeTime": "18:30:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 79,
+            "weekday": 2,
+            "cafeId": 12,
+            "openTime": "07:30:00.000Z",
+            "closeTime": "18:30:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 80,
+            "weekday": 3,
+            "cafeId": 12,
+            "openTime": "07:30:00.000Z",
+            "closeTime": "18:30:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 81,
+            "weekday": 4,
+            "cafeId": 12,
+            "openTime": "07:30:00.000Z",
+            "closeTime": "18:30:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 82,
+            "weekday": 5,
+            "cafeId": 12,
+            "openTime": "07:30:00.000Z",
+            "closeTime": "19:30:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 83,
+            "weekday": 6,
+            "cafeId": 12,
+            "openTime": "08:00:00.000Z",
+            "closeTime": "19:30:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 84,
+            "weekday": 7,
+            "cafeId": 12,
+            "openTime": null,
+            "closeTime": null,
+            "isOpen": false
+          }
+        ]
+      }
+    ]
+  }
+]
