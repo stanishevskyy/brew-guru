@@ -5,6 +5,7 @@
       {
         "id": 12,
         "name": "Green Cup",
+        "img": "https://source.unsplash.com/400x300/?eco,cafe",
         "address": "8 Forest Street, Ivano-Frankivsk",
         "rating": 4.5,
         "averageCheck": 140,
@@ -66,6 +67,72 @@
             "isOpen": false
           }
         ]
+      },
+      {
+        "id": 11,
+        "name": "Midnight Brew",
+        "img": "https://source.unsplash.com/400x300/?night,cafe",
+        "address": "77 Night Avenue, Kharkiv",
+        "rating": 4.0,
+        "averageCheck": 135,
+        "openingHours": [
+          {
+            "id": 71,
+            "weekday": 1,
+            "cafeId": 11,
+            "openTime": "16:00:00.000Z",
+            "closeTime": "02:00:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 72,
+            "weekday": 2,
+            "cafeId": 11,
+            "openTime": "16:00:00.000Z",
+            "closeTime": "02:00:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 73,
+            "weekday": 3,
+            "cafeId": 11,
+            "openTime": "16:00:00.000Z",
+            "closeTime": "02:00:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 74,
+            "weekday": 4,
+            "cafeId": 11,
+            "openTime": "16:00:00.000Z",
+            "closeTime": "02:00:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 75,
+            "weekday": 5,
+            "cafeId": 11,
+            "openTime": "16:00:00.000Z",
+            "closeTime": "03:00:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 76,
+            "weekday": 6,
+            "cafeId": 11,
+            "openTime": "16:00:00.000Z",
+            "closeTime": "03:00:00.000Z",
+            "isOpen": true
+          },
+          {
+            "id": 77,
+            "weekday": 7,
+            "cafeId": 11,
+            "openTime": null,
+            "closeTime": null,
+            "isOpen": false
+          }
+        ]
       }
     ]
   },
@@ -75,6 +142,7 @@
       {
         "id": 12,
         "name": "Green Cup",
+        "img": "https://source.unsplash.com/400x300/?eco,cafe",
         "address": "8 Forest Street, Ivano-Frankivsk",
         "rating": 4.5,
         "averageCheck": 140,
@@ -145,6 +213,7 @@
       {
         "id": 12,
         "name": "Green Cup",
+        "img": "https://source.unsplash.com/400x300/?eco,cafe",
         "address": "8 Forest Street, Ivano-Frankivsk",
         "rating": 4.5,
         "averageCheck": 140,
