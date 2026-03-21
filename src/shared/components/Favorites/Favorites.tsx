@@ -1,7 +1,11 @@
+/* eslint-disable max-len */
 import React, { useEffect } from 'react';
 import classNames from 'classnames';
 
 import styles from './Favorites.module.scss';
+
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import { fetchUserFavoritesCafe } from '../../../store/favoritesSlice/favoritesSlice';
 
 import { CardCafe } from '../CardCafe';
 
@@ -18,6 +22,10 @@ export const Favorites: React.FC<Props> = ({
   isFavoritesOpen,
   setIsFavoritesOpen,
 }) => {
+  const userId = useAppSelector(state => state.user.user?.id);
+  const favoritesState = useAppSelector(state => state.favorites);
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
     if (isFavoritesOpen) {
       document.body.style.overflow = 'hidden';
@@ -29,6 +37,10 @@ export const Favorites: React.FC<Props> = ({
       document.body.style.overflow = '';
     };
   }, [isFavoritesOpen]);
+
+  useEffect(() => {
+    dispatch(fetchUserFavoritesCafe(userId as number));
+  }, [favoritesState.userFavorite]);
 
   return (
     <div
@@ -57,31 +69,19 @@ export const Favorites: React.FC<Props> = ({
           </button>
         </div>
 
-        {false ? (
+        {favoritesState.userFavorite === null ? (
           <NotFavoritesYet />
         ) : (
           <div className={styles.favourites__gridLayout}>
-            <div className={styles.favourites__cafe}>
-              <CardCafe isFavoritesOpen={isFavoritesOpen} />
-            </div>
-            <div className={styles.favourites__cafe}>
-              <CardCafe isFavoritesOpen={isFavoritesOpen} />
-            </div>
-            <div className={styles.favourites__cafe}>
-              <CardCafe isFavoritesOpen={isFavoritesOpen} />
-            </div>
-            <div className={styles.favourites__cafe}>
-              <CardCafe isFavoritesOpen={isFavoritesOpen} />
-            </div>
-            <div className={styles.favourites__cafe}>
-              <CardCafe isFavoritesOpen={isFavoritesOpen} />
-            </div>
-            <div className={styles.favourites__cafe}>
-              <CardCafe isFavoritesOpen={isFavoritesOpen} />
-            </div>
-            <div className={styles.favourites__cafe}>
-              <CardCafe isFavoritesOpen={isFavoritesOpen} />
-            </div>
+            {favoritesState.userFavorite.favorites.map(favoriteCafe => (
+              <div className={styles.favourites__cafe} key={favoriteCafe.id}>
+                <CardCafe
+                  cafe={favoriteCafe}
+                  isFavoritesOpen={isFavoritesOpen}
+                  key={favoriteCafe.id}
+                />
+              </div>
+            ))}
           </div>
         )}
       </div>

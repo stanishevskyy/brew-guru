@@ -3,17 +3,25 @@ import { Link, NavLink } from 'react-router-dom';
 
 import styles from './CardCafe.module.scss';
 
-import { Cafe } from '../../types/user/user-cafe-history.type';
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+
+import { CafeCardInfo } from '../../types/shared/cafeCardInfo';
 
 import CardImage from '../../../assets/images/card-images/card-image.png';
 //eslint-disable-next-line
 import LoactionIcon from '../../../assets/icons/cart-icons/location-pin-icon.svg';
 import ClockIcon from '../../../assets/icons/cart-icons/clock-icon.svg';
 import FavoritesIcon from '../../../assets/icons/cart-icons/favorites-icon.svg';
+import FavoritesActiveIcon from '../../../assets/icons/cart-icons/like.svg';
 import BinIcon from '../../../assets/icons/cafe-icons/bin-icon.svg';
+// eslint-disable-next-line max-len
+import {
+  addUserFavoritesCafeThunk,
+  deleteUserFavoritesCafeThunk,
+} from '../../../store/favoritesSlice/favoritesSlice';
 
 type Props = {
-  cafe: Cafe;
+  cafe: CafeCardInfo;
   isFavoritesOpen?: boolean;
 };
 
@@ -21,6 +29,15 @@ export const CardCafe: React.FC<Props> = ({
   cafe,
   isFavoritesOpen = false,
 }) => {
+  const userId = useAppSelector(state => state.user.user?.id);
+  const favoritesState = useAppSelector(
+    state => state.favorites.userFavorite?.favorites,
+  );
+  const dispatch = useAppDispatch();
+  const isInFavoritesList = favoritesState?.find(
+    favoriteCafe => favoriteCafe.id === cafe.id,
+  );
+
   const currentDayIndex = ((new Date().getDay() + 6) % 7) + 1;
 
   const currentDayWorking = cafe?.openingHours.find(
@@ -90,6 +107,18 @@ export const CardCafe: React.FC<Props> = ({
             <button
               className={styles.cardCafe__deleteBtn}
               aria-label="Remove Black Honey from favorites"
+              onClick={() => {
+                if (!userId) {
+                  return;
+                }
+
+                dispatch(
+                  deleteUserFavoritesCafeThunk({
+                    userId,
+                    favoriteId: cafe.id,
+                  }),
+                );
+              }}
             >
               <img
                 src={BinIcon}
@@ -102,9 +131,38 @@ export const CardCafe: React.FC<Props> = ({
             <button
               className={styles.cardCafe__favoriteBtn}
               aria-label="Add Black Honey to favorites"
+              onClick={() => {
+                if (!userId) {
+                  return;
+                }
+
+                if (!isInFavoritesList) {
+                  dispatch(
+                    addUserFavoritesCafeThunk({
+                      userId,
+                      favoriteCafe: {
+                        id: cafe.id,
+                        name: cafe.name,
+                        img: cafe.img,
+                        address: cafe.address,
+                        rating: cafe.rating,
+                        averageCheck: cafe.averageCheck,
+                        openingHours: cafe.openingHours,
+                      },
+                    }),
+                  );
+                } else {
+                  dispatch(
+                    deleteUserFavoritesCafeThunk({
+                      userId,
+                      favoriteId: cafe.id,
+                    }),
+                  );
+                }
+              }}
             >
               <img
-                src={FavoritesIcon}
+                src={isInFavoritesList ? FavoritesActiveIcon : FavoritesIcon}
                 alt=""
                 className={styles.cardCafe__favoriteBtnImg}
                 aria-hidden="true"

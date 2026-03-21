@@ -5,6 +5,8 @@ import classNames from 'classnames';
 
 import styles from './App.module.scss';
 
+import { useAppSelector } from './store/hooks';
+
 import { Header } from './shared/components/Header';
 import { Footer } from './shared/components/Footer';
 import { Aside } from './shared/components/Aside';
@@ -15,6 +17,7 @@ export const App = () => {
   const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isOrdersOpen, setIsOrdersOpen] = useState(false);
+  const userId = useAppSelector(state => state.user.user?.id);
 
   return (
     <>
@@ -32,6 +35,7 @@ export const App = () => {
         <Outlet context={{ setIsOrdersOpen }} />
         <Orders isOrdersOpen={isOrdersOpen} setIsOrdersOpen={setIsOrdersOpen} />
         <Favorites
+          key={userId}
           isFavoritesOpen={isFavoritesOpen}
           setIsFavoritesOpen={setIsFavoritesOpen}
         />
