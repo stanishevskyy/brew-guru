@@ -3,6 +3,7 @@
     {
       "id": 1,
       "name": "Coffee Hub",
+      "img": "https://source.unsplash.com/400x300/?coffee,cafe",
       "address": "123 Main Street, Kyiv",
       "rating": 4.5,
       "averageCheck": 150,
@@ -72,6 +73,7 @@
     {
       "id": 2,
       "name": "Tea & Talk",
+      "img": "https://source.unsplash.com/400x300/?tea,cafe",
       "address": "45 Green Avenue, Lviv",
       "rating": 4.2,
       "averageCheck": 120,
@@ -141,6 +143,7 @@
     {
       "id": 3,
       "name": "Brew & Bytes",
+      "img": "https://source.unsplash.com/400x300/?workspace,cafe",
       "address": "78 IT Park Road, Odessa",
       "rating": 4.8,
       "averageCheck": 180,
@@ -210,6 +213,7 @@
     {
       "id": 4,
       "name": "Morning Roast",
+      "img": "https://source.unsplash.com/400x300/?breakfast,cafe",
       "address": "12 Sunrise Blvd, Dnipro",
       "rating": 4.0,
       "averageCheck": 140,
@@ -279,6 +283,7 @@
     {
       "id": 5,
       "name": "Urban Grind",
+      "img": "https://source.unsplash.com/400x300/?urban,cafe",
       "address": "101 Central Square, Kharkiv",
       "rating": 4.7,
       "averageCheck": 160,
@@ -348,6 +353,7 @@
     {
       "id": 6,
       "name": "Bean & Chill",
+      "img": "https://source.unsplash.com/400x300/?cozy,cafe",
       "address": "5 Riverside Street, Ternopil",
       "rating": 4.3,
       "averageCheck": 130,
@@ -417,6 +423,7 @@
     {
       "id": 7,
       "name": "Roast Republic",
+      "img": "https://source.unsplash.com/400x300/?espresso,cafe",
       "address": "22 Freedom Street, Kyiv",
       "rating": 4.6,
       "averageCheck": 155,
@@ -486,6 +493,7 @@
     {
       "id": 8,
       "name": "Steam & Beans",
+      "img": "https://source.unsplash.com/400x300/?latte,cafe",
       "address": "90 Market Road, Lviv",
       "rating": 4.4,
       "averageCheck": 145,
@@ -555,6 +563,7 @@
     {
       "id": 9,
       "name": "Code & Coffee",
+      "img": "https://source.unsplash.com/400x300/?laptop,cafe",
       "address": "3 Startup Lane, Odessa",
       "rating": 4.9,
       "averageCheck": 190,
@@ -624,6 +633,7 @@
     {
       "id": 10,
       "name": "Sunny Side Cafe",
+      "img": "https://source.unsplash.com/400x300/?sunny,cafe",
       "address": "14 River Park, Dnipro",
       "rating": 4.1,
       "averageCheck": 125,
@@ -693,6 +703,7 @@
     {
       "id": 11,
       "name": "Midnight Brew",
+      "img": "https://source.unsplash.com/400x300/?night,cafe",
       "address": "77 Night Avenue, Kharkiv",
       "rating": 4.0,
       "averageCheck": 135,
@@ -762,6 +773,7 @@
     {
       "id": 12,
       "name": "Green Cup",
+      "img": "https://source.unsplash.com/400x300/?eco,cafe",
       "address": "8 Forest Street, Ivano-Frankivsk",
       "rating": 4.5,
       "averageCheck": 140,

@@ -1,6 +1,6 @@
-import { FavoritesCafe } from './favoritesCafe';
+import { CafeCardInfo } from '../shared/cafeCardInfo';
 
 export interface Favorites {
   userId: number;
-  favorites: FavoritesCafe[];
+  favorites: CafeCardInfo[];
 }

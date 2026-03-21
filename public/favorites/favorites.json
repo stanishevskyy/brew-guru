@@ -5,6 +5,7 @@
       {
         "id": 12,
         "name": "Green Cup",
+        "img": "https://source.unsplash.com/400x300/?eco,cafe",
         "address": "8 Forest Street, Ivano-Frankivsk",
         "rating": 4.5,
         "averageCheck": 140,
@@ -75,6 +76,7 @@
       {
         "id": 12,
         "name": "Green Cup",
+        "img": "https://source.unsplash.com/400x300/?eco,cafe",
         "address": "8 Forest Street, Ivano-Frankivsk",
         "rating": 4.5,
         "averageCheck": 140,
@@ -145,6 +147,7 @@
       {
         "id": 12,
         "name": "Green Cup",
+        "img": "https://source.unsplash.com/400x300/?eco,cafe",
         "address": "8 Forest Street, Ivano-Frankivsk",
         "rating": 4.5,
         "averageCheck": 140,

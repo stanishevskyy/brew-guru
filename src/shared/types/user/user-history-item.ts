@@ -1,7 +1,7 @@
-import { Cafe } from './user-cafe-history.type';
+import { HistoryCafe } from './user-cafe-history.type';
 
 export interface HistoryItem {
   id: number;
-  cafe: Cafe;
+  cafe: HistoryCafe;
   time: string;
 }

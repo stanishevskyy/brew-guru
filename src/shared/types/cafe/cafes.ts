@@ -1,4 +1,4 @@
-import { Cafe } from './cafe';
+import { Cafe } from '../shared/cafe';
 
 export interface Cafes {
   cafes: Cafe[];

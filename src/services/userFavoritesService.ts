@@ -1,7 +1,7 @@
 import { favoritesService } from './favoritesService';
 
 import { Favorites } from '../shared/types/favorites/favorites';
-import { FavoritesCafe } from '../shared/types/favorites/favoritesCafe';
+import { CafeCardInfo } from '../shared/types/shared/cafeCardInfo';
 
 const STORAGE_KEY = 'favorites';
 
@@ -17,7 +17,7 @@ export const userFavoritesService = {
   },
   addUserFavorite: async (
     userId: number,
-    favoriteCafe: FavoritesCafe,
+    favoriteCafe: CafeCardInfo,
   ): Promise<Favorites> => {
     try {
       const favoritesData = await favoritesService.getFavorites();

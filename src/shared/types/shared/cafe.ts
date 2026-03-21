@@ -1,8 +1,9 @@
-import { OpeningHour } from '../user/user-hours.type';
+import { OpeningHour } from './openingHour';
 
 export interface Cafe {
   id: number;
   name: string;
+  img: string;
   address: string;
   rating: number;
   averageCheck: number;

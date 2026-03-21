@@ -1,6 +1,6 @@
-import { OpeningHour } from './user-hours.type';
+import { OpeningHour } from '../shared/openingHour';
 
-export interface Cafe {
+export interface HistoryCafe {
   id: number;
   img?: string;
   name: string;
