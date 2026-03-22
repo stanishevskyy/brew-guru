@@ -5,6 +5,9 @@ export interface Dish {
   portion: string;
   imageUrl: string;
   menuId: number;
+
+  category: string;
+  type: string;
 }
 
 export interface MenuItem {

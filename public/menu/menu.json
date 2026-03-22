@@ -15,7 +15,9 @@
             "price": 120,
             "portion": "1 portion / 350g",
             "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8",
-            "menuId": 1
+            "menuId": 1,
+            "category": "Main Courses",
+            "type": "Vegetarian Mains"
           },
           {
             "id": 2,
@@ -23,7 +25,19 @@
             "price": 50,
             "portion": "1 portion / 350g",
             "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
-            "menuId": 1
+            "menuId": 1,
+            "category": "Drinks",
+            "type": "Hot Drinks"
+          },
+          {
+            "id": 10,
+            "name": "Omelette with Veggies",
+            "price": 95,
+            "portion": "1 portion / 250g",
+            "imageUrl": "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b",
+            "menuId": 1,
+            "category": "Main Courses",
+            "type": "Vegetarian Mains"
           }
         ]
       },
@@ -36,19 +50,43 @@
         "items": [
           {
             "id": 3,
-            "name": "Vegan Salad",
-            "price": 90,
+            "name": "Grilled Chicken",
+            "price": 180,
             "portion": "1 portion / 350g",
-            "imageUrl": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe",
-            "menuId": 2
+            "imageUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+            "menuId": 2,
+            "category": "Main Courses",
+            "type": "Meat"
           },
           {
             "id": 4,
             "name": "Espresso",
             "price": 40,
-            "portion": "1 portion / 350g",
+            "portion": "1 portion / 100g",
             "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
-            "menuId": 2
+            "menuId": 2,
+            "category": "Drinks",
+            "type": "Hot Drinks"
+          },
+          {
+            "id": 11,
+            "name": "Grilled Salmon",
+            "price": 250,
+            "portion": "1 portion / 300g",
+            "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+            "menuId": 2,
+            "category": "Main Courses",
+            "type": "Fish & Seafood"
+          },
+          {
+            "id": 12,
+            "name": "Iced Tea",
+            "price": 45,
+            "portion": "1 portion / 300ml",
+            "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+            "menuId": 2,
+            "category": "Drinks",
+            "type": "Cold Drinks"
           }
         ]
       },
@@ -63,17 +101,31 @@
             "id": 5,
             "name": "Chocolate Brownie",
             "price": 85,
-            "portion": "1 portion / 350g",
+            "portion": "1 portion / 150g",
             "imageUrl": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52",
-            "menuId": 3
+            "menuId": 3,
+            "category": "Desserts",
+            "type": "Cakes & Pastries"
           },
           {
             "id": 6,
             "name": "Cheesecake",
             "price": 110,
-            "portion": "1 portion / 350g",
+            "portion": "1 portion / 150g",
             "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
-            "menuId": 3
+            "menuId": 3,
+            "category": "Desserts",
+            "type": "Cakes & Pastries"
+          },
+          {
+            "id": 13,
+            "name": "Fruit Salad",
+            "price": 65,
+            "portion": "1 portion / 200g",
+            "imageUrl": "https://images.unsplash.com/photo-1543353071-087092ec3934",
+            "menuId": 3,
+            "category": "Desserts",
+            "type": "Fruit Desserts"
           }
         ]
       },
@@ -88,17 +140,51 @@
             "id": 7,
             "name": "Matcha Latte",
             "price": 95,
-            "portion": "1 portion / 350g",
+            "portion": "1 portion / 250ml",
             "imageUrl": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7",
-            "menuId": 4
+            "menuId": 4,
+            "category": "Drinks",
+            "type": "Hot Drinks"
           },
           {
             "id": 8,
             "name": "Fresh Orange Juice",
             "price": 70,
-            "portion": "1 portion / 350g",
+            "portion": "1 portion / 250ml",
             "imageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da3888",
-            "menuId": 4
+            "menuId": 4,
+            "category": "Drinks",
+            "type": "Cold Drinks"
+          },
+          {
+            "id": 9,
+            "name": "Red Wine",
+            "price": 140,
+            "portion": "150ml",
+            "imageUrl": "https://images.unsplash.com/photo-1510626176961-4b57d4fbad03",
+            "menuId": 4,
+            "category": "Alcohol",
+            "type": "Wine"
+          },
+          {
+            "id": 14,
+            "name": "Beer Lager",
+            "price": 60,
+            "portion": "500ml",
+            "imageUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+            "menuId": 4,
+            "category": "Alcohol",
+            "type": "Beer"
+          },
+          {
+            "id": 15,
+            "name": "Iced Latte",
+            "price": 85,
+            "portion": "1 portion / 250ml",
+            "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+            "menuId": 4,
+            "category": "Drinks",
+            "type": "Cold Drinks"
           }
         ]
       }

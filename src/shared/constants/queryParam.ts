@@ -1,4 +1,4 @@
-export enum CafeQueryParam {
+export enum QueryParam {
   Query = 'query',
   Filter = 'filter',
   SortBy = 'sortBy',

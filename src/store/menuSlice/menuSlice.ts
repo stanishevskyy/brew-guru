@@ -4,6 +4,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { Menu } from '../../shared/types/menu/menu';
 import { menuService } from '../../services/menuService';
+import { MenuQueryParams } from '../../shared/types/menu/menuQueryParams';
 
 export interface MenuState {
   menu: Menu | null;
@@ -19,11 +20,11 @@ const initialState: MenuState = {
 
 export const fetchCafeMenuThunk = createAsyncThunk<
   Menu | null,
-  number,
+  { cafeId: number; params: MenuQueryParams },
   { rejectValue: string }
->('menu/fetchMenu', async (cafeId, { rejectWithValue }) => {
+>('menu/fetchMenu', async ({ cafeId, params }, { rejectWithValue }) => {
   try {
-    return await menuService.getMenusByCafe(cafeId);
+    return await menuService.getMenusByCafe(cafeId, params);
   } catch (error) {
     return rejectWithValue(
       error instanceof Error ? error.message : 'Failed to load menu',

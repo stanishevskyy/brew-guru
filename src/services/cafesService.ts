@@ -1,7 +1,7 @@
 import { request, wait } from './apiService';
 
 import { Cafes } from '../shared/types/cafe/cafes';
-import { CafeQueryParam } from '../shared/constants/сafeQueryParam';
+import { QueryParam } from '../shared/constants/queryParam';
 import { CafeQueryParams } from '../shared/types/cafe/cafeQueryParams';
 
 const STORAGE_KEY = 'cafes';
@@ -22,7 +22,7 @@ export const cafesService = {
 
       Object.entries(params ?? {}).forEach(([key, value]) => {
         switch (key) {
-          case CafeQueryParam.Query:
+          case QueryParam.Query:
             if (typeof value === 'string') {
               filteredCafes = filteredCafes.filter(cafe =>
                 cafe.name.toLowerCase().includes(value.toLowerCase()),
@@ -31,7 +31,7 @@ export const cafesService = {
 
             break;
 
-          case CafeQueryParam.Filter:
+          case QueryParam.Filter:
             if (Array.isArray(value) && value.length > 0) {
               filteredCafes = filteredCafes.filter(cafe => {
                 const allTags = [
@@ -47,7 +47,7 @@ export const cafesService = {
 
             break;
 
-          case CafeQueryParam.SortBy:
+          case QueryParam.SortBy:
             filteredCafes.sort((a, b) => {
               switch (params?.sortBy) {
                 case 'popular':

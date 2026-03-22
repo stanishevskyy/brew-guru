@@ -19,6 +19,20 @@ const initialState: ReviewsState = {
   error: null,
 };
 
+export const fetchCafeReviewsThunk = createAsyncThunk<
+  Review[],
+  number,
+  { rejectValue: string }
+>('reviews/fetchCafeReviews', async (cafeId, { rejectWithValue }) => {
+  try {
+    return await userReviewsService.getReviewsByCafe(cafeId);
+  } catch (error) {
+    return rejectWithValue(
+      error instanceof Error ? error.message : 'Failed to fetch reviews',
+    );
+  }
+});
+
 export const fetchUserReviewsThunk = createAsyncThunk<
   Review[],
   number,
@@ -99,6 +113,19 @@ export const reviewsSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
+      .addCase(fetchCafeReviewsThunk.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchCafeReviewsThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        state.reviews = action.payload;
+      })
+      .addCase(fetchCafeReviewsThunk.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || 'Failed';
+      })
       .addCase(fetchUserReviewsThunk.pending, state => {
         state.loading = true;
         state.error = null;

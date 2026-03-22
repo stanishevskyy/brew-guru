@@ -21,6 +21,8 @@ import { CafeHeaderSkeleton } from '../../shared/components/CafeHeaderSkeleton';
 import { CafeMenuSkeleton } from '../../shared/components/CafeMenuSkeleton';
 //eslint-disable-next-line
 import { CafeReviewsSkeleton } from '../../shared/components/CafeReviewsSkeleton';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { fetchCafeMenuThunk } from '../../store/menuSlice/menuSlice';
 
 export const CafePage = () => {
   const navigate = useNavigate();
@@ -52,6 +54,20 @@ export const CafePage = () => {
   //     alert('Не вдалося знайти Place ID');
   //   }
   // };
+
+  const menuState = useAppSelector(state => state.menu);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(
+      fetchCafeMenuThunk({
+        cafeId: 1,
+        params: { filter: ['Hot Drinks'], sortBy: 'price_asc' },
+      }),
+    );
+  }, []);
+
+  console.log(menuState);
 
   return (
     <div className={styles.cafe}>

@@ -1,17 +1,29 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 
 import styles from './CafeReviews.module.scss';
 
+import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
+// eslint-disable-next-line max-len
+import { fetchCafeReviewsThunk } from '../../../../store/reviewsSlice/reviewsSlice';
+
 import { Review } from '../../../../shared/components/Review';
 
 //eslint-disable-next-line
 import PersonImage from '../../../../assets/images/cafe-images/cafe-reviews-image/Picture.png';
+import { ReviewSkeleton } from '../../../../shared/components/ReviewSkeleton';
 
 export const CafeReviews = () => {
   const [value, setValue] = useState(3.5);
+  const [deletedReview, setDeletedReview] = useState<number | null>(null);
+  const reviewsState = useAppSelector(state => state.reviews);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCafeReviewsThunk(1));
+  }, []);
 
   return (
     <section className={styles.reviews} aria-labelledby="reviews-title">
@@ -66,24 +78,21 @@ export const CafeReviews = () => {
         </article>
 
         <ul className={styles.reviews__comments}>
-          <li className={styles.reviews__downComment}>
-            <Review />
-          </li>
-          <li className={styles.reviews__downComment}>
-            <Review />
-          </li>
-          <li className={styles.reviews__downComment}>
-            <Review />
-          </li>
-          <li className={styles.reviews__downComment}>
-            <Review />
-          </li>
-          <li className={styles.reviews__downComment}>
-            <Review />
-          </li>
-          <li className={styles.reviews__downComment}>
-            <Review />
-          </li>
+          {reviewsState.reviews.map(review =>
+            deletedReview === review.id ? (
+              <li className={styles.reviews__downComment} key={review.id}>
+                <ReviewSkeleton />
+              </li>
+            ) : (
+              <li className={styles.reviews__downComment} key={review.id}>
+                <Review
+                  isLoadingState={reviewsState.loading}
+                  review={review}
+                  setDeletedReview={setDeletedReview}
+                />
+              </li>
+            ),
+          )}
         </ul>
       </div>
     </section>
