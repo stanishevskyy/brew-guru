@@ -4,6 +4,15 @@ import { Review } from '../shared/types/reviews/review.type';
 import { Reply } from '../shared/types/reviews/replies.type';
 
 export const userReviewsService = {
+  getReviewsByCafe: async (cafeId: number): Promise<Review[]> => {
+    try {
+      const reviews = await reviewsService.getReviews();
+
+      return reviews.filter(r => r.cafeId === cafeId);
+    } catch {
+      throw new Error('Failed to load cafe reviews');
+    }
+  },
   getUserReviews: async (userId: number): Promise<Review[]> => {
     try {
       const reviews = await reviewsService.getReviews();
@@ -11,6 +20,23 @@ export const userReviewsService = {
       return reviews.filter(r => r.user.id === userId);
     } catch {
       throw new Error('Failed to load user reviews');
+    }
+  },
+  addUserReview: async (newUserReview: Omit<Review, 'id'>): Promise<Review> => {
+    try {
+      const reviews = await reviewsService.getReviews();
+
+      const newReview = {
+        id: +Date.now(),
+        ...newUserReview,
+      };
+
+      reviews.push(newReview);
+      localStorage.setItem('reviews', JSON.stringify(reviews));
+
+      return newReview;
+    } catch {
+      throw new Error('Failed to add review');
     }
   },
   addUserReply: async (newUserReply: Reply): Promise<Reply> => {

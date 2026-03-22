@@ -51,7 +51,6 @@ export const ProfilePage = () => {
   useEffect(() => {
     dispatch(fetchUserHistoryThunk(userState.user?.id as number));
     dispatch(fetchUserReviewsThunk(userState.user?.id as number));
-    dispatch(fetchUserReviewsThunk(userState.user?.id as number));
     dispatch(fetchReportsThunk(userState.user?.id as number));
   }, [pathname, dispatch, userState.user?.id]);
 
