@@ -36,6 +36,7 @@ export const CafePage = () => {
   const cafeId = slug?.split('-').pop();
 
   const cafeState = useAppSelector(state => state.cafeDetails);
+
   const reviewsState = useAppSelector(state => state.reviews);
   const dispatch = useAppDispatch();
 
@@ -149,7 +150,11 @@ export const CafePage = () => {
           </section>
         )}
 
-        {cafeState.loading ? <CafeMenuSkeleton /> : <CafeMenu />}
+        {cafeState.loading ? (
+          <CafeMenuSkeleton />
+        ) : (
+          <CafeMenu cafeId={cafeState.cafe?.id as number} />
+        )}
 
         <div className={styles.cafe__reservations}>
           <Details isModifiedDetails={true} />

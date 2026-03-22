@@ -1,192 +1,2199 @@
 [
   {
+    "id": 1,
     "cafeId": 1,
     "items": [
       {
         "id": 1,
-        "name": "Breakfast Menu",
-        "cafeId": 1,
-        "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
-        "cafe": { "id": 1, "name": "Coffee Hub" },
-        "items": [
-          {
-            "id": 1,
-            "name": "Vegan Pancakes",
-            "price": 120,
-            "portion": "1 portion / 350g",
-            "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8",
-            "menuId": 1,
-            "category": "Main Courses",
-            "type": "Vegetarian Mains"
-          },
-          {
-            "id": 2,
-            "name": "Cappuccino",
-            "price": 50,
-            "portion": "1 portion / 350g",
-            "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
-            "menuId": 1,
-            "category": "Drinks",
-            "type": "Hot Drinks"
-          },
-          {
-            "id": 10,
-            "name": "Omelette with Veggies",
-            "price": 95,
-            "portion": "1 portion / 250g",
-            "imageUrl": "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b",
-            "menuId": 1,
-            "category": "Main Courses",
-            "type": "Vegetarian Mains"
-          }
-        ]
+        "name": "Vegan Pancakes",
+        "price": 120,
+        "discount": 10,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8",
+        "category": "Main Courses",
+        "type": "Vegetarian Mains",
+        "description": "Fluffy vegan pancakes served warm with a delicate balance of sweetness, topped with fresh fruits and a drizzle of maple syrup for a comforting, wholesome start to your day."
       },
       {
         "id": 2,
-        "name": "Lunch Menu",
-        "cafeId": 1,
-        "imageUrl": "https://images.unsplash.com/photo-1498837167922-ddd27525d352",
-        "cafe": { "id": 1, "name": "Coffee Hub" },
-        "items": [
-          {
-            "id": 3,
-            "name": "Grilled Chicken",
-            "price": 180,
-            "portion": "1 portion / 350g",
-            "imageUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
-            "menuId": 2,
-            "category": "Main Courses",
-            "type": "Meat"
-          },
-          {
-            "id": 4,
-            "name": "Espresso",
-            "price": 40,
-            "portion": "1 portion / 100g",
-            "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
-            "menuId": 2,
-            "category": "Drinks",
-            "type": "Hot Drinks"
-          },
-          {
-            "id": 11,
-            "name": "Grilled Salmon",
-            "price": 250,
-            "portion": "1 portion / 300g",
-            "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
-            "menuId": 2,
-            "category": "Main Courses",
-            "type": "Fish & Seafood"
-          },
-          {
-            "id": 12,
-            "name": "Iced Tea",
-            "price": 45,
-            "portion": "1 portion / 300ml",
-            "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
-            "menuId": 2,
-            "category": "Drinks",
-            "type": "Cold Drinks"
-          }
-        ]
+        "name": "Cappuccino",
+        "price": 50,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "A rich and aromatic espresso blended with velvety steamed milk, crowned with a light, airy foam for a perfectly balanced and comforting coffee experience."
       },
       {
         "id": 3,
-        "name": "Dessert Menu",
-        "cafeId": 1,
-        "imageUrl": "https://images.unsplash.com/photo-1551024506-0bccd828d307",
-        "cafe": { "id": 1, "name": "Coffee Hub" },
-        "items": [
-          {
-            "id": 5,
-            "name": "Chocolate Brownie",
-            "price": 85,
-            "portion": "1 portion / 150g",
-            "imageUrl": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52",
-            "menuId": 3,
-            "category": "Desserts",
-            "type": "Cakes & Pastries"
-          },
-          {
-            "id": 6,
-            "name": "Cheesecake",
-            "price": 110,
-            "portion": "1 portion / 150g",
-            "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
-            "menuId": 3,
-            "category": "Desserts",
-            "type": "Cakes & Pastries"
-          },
-          {
-            "id": 13,
-            "name": "Fruit Salad",
-            "price": 65,
-            "portion": "1 portion / 200g",
-            "imageUrl": "https://images.unsplash.com/photo-1543353071-087092ec3934",
-            "menuId": 3,
-            "category": "Desserts",
-            "type": "Fruit Desserts"
-          }
-        ]
+        "name": "Grilled Chicken",
+        "price": 180,
+        "discount": 15,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+        "category": "Main Courses",
+        "type": "Meat",
+        "description": "Juicy grilled chicken seasoned with a blend of herbs and spices, served tender and flavorful with a lightly charred finish that enhances its natural taste."
       },
       {
         "id": 4,
-        "name": "Drinks Menu",
-        "cafeId": 1,
-        "imageUrl": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085",
-        "cafe": { "id": 1, "name": "Coffee Hub" },
-        "items": [
-          {
-            "id": 7,
-            "name": "Matcha Latte",
-            "price": 95,
-            "portion": "1 portion / 250ml",
-            "imageUrl": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7",
-            "menuId": 4,
-            "category": "Drinks",
-            "type": "Hot Drinks"
-          },
-          {
-            "id": 8,
-            "name": "Fresh Orange Juice",
-            "price": 70,
-            "portion": "1 portion / 250ml",
-            "imageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da3888",
-            "menuId": 4,
-            "category": "Drinks",
-            "type": "Cold Drinks"
-          },
-          {
-            "id": 9,
-            "name": "Red Wine",
-            "price": 140,
-            "portion": "150ml",
-            "imageUrl": "https://images.unsplash.com/photo-1510626176961-4b57d4fbad03",
-            "menuId": 4,
-            "category": "Alcohol",
-            "type": "Wine"
-          },
-          {
-            "id": 14,
-            "name": "Beer Lager",
-            "price": 60,
-            "portion": "500ml",
-            "imageUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
-            "menuId": 4,
-            "category": "Alcohol",
-            "type": "Beer"
-          },
-          {
-            "id": 15,
-            "name": "Iced Latte",
-            "price": 85,
-            "portion": "1 portion / 250ml",
-            "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
-            "menuId": 4,
-            "category": "Drinks",
-            "type": "Cold Drinks"
-          }
-        ]
+        "name": "Espresso",
+        "price": 40,
+        "portion": "1 portion / 100g",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "A bold and intense shot of freshly brewed espresso, delivering deep, rich flavors and a smooth crema for a quick yet satisfying energy boost."
+      },
+      {
+        "id": 5,
+        "name": "Chocolate Brownie",
+        "price": 85,
+        "discount": 20,
+        "portion": "1 portion / 150g",
+        "imageUrl": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Decadent chocolate brownie with a rich, fudgy center and a slightly crisp top, offering an indulgent treat for true chocolate lovers."
+      },
+      {
+        "id": 6,
+        "name": "Cheesecake",
+        "price": 110,
+        "portion": "1 portion / 150g",
+        "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Creamy and smooth cheesecake set on a buttery biscuit base, delivering a perfectly balanced sweetness with a melt-in-your-mouth texture."
+      },
+      {
+        "id": 7,
+        "name": "Matcha Latte",
+        "price": 95,
+        "discount": 5,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "A soothing blend of premium matcha green tea and steamed milk, offering a smooth, earthy flavor with a gentle creamy finish."
+      },
+      {
+        "id": 8,
+        "name": "Fresh Orange Juice",
+        "price": 70,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da3888",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Freshly squeezed orange juice bursting with natural sweetness and citrusy brightness, delivering a refreshing and vitamin-rich boost."
+      },
+      {
+        "id": 9,
+        "name": "Red Wine",
+        "price": 140,
+        "discount": 10,
+        "portion": "150ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510626176961-4b57d4fbad03",
+        "category": "Alcohol",
+        "type": "Wine",
+        "description": "A smooth and well-balanced red wine with rich berry notes and a subtle hint of oak, perfect for a relaxed and refined experience."
+      },
+      {
+        "id": 10,
+        "name": "Beer Lager",
+        "price": 60,
+        "portion": "500ml",
+        "imageUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+        "category": "Alcohol",
+        "type": "Beer",
+        "description": "A crisp and refreshing lager with a light golden color and a clean finish, идеально suited for easy drinking and casual moments."
+      },
+      {
+        "id": 11,
+        "name": "Grilled Salmon",
+        "price": 250,
+        "discount": 38,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "category": "Main Courses",
+        "type": "Fish & Seafood",
+        "description": "Tender grilled salmon with a light lemon-herb glaze, served with a side of seasonal vegetables for a healthy and flavorful meal."
+      },
+      {
+        "id": 12,
+        "name": "Iced Tea",
+        "price": 45,
+        "discount": 7,
+        "portion": "1 portion / 300ml",
+        "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Refreshing iced tea brewed from premium tea leaves, lightly sweetened and served chilled with a slice of fresh lemon."
+      },
+      {
+        "id": 13,
+        "name": "Fruit Salad",
+        "price": 65,
+        "discount": 10,
+        "portion": "1 portion / 200g",
+        "imageUrl": "https://images.unsplash.com/photo-1543353071-087092ec3934",
+        "category": "Desserts",
+        "type": "Fruit Desserts",
+        "description": "A vibrant mix of crisp seasonal fruits, lightly drizzled with honey and fresh mint for a refreshing, sweet treat."
+      },
+      {
+        "id": 14,
+        "name": "Spaghetti Carbonara",
+        "price": 150,
+        "discount": 23,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1603133872870-0d6c9bb5c3b4",
+        "category": "Main Courses",
+        "type": "Pasta & Risotto",
+        "description": "Classic spaghetti carbonara with creamy egg sauce, crispy pancetta, and freshly grated parmesan, delivering a rich and comforting flavor."
+      },
+      {
+        "id": 15,
+        "name": "Grilled Steak",
+        "price": 220,
+        "discount": 33,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1562967916-eb82221dfb8f",
+        "category": "Main Courses",
+        "type": "Meat",
+        "description": "Perfectly grilled steak, seasoned with a house blend of herbs and spices, offering a juicy and tender bite with a smoky finish."
+      },
+      {
+        "id": 16,
+        "name": "Shrimp Risotto",
+        "price": 200,
+        "discount": 30,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1617196032326-df13f1b1fc9f",
+        "category": "Main Courses",
+        "type": "Fish & Seafood",
+        "description": "Creamy risotto with succulent shrimp, delicately seasoned with garlic and white wine, finished with parmesan and fresh herbs."
+      },
+      {
+        "id": 17,
+        "name": "Herbal Tea",
+        "price": 45,
+        "discount": 7,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+        "category": "Drinks",
+        "type": "Sugar-free",
+        "description": "A soothing blend of carefully selected herbs, served hot to refresh and relax with every aromatic sip."
+      },
+      {
+        "id": 18,
+        "name": "Cocktail Mojito",
+        "price": 130,
+        "discount": 20,
+        "portion": "1 glass / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1582719478170-1e74b8de5c0f",
+        "category": "Alcohol",
+        "type": "Cocktails",
+        "description": "A refreshing mojito with muddled mint leaves, lime, sugar, and rum, topped with soda water for a crisp and zesty taste."
+      },
+      {
+        "id": 19,
+        "name": "Vegan Chocolate Cake",
+        "price": 95,
+        "discount": 14,
+        "portion": "1 portion / 150g",
+        "imageUrl": "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Rich and moist vegan chocolate cake with a deep chocolate flavor, topped with a smooth cocoa glaze for an indulgent treat."
+      },
+      {
+        "id": 20,
+        "name": "Mixed Berry Bowl",
+        "price": 70,
+        "discount": 10,
+        "portion": "1 portion / 200g",
+        "imageUrl": "https://images.unsplash.com/photo-1572441710742-57de8a0a42b5",
+        "category": "Desserts",
+        "type": "Fruit Desserts",
+        "description": "A colorful medley of strawberries, blueberries, and raspberries, lightly tossed with honey and mint for a fresh and tangy dessert."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "cafeId": 2,
+    "items": [
+      {
+        "id": 1,
+        "name": "Avocado Toast",
+        "price": 120,
+        "discount": 18,
+        "portion": "1 portion / 250g",
+        "imageUrl": "https://images.unsplash.com/photo-1551183053-bf91a1d81141",
+        "category": "Main Courses",
+        "type": "Vegetarian Mains",
+        "description": "Toasted artisanal bread topped with ripe avocado, cherry tomatoes, radish slices, and a sprinkle of sesame seeds for a fresh start to your day."
+      },
+      {
+        "id": 2,
+        "name": "Latte",
+        "price": 55,
+        "discount": 8,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Smooth and creamy latte made with freshly brewed espresso and steamed milk, topped with a delicate layer of foam."
+      },
+      {
+        "id": 3,
+        "name": "Caesar Salad",
+        "price": 130,
+        "discount": 20,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1551183053-bf91a1d81141",
+        "category": "Main Courses",
+        "type": "Salads",
+        "description": "Crisp romaine lettuce with parmesan cheese, crunchy croutons, and Caesar dressing, garnished with a wedge of lemon for added zest."
+      },
+      {
+        "id": 4,
+        "name": "Flat White",
+        "price": 50,
+        "discount": 8,
+        "portion": "1 portion / 200ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Rich espresso with velvety steamed milk, served in a small cup for a smooth and balanced coffee experience."
+      },
+      {
+        "id": 5,
+        "name": "Banana Bread",
+        "price": 80,
+        "discount": 12,
+        "portion": "1 portion / 150g",
+        "imageUrl": "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Moist and flavorful banana bread with hints of cinnamon and nutmeg, perfect for a comforting snack or breakfast treat."
+      },
+      {
+        "id": 6,
+        "name": "Chocolate Muffin",
+        "price": 75,
+        "discount": 11,
+        "portion": "1 portion / 120g",
+        "imageUrl": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Soft and indulgent chocolate muffin with a rich chocolate center, ideal for pairing with coffee or tea."
+      },
+      {
+        "id": 7,
+        "name": "Green Tea Latte",
+        "price": 95,
+        "discount": 14,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Smooth matcha green tea blended with steamed milk, lightly sweetened for a calming and energizing drink."
+      },
+      {
+        "id": 8,
+        "name": "Fresh Lemonade",
+        "price": 65,
+        "discount": 10,
+        "portion": "1 portion / 300ml",
+        "imageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da3888",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Refreshing lemonade made from freshly squeezed lemons and a hint of mint, served chilled for a perfect thirst-quencher."
+      },
+      {
+        "id": 9,
+        "name": "Tiramisu",
+        "price": 110,
+        "discount": 16,
+        "portion": "1 portion / 150g",
+        "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Classic Italian dessert with layers of espresso-soaked ladyfingers, mascarpone cream, and a dusting of cocoa powder."
+      },
+      {
+        "id": 10,
+        "name": "Red Wine Glass",
+        "price": 140,
+        "discount": 21,
+        "portion": "150ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510626176961-4b57d4fbad03",
+        "category": "Alcohol",
+        "type": "Wine",
+        "description": "A glass of full-bodied red wine with deep berry and oak notes, perfect for pairing with a hearty meal or enjoying on its own."
+      },
+      {
+        "id": 11,
+        "name": "Quinoa Salad",
+        "price": 125,
+        "discount": 19,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
+        "category": "Main Courses",
+        "type": "Salads",
+        "description": "A nutritious blend of fluffy quinoa, cherry tomatoes, cucumber, bell peppers, and fresh herbs, drizzled with a light lemon vinaigrette."
+      },
+      {
+        "id": 12,
+        "name": "Pumpkin Soup",
+        "price": 90,
+        "discount": 14,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+        "category": "Main Courses",
+        "type": "Soups",
+        "description": "Creamy pumpkin soup with hints of nutmeg and cinnamon, topped with roasted pumpkin seeds for added crunch and flavor."
+      },
+      {
+        "id": 13,
+        "name": "Iced Coffee",
+        "price": 55,
+        "discount": 8,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Refreshing iced coffee made with rich espresso, chilled milk, and ice cubes, perfect for a hot day pick-me-up."
+      },
+      {
+        "id": 14,
+        "name": "Pasta Alfredo",
+        "price": 160,
+        "discount": 24,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1603133872870-0d6c9bb5c3b4",
+        "category": "Main Courses",
+        "type": "Pasta & Risotto",
+        "description": "Creamy fettuccine pasta tossed in a rich Alfredo sauce with parmesan cheese, garlic, and a hint of black pepper."
+      },
+      {
+        "id": 15,
+        "name": "Berry Parfait",
+        "price": 85,
+        "discount": 13,
+        "portion": "1 portion / 200g",
+        "imageUrl": "https://images.unsplash.com/photo-1572441710742-57de8a0a42b5",
+        "category": "Desserts",
+        "type": "Fruit Desserts",
+        "description": "Layered yogurt, granola, and fresh mixed berries for a healthy and delicious dessert or breakfast option."
+      },
+      {
+        "id": 16,
+        "name": "Mango Smoothie",
+        "price": 75,
+        "discount": 11,
+        "portion": "1 portion / 300ml",
+        "imageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da3888",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "A creamy and refreshing smoothie made from ripe mangoes, yogurt, and a touch of honey, blended to perfection."
+      },
+      {
+        "id": 17,
+        "name": "Grilled Salmon Fillet",
+        "price": 250,
+        "discount": 38,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "category": "Main Courses",
+        "type": "Fish & Seafood",
+        "description": "Perfectly grilled salmon served with a side of seasonal vegetables and a light lemon butter sauce."
+      },
+      {
+        "id": 18,
+        "name": "Chocolate Chip Cookie",
+        "price": 40,
+        "discount": 6,
+        "portion": "1 portion / 100g",
+        "imageUrl": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Freshly baked cookie with gooey chocolate chips, perfect with a cup of coffee or tea."
+      },
+      {
+        "id": 19,
+        "name": "Herbal Tea",
+        "price": 45,
+        "discount": 7,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+        "category": "Drinks",
+        "type": "Sugar-free",
+        "description": "A soothing blend of natural herbs and spices, served hot to relax and refresh your senses."
+      },
+      {
+        "id": 20,
+        "name": "Cocktail Margarita",
+        "price": 140,
+        "discount": 21,
+        "portion": "1 glass / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1582719478170-1e74b8de5c0f",
+        "category": "Alcohol",
+        "type": "Cocktails",
+        "description": "Classic margarita made with tequila, triple sec, lime juice, and a salted rim for a perfectly balanced cocktail."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "cafeId": 3,
+    "items": [
+      {
+        "id": 101,
+        "name": "Avocado Toast",
+        "price": 120,
+        "discount": 18,
+        "portion": "1 portion / 250g",
+        "imageUrl": "https://images.unsplash.com/photo-1589307000280-0597b1b1b32d",
+        "category": "Breakfast",
+        "type": "Vegetarian Mains",
+        "description": "Toasted sourdough topped with creamy avocado, cherry tomatoes, and a sprinkle of chia seeds. Drizzled with lemon juice for a fresh start to your day."
+      },
+      {
+        "id": 102,
+        "name": "Berry Smoothie Bowl",
+        "price": 150,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1572441710742-57de8a0a42b5",
+        "category": "Breakfast",
+        "type": "Smoothies",
+        "description": "A blend of fresh berries topped with granola, coconut flakes, and a drizzle of honey. Vibrant, energizing, and packed with antioxidants."
+      },
+      {
+        "id": 103,
+        "name": "Grilled Chicken Salad",
+        "price": 200,
+        "discount": 30,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+        "category": "Lunch",
+        "type": "Meat",
+        "description": "A bed of fresh greens topped with juicy grilled chicken, roasted vegetables, and a tangy balsamic dressing."
+      },
+      {
+        "id": 104,
+        "name": "Quinoa Veggie Bowl",
+        "price": 180,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1562967916-eb82221dfb8f",
+        "category": "Lunch",
+        "type": "Vegetarian Mains",
+        "description": "Protein-packed quinoa with roasted seasonal vegetables, chickpeas, and a light tahini dressing."
+      },
+      {
+        "id": 105,
+        "name": "Espresso",
+        "price": 50,
+        "portion": "1 portion / 50ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Rich and intense espresso made from freshly roasted beans, perfect for a quick energy boost."
+      },
+      {
+        "id": 106,
+        "name": "Cappuccino",
+        "price": 60,
+        "discount": 9,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Creamy cappuccino topped with frothed milk and a sprinkle of cocoa powder for a comforting treat."
+      },
+      {
+        "id": 107,
+        "name": "Vegan Burger",
+        "price": 220,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "category": "Lunch",
+        "type": "Vegetarian Mains",
+        "description": "Grilled plant-based patty with lettuce, tomato, avocado, and vegan aioli in a soft bun."
+      },
+      {
+        "id": 108,
+        "name": "Chocolate Brownie",
+        "price": 90,
+        "discount": 14,
+        "portion": "1 portion / 150g",
+        "imageUrl": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Rich and fudgy chocolate brownie with a hint of espresso, served warm with a drizzle of chocolate sauce."
+      },
+      {
+        "id": 109,
+        "name": "Cheesecake",
+        "price": 110,
+        "portion": "1 portion / 150g",
+        "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Classic creamy cheesecake with a buttery biscuit base and a touch of vanilla, perfect for dessert lovers."
+      },
+      {
+        "id": 110,
+        "name": "Fresh Orange Juice",
+        "price": 70,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da3888",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Freshly squeezed orange juice with a hint of sweetness, served chilled for a refreshing boost."
+      },
+      {
+        "id": 111,
+        "name": "Iced Latte",
+        "price": 85,
+        "discount": 12,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Smooth espresso poured over ice with chilled milk for a refreshing caffeinated treat."
+      },
+      {
+        "id": 112,
+        "name": "Grilled Salmon",
+        "price": 250,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "category": "Lunch",
+        "type": "Fish & Seafood",
+        "description": "Perfectly grilled salmon fillet served with lemon butter sauce and seasonal vegetables."
+      },
+      {
+        "id": 113,
+        "name": "Pasta Carbonara",
+        "price": 180,
+        "discount": 27,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1603133872870-0d6c9bb5c3b4",
+        "category": "Lunch",
+        "type": "Pasta & Risotto",
+        "description": "Classic Italian pasta with creamy sauce, pancetta, and freshly grated parmesan cheese."
+      },
+      {
+        "id": 114,
+        "name": "Mojito Cocktail",
+        "price": 140,
+        "portion": "1 glass / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1582719478170-1e74b8de5c0f",
+        "category": "Alcohol",
+        "type": "Cocktails",
+        "description": "Refreshing mojito cocktail with fresh mint leaves, lime, sugar, and a splash of rum over ice."
+      },
+      {
+        "id": 115,
+        "name": "Fruit Salad",
+        "price": 80,
+        "discount": 12,
+        "portion": "1 portion / 200g",
+        "imageUrl": "https://images.unsplash.com/photo-1543353071-087092ec3934",
+        "category": "Desserts",
+        "type": "Fruit Desserts",
+        "description": "A colorful medley of seasonal fruits, lightly drizzled with honey and served fresh."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "cafeId": 4,
+    "items": [
+      {
+        "id": 201,
+        "name": "Spinach & Feta Omelette",
+        "price": 130,
+        "discount": 19,
+        "portion": "1 portion / 250g",
+        "imageUrl": "https://images.unsplash.com/photo-1550317138-10000687a72b",
+        "category": "Breakfast",
+        "type": "Vegetarian Mains",
+        "description": "Fluffy omelette filled with fresh spinach and creamy feta cheese, served with a side of toast."
+      },
+      {
+        "id": 202,
+        "name": "Tropical Smoothie",
+        "price": 145,
+        "portion": "1 portion / 300ml",
+        "imageUrl": "https://images.unsplash.com/photo-1598514982621-2e6c0f119d50",
+        "category": "Breakfast",
+        "type": "Smoothies",
+        "description": "A tropical blend of mango, pineapple, and banana for a refreshing morning boost."
+      },
+      {
+        "id": 203,
+        "name": "Chicken Caesar Salad",
+        "price": 210,
+        "discount": 31,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1562967916-eb82221dfb8f",
+        "category": "Lunch",
+        "type": "Meat",
+        "description": "Crisp romaine lettuce tossed with grilled chicken, parmesan, croutons, and Caesar dressing."
+      },
+      {
+        "id": 204,
+        "name": "Veggie Buddha Bowl",
+        "price": 185,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1543353071-087092ec3934",
+        "category": "Lunch",
+        "type": "Vegetarian Mains",
+        "description": "Quinoa, roasted vegetables, and chickpeas drizzled with a lemon-tahini dressing for a wholesome meal."
+      },
+      {
+        "id": 205,
+        "name": "Americano",
+        "price": 55,
+        "portion": "1 portion / 200ml",
+        "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Smooth and robust espresso diluted with hot water, ideal for those who enjoy a lighter coffee."
+      },
+      {
+        "id": 206,
+        "name": "Latte",
+        "price": 65,
+        "discount": 10,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Velvety steamed milk poured over espresso, topped with delicate foam."
+      },
+      {
+        "id": 207,
+        "name": "Tofu Stir-Fry",
+        "price": 225,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "category": "Lunch",
+        "type": "Vegetarian Mains",
+        "description": "Sautéed tofu with fresh vegetables and a savory soy-ginger sauce."
+      },
+      {
+        "id": 208,
+        "name": "Carrot Cake",
+        "price": 95,
+        "discount": 14,
+        "portion": "1 portion / 150g",
+        "imageUrl": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Moist carrot cake with a cream cheese frosting and a hint of cinnamon."
+      },
+      {
+        "id": 209,
+        "name": "Chocolate Muffin",
+        "price": 85,
+        "portion": "1 portion / 120g",
+        "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Soft chocolate muffin topped with chocolate chips for a rich, decadent treat."
+      },
+      {
+        "id": 210,
+        "name": "Lemonade",
+        "price": 65,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da3888",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Classic lemonade with fresh lemon juice and a touch of sugar, served chilled."
+      },
+      {
+        "id": 211,
+        "name": "Iced Mocha",
+        "price": 90,
+        "discount": 13,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Espresso mixed with chocolate and milk, served over ice for a sweet, refreshing drink."
+      },
+      {
+        "id": 212,
+        "name": "Grilled Tuna Steak",
+        "price": 260,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "category": "Lunch",
+        "type": "Fish & Seafood",
+        "description": "Perfectly grilled tuna steak served with a citrus herb sauce and seasonal vegetables."
+      },
+      {
+        "id": 213,
+        "name": "Spaghetti Bolognese",
+        "price": 185,
+        "discount": 28,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1603133872870-0d6c9bb5c3b4",
+        "category": "Lunch",
+        "type": "Pasta & Risotto",
+        "description": "Classic spaghetti with rich tomato and minced beef sauce, topped with parmesan."
+      },
+      {
+        "id": 214,
+        "name": "Gin & Tonic",
+        "price": 150,
+        "portion": "1 glass / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1582719478170-1e74b8de5c0f",
+        "category": "Alcohol",
+        "type": "Cocktails",
+        "description": "Refreshing gin mixed with tonic water and garnished with lime and juniper berries."
+      },
+      {
+        "id": 215,
+        "name": "Mixed Fruit Bowl",
+        "price": 85,
+        "discount": 13,
+        "portion": "1 portion / 200g",
+        "imageUrl": "https://images.unsplash.com/photo-1543353071-087092ec3934",
+        "category": "Desserts",
+        "type": "Fruit Desserts",
+        "description": "Fresh seasonal fruits chopped and lightly drizzled with honey for a healthy dessert."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "cafeId": 5,
+    "items": [
+      {
+        "id": 301,
+        "name": "Huevos Rancheros",
+        "price": 140,
+        "discount": 21,
+        "portion": "1 portion / 250g",
+        "imageUrl": "https://images.unsplash.com/photo-1589307000280-0597b1b1b32d",
+        "category": "Breakfast",
+        "type": "Egg Dishes",
+        "description": "Crispy tortillas topped with fried eggs, black beans, fresh salsa, and a sprinkle of cheese."
+      },
+      {
+        "id": 302,
+        "name": "Acai Bowl",
+        "price": 155,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1572441710742-57de8a0a42b5",
+        "category": "Breakfast",
+        "type": "Smoothies",
+        "description": "A blend of acai berries topped with granola, banana slices, and coconut shavings for a refreshing start."
+      },
+      {
+        "id": 303,
+        "name": "Grilled Chicken Wrap",
+        "price": 220,
+        "discount": 33,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+        "category": "Lunch",
+        "type": "Meat",
+        "description": "Grilled chicken with fresh vegetables and a light mayo dressing, wrapped in a soft tortilla."
+      },
+      {
+        "id": 304,
+        "name": "Falafel Salad",
+        "price": 180,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1543353071-087092ec3934",
+        "category": "Lunch",
+        "type": "Vegetarian Mains",
+        "description": "Crispy falafel with mixed greens, cherry tomatoes, cucumber, and a tahini dressing."
+      },
+      {
+        "id": 305,
+        "name": "Americano",
+        "price": 55,
+        "portion": "1 portion / 200ml",
+        "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Smooth espresso diluted with hot water, for a light and aromatic coffee experience."
+      },
+      {
+        "id": 306,
+        "name": "Latte",
+        "price": 65,
+        "discount": 10,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Creamy steamed milk poured over espresso, topped with foam and a sprinkle of cocoa."
+      },
+      {
+        "id": 307,
+        "name": "Vegan Buddha Bowl",
+        "price": 225,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "category": "Lunch",
+        "type": "Vegetarian Mains",
+        "description": "Quinoa, roasted vegetables, avocado, and chickpeas drizzled with lemon-tahini dressing."
+      },
+      {
+        "id": 308,
+        "name": "Banana Bread",
+        "price": 90,
+        "discount": 14,
+        "portion": "1 portion / 150g",
+        "imageUrl": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Moist banana bread with walnuts and a hint of cinnamon, perfect for a snack or dessert."
+      },
+      {
+        "id": 309,
+        "name": "Chocolate Tart",
+        "price": 110,
+        "portion": "1 portion / 120g",
+        "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Decadent chocolate tart with a buttery crust and rich chocolate filling."
+      },
+      {
+        "id": 310,
+        "name": "Iced Tea",
+        "price": 65,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da3888",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Refreshing iced tea brewed with natural tea leaves, lightly sweetened and served chilled."
+      },
+      {
+        "id": 311,
+        "name": "Iced Latte",
+        "price": 90,
+        "discount": 13,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Smooth espresso with chilled milk served over ice for a refreshing drink."
+      },
+      {
+        "id": 312,
+        "name": "Grilled Cod",
+        "price": 260,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "category": "Lunch",
+        "type": "Fish & Seafood",
+        "description": "Grilled cod fillet with lemon herb sauce and seasonal vegetables."
+      },
+      {
+        "id": 313,
+        "name": "Fettuccine Alfredo",
+        "price": 185,
+        "discount": 28,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1603133872870-0d6c9bb5c3b4",
+        "category": "Lunch",
+        "type": "Pasta & Risotto",
+        "description": "Creamy fettuccine pasta with parmesan cheese, butter, and garlic."
+      },
+      {
+        "id": 314,
+        "name": "Margarita Cocktail",
+        "price": 150,
+        "portion": "1 glass / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1582719478170-1e74b8de5c0f",
+        "category": "Alcohol",
+        "type": "Cocktails",
+        "description": "Classic margarita with tequila, lime juice, and orange liqueur, served over ice."
+      },
+      {
+        "id": 315,
+        "name": "Seasonal Fruit Bowl",
+        "price": 85,
+        "discount": 13,
+        "portion": "1 portion / 200g",
+        "imageUrl": "https://images.unsplash.com/photo-1543353071-087092ec3934",
+        "category": "Desserts",
+        "type": "Fruit Desserts",
+        "description": "Fresh assortment of seasonal fruits, lightly drizzled with honey for a healthy dessert."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "cafeId": 6,
+    "items": [
+      {
+        "id": 316,
+        "name": "Avocado Toast",
+        "price": 120,
+        "discount": 18,
+        "portion": "1 portion / 200g",
+        "imageUrl": "https://images.unsplash.com/photo-1559622211-12f1e32a5e22",
+        "category": "Breakfast",
+        "type": "Vegetarian Mains",
+        "description": "Toasted bread topped with smashed avocado, cherry tomatoes, and a sprinkle of seeds for a fresh start."
+      },
+      {
+        "id": 317,
+        "name": "Blueberry Pancakes",
+        "price": 135,
+        "portion": "1 portion / 250g",
+        "imageUrl": "https://images.unsplash.com/photo-1572441710742-57de8a0a42b5",
+        "category": "Breakfast",
+        "type": "Sweet Mains",
+        "description": "Fluffy pancakes with fresh blueberries, maple syrup, and a dusting of powdered sugar."
+      },
+      {
+        "id": 318,
+        "name": "Turkey Sandwich",
+        "price": 180,
+        "discount": 27,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+        "category": "Lunch",
+        "type": "Meat",
+        "description": "Sliced turkey with lettuce, tomato, and mayo on whole-grain bread."
+      },
+      {
+        "id": 319,
+        "name": "Caprese Salad",
+        "price": 150,
+        "portion": "1 portion / 250g",
+        "imageUrl": "https://images.unsplash.com/photo-1543353071-087092ec3934",
+        "category": "Lunch",
+        "type": "Vegetarian Mains",
+        "description": "Fresh mozzarella, ripe tomatoes, and basil drizzled with balsamic glaze."
+      },
+      {
+        "id": 320,
+        "name": "Espresso",
+        "price": 55,
+        "portion": "1 portion / 100ml",
+        "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Intense and rich espresso for a bold caffeine kick."
+      },
+      {
+        "id": 321,
+        "name": "Cappuccino",
+        "price": 65,
+        "discount": 10,
+        "portion": "1 portion / 200ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Espresso topped with steamed milk foam and a dusting of cocoa."
+      },
+      {
+        "id": 322,
+        "name": "Quinoa Salad",
+        "price": 220,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "category": "Lunch",
+        "type": "Vegetarian Mains",
+        "description": "Protein-rich quinoa with cucumber, cherry tomatoes, avocado, and lemon dressing."
+      },
+      {
+        "id": 323,
+        "name": "Chocolate Chip Muffin",
+        "price": 95,
+        "discount": 14,
+        "portion": "1 portion / 120g",
+        "imageUrl": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Soft muffin loaded with chocolate chips, perfect for a sweet snack."
+      },
+      {
+        "id": 324,
+        "name": "Carrot Cake",
+        "price": 110,
+        "portion": "1 portion / 150g",
+        "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Moist carrot cake with cream cheese frosting and a hint of cinnamon."
+      },
+      {
+        "id": 325,
+        "name": "Iced Latte",
+        "price": 90,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Cold espresso with milk over ice, lightly sweetened."
+      },
+      {
+        "id": 326,
+        "name": "Green Smoothie",
+        "price": 75,
+        "discount": 11,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da3888",
+        "category": "Drinks",
+        "type": "Smoothies",
+        "description": "Blend of spinach, apple, banana, and almond milk for a healthy boost."
+      },
+      {
+        "id": 327,
+        "name": "Grilled Salmon",
+        "price": 260,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "category": "Lunch",
+        "type": "Fish & Seafood",
+        "description": "Salmon fillet with lemon butter sauce and seasonal vegetables."
+      },
+      {
+        "id": 328,
+        "name": "Spaghetti Bolognese",
+        "price": 185,
+        "discount": 28,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1603133872870-0d6c9bb5c3b4",
+        "category": "Lunch",
+        "type": "Pasta & Risotto",
+        "description": "Classic spaghetti with rich meat sauce and parmesan cheese."
+      },
+      {
+        "id": 329,
+        "name": "Mojito Cocktail",
+        "price": 150,
+        "portion": "1 glass / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1582719478170-1e74b8de5c0f",
+        "category": "Alcohol",
+        "type": "Cocktails",
+        "description": "Refreshing cocktail with rum, lime, mint, and soda."
+      },
+      {
+        "id": 330,
+        "name": "Fruit Salad",
+        "price": 85,
+        "discount": 13,
+        "portion": "1 portion / 200g",
+        "imageUrl": "https://images.unsplash.com/photo-1543353071-087092ec3934",
+        "category": "Desserts",
+        "type": "Fruit Desserts",
+        "description": "Assorted seasonal fruits lightly drizzled with honey for a refreshing dessert."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "cafeId": 7,
+    "items": [
+      {
+        "id": 1,
+        "name": "Vegan Pancakes",
+        "price": 120,
+        "discount": 10,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8",
+        "category": "Main Courses",
+        "type": "Vegetarian Mains",
+        "description": "Fluffy vegan pancakes served warm with a delicate balance of sweetness, topped with fresh fruits and a drizzle of maple syrup for a comforting, wholesome start to your day."
+      },
+      {
+        "id": 2,
+        "name": "Cappuccino",
+        "price": 50,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "A rich and aromatic espresso blended with velvety steamed milk, crowned with a light, airy foam for a perfectly balanced and comforting coffee experience."
+      },
+      {
+        "id": 3,
+        "name": "Grilled Chicken",
+        "price": 180,
+        "discount": 15,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+        "category": "Main Courses",
+        "type": "Meat",
+        "description": "Juicy grilled chicken seasoned with a blend of herbs and spices, served tender and flavorful with a lightly charred finish that enhances its natural taste."
+      },
+      {
+        "id": 4,
+        "name": "Espresso",
+        "price": 40,
+        "portion": "1 portion / 100g",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "A bold and intense shot of freshly brewed espresso, delivering deep, rich flavors and a smooth crema for a quick yet satisfying energy boost."
+      },
+      {
+        "id": 5,
+        "name": "Chocolate Brownie",
+        "price": 85,
+        "discount": 20,
+        "portion": "1 portion / 150g",
+        "imageUrl": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Decadent chocolate brownie with a rich, fudgy center and a slightly crisp top, offering an indulgent treat for true chocolate lovers."
+      },
+      {
+        "id": 6,
+        "name": "Cheesecake",
+        "price": 110,
+        "portion": "1 portion / 150g",
+        "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Creamy and smooth cheesecake set on a buttery biscuit base, delivering a perfectly balanced sweetness with a melt-in-your-mouth texture."
+      },
+      {
+        "id": 7,
+        "name": "Matcha Latte",
+        "price": 95,
+        "discount": 5,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "A soothing blend of premium matcha green tea and steamed milk, offering a smooth, earthy flavor with a gentle creamy finish."
+      },
+      {
+        "id": 8,
+        "name": "Fresh Orange Juice",
+        "price": 70,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da3888",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Freshly squeezed orange juice bursting with natural sweetness and citrusy brightness, delivering a refreshing and vitamin-rich boost."
+      },
+      {
+        "id": 9,
+        "name": "Red Wine",
+        "price": 140,
+        "discount": 10,
+        "portion": "150ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510626176961-4b57d4fbad03",
+        "category": "Alcohol",
+        "type": "Wine",
+        "description": "A smooth and well-balanced red wine with rich berry notes and a subtle hint of oak, perfect for a relaxed and refined experience."
+      },
+      {
+        "id": 10,
+        "name": "Beer Lager",
+        "price": 60,
+        "portion": "500ml",
+        "imageUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+        "category": "Alcohol",
+        "type": "Beer",
+        "description": "A crisp and refreshing lager with a light golden color and a clean finish, идеально suited for easy drinking and casual moments."
+      },
+      {
+        "id": 11,
+        "name": "Grilled Salmon",
+        "price": 250,
+        "discount": 38,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "category": "Main Courses",
+        "type": "Fish & Seafood",
+        "description": "Tender grilled salmon with a light lemon-herb glaze, served with a side of seasonal vegetables for a healthy and flavorful meal."
+      },
+      {
+        "id": 12,
+        "name": "Iced Tea",
+        "price": 45,
+        "discount": 7,
+        "portion": "1 portion / 300ml",
+        "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Refreshing iced tea brewed from premium tea leaves, lightly sweetened and served chilled with a slice of fresh lemon."
+      },
+      {
+        "id": 13,
+        "name": "Fruit Salad",
+        "price": 65,
+        "discount": 10,
+        "portion": "1 portion / 200g",
+        "imageUrl": "https://images.unsplash.com/photo-1543353071-087092ec3934",
+        "category": "Desserts",
+        "type": "Fruit Desserts",
+        "description": "A vibrant mix of crisp seasonal fruits, lightly drizzled with honey and fresh mint for a refreshing, sweet treat."
+      },
+      {
+        "id": 14,
+        "name": "Spaghetti Carbonara",
+        "price": 150,
+        "discount": 23,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1603133872870-0d6c9bb5c3b4",
+        "category": "Main Courses",
+        "type": "Pasta & Risotto",
+        "description": "Classic spaghetti carbonara with creamy egg sauce, crispy pancetta, and freshly grated parmesan, delivering a rich and comforting flavor."
+      },
+      {
+        "id": 15,
+        "name": "Grilled Steak",
+        "price": 220,
+        "discount": 33,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1562967916-eb82221dfb8f",
+        "category": "Main Courses",
+        "type": "Meat",
+        "description": "Perfectly grilled steak, seasoned with a house blend of herbs and spices, offering a juicy and tender bite with a smoky finish."
+      },
+      {
+        "id": 16,
+        "name": "Shrimp Risotto",
+        "price": 200,
+        "discount": 30,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1617196032326-df13f1b1fc9f",
+        "category": "Main Courses",
+        "type": "Fish & Seafood",
+        "description": "Creamy risotto with succulent shrimp, delicately seasoned with garlic and white wine, finished with parmesan and fresh herbs."
+      },
+      {
+        "id": 17,
+        "name": "Herbal Tea",
+        "price": 45,
+        "discount": 7,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+        "category": "Drinks",
+        "type": "Sugar-free",
+        "description": "A soothing blend of carefully selected herbs, served hot to refresh and relax with every aromatic sip."
+      },
+      {
+        "id": 18,
+        "name": "Cocktail Mojito",
+        "price": 130,
+        "discount": 20,
+        "portion": "1 glass / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1582719478170-1e74b8de5c0f",
+        "category": "Alcohol",
+        "type": "Cocktails",
+        "description": "A refreshing mojito with muddled mint leaves, lime, sugar, and rum, topped with soda water for a crisp and zesty taste."
+      },
+      {
+        "id": 19,
+        "name": "Vegan Chocolate Cake",
+        "price": 95,
+        "discount": 14,
+        "portion": "1 portion / 150g",
+        "imageUrl": "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Rich and moist vegan chocolate cake with a deep chocolate flavor, topped with a smooth cocoa glaze for an indulgent treat."
+      },
+      {
+        "id": 20,
+        "name": "Mixed Berry Bowl",
+        "price": 70,
+        "discount": 10,
+        "portion": "1 portion / 200g",
+        "imageUrl": "https://images.unsplash.com/photo-1572441710742-57de8a0a42b5",
+        "category": "Desserts",
+        "type": "Fruit Desserts",
+        "description": "A colorful medley of strawberries, blueberries, and raspberries, lightly tossed with honey and mint for a fresh and tangy dessert."
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "cafeId": 8,
+    "items": [
+      {
+        "id": 1,
+        "name": "Avocado Toast",
+        "price": 120,
+        "discount": 18,
+        "portion": "1 portion / 250g",
+        "imageUrl": "https://images.unsplash.com/photo-1551183053-bf91a1d81141",
+        "category": "Main Courses",
+        "type": "Vegetarian Mains",
+        "description": "Toasted artisanal bread topped with ripe avocado, cherry tomatoes, radish slices, and a sprinkle of sesame seeds for a fresh start to your day."
+      },
+      {
+        "id": 2,
+        "name": "Latte",
+        "price": 55,
+        "discount": 8,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Smooth and creamy latte made with freshly brewed espresso and steamed milk, topped with a delicate layer of foam."
+      },
+      {
+        "id": 3,
+        "name": "Caesar Salad",
+        "price": 130,
+        "discount": 20,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1551183053-bf91a1d81141",
+        "category": "Main Courses",
+        "type": "Salads",
+        "description": "Crisp romaine lettuce with parmesan cheese, crunchy croutons, and Caesar dressing, garnished with a wedge of lemon for added zest."
+      },
+      {
+        "id": 4,
+        "name": "Flat White",
+        "price": 50,
+        "discount": 8,
+        "portion": "1 portion / 200ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Rich espresso with velvety steamed milk, served in a small cup for a smooth and balanced coffee experience."
+      },
+      {
+        "id": 5,
+        "name": "Banana Bread",
+        "price": 80,
+        "discount": 12,
+        "portion": "1 portion / 150g",
+        "imageUrl": "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Moist and flavorful banana bread with hints of cinnamon and nutmeg, perfect for a comforting snack or breakfast treat."
+      },
+      {
+        "id": 6,
+        "name": "Chocolate Muffin",
+        "price": 75,
+        "discount": 11,
+        "portion": "1 portion / 120g",
+        "imageUrl": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Soft and indulgent chocolate muffin with a rich chocolate center, ideal for pairing with coffee or tea."
+      },
+      {
+        "id": 7,
+        "name": "Green Tea Latte",
+        "price": 95,
+        "discount": 14,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Smooth matcha green tea blended with steamed milk, lightly sweetened for a calming and energizing drink."
+      },
+      {
+        "id": 8,
+        "name": "Fresh Lemonade",
+        "price": 65,
+        "discount": 10,
+        "portion": "1 portion / 300ml",
+        "imageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da3888",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Refreshing lemonade made from freshly squeezed lemons and a hint of mint, served chilled for a perfect thirst-quencher."
+      },
+      {
+        "id": 9,
+        "name": "Tiramisu",
+        "price": 110,
+        "discount": 16,
+        "portion": "1 portion / 150g",
+        "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Classic Italian dessert with layers of espresso-soaked ladyfingers, mascarpone cream, and a dusting of cocoa powder."
+      },
+      {
+        "id": 10,
+        "name": "Red Wine Glass",
+        "price": 140,
+        "discount": 21,
+        "portion": "150ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510626176961-4b57d4fbad03",
+        "category": "Alcohol",
+        "type": "Wine",
+        "description": "A glass of full-bodied red wine with deep berry and oak notes, perfect for pairing with a hearty meal or enjoying on its own."
+      },
+      {
+        "id": 11,
+        "name": "Quinoa Salad",
+        "price": 125,
+        "discount": 19,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
+        "category": "Main Courses",
+        "type": "Salads",
+        "description": "A nutritious blend of fluffy quinoa, cherry tomatoes, cucumber, bell peppers, and fresh herbs, drizzled with a light lemon vinaigrette."
+      },
+      {
+        "id": 12,
+        "name": "Pumpkin Soup",
+        "price": 90,
+        "discount": 14,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+        "category": "Main Courses",
+        "type": "Soups",
+        "description": "Creamy pumpkin soup with hints of nutmeg and cinnamon, topped with roasted pumpkin seeds for added crunch and flavor."
+      },
+      {
+        "id": 13,
+        "name": "Iced Coffee",
+        "price": 55,
+        "discount": 8,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Refreshing iced coffee made with rich espresso, chilled milk, and ice cubes, perfect for a hot day pick-me-up."
+      },
+      {
+        "id": 14,
+        "name": "Pasta Alfredo",
+        "price": 160,
+        "discount": 24,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1603133872870-0d6c9bb5c3b4",
+        "category": "Main Courses",
+        "type": "Pasta & Risotto",
+        "description": "Creamy fettuccine pasta tossed in a rich Alfredo sauce with parmesan cheese, garlic, and a hint of black pepper."
+      },
+      {
+        "id": 15,
+        "name": "Berry Parfait",
+        "price": 85,
+        "discount": 13,
+        "portion": "1 portion / 200g",
+        "imageUrl": "https://images.unsplash.com/photo-1572441710742-57de8a0a42b5",
+        "category": "Desserts",
+        "type": "Fruit Desserts",
+        "description": "Layered yogurt, granola, and fresh mixed berries for a healthy and delicious dessert or breakfast option."
+      },
+      {
+        "id": 16,
+        "name": "Mango Smoothie",
+        "price": 75,
+        "discount": 11,
+        "portion": "1 portion / 300ml",
+        "imageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da3888",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "A creamy and refreshing smoothie made from ripe mangoes, yogurt, and a touch of honey, blended to perfection."
+      },
+      {
+        "id": 17,
+        "name": "Grilled Salmon Fillet",
+        "price": 250,
+        "discount": 38,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "category": "Main Courses",
+        "type": "Fish & Seafood",
+        "description": "Perfectly grilled salmon served with a side of seasonal vegetables and a light lemon butter sauce."
+      },
+      {
+        "id": 18,
+        "name": "Chocolate Chip Cookie",
+        "price": 40,
+        "discount": 6,
+        "portion": "1 portion / 100g",
+        "imageUrl": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Freshly baked cookie with gooey chocolate chips, perfect with a cup of coffee or tea."
+      },
+      {
+        "id": 19,
+        "name": "Herbal Tea",
+        "price": 45,
+        "discount": 7,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+        "category": "Drinks",
+        "type": "Sugar-free",
+        "description": "A soothing blend of natural herbs and spices, served hot to relax and refresh your senses."
+      },
+      {
+        "id": 20,
+        "name": "Cocktail Margarita",
+        "price": 140,
+        "discount": 21,
+        "portion": "1 glass / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1582719478170-1e74b8de5c0f",
+        "category": "Alcohol",
+        "type": "Cocktails",
+        "description": "Classic margarita made with tequila, triple sec, lime juice, and a salted rim for a perfectly balanced cocktail."
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "cafeId": 9,
+    "items": [
+      {
+        "id": 101,
+        "name": "Avocado Toast",
+        "price": 120,
+        "discount": 18,
+        "portion": "1 portion / 250g",
+        "imageUrl": "https://images.unsplash.com/photo-1589307000280-0597b1b1b32d",
+        "category": "Breakfast",
+        "type": "Vegetarian Mains",
+        "description": "Toasted sourdough topped with creamy avocado, cherry tomatoes, and a sprinkle of chia seeds. Drizzled with lemon juice for a fresh start to your day."
+      },
+      {
+        "id": 102,
+        "name": "Berry Smoothie Bowl",
+        "price": 150,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1572441710742-57de8a0a42b5",
+        "category": "Breakfast",
+        "type": "Smoothies",
+        "description": "A blend of fresh berries topped with granola, coconut flakes, and a drizzle of honey. Vibrant, energizing, and packed with antioxidants."
+      },
+      {
+        "id": 103,
+        "name": "Grilled Chicken Salad",
+        "price": 200,
+        "discount": 30,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+        "category": "Lunch",
+        "type": "Meat",
+        "description": "A bed of fresh greens topped with juicy grilled chicken, roasted vegetables, and a tangy balsamic dressing."
+      },
+      {
+        "id": 104,
+        "name": "Quinoa Veggie Bowl",
+        "price": 180,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1562967916-eb82221dfb8f",
+        "category": "Lunch",
+        "type": "Vegetarian Mains",
+        "description": "Protein-packed quinoa with roasted seasonal vegetables, chickpeas, and a light tahini dressing."
+      },
+      {
+        "id": 105,
+        "name": "Espresso",
+        "price": 50,
+        "portion": "1 portion / 50ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Rich and intense espresso made from freshly roasted beans, perfect for a quick energy boost."
+      },
+      {
+        "id": 106,
+        "name": "Cappuccino",
+        "price": 60,
+        "discount": 9,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Creamy cappuccino topped with frothed milk and a sprinkle of cocoa powder for a comforting treat."
+      },
+      {
+        "id": 107,
+        "name": "Vegan Burger",
+        "price": 220,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "category": "Lunch",
+        "type": "Vegetarian Mains",
+        "description": "Grilled plant-based patty with lettuce, tomato, avocado, and vegan aioli in a soft bun."
+      },
+      {
+        "id": 108,
+        "name": "Chocolate Brownie",
+        "price": 90,
+        "discount": 14,
+        "portion": "1 portion / 150g",
+        "imageUrl": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Rich and fudgy chocolate brownie with a hint of espresso, served warm with a drizzle of chocolate sauce."
+      },
+      {
+        "id": 109,
+        "name": "Cheesecake",
+        "price": 110,
+        "portion": "1 portion / 150g",
+        "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Classic creamy cheesecake with a buttery biscuit base and a touch of vanilla, perfect for dessert lovers."
+      },
+      {
+        "id": 110,
+        "name": "Fresh Orange Juice",
+        "price": 70,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da3888",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Freshly squeezed orange juice with a hint of sweetness, served chilled for a refreshing boost."
+      },
+      {
+        "id": 111,
+        "name": "Iced Latte",
+        "price": 85,
+        "discount": 12,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Smooth espresso poured over ice with chilled milk for a refreshing caffeinated treat."
+      },
+      {
+        "id": 112,
+        "name": "Grilled Salmon",
+        "price": 250,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "category": "Lunch",
+        "type": "Fish & Seafood",
+        "description": "Perfectly grilled salmon fillet served with lemon butter sauce and seasonal vegetables."
+      },
+      {
+        "id": 113,
+        "name": "Pasta Carbonara",
+        "price": 180,
+        "discount": 27,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1603133872870-0d6c9bb5c3b4",
+        "category": "Lunch",
+        "type": "Pasta & Risotto",
+        "description": "Classic Italian pasta with creamy sauce, pancetta, and freshly grated parmesan cheese."
+      },
+      {
+        "id": 114,
+        "name": "Mojito Cocktail",
+        "price": 140,
+        "portion": "1 glass / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1582719478170-1e74b8de5c0f",
+        "category": "Alcohol",
+        "type": "Cocktails",
+        "description": "Refreshing mojito cocktail with fresh mint leaves, lime, sugar, and a splash of rum over ice."
+      },
+      {
+        "id": 115,
+        "name": "Fruit Salad",
+        "price": 80,
+        "discount": 12,
+        "portion": "1 portion / 200g",
+        "imageUrl": "https://images.unsplash.com/photo-1543353071-087092ec3934",
+        "category": "Desserts",
+        "type": "Fruit Desserts",
+        "description": "A colorful medley of seasonal fruits, lightly drizzled with honey and served fresh."
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "cafeId": 10,
+    "items": [
+      {
+        "id": 201,
+        "name": "Spinach & Feta Omelette",
+        "price": 130,
+        "discount": 19,
+        "portion": "1 portion / 250g",
+        "imageUrl": "https://images.unsplash.com/photo-1550317138-10000687a72b",
+        "category": "Breakfast",
+        "type": "Vegetarian Mains",
+        "description": "Fluffy omelette filled with fresh spinach and creamy feta cheese, served with a side of toast."
+      },
+      {
+        "id": 202,
+        "name": "Tropical Smoothie",
+        "price": 145,
+        "portion": "1 portion / 300ml",
+        "imageUrl": "https://images.unsplash.com/photo-1598514982621-2e6c0f119d50",
+        "category": "Breakfast",
+        "type": "Smoothies",
+        "description": "A tropical blend of mango, pineapple, and banana for a refreshing morning boost."
+      },
+      {
+        "id": 203,
+        "name": "Chicken Caesar Salad",
+        "price": 210,
+        "discount": 31,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1562967916-eb82221dfb8f",
+        "category": "Lunch",
+        "type": "Meat",
+        "description": "Crisp romaine lettuce tossed with grilled chicken, parmesan, croutons, and Caesar dressing."
+      },
+      {
+        "id": 204,
+        "name": "Veggie Buddha Bowl",
+        "price": 185,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1543353071-087092ec3934",
+        "category": "Lunch",
+        "type": "Vegetarian Mains",
+        "description": "Quinoa, roasted vegetables, and chickpeas drizzled with a lemon-tahini dressing for a wholesome meal."
+      },
+      {
+        "id": 205,
+        "name": "Americano",
+        "price": 55,
+        "portion": "1 portion / 200ml",
+        "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Smooth and robust espresso diluted with hot water, ideal for those who enjoy a lighter coffee."
+      },
+      {
+        "id": 206,
+        "name": "Latte",
+        "price": 65,
+        "discount": 10,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Velvety steamed milk poured over espresso, topped with delicate foam."
+      },
+      {
+        "id": 207,
+        "name": "Tofu Stir-Fry",
+        "price": 225,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "category": "Lunch",
+        "type": "Vegetarian Mains",
+        "description": "Sautéed tofu with fresh vegetables and a savory soy-ginger sauce."
+      },
+      {
+        "id": 208,
+        "name": "Carrot Cake",
+        "price": 95,
+        "discount": 14,
+        "portion": "1 portion / 150g",
+        "imageUrl": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Moist carrot cake with a cream cheese frosting and a hint of cinnamon."
+      },
+      {
+        "id": 209,
+        "name": "Chocolate Muffin",
+        "price": 85,
+        "portion": "1 portion / 120g",
+        "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Soft chocolate muffin topped with chocolate chips for a rich, decadent treat."
+      },
+      {
+        "id": 210,
+        "name": "Lemonade",
+        "price": 65,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da3888",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Classic lemonade with fresh lemon juice and a touch of sugar, served chilled."
+      },
+      {
+        "id": 211,
+        "name": "Iced Mocha",
+        "price": 90,
+        "discount": 13,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Espresso mixed with chocolate and milk, served over ice for a sweet, refreshing drink."
+      },
+      {
+        "id": 212,
+        "name": "Grilled Tuna Steak",
+        "price": 260,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "category": "Lunch",
+        "type": "Fish & Seafood",
+        "description": "Perfectly grilled tuna steak served with a citrus herb sauce and seasonal vegetables."
+      },
+      {
+        "id": 213,
+        "name": "Spaghetti Bolognese",
+        "price": 185,
+        "discount": 28,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1603133872870-0d6c9bb5c3b4",
+        "category": "Lunch",
+        "type": "Pasta & Risotto",
+        "description": "Classic spaghetti with rich tomato and minced beef sauce, topped with parmesan."
+      },
+      {
+        "id": 214,
+        "name": "Gin & Tonic",
+        "price": 150,
+        "portion": "1 glass / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1582719478170-1e74b8de5c0f",
+        "category": "Alcohol",
+        "type": "Cocktails",
+        "description": "Refreshing gin mixed with tonic water and garnished with lime and juniper berries."
+      },
+      {
+        "id": 215,
+        "name": "Mixed Fruit Bowl",
+        "price": 85,
+        "discount": 13,
+        "portion": "1 portion / 200g",
+        "imageUrl": "https://images.unsplash.com/photo-1543353071-087092ec3934",
+        "category": "Desserts",
+        "type": "Fruit Desserts",
+        "description": "Fresh seasonal fruits chopped and lightly drizzled with honey for a healthy dessert."
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "cafeId": 11,
+    "items": [
+      {
+        "id": 301,
+        "name": "Huevos Rancheros",
+        "price": 140,
+        "discount": 21,
+        "portion": "1 portion / 250g",
+        "imageUrl": "https://images.unsplash.com/photo-1589307000280-0597b1b1b32d",
+        "category": "Breakfast",
+        "type": "Egg Dishes",
+        "description": "Crispy tortillas topped with fried eggs, black beans, fresh salsa, and a sprinkle of cheese."
+      },
+      {
+        "id": 302,
+        "name": "Acai Bowl",
+        "price": 155,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1572441710742-57de8a0a42b5",
+        "category": "Breakfast",
+        "type": "Smoothies",
+        "description": "A blend of acai berries topped with granola, banana slices, and coconut shavings for a refreshing start."
+      },
+      {
+        "id": 303,
+        "name": "Grilled Chicken Wrap",
+        "price": 220,
+        "discount": 33,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+        "category": "Lunch",
+        "type": "Meat",
+        "description": "Grilled chicken with fresh vegetables and a light mayo dressing, wrapped in a soft tortilla."
+      },
+      {
+        "id": 304,
+        "name": "Falafel Salad",
+        "price": 180,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1543353071-087092ec3934",
+        "category": "Lunch",
+        "type": "Vegetarian Mains",
+        "description": "Crispy falafel with mixed greens, cherry tomatoes, cucumber, and a tahini dressing."
+      },
+      {
+        "id": 305,
+        "name": "Americano",
+        "price": 55,
+        "portion": "1 portion / 200ml",
+        "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Smooth espresso diluted with hot water, for a light and aromatic coffee experience."
+      },
+      {
+        "id": 306,
+        "name": "Latte",
+        "price": 65,
+        "discount": 10,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Creamy steamed milk poured over espresso, topped with foam and a sprinkle of cocoa."
+      },
+      {
+        "id": 307,
+        "name": "Vegan Buddha Bowl",
+        "price": 225,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "category": "Lunch",
+        "type": "Vegetarian Mains",
+        "description": "Quinoa, roasted vegetables, avocado, and chickpeas drizzled with lemon-tahini dressing."
+      },
+      {
+        "id": 308,
+        "name": "Banana Bread",
+        "price": 90,
+        "discount": 14,
+        "portion": "1 portion / 150g",
+        "imageUrl": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Moist banana bread with walnuts and a hint of cinnamon, perfect for a snack or dessert."
+      },
+      {
+        "id": 309,
+        "name": "Chocolate Tart",
+        "price": 110,
+        "portion": "1 portion / 120g",
+        "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Decadent chocolate tart with a buttery crust and rich chocolate filling."
+      },
+      {
+        "id": 310,
+        "name": "Iced Tea",
+        "price": 65,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da3888",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Refreshing iced tea brewed with natural tea leaves, lightly sweetened and served chilled."
+      },
+      {
+        "id": 311,
+        "name": "Iced Latte",
+        "price": 90,
+        "discount": 13,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Smooth espresso with chilled milk served over ice for a refreshing drink."
+      },
+      {
+        "id": 312,
+        "name": "Grilled Cod",
+        "price": 260,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "category": "Lunch",
+        "type": "Fish & Seafood",
+        "description": "Grilled cod fillet with lemon herb sauce and seasonal vegetables."
+      },
+      {
+        "id": 313,
+        "name": "Fettuccine Alfredo",
+        "price": 185,
+        "discount": 28,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1603133872870-0d6c9bb5c3b4",
+        "category": "Lunch",
+        "type": "Pasta & Risotto",
+        "description": "Creamy fettuccine pasta with parmesan cheese, butter, and garlic."
+      },
+      {
+        "id": 314,
+        "name": "Margarita Cocktail",
+        "price": 150,
+        "portion": "1 glass / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1582719478170-1e74b8de5c0f",
+        "category": "Alcohol",
+        "type": "Cocktails",
+        "description": "Classic margarita with tequila, lime juice, and orange liqueur, served over ice."
+      },
+      {
+        "id": 315,
+        "name": "Seasonal Fruit Bowl",
+        "price": 85,
+        "discount": 13,
+        "portion": "1 portion / 200g",
+        "imageUrl": "https://images.unsplash.com/photo-1543353071-087092ec3934",
+        "category": "Desserts",
+        "type": "Fruit Desserts",
+        "description": "Fresh assortment of seasonal fruits, lightly drizzled with honey for a healthy dessert."
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "cafeId": 12,
+    "items": [
+      {
+        "id": 316,
+        "name": "Avocado Toast",
+        "price": 120,
+        "discount": 18,
+        "portion": "1 portion / 200g",
+        "imageUrl": "https://images.unsplash.com/photo-1559622211-12f1e32a5e22",
+        "category": "Breakfast",
+        "type": "Vegetarian Mains",
+        "description": "Toasted bread topped with smashed avocado, cherry tomatoes, and a sprinkle of seeds for a fresh start."
+      },
+      {
+        "id": 317,
+        "name": "Blueberry Pancakes",
+        "price": 135,
+        "portion": "1 portion / 250g",
+        "imageUrl": "https://images.unsplash.com/photo-1572441710742-57de8a0a42b5",
+        "category": "Breakfast",
+        "type": "Sweet Mains",
+        "description": "Fluffy pancakes with fresh blueberries, maple syrup, and a dusting of powdered sugar."
+      },
+      {
+        "id": 318,
+        "name": "Turkey Sandwich",
+        "price": 180,
+        "discount": 27,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+        "category": "Lunch",
+        "type": "Meat",
+        "description": "Sliced turkey with lettuce, tomato, and mayo on whole-grain bread."
+      },
+      {
+        "id": 319,
+        "name": "Caprese Salad",
+        "price": 150,
+        "portion": "1 portion / 250g",
+        "imageUrl": "https://images.unsplash.com/photo-1543353071-087092ec3934",
+        "category": "Lunch",
+        "type": "Vegetarian Mains",
+        "description": "Fresh mozzarella, ripe tomatoes, and basil drizzled with balsamic glaze."
+      },
+      {
+        "id": 320,
+        "name": "Espresso",
+        "price": 55,
+        "portion": "1 portion / 100ml",
+        "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Intense and rich espresso for a bold caffeine kick."
+      },
+      {
+        "id": 321,
+        "name": "Cappuccino",
+        "price": 65,
+        "discount": 10,
+        "portion": "1 portion / 200ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "category": "Drinks",
+        "type": "Hot Drinks",
+        "description": "Espresso topped with steamed milk foam and a dusting of cocoa."
+      },
+      {
+        "id": 322,
+        "name": "Quinoa Salad",
+        "price": 220,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "category": "Lunch",
+        "type": "Vegetarian Mains",
+        "description": "Protein-rich quinoa with cucumber, cherry tomatoes, avocado, and lemon dressing."
+      },
+      {
+        "id": 323,
+        "name": "Chocolate Chip Muffin",
+        "price": 95,
+        "discount": 14,
+        "portion": "1 portion / 120g",
+        "imageUrl": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Soft muffin loaded with chocolate chips, perfect for a sweet snack."
+      },
+      {
+        "id": 324,
+        "name": "Carrot Cake",
+        "price": 110,
+        "portion": "1 portion / 150g",
+        "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
+        "category": "Desserts",
+        "type": "Cakes & Pastries",
+        "description": "Moist carrot cake with cream cheese frosting and a hint of cinnamon."
+      },
+      {
+        "id": 325,
+        "name": "Iced Latte",
+        "price": 90,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "category": "Drinks",
+        "type": "Cold Drinks",
+        "description": "Cold espresso with milk over ice, lightly sweetened."
+      },
+      {
+        "id": 326,
+        "name": "Green Smoothie",
+        "price": 75,
+        "discount": 11,
+        "portion": "1 portion / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da3888",
+        "category": "Drinks",
+        "type": "Smoothies",
+        "description": "Blend of spinach, apple, banana, and almond milk for a healthy boost."
+      },
+      {
+        "id": 327,
+        "name": "Grilled Salmon",
+        "price": 260,
+        "portion": "1 portion / 300g",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "category": "Lunch",
+        "type": "Fish & Seafood",
+        "description": "Salmon fillet with lemon butter sauce and seasonal vegetables."
+      },
+      {
+        "id": 328,
+        "name": "Spaghetti Bolognese",
+        "price": 185,
+        "discount": 28,
+        "portion": "1 portion / 350g",
+        "imageUrl": "https://images.unsplash.com/photo-1603133872870-0d6c9bb5c3b4",
+        "category": "Lunch",
+        "type": "Pasta & Risotto",
+        "description": "Classic spaghetti with rich meat sauce and parmesan cheese."
+      },
+      {
+        "id": 329,
+        "name": "Mojito Cocktail",
+        "price": 150,
+        "portion": "1 glass / 250ml",
+        "imageUrl": "https://images.unsplash.com/photo-1582719478170-1e74b8de5c0f",
+        "category": "Alcohol",
+        "type": "Cocktails",
+        "description": "Refreshing cocktail with rum, lime, mint, and soda."
+      },
+      {
+        "id": 330,
+        "name": "Fruit Salad",
+        "price": 85,
+        "discount": 13,
+        "portion": "1 portion / 200g",
+        "imageUrl": "https://images.unsplash.com/photo-1543353071-087092ec3934",
+        "category": "Desserts",
+        "type": "Fruit Desserts",
+        "description": "Assorted seasonal fruits lightly drizzled with honey for a refreshing dessert."
       }
     ]
   }

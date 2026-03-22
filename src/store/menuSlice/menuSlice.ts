@@ -2,25 +2,25 @@
 /* eslint-disable @typescript-eslint/indent */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import { Menu } from '../../shared/types/menu/menu';
 import { menuService } from '../../services/menuService';
 import { MenuQueryParams } from '../../shared/types/menu/menuQueryParams';
+import { MenuResponse } from '../../shared/types/menu/menuResponse';
 
 export interface MenuState {
-  menu: Menu | null;
+  menuInfo: MenuResponse | null;
   loading: boolean;
   error: string | null;
 }
 
 const initialState: MenuState = {
-  menu: null,
+  menuInfo: null,
   loading: false,
   error: null,
 };
 
 export const fetchCafeMenuThunk = createAsyncThunk<
-  Menu | null,
-  { cafeId: number; params: MenuQueryParams },
+  MenuResponse | null,
+  { cafeId: number; params?: MenuQueryParams },
   { rejectValue: string }
 >('menu/fetchMenu', async ({ cafeId, params }, { rejectWithValue }) => {
   try {
@@ -45,7 +45,7 @@ export const menuSlice = createSlice({
       .addCase(fetchCafeMenuThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.menu = action.payload;
+        state.menuInfo = action.payload;
       })
       .addCase(fetchCafeMenuThunk.rejected, (state, action) => {
         state.loading = false;

@@ -2,19 +2,11 @@ export interface Dish {
   id: number;
   name: string;
   price: number;
+  discount?: number;
   portion: string;
   imageUrl: string;
-  menuId: number;
+  description: string;
 
   category: string;
   type: string;
-}
-
-export interface MenuItem {
-  id: number;
-  name: string;
-  cafeId: number;
-  imageUrl: string;
-  cafe: { id: number; name: string };
-  items: Dish[];
 }

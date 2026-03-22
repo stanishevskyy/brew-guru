@@ -48,7 +48,7 @@ export const HomePageCafes = () => {
   }, [searchParams]);
   const currentPage = searchParams.get('page') || '1';
   const perPage =
-    searchParams.get('perPage') || +getItemPerPage(isTablet, isDesktop);
+    searchParams.get('perPage') || +getItemPerPage('cafe', isTablet, isDesktop);
 
   const pagesPerPage = getPageNumber(cafesState.totalPages);
   const visilbePages = getVisiblePages(currentPage, pagesPerPage);

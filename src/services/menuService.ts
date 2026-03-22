@@ -2,6 +2,7 @@
 import { request, wait } from './apiService';
 
 import { Menu } from '../shared/types/menu/menu';
+import { MenuResponse } from '../shared/types/menu/menuResponse';
 import { MenuQueryParams } from '../shared/types/menu/menuQueryParams';
 import { QueryParam } from '../shared/constants/queryParam';
 
@@ -9,13 +10,17 @@ export const menuService = {
   getMenusByCafe: async (
     cafeId: number,
     params?: MenuQueryParams,
-  ): Promise<Menu | null> => {
+  ): Promise<MenuResponse | null> => {
     try {
       await wait();
 
       const data = await request<Menu[]>('menu/menu.json');
 
-      const cafeMenu = data.find(m => m.cafeId === cafeId) || null;
+      const cafeMenu = data.find(m => m.cafeId === cafeId);
+
+      if (!cafeMenu) {
+        return null;
+      }
 
       // const perPage = params?.perPage;
       // const currentPage = params?.page ? Number(params.page) : 1;
@@ -26,69 +31,58 @@ export const menuService = {
         switch (key) {
           case QueryParam.Query:
             if (typeof value === 'string') {
-              filteredMenu = filteredMenu
-                ?.map(menu => ({
-                  ...menu,
-                  items: menu.items.filter(menuItem =>
-                    menuItem.name.toLowerCase().includes(value.toLowerCase()),
-                  ),
-                }))
-                .filter(menu => menu.items.length > 0);
+              filteredMenu = filteredMenu?.filter(dish =>
+                dish.name.toLowerCase().includes(value.toLowerCase()),
+              );
             }
 
             break;
-
           case QueryParam.Filter:
             if (Array.isArray(value) && value.length > 0) {
-              filteredMenu = filteredMenu
-                ?.map(menu => ({
-                  ...menu,
-                  items: menu.items.filter(menuItem =>
-                    value.includes(menuItem.type),
-                  ),
-                }))
-                .filter(menu => menu.items.length > 0);
+              filteredMenu = filteredMenu?.filter(dish =>
+                value.includes(dish.type),
+              );
             }
 
             break;
 
           case QueryParam.SortBy:
-            filteredMenu = filteredMenu?.map(menu => ({
-              ...menu,
-              items: [...menu.items].sort((a, b) => {
-                switch (params?.sortBy) {
-                  case 'price_asc':
-                    return (a.price ?? 0) - (b.price ?? 0);
+            filteredMenu = [...filteredMenu!].sort((a, b) => {
+              switch (params?.sortBy) {
+                case 'price_asc':
+                  return a.price - b.price;
 
-                  case 'price_desc':
-                    return (b.price ?? 0) - (a.price ?? 0);
+                case 'price_desc':
+                  return b.price - a.price;
 
-                  default:
-                    return 0;
-                }
-              }),
-            }));
+                default:
+                  return 0;
+              }
+            });
             break;
         }
       });
-      // const totalItems = filteredCafes.length;
-      // const totalPages = Math.ceil(totalItems / perPage!);
 
-      // const lastOfindex = perPage! * +currentPage;
-      // const firstOfindex = lastOfindex - perPage!;
+      const perPage = params?.perPage ?? filteredMenu?.length;
+      const currentPage = params?.page ? Number(params.page) : 1;
 
-      // result.cafes = filteredCafes.slice(firstOfindex, lastOfindex);
-      // result.prevPage = currentPage > 1 ? currentPage - 1 : null;
-      // result.nextPage = currentPage < totalPages ? currentPage + 1 : null;
-      // result.totalPages = totalPages;
-      // result.totalItems = totalItems;
+      const totalItems = filteredMenu?.length;
+      const totalPages = Math.ceil(totalItems / perPage);
 
-      return cafeMenu
-        ? {
-            ...cafeMenu,
-            items: filteredMenu || [],
-          }
-        : null;
+      const firstIndex = (currentPage - 1) * perPage!;
+      const lastIndex = firstIndex + perPage;
+      const pagedItems = filteredMenu?.slice(firstIndex, lastIndex);
+
+      return {
+        menu: {
+          ...cafeMenu,
+          items: pagedItems,
+        },
+        prevPage: currentPage > 1 ? currentPage - 1 : null,
+        nextPage: currentPage < totalPages ? currentPage + 1 : null,
+        totalPages,
+        totalItems,
+      };
     } catch {
       throw new Error('Failed to load cafe menu');
     }

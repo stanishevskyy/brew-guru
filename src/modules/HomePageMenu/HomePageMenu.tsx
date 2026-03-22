@@ -1,8 +1,21 @@
-import { useState } from 'react';
-import { useOutletContext } from 'react-router-dom';
+/* eslint-disable max-len */
+import { useEffect, useMemo, useState } from 'react';
+import { useOutletContext, useSearchParams } from 'react-router-dom';
 import classNames from 'classnames';
 
 import styles from './HomePageMenu.module.scss';
+
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { fetchCafeMenuThunk } from '../../store/menuSlice/menuSlice';
+
+import useMediaQuery from '../../shared/hooks/useMediaQuery';
+
+import { getPageNumber } from '../../shared/utils/pagination.ts/getPageNumber';
+import { getVisiblePages } from '../../shared/utils/pagination.ts/getVisiblePages';
+import { getItemPerPage } from '../../shared/utils/pagination.ts/getItemPerPage';
+
+import { SortBy } from '../../shared/constants/SortBy';
+import { menuFilters } from '../../shared/constants/menuFilters';
 
 import { Pagination } from '../../shared/components/Pagination';
 import { MenuCard } from '../../shared/components/MenuCard';
@@ -11,16 +24,50 @@ import { Filters } from '../../shared/components/Filters';
 import { FormWrapper } from '../../shared/components/FormWrapper';
 import { CurrentView } from '../../shared/components/CurrentView';
 
-import { menuFilters } from '../../shared/constants/menuFilters';
-
 import ArrowLeft from '../../assets/icons/search-icons/left-arrow.svg';
 
 export const HomePageMenu = () => {
-  const [filters, setFilters] = useState<string[]>([]);
   const [isSideFiltersOpen, setIsSideFiltersOpen] = useState(false);
   const [isInfoMenuOpen, setIsInfoMenuOpen] = useState(false);
   const { setIsOrdersOpen }: { setIsOrdersOpen: (value: boolean) => void } =
     useOutletContext();
+
+  const menuState = useAppSelector(state => state.menu);
+  const dispatch = useAppDispatch();
+
+  const isTablet = useMediaQuery('(min-width: 640px) and (max-width: 1022px)');
+  const isDesktop = useMediaQuery('(min-width: 1023px)');
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query') || '';
+
+  const sortBy = (searchParams.get('sortBy') as SortBy) || SortBy.Popular;
+  const filters = useMemo(() => {
+    return searchParams.getAll('filter');
+  }, [searchParams]);
+  const currentPage = searchParams.get('page') || '1';
+  const perPage =
+    searchParams.get('perPage') || +getItemPerPage('menu', isTablet, isDesktop);
+
+  const pagesPerPage = getPageNumber(
+    menuState.menuInfo?.totalPages ? menuState.menuInfo.totalPages : 1,
+  );
+  const visilbePages = getVisiblePages(currentPage, pagesPerPage);
+
+  useEffect(() => {
+    dispatch(
+      fetchCafeMenuThunk({
+        cafeId: 1,
+        params: {
+          query,
+          sortBy,
+          page: +currentPage,
+          perPage: +perPage,
+          filter: filters,
+        },
+      }),
+    );
+  }, [query, sortBy, currentPage, perPage, filters]);
 
   return (
     <div className={styles.searchPage} role="main">
@@ -44,12 +91,20 @@ export const HomePageMenu = () => {
             isSideFiltersOpen={isSideFiltersOpen}
             currentFilters={menuFilters}
             setIsSideFiltersOpen={setIsSideFiltersOpen}
-            setFilters={setFilters}
+            searchParams={searchParams}
+            setSearchParams={setSearchParams}
           />
         </section>
 
         <section className={styles.searchPage__form} aria-label="Search form">
-          <FormWrapper setIsSideFiltersOpen={setIsSideFiltersOpen} />
+          <FormWrapper
+            query={query}
+            sortBy={sortBy}
+            perPage={perPage}
+            searchParams={searchParams}
+            setSearchParams={setSearchParams}
+            setIsSideFiltersOpen={setIsSideFiltersOpen}
+          />
         </section>
 
         <section
@@ -58,7 +113,11 @@ export const HomePageMenu = () => {
           })}
           aria-label="Current view settings"
         >
-          <CurrentView filters={filters} setFilters={setFilters} />
+          <CurrentView
+            filters={filters}
+            searchParams={searchParams}
+            setSearchParams={setSearchParams}
+          />
         </section>
 
         <div
@@ -83,12 +142,20 @@ export const HomePageMenu = () => {
           </div>
         )}
 
-        <nav
-          className={styles.searchPage__pagination}
-          aria-label="Pagination navigation"
-        >
-          <Pagination />
-        </nav>
+        {visilbePages.length !== 0 && (
+          <nav
+            className={styles.searchPage__pagination}
+            aria-label="Pagination navigation"
+          >
+            <Pagination
+              currentPage={currentPage}
+              pagesPerPage={pagesPerPage}
+              visilbePages={visilbePages}
+              searchParams={searchParams}
+              setSearchParams={setSearchParams}
+            />
+          </nav>
+        )}
 
         <button
           className={styles.searchPage__ordersButton}
