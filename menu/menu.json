@@ -1,0 +1,107 @@
+[
+  {
+    "cafeId": 1,
+    "items": [
+      {
+        "id": 1,
+        "name": "Breakfast Menu",
+        "cafeId": 1,
+        "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
+        "cafe": { "id": 1, "name": "Coffee Hub" },
+        "items": [
+          {
+            "id": 1,
+            "name": "Vegan Pancakes",
+            "price": 120,
+            "portion": "1 portion / 350g",
+            "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8",
+            "menuId": 1
+          },
+          {
+            "id": 2,
+            "name": "Cappuccino",
+            "price": 50,
+            "portion": "1 portion / 350g",
+            "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+            "menuId": 1
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Lunch Menu",
+        "cafeId": 1,
+        "imageUrl": "https://images.unsplash.com/photo-1498837167922-ddd27525d352",
+        "cafe": { "id": 1, "name": "Coffee Hub" },
+        "items": [
+          {
+            "id": 3,
+            "name": "Vegan Salad",
+            "price": 90,
+            "portion": "1 portion / 350g",
+            "imageUrl": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe",
+            "menuId": 2
+          },
+          {
+            "id": 4,
+            "name": "Espresso",
+            "price": 40,
+            "portion": "1 portion / 350g",
+            "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+            "menuId": 2
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Dessert Menu",
+        "cafeId": 1,
+        "imageUrl": "https://images.unsplash.com/photo-1551024506-0bccd828d307",
+        "cafe": { "id": 1, "name": "Coffee Hub" },
+        "items": [
+          {
+            "id": 5,
+            "name": "Chocolate Brownie",
+            "price": 85,
+            "portion": "1 portion / 350g",
+            "imageUrl": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52",
+            "menuId": 3
+          },
+          {
+            "id": 6,
+            "name": "Cheesecake",
+            "price": 110,
+            "portion": "1 portion / 350g",
+            "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
+            "menuId": 3
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Drinks Menu",
+        "cafeId": 1,
+        "imageUrl": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085",
+        "cafe": { "id": 1, "name": "Coffee Hub" },
+        "items": [
+          {
+            "id": 7,
+            "name": "Matcha Latte",
+            "price": 95,
+            "portion": "1 portion / 350g",
+            "imageUrl": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7",
+            "menuId": 4
+          },
+          {
+            "id": 8,
+            "name": "Fresh Orange Juice",
+            "price": 70,
+            "portion": "1 portion / 350g",
+            "imageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da3888",
+            "menuId": 4
+          }
+        ]
+      }
+    ]
+  }
+]

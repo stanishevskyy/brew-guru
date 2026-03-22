@@ -1,0 +1,234 @@
+[
+  {
+    "id": 1,
+    "name": "Coffee Hub",
+    "img": "https://source.unsplash.com/400x300/?coffee,cafe",
+    "address": "123 Main Street, Kyiv",
+    "phone": "+380 44 123 4567",
+    "rating": 4.5,
+    "averageCheck": 150,
+    "description": "Step into a thoughtfully designed thematic café inspired by art,creativity, and slow living.Every detail — from the interior to the menu — is carefully curavted to create a unique atmosphere where guests can truly disconnect from the rush of everyday life. The space combines warm lighting, natural materials, and subtle artistic elements that reflect the café’s concept. Each area is designed for a different mood: cozy nooks with velvet armchairs offer a sanctuary for quiet reflection or deep work, while open, light-filled spaces invite conversation and shared inspiration. The air is always filled with the comforting aroma of freshly roasted beans and the soft backdrop of ambient music. Our menu is an extension of this artistic vision, featuring seasonal, locally sourced ingredients transformed into dishes that are as visually stunning as they are delicious. Here, coffee is not just a drink, but a daily ritual that invites you to pause and find beauty in the present moment.",
+    "openingHours": [
+      {
+        "id": 1,
+        "weekday": 1,
+        "cafeId": 1,
+        "openTime": "08:00:00.000Z",
+        "closeTime": "22:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 2,
+        "weekday": 2,
+        "cafeId": 1,
+        "openTime": "08:00:00.000Z",
+        "closeTime": "22:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 3,
+        "weekday": 3,
+        "cafeId": 1,
+        "openTime": "08:00:00.000Z",
+        "closeTime": "22:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 4,
+        "weekday": 4,
+        "cafeId": 1,
+        "openTime": "08:00:00.000Z",
+        "closeTime": "22:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 5,
+        "weekday": 5,
+        "cafeId": 1,
+        "openTime": "08:00:00.000Z",
+        "closeTime": "23:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 6,
+        "weekday": 6,
+        "cafeId": 1,
+        "openTime": "09:00:00.000Z",
+        "closeTime": "23:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 7,
+        "weekday": 7,
+        "cafeId": 1,
+        "openTime": null,
+        "closeTime": null,
+        "isOpen": false
+      }
+    ],
+    "availableTables": [
+      {
+        "date": "2026-03-03",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Tea & Talk",
+    "img": "https://source.unsplash.com/400x300/?tea,cafe",
+    "address": "45 Green Avenue, Lviv",
+    "phone": "+380 32 987 6543",
+    "rating": 4.2,
+    "averageCheck": 120,
+    "description": "A cozy and welcoming café designed for meaningful conversations and quiet moments. Tea & Talk blends a warm atmosphere with a carefully curated selection of teas from around the world. Soft lighting, wooden textures, and comfortable seating create a relaxing environment perfect for both social gatherings and solo work sessions. Whether you’re here for a calm morning, an afternoon break, or an evening chat, the space invites you to slow down and enjoy the moment. The menu features light breakfasts, fresh desserts, and signature tea blends crafted to complement every mood.",
+
+    "openingHours": [
+      {
+        "id": 8,
+        "weekday": 1,
+        "cafeId": 2,
+        "openTime": "09:00:00.000Z",
+        "closeTime": "21:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 9,
+        "weekday": 2,
+        "cafeId": 2,
+        "openTime": "09:00:00.000Z",
+        "closeTime": "21:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 10,
+        "weekday": 3,
+        "cafeId": 2,
+        "openTime": "09:00:00.000Z",
+        "closeTime": "21:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 11,
+        "weekday": 4,
+        "cafeId": 2,
+        "openTime": "09:00:00.000Z",
+        "closeTime": "21:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 12,
+        "weekday": 5,
+        "cafeId": 2,
+        "openTime": "09:00:00.000Z",
+        "closeTime": "22:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 13,
+        "weekday": 6,
+        "cafeId": 2,
+        "openTime": "10:00:00.000Z",
+        "closeTime": "22:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 14,
+        "weekday": 7,
+        "cafeId": 2,
+        "openTime": "10:00:00.000Z",
+        "closeTime": "18:00:00.000Z",
+        "isOpen": true
+      }
+    ],
+
+    "availableTables": [
+      {
+        "date": "2026-03-03",
+        "tables": [
+          {
+            "id": 6,
+            "name": "Table 1",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 7,
+            "name": "Table 2",
+            "seats": 4,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 8,
+            "name": "Table 3",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:30", "endTime": "10:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
