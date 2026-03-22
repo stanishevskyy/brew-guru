@@ -7,6 +7,7 @@ import { reviewsSlice } from './reviewsSlice/reviewsSlice';
 import { reportsSlice } from './reportsSlice/reportsSlice';
 import { cafesSlice } from './cafesSlice/cafesSlice';
 import { favoritesSlice } from './favoritesSlice/favoritesSlice';
+import { cafeDetailsSlice } from './cafeDetailsSlice/cafeDetailsSlice';
 import { menuSlice } from './menuSlice/menuSlice';
 
 const rootReducer = combineSlices(
@@ -18,6 +19,7 @@ const rootReducer = combineSlices(
   reportsSlice,
   cafesSlice,
   favoritesSlice,
+  cafeDetailsSlice,
   menuSlice,
 );
 

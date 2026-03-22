@@ -53,7 +53,7 @@ export const CardCafe: React.FC<Props> = ({
   return (
     <article className={styles.cardCafe__card}>
       <NavLink
-        to="/cafeId"
+        to={`/${cafe.name}-${cafe.id}`}
         className={styles.cardCafe__cardLink}
         aria-label={`Go to ${cafe?.name} cafe page`}
       >
@@ -96,7 +96,7 @@ export const CardCafe: React.FC<Props> = ({
 
         <div className={styles.cardCafe__buttons}>
           <Link
-            to="/cafeId"
+            to={`/${cafe.name}-${cafe.id}`}
             className={styles.cardCafe__button}
             aria-label="Book a table at Black Honey cafe"
           >

@@ -1,23 +1,54 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/indent */
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { CafeDetails } from '../../shared/types/cafeDetails/cafeDetails';
+import { cafeDetailsService } from '../../services/cafeDetailsService';
 
 export interface CafesState {
-  cafe: CafeDetails;
+  cafe: CafeDetails | null;
   loading: boolean;
   error: string | null;
 }
 
 const initialState: CafesState = {
-  cafe: {} as CafeDetails,
+  cafe: null,
   loading: false,
   error: null,
 };
+
+export const fetchCafeDetailsThunk = createAsyncThunk<
+  CafeDetails | null,
+  number,
+  { rejectValue: string }
+>('cafeDetails/fetchCafeDetails', async (cafeId, { rejectWithValue }) => {
+  try {
+    return await cafeDetailsService.getCafeDetails(cafeId);
+  } catch (error) {
+    return rejectWithValue(
+      error instanceof Error ? error.message : 'Failed load cafe details',
+    );
+  }
+});
 
 export const cafeDetailsSlice = createSlice({
   name: 'cafeDetails',
   initialState,
   reducers: {},
+  extraReducers(builder) {
+    builder
+      .addCase(fetchCafeDetailsThunk.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchCafeDetailsThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        state.cafe = action.payload;
+      })
+      .addCase(fetchCafeDetailsThunk.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || 'Failed';
+      });
+  },
 });

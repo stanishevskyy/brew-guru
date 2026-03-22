@@ -1,9 +1,15 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import classNames from 'classnames';
 
 import styles from './CafePage.module.scss';
+
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+// eslint-disable-next-line max-len
+import { fetchCafeDetailsThunk } from '../../store/cafeDetailsSlice/cafeDetailsSlice';
+
+import { openPlace } from './utils/onPlace';
 
 import { CafeMenu } from './components/CafeMenu';
 import { Details } from '../../shared/components/Details';
@@ -21,57 +27,25 @@ import { CafeHeaderSkeleton } from '../../shared/components/CafeHeaderSkeleton';
 import { CafeMenuSkeleton } from '../../shared/components/CafeMenuSkeleton';
 //eslint-disable-next-line
 import { CafeReviewsSkeleton } from '../../shared/components/CafeReviewsSkeleton';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { fetchCafeMenuThunk } from '../../store/menuSlice/menuSlice';
 
 export const CafePage = () => {
   const navigate = useNavigate();
-  const [isCommentsOpen, setIsCommentsOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
+  const { slug } = useParams();
+  const cafeId = slug?.split('-').pop();
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 300);
-  }, []);
-
-  const placeId = 'ChIJp9ELiGzdOkcRjRrpNz4JwL0';
-
-  const openPlace = () => {
-    const url = `https://www.google.com/maps/place/?q=place_id:${placeId}`;
-
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
-
-  // const openPlace = url => {
-  //   const placeId = extractPlaceId(url);
-  //   if (placeId) {
-  //     window.open(
-  //       `https://www.google.com/maps/place/?q=place_id:${placeId}`,
-  //       '_blank',
-  //     );
-  //   } else {
-  //     alert('Не вдалося знайти Place ID');
-  //   }
-  // };
-
-  const menuState = useAppSelector(state => state.menu);
+  const cafeState = useAppSelector(state => state.cafeDetails);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(
-      fetchCafeMenuThunk({
-        cafeId: 1,
-        params: { filter: ['Hot Drinks'], sortBy: 'price_asc' },
-      }),
-    );
-  }, []);
-
-  console.log(menuState);
+    if (cafeId) {
+      dispatch(fetchCafeDetailsThunk(+cafeId));
+    }
+  }, [cafeId, dispatch]);
 
   return (
     <div className={styles.cafe}>
-      {isLoading ? (
+      {cafeState.loading ? (
         <BackSkeleton />
       ) : (
         <button
@@ -85,7 +59,7 @@ export const CafePage = () => {
       )}
 
       <div className={styles.cafe__container}>
-        {isLoading ? (
+        {cafeState.loading ? (
           <CafeHeaderSkeleton />
         ) : (
           <section className={styles.cafe__header}>
@@ -133,7 +107,7 @@ export const CafePage = () => {
               <div className={styles.cafe__descriptions}>
                 <article
                   className={classNames(`${styles.cafe__descriptionsDetails}`, {
-                    [styles.cafe__descriptionsDetailsActive]: isCommentsOpen,
+                    [styles.cafe__descriptionsDetailsActive]: isDescriptionOpen,
                   })}
                 >
                   Step into a thoughtfully designed thematic café inspired by
@@ -156,7 +130,7 @@ export const CafePage = () => {
                 </article>
                 <button
                   className={styles.cafe__viewAll}
-                  onClick={() => setIsCommentsOpen(prev => !prev)}
+                  onClick={() => setIsDescriptionOpen(prev => !prev)}
                 >
                   VIew all
                 </button>
@@ -164,7 +138,7 @@ export const CafePage = () => {
 
               <button
                 className={styles.cafe__viewOnMap}
-                onClick={() => openPlace()}
+                onClick={() => openPlace('as')}
               >
                 View on map
               </button>
@@ -172,14 +146,14 @@ export const CafePage = () => {
           </section>
         )}
 
-        {isLoading ? <CafeMenuSkeleton /> : <CafeMenu />}
+        {cafeState.loading ? <CafeMenuSkeleton /> : <CafeMenu />}
 
         <div className={styles.cafe__reservations}>
           <Details isModifiedDetails={true} />
           <button className={styles.cafe__apply}>Book</button>
         </div>
 
-        {isLoading ? <CafeReviewsSkeleton /> : <CafeReviews />}
+        {cafeState.loading ? <CafeReviewsSkeleton /> : <CafeReviews />}
       </div>
     </div>
   );

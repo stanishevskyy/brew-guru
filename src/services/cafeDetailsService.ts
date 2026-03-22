@@ -1,4 +1,4 @@
-import { request } from './apiService';
+import { request, wait } from './apiService';
 
 import { CafeDetails } from '../shared/types/cafeDetails/cafeDetails';
 
@@ -7,6 +7,8 @@ const STORAGE_KEY = 'cafesDetails';
 export const cafeDetailsService = {
   savedCafesDetails: async (): Promise<CafeDetails[]> => {
     try {
+      await wait();
+
       const savedCafesDetails = localStorage.getItem(STORAGE_KEY);
 
       if (savedCafesDetails) {
@@ -22,6 +24,21 @@ export const cafeDetailsService = {
       return data;
     } catch {
       throw new Error('Failed load cafe-details');
+    }
+  },
+  getCafeDetails: async (cafeId: number): Promise<CafeDetails | null> => {
+    try {
+      const data = await cafeDetailsService.savedCafesDetails();
+
+      const cafeDetails = data.find(c => c.id === cafeId);
+
+      if (!cafeDetails) {
+        throw new Error('Cafe details not found');
+      }
+
+      return cafeDetails;
+    } catch {
+      throw new Error('Failed to load cafe details');
     }
   },
 };
