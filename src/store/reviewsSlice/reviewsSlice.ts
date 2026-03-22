@@ -1,12 +1,14 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/indent */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { UserReview } from '../../shared/types/user/user-review.type';
+
 import { userReviewsService } from '../../services/userReviewsService';
-import { Reply } from '../../shared/types/user/user-replies.type';
+
+import { Review } from '../../shared/types/reviews/review.type';
+import { Reply } from '../../shared/types/reviews/replies.type';
 
 export interface ReviewsState {
-  reviews: UserReview[];
+  reviews: Review[];
   loading: boolean;
   error: string | null;
 }
@@ -18,7 +20,7 @@ const initialState: ReviewsState = {
 };
 
 export const fetchUserReviewsThunk = createAsyncThunk<
-  UserReview[],
+  Review[],
   number,
   { rejectValue: string }
 >('reviews/fetchUserReviews', async (userId, { rejectWithValue }) => {
@@ -46,8 +48,8 @@ export const addUserReplyThunk = createAsyncThunk<
 });
 
 export const updateUserReviewThunk = createAsyncThunk<
-  UserReview,
-  UserReview,
+  Review,
+  Review,
   { rejectValue: string }
 >('reviews/updateUserReview', async (review, { rejectWithValue }) => {
   try {

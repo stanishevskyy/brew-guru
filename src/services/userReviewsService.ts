@@ -1,10 +1,10 @@
 import { reviewsService } from './reviewsService';
 
-import { UserReview } from '../shared/types/user/user-review.type';
-import { Reply } from '../shared/types/user/user-replies.type';
+import { Review } from '../shared/types/reviews/review.type';
+import { Reply } from '../shared/types/reviews/replies.type';
 
 export const userReviewsService = {
-  getUserReviews: async (userId: number): Promise<UserReview[]> => {
+  getUserReviews: async (userId: number): Promise<Review[]> => {
     try {
       const reviews = await reviewsService.getReviews();
 
@@ -38,7 +38,7 @@ export const userReviewsService = {
       throw new Error('Failed to add reply');
     }
   },
-  updateUserReview: async (updatedReview: UserReview): Promise<UserReview> => {
+  updateUserReview: async (updatedReview: Review): Promise<Review> => {
     try {
       const reviews = await reviewsService.getReviews();
 
@@ -82,7 +82,6 @@ export const userReviewsService = {
       throw new Error('Failed to delete review');
     }
   },
-
   deleteReply: async (reviewId: number, replyId: number): Promise<void> => {
     try {
       const reviews = await reviewsService.getReviews();

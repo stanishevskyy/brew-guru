@@ -1,11 +1,11 @@
 import { request, wait } from './apiService';
 
-import { UserReview } from '../shared/types/user/user-review.type';
+import { Review } from '../shared/types/reviews/review.type';
 
 const STORAGE_KEY = 'reviews';
 
 export const reviewsService = {
-  getReviews: async (): Promise<UserReview[]> => {
+  getReviews: async (): Promise<Review[]> => {
     try {
       await wait();
 
@@ -15,7 +15,7 @@ export const reviewsService = {
         return JSON.parse(stored);
       }
 
-      const data = await request<UserReview[]>('users/reviews/reviews.json');
+      const data = await request<Review[]>('reviews/reviews.json');
 
       localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 

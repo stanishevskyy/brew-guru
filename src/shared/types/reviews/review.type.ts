@@ -1,6 +1,6 @@
-import { Reply } from './user-replies.type';
+import { Reply } from './replies.type';
 
-export interface UserReview {
+export interface Review {
   id: number;
   cafeId: number;
   user: {

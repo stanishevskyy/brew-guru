@@ -2,17 +2,17 @@
 /* eslint-disable @typescript-eslint/indent */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
+import { cafeDetailsService } from '../../services/cafeDetailsService';
+
 import { CafeDetails } from '../../shared/types/cafeDetails/cafeDetails';
 import { Menu } from '../../shared/types/menu/menu';
-
-import { cafeDetailsService } from '../../services/cafeDetailsService';
-import { UserReview } from '../../shared/types/user/user-review.type';
 import { CafeResponse } from '../../shared/types/cafeResponse/cafeResponse';
+import { Review } from '../../shared/types/reviews/review.type';
 
 export interface CafesState {
   cafe: CafeDetails;
   menu: Menu | null;
-  reviews: UserReview[];
+  reviews: Review[];
   loading: boolean;
   error: string | null;
 }

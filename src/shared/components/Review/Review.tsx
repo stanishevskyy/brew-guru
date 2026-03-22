@@ -12,10 +12,9 @@ import { ReviewFooter } from './components/ReviewFooter';
 import { ReplyFooter } from './components/ReplyFooter';
 import { ReviewForm } from './components/ReviewForm';
 
-import { UserReview } from '../../types/user/user-review.type';
-
 //eslint-disable-next-line
 import Arrow from '../../../assets/icons/reviews-icons/arrow-down.svg';
+import { Review as ReviewList } from '../../types/reviews/review.type';
 
 export type EditType = {
   type: 'review' | 'reply';
@@ -29,7 +28,7 @@ export type LoadingType = {
 
 type Props = {
   isLoadingState: boolean;
-  review: UserReview;
+  review: ReviewList;
   setDeletedReview: (value: number | null) => void;
 };
 
