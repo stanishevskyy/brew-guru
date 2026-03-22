@@ -10,10 +10,10 @@ import {
   updateUserReviewThunk,
 } from '../../../../../store/reviewsSlice/reviewsSlice';
 import { EditType, LoadingType } from '../../Review';
-import { UserReview } from '../../../../types/user/user-review.type';
 
 // eslint-disable-next-line max-len
 import CloseIcon from '../../../../../assets/icons/reviews-icons/close-icon.svg';
+import { Review } from '../../../../types/reviews/review.type';
 
 type Props = {
   reviewId: number;
@@ -77,7 +77,7 @@ export const ReviewForm: React.FC<Props> = ({
           return;
         }
 
-        const updatedReview: UserReview = {
+        const updatedReview: Review = {
           ...currentReview,
           comment: newComment,
         };
@@ -104,7 +104,7 @@ export const ReviewForm: React.FC<Props> = ({
           r.id === isEdit.id ? { ...r, comment: newComment } : r,
         );
 
-        const updatedReview: UserReview = {
+        const updatedReview: Review = {
           ...currentReview,
           replies: updatedReplies,
         };

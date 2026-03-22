@@ -47,6 +47,20 @@ export const fetchUserReviewsThunk = createAsyncThunk<
   }
 });
 
+export const addUserReviewThunk = createAsyncThunk<
+  Review,
+  Omit<Review, 'id'>,
+  { rejectValue: string }
+>('reviews/addUserReview', async (review, { rejectWithValue }) => {
+  try {
+    return await userReviewsService.addUserReview(review);
+  } catch (error) {
+    return rejectWithValue(
+      error instanceof Error ? error.message : 'Failed to add reply',
+    );
+  }
+});
+
 export const addUserReplyThunk = createAsyncThunk<
   Reply,
   Reply,
@@ -142,6 +156,19 @@ export const reviewsSlice = createSlice({
       .addCase(addUserReplyThunk.pending, state => {
         state.loading = true;
         state.error = null;
+      })
+      .addCase(addUserReviewThunk.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(addUserReviewThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        state.reviews.push(action.payload);
+      })
+      .addCase(addUserReviewThunk.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || 'Failed to add review';
       })
       .addCase(addUserReplyThunk.fulfilled, (state, action) => {
         state.loading = false;

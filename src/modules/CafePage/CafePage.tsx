@@ -8,6 +8,7 @@ import styles from './CafePage.module.scss';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 // eslint-disable-next-line max-len
 import { fetchCafeDetailsThunk } from '../../store/cafeDetailsSlice/cafeDetailsSlice';
+import { fetchCafeReviewsThunk } from '../../store/reviewsSlice/reviewsSlice';
 
 import { openPlace } from './utils/onPlace';
 
@@ -35,11 +36,25 @@ export const CafePage = () => {
   const cafeId = slug?.split('-').pop();
 
   const cafeState = useAppSelector(state => state.cafeDetails);
+  const reviewsState = useAppSelector(state => state.reviews);
   const dispatch = useAppDispatch();
+
+  const currentDayIndex = ((new Date().getDay() + 6) % 7) + 1;
+
+  const currentDayWorking = cafeState.cafe?.openingHours.find(
+    el => el.weekday === currentDayIndex,
+  );
+  const openTime = currentDayWorking?.openTime
+    ? currentDayWorking.openTime.slice(0, 5)
+    : '';
+  const closeTime = currentDayWorking?.closeTime
+    ? currentDayWorking.closeTime.slice(0, 5)
+    : '';
 
   useEffect(() => {
     if (cafeId) {
       dispatch(fetchCafeDetailsThunk(+cafeId));
+      dispatch(fetchCafeReviewsThunk(+cafeId));
     }
   }, [cafeId, dispatch]);
 
@@ -80,25 +95,29 @@ export const CafePage = () => {
 
             <div className={styles.cafe__info}>
               <div className={styles.cafe__details}>
-                <h2 className={styles.cafe__title}>Cafe name</h2>
+                <h2 className={styles.cafe__title}>{cafeState.cafe?.name}</h2>
                 <div className={styles.cafe__infoWrapper}>
                   <div className={styles.cafe__detailsWrapper}>
                     <p className={styles.cafe__information}>
                       <span className={styles.cafe__iconStar}></span>
-                      4.5 (25 reviews)
+                      {`${cafeState.cafe?.rating} (${reviewsState.reviews.length} reviews)`}
                     </p>
                     <p className={styles.cafe__information}>
-                      <span className={styles.cafe__iconClcok}></span>9:00-21:00
+                      <span className={styles.cafe__iconClcok}></span>{' '}
+                      {currentDayWorking?.openTime &&
+                      currentDayWorking.closeTime
+                        ? `${openTime}-${closeTime}`
+                        : 'Closed'}
                     </p>
                   </div>
                   <div className={styles.cafe__detailsWrapper}>
                     <p className={styles.cafe__information}>
-                      <span className={styles.cafe__iconPin}></span>3605 Parker
-                      Rd.
+                      <span className={styles.cafe__iconPin}></span>
+                      {cafeState.cafe?.address}
                     </p>
                     <p className={styles.cafe__information}>
-                      <span className={styles.cafe__iconPhone}></span>+380 99
-                      999 9999
+                      <span className={styles.cafe__iconPhone}></span>
+                      {cafeState.cafe?.phone}
                     </p>
                   </div>
                 </div>
@@ -110,23 +129,7 @@ export const CafePage = () => {
                     [styles.cafe__descriptionsDetailsActive]: isDescriptionOpen,
                   })}
                 >
-                  Step into a thoughtfully designed thematic café inspired by
-                  art, creativity, and slow living. Every detail — from the
-                  interior to the menu — is carefully curavted to create a
-                  unique atmosphere where guests can truly disconnect from the
-                  rush of everyday life. The space combines warm lighting,
-                  natural materials, and subtle artistic elements that reflect
-                  the café’s concept. Each area is designed for a different
-                  mood: cozy nooks with velvet armchairs offer a sanctuary for
-                  quiet reflection or deep work, while open, light-filled spaces
-                  invite conversation and shared inspiration. The air is always
-                  filled with the comforting aroma of freshly roasted beans and
-                  the soft backdrop of ambient music. Our menu is an extension
-                  of this artistic vision, featuring seasonal, locally sourced
-                  ingredients transformed into dishes that are as visually
-                  stunning as they are delicious. Here, coffee is not just a
-                  drink, but a daily ritual that invites you to pause and find
-                  beauty in the present moment.
+                  {cafeState.cafe?.description}
                 </article>
                 <button
                   className={styles.cafe__viewAll}
@@ -138,7 +141,7 @@ export const CafePage = () => {
 
               <button
                 className={styles.cafe__viewOnMap}
-                onClick={() => openPlace('as')}
+                onClick={() => openPlace(`${cafeState.cafe?.address}`)}
               >
                 View on map
               </button>
@@ -153,7 +156,15 @@ export const CafePage = () => {
           <button className={styles.cafe__apply}>Book</button>
         </div>
 
-        {cafeState.loading ? <CafeReviewsSkeleton /> : <CafeReviews />}
+        {cafeState.loading ? (
+          <CafeReviewsSkeleton />
+        ) : (
+          <CafeReviews
+            cafeId={cafeState.cafe?.id as number}
+            reviews={reviewsState.reviews}
+            isLoadingState={reviewsState.loading}
+          />
+        )}
       </div>
     </div>
   );

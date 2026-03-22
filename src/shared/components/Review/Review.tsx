@@ -77,9 +77,11 @@ export const Review: React.FC<Props> = ({
         review={review}
         setDeletedReview={setDeletedReview}
         setIsEdit={setIsEdit}
+        setIsCommentFormOpen={setIsCommentFormOpen}
       />
 
-      {isEdit?.type === 'review' && isEdit?.id === review.id && (
+      {(isCommentFormOpen === review.id ||
+        (isEdit?.type === 'review' && isEdit?.id === review.id)) && (
         <ReviewForm
           reviewId={review.id}
           setIsCommentFormOpen={setIsCommentFormOpen}

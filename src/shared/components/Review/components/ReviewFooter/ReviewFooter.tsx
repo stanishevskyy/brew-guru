@@ -9,7 +9,6 @@ import {
   updateUserReviewThunk,
 } from '../../../../../store/reviewsSlice/reviewsSlice';
 
-import { UserReview } from '../../../../types/user/user-review.type';
 import { EditType } from '../../Review';
 
 import HeartIcon from '../../../../../assets/icons/reviews-icons/heart-icon.svg';
@@ -21,17 +20,20 @@ import DotsIcon from '../../../../../assets/icons/reviews-icons/dots-icon.svg';
 import FlagIcon from '../../../../../assets/icons/reviews-icons/flag-outline-icon.svg';
 import PencilIcon from '../../../../../assets/icons/reviews-icons/pencil-icon.svg';
 import BinIcon from '../../../../../assets/icons/reviews-icons/bin-icon.svg';
+import { Review } from '../../../../types/reviews/review.type';
 
 type Props = {
-  review: UserReview;
+  review: Review;
   setDeletedReview: (value: number | null) => void;
   setIsEdit: React.Dispatch<React.SetStateAction<EditType | null>>;
+  setIsCommentFormOpen: (value: number | null) => void;
 };
 
 export const ReviewFooter: React.FC<Props> = ({
   review,
   setDeletedReview,
   setIsEdit,
+  setIsCommentFormOpen,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState<number | null>(null);
 
@@ -74,7 +76,7 @@ export const ReviewFooter: React.FC<Props> = ({
     setLocalDislike(newDislike);
     setLocalLike(newLike);
 
-    const updatedReview: UserReview = {
+    const updatedReview: Review = {
       ...review,
       like: newLike,
       dislike: newDislike,
@@ -131,6 +133,7 @@ export const ReviewFooter: React.FC<Props> = ({
         type="button"
         className={styles.review__actionInfo}
         aria-label="Comment on review"
+        onClick={() => setIsCommentFormOpen(review.id)}
       >
         <img
           src={CommentIcon}

@@ -102,6 +102,11 @@
   }
 }
 
+.reviews__wrapper {
+  position: relative;
+  flex: 1;
+}
+
 .reviews__comment {
   width: 100%;
   padding: 20px 50px 16px 20px;
@@ -111,11 +116,6 @@
   font-weight: 500;
   line-height: 20px;
   color: $color-text-primary;
-
-  background-image: url('../../../../assets/icons/reviews-icons/send.svg');
-  background-size: 36px 24px;
-  background-repeat: no-repeat;
-  background-position: right 12px center;
 
   @include on-desktop {
     flex: 1;
@@ -130,6 +130,27 @@
   font-weight: 500;
   line-height: 20px;
   color: $color-text-primary;
+}
+
+.reviews__confirm {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  display: inline-block;
+  width: 36px; /* задаємо розмір кнопки */
+  height: 24px;
+  background-color: inherit;
+
+  background-image: url('../../../../assets/icons/reviews-icons/send.svg');
+  background-size: 36px 24px;
+  background-repeat: no-repeat;
+
+  border: none;
+  cursor: pointer;
+
+  @include on-desktop {
+    display: none;
+  }
 }
 
 .reviews__button {

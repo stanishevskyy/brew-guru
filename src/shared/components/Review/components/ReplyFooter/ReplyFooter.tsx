@@ -9,8 +9,6 @@ import {
   updateUserReviewThunk,
 } from '../../../../../store/reviewsSlice/reviewsSlice';
 
-import { UserReview } from '../../../../types/user/user-review.type';
-import { Reply } from '../../../../types/user/user-replies.type';
 import { EditType } from '../../Review';
 
 import HeartIcon from '../../../../../assets/icons/reviews-icons/heart-icon.svg';
@@ -22,9 +20,11 @@ import DotsIcon from '../../../../../assets/icons/reviews-icons/dots-icon.svg';
 import FlagIcon from '../../../../../assets/icons/reviews-icons/flag-outline-icon.svg';
 import PencilIcon from '../../../../../assets/icons/reviews-icons/pencil-icon.svg';
 import BinIcon from '../../../../../assets/icons/reviews-icons/bin-icon.svg';
+import { Review } from '../../../../types/reviews/review.type';
+import { Reply } from '../../../../types/reviews/replies.type';
 
 type Props = {
-  review: UserReview;
+  review: Review;
   reply: Reply;
   setIsCommentFormOpen: (value: number | null) => void;
   setDeletedReply: (value: number | null) => void;
@@ -63,7 +63,7 @@ export const ReplyFooter: React.FC<Props> = ({
       r.id === reply.id ? { ...r, like: newLike, dislike: newDislike } : r,
     );
 
-    const updatedReview: UserReview = { ...review, replies: updatedReplies };
+    const updatedReview: Review = { ...review, replies: updatedReplies };
 
     await dispatch(updateUserReviewThunk(updatedReview));
   };
@@ -86,7 +86,7 @@ export const ReplyFooter: React.FC<Props> = ({
       r.id === reply.id ? { ...r, like: newLike, dislike: newDislike } : r,
     );
 
-    const updatedReview: UserReview = { ...review, replies: updatedReplies };
+    const updatedReview: Review = { ...review, replies: updatedReplies };
 
     await dispatch(updateUserReviewThunk(updatedReview));
   };
