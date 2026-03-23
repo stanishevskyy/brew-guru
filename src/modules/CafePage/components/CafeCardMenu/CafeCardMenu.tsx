@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './CafeCardMenu.module.scss';
 
-import { MenuItem } from '../../../../shared/types/menu/menuItem';
+import { Dish } from '../../../../shared/types/menu/menuItem';
 
 // //eslint-disable-next-line
 // import DishMobile from '../../../../assets/images/cafe-images/dish-image/dish-image-mobile.png';
@@ -12,7 +12,7 @@ import { MenuItem } from '../../../../shared/types/menu/menuItem';
 // import DishTabletDesktop from '../../../../assets/images/cafe-images/dish-image/dish-image-desktop.png';
 
 type Props = {
-  menuItem: MenuItem;
+  menuItem: Dish;
 };
 
 export const CafeCardMenu: React.FC<Props> = ({ menuItem }) => {
@@ -31,7 +31,6 @@ export const CafeCardMenu: React.FC<Props> = ({ menuItem }) => {
       </picture> */}
 
       <img
-        loading="lazy"
         className={styles.card__image}
         src={menuItem.imageUrl}
         alt="Menu image"
