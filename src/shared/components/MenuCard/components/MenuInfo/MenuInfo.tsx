@@ -2,6 +2,10 @@ import React from 'react';
 
 import styles from './MenuInfo.module.scss';
 
+import useMediaQuery from '../../../../hooks/useMediaQuery';
+
+import { Dish } from '../../../../types/menu/menuItem';
+
 import { MenuAddButton } from '../MenuAddButton';
 
 //eslint-disable-next-line
@@ -12,36 +16,59 @@ import DishTablet from '../../../../../assets/images/menu-images/menu-dialog/dis
 import DishDesktop from '../../../../../assets/images/menu-images/menu-dialog/dish-image-desktop.png';
 //eslint-disable-next-line
 import CloseIcon from '../../../../../assets/icons/menu-icons/close-icon.svg';
-import { useMediaQuery } from '@mui/material';
+import classNames from 'classnames';
 
 type Props = {
-  setIsInfoMenuOpen: (value: boolean) => void;
+  menuDescription: Dish | null;
+  setIsInfoMenuOpen: (value: number | null) => void;
 };
 
-export const MenuInfo: React.FC<Props> = ({ setIsInfoMenuOpen }) => {
+export const MenuInfo: React.FC<Props> = ({
+  menuDescription,
+  setIsInfoMenuOpen,
+}) => {
   const isMobile = useMediaQuery('(max-width: 1022px)');
   const isDesktop = useMediaQuery('(min-width: 1023px)');
+
+  const discountedPrice =
+    menuDescription?.discount &&
+    Math.trunc(
+      menuDescription?.price * (1 - (menuDescription?.discount ?? 0) / 100),
+    );
+
+  if (!menuDescription) {
+    return;
+  }
 
   return (
     <article className={styles.menu}>
       <div className={styles.menu__container}>
         <div className={styles.menu__link}>
-          <picture>
-            <source media="(min-width: 639px)" srcSet={DishTablet} />
-            <source media="(min-width: 1023px)" srcSet={DishDesktop} />
-
+          {menuDescription?.imageUrl ? (
             <img
               loading="lazy"
-              src={DishMobile}
+              src={menuDescription?.imageUrl}
               alt="Dish"
               className={styles.menu__img}
             />
-          </picture>
+          ) : (
+            <picture>
+              <source media="(min-width: 639px)" srcSet={DishTablet} />
+              <source media="(min-width: 1023px)" srcSet={DishDesktop} />
+
+              <img
+                loading="lazy"
+                src={DishMobile}
+                alt="Dish"
+                className={styles.menu__img}
+              />
+            </picture>
+          )}
           <button
             className={styles.menu__close}
             type="button"
             aria-label="Close menu"
-            onClick={() => setIsInfoMenuOpen(false)}
+            onClick={() => setIsInfoMenuOpen(null)}
           >
             <img
               src={CloseIcon}
@@ -53,27 +80,36 @@ export const MenuInfo: React.FC<Props> = ({ setIsInfoMenuOpen }) => {
         </div>
 
         <div className={styles.menu__info}>
-          <p className={styles.menu__dish}>Avocado Green Salad</p>
+          <p className={styles.menu__dish}>{menuDescription.name}</p>
           <div className={styles.menu__infoWrapper}>
             <div>
               <p className={styles.menu__price}>
-                <span className={styles.menu__regular}>4.90$</span>
-                <span className={styles.menu__discount}>4.18$</span>
+                <span
+                  className={classNames(`${styles.menu__regular}`, {
+                    [styles.menu__regularDiscount]: discountedPrice,
+                  })}
+                >
+                  {`${menuDescription?.price}₴`}
+                </span>
+                {discountedPrice && (
+                  <span className={styles.menu__discount}>
+                    {`${discountedPrice}₴`}
+                  </span>
+                )}
               </p>
-              <p className={styles.menu__portion}>1 portion / 280g</p>
+              <p className={styles.menu__portion}>{menuDescription.portion}</p>
             </div>
-            <span className={styles.menu__label} aria-hidden="true">
-              15% OFF
-            </span>
+            {menuDescription?.discount && (
+              <span className={styles.menu__label} aria-hidden="true">
+                {`${menuDescription.discount}% OFF`}
+              </span>
+            )}
 
             {isDesktop && <MenuAddButton />}
           </div>
 
           <p className={styles.menu__description}>
-            A vibrant medley of crisp seasonal greens and buttery avocado
-            slices, tossed with crunchy cucumber and toasted pumpkin seeds.
-            Lightly drizzled with our signature lemon-herb vinaigrette for a
-            refreshing, zesty finish.
+            {menuDescription.description}
           </p>
 
           {isMobile && <MenuAddButton />}

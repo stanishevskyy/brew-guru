@@ -1,0 +1,136 @@
+@import '../../../assets/styles/main';
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 8px;
+
+  background-color: $color-white;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  grid-column: span 4;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @include on-tablet {
+    grid-column: span 3;
+  }
+
+  @include on-desktop {
+    grid-column: span 4;
+  }
+
+  @include on-desktop-extra {
+    grid-column: span 3;
+  }
+}
+
+.card__container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  @include on-desktop {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.card__link {
+  width: 87px;
+  height: 87px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+
+  @include on-desktop {
+    width: 100%;
+    height: 210px;
+  }
+}
+
+.card__info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding-block: 8px;
+  padding-inline: 16px 8px;
+
+  @include on-desktop {
+    padding-block: 8px 16px;
+    padding-inline: 16px;
+    width: 100%;
+  }
+}
+
+.card__dish {
+  margin-bottom: 8px;
+  width: 177px;
+  height: 20px;
+
+  @include on-desktop {
+    width: 177px;
+    height: 26px;
+  }
+}
+
+.card__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__price {
+  width: 67px;
+  height: 15px;
+  margin-bottom: 5px;
+
+  @include on-desktop {
+    width: 150px;
+    height: 31px;
+  }
+}
+
+.card__portion {
+  width: 75px;
+  height: 15px;
+
+  @include on-desktop {
+    width: 150px;
+    height: 20px;
+  }
+}
+
+.card__addDish {
+  width: 24px;
+  height: 24px;
+
+  @include on-desktop {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.card__link,
+.card__dish,
+.card__price,
+.card__portion,
+.card__addDish {
+  border-radius: 8px;
+
+  background: linear-gradient(110deg, #d6d6d6 8%, #e2e2e2 18%, #d6d6d6 33%);
+
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}

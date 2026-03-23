@@ -44,8 +44,10 @@
 
 .menu__label {
   position: relative;
+  right: -5px;
+  top: -7px;
 
-  padding: 4px 8px;
+  padding: 1px 8px;
   font-size: 8px;
   font-weight: 400;
   line-height: 15px;
@@ -55,6 +57,9 @@
   border-bottom-right-radius: 8px;
 
   @include on-desktop {
+    right: -8px;
+    top: -17px;
+    padding: 4px 8px;
     font-size: 16px;
     line-height: 20px;
   }
@@ -125,8 +130,8 @@
 }
 
 .menu__infoWrapper {
+  position: relative;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -146,7 +151,7 @@
   }
 }
 
-.menu__regular {
+.menu__regularDiscount {
   color: $color-text-secondary;
   text-decoration: line-through;
 }

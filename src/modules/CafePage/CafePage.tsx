@@ -153,7 +153,10 @@ export const CafePage = () => {
         {cafeState.loading ? (
           <CafeMenuSkeleton />
         ) : (
-          <CafeMenu cafeId={cafeState.cafe?.id as number} />
+          <CafeMenu
+            cafeName={cafeState.cafe?.name as string}
+            cafeId={cafeState.cafe?.id as number}
+          />
         )}
 
         <div className={styles.cafe__reservations}>

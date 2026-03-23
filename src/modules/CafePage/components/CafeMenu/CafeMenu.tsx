@@ -11,10 +11,11 @@ import ArrowIcon from '../../../../assets/icons/menu-icons/arrow-icon.svg';
 import { fetchCafeMenuThunk } from '../../../../store/menuSlice/menuSlice';
 
 type Props = {
+  cafeName: string;
   cafeId: number;
 };
 
-export const CafeMenu: React.FC<Props> = ({ cafeId }) => {
+export const CafeMenu: React.FC<Props> = ({ cafeName, cafeId }) => {
   const menuState = useAppSelector(state => state.menu);
   const dispatch = useAppDispatch();
 
@@ -32,7 +33,10 @@ export const CafeMenu: React.FC<Props> = ({ cafeId }) => {
           </p>
         </div>
 
-        <Link to="/cafeId/menu" className={styles.cardContainer__btnWrapper}>
+        <Link
+          to={`/${cafeName}-${cafeId}/menu`}
+          className={styles.cardContainer__btnWrapper}
+        >
           <p className={styles.cardContainer__btnInfo}>See all</p>
           <img
             src={ArrowIcon}

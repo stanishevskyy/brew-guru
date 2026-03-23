@@ -1,6 +1,12 @@
+/* eslint-disable @typescript-eslint/indent */
 /* eslint-disable max-len */
 import { useEffect, useMemo, useState } from 'react';
-import { useOutletContext, useSearchParams } from 'react-router-dom';
+import {
+  useNavigate,
+  useOutletContext,
+  useParams,
+  useSearchParams,
+} from 'react-router-dom';
 import classNames from 'classnames';
 
 import styles from './HomePageMenu.module.scss';
@@ -23,12 +29,16 @@ import { MenuInfo } from '../../shared/components/MenuCard/components/MenuInfo';
 import { Filters } from '../../shared/components/Filters';
 import { FormWrapper } from '../../shared/components/FormWrapper';
 import { CurrentView } from '../../shared/components/CurrentView';
+import { MenuSkeleton } from '../../shared/components/MenuSkeleton';
 
 import ArrowLeft from '../../assets/icons/search-icons/left-arrow.svg';
 
 export const HomePageMenu = () => {
+  const navigate = useNavigate();
+  const { slug } = useParams();
+  const cafeId = slug?.split('-').pop();
   const [isSideFiltersOpen, setIsSideFiltersOpen] = useState(false);
-  const [isInfoMenuOpen, setIsInfoMenuOpen] = useState(false);
+  const [isInfoMenuOpen, setIsInfoMenuOpen] = useState<number | null>(null);
   const { setIsOrdersOpen }: { setIsOrdersOpen: (value: boolean) => void } =
     useOutletContext();
 
@@ -54,10 +64,13 @@ export const HomePageMenu = () => {
   );
   const visilbePages = getVisiblePages(currentPage, pagesPerPage);
 
+  const menuDescription =
+    menuState.menuInfo?.menu.items.find(m => m.id === isInfoMenuOpen) || null;
+
   useEffect(() => {
     dispatch(
       fetchCafeMenuThunk({
-        cafeId: 1,
+        cafeId: +cafeId!,
         params: {
           query,
           sortBy,
@@ -74,6 +87,7 @@ export const HomePageMenu = () => {
       <button
         className={styles.searchPage__back}
         aria-label="Go back to previous page"
+        onClick={() => navigate(-1)}
       >
         <img src={ArrowLeft} alt="" aria-hidden="true" />
         Back
@@ -120,16 +134,33 @@ export const HomePageMenu = () => {
           />
         </section>
 
-        <div
-          className={styles.searchPage__cafe}
-          role="button"
-          tabIndex={0}
-          aria-label="Open menu details"
-          onClick={() => setIsInfoMenuOpen(true)}
-          onKeyDown={e => e.key === 'Enter' && setIsInfoMenuOpen(true)}
-        >
-          <MenuCard />
-        </div>
+        {menuState.loading
+          ? Array.from({ length: +perPage }).map((_, index) => (
+              <div
+                key={index}
+                className={styles.searchPage__cafe}
+                role="button"
+                tabIndex={0}
+                aria-label="Open menu details"
+              >
+                <MenuSkeleton />
+              </div>
+            ))
+          : menuState.menuInfo?.menu.items.map(menuItem => (
+              <div
+                key={menuItem.id}
+                className={styles.searchPage__cafe}
+                role="button"
+                tabIndex={0}
+                aria-label="Open menu details"
+                onClick={() => setIsInfoMenuOpen(menuItem?.id)}
+                onKeyDown={e =>
+                  e.key === 'Enter' && setIsInfoMenuOpen(menuItem?.id)
+                }
+              >
+                <MenuCard menuItem={menuItem} />
+              </div>
+            ))}
 
         {isInfoMenuOpen && (
           <div
@@ -138,7 +169,10 @@ export const HomePageMenu = () => {
             aria-modal="true"
             aria-label="Menu details"
           >
-            <MenuInfo setIsInfoMenuOpen={setIsInfoMenuOpen} />
+            <MenuInfo
+              menuDescription={menuDescription}
+              setIsInfoMenuOpen={setIsInfoMenuOpen}
+            />
           </div>
         )}
 

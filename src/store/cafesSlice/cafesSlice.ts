@@ -4,7 +4,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { cafesService } from '../../services/cafesService';
 
-import { Cafe } from '../../shared/types/user/user-cafe-history.type';
+import { Cafe } from '../../shared/types/shared/cafe';
 import { Cafes } from '../../shared/types/cafe/cafes';
 import { CafeQueryParams } from '../../shared/types/cafe/cafeQueryParams';
 
