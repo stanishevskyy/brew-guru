@@ -9,7 +9,7 @@
         "price": 120,
         "discount": 10,
         "portion": "1 portion / 350g",
-        "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8",
+        "imageUrl": "https://images.pexels.com/photos/33987720/pexels-photo-33987720.jpeg",
         "category": "Main Courses",
         "type": "Vegetarian Mains",
         "description": "Fluffy vegan pancakes served warm with a delicate balance of sweetness, topped with fresh fruits and a drizzle of maple syrup for a comforting, wholesome start to your day."
@@ -40,7 +40,7 @@
         "name": "Espresso",
         "price": 40,
         "portion": "1 portion / 100g",
-        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a",
+        "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?q=80&w=1200&auto=format&fit=crop",
         "category": "Drinks",
         "type": "Hot Drinks",
         "description": "A bold and intense shot of freshly brewed espresso, delivering deep, rich flavors and a smooth crema for a quick yet satisfying energy boost."
@@ -51,7 +51,7 @@
         "price": 85,
         "discount": 20,
         "portion": "1 portion / 150g",
-        "imageUrl": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52",
+        "imageUrl": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52?q=80&w=1200&auto=format&fit=crop",
         "category": "Desserts",
         "type": "Cakes & Pastries",
         "description": "Decadent chocolate brownie with a rich, fudgy center and a slightly crisp top, offering an indulgent treat for true chocolate lovers."
@@ -61,7 +61,7 @@
         "name": "Cheesecake",
         "price": 110,
         "portion": "1 portion / 150g",
-        "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
+        "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=1200&auto=format&fit=crop",
         "category": "Desserts",
         "type": "Cakes & Pastries",
         "description": "Creamy and smooth cheesecake set on a buttery biscuit base, delivering a perfectly balanced sweetness with a melt-in-your-mouth texture."
@@ -72,7 +72,7 @@
         "price": 95,
         "discount": 5,
         "portion": "1 portion / 250ml",
-        "imageUrl": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7",
+        "imageUrl": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?q=80&w=1200&auto=format&fit=crop",
         "category": "Drinks",
         "type": "Hot Drinks",
         "description": "A soothing blend of premium matcha green tea and steamed milk, offering a smooth, earthy flavor with a gentle creamy finish."
@@ -82,7 +82,7 @@
         "name": "Fresh Orange Juice",
         "price": 70,
         "portion": "1 portion / 250ml",
-        "imageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da3888",
+        "imageUrl": "https://images.unsplash.com/photo-1497534446932-c925b458314e?q=80&w=1200&auto=format&fit=crop",
         "category": "Drinks",
         "type": "Cold Drinks",
         "description": "Freshly squeezed orange juice bursting with natural sweetness and citrusy brightness, delivering a refreshing and vitamin-rich boost."
@@ -93,7 +93,7 @@
         "price": 140,
         "discount": 10,
         "portion": "150ml",
-        "imageUrl": "https://images.unsplash.com/photo-1510626176961-4b57d4fbad03",
+        "imageUrl": "https://images.unsplash.com/photo-1547595628-c61a29f496f0?q=80&w=1200&auto=format&fit=crop",
         "category": "Alcohol",
         "type": "Wine",
         "description": "A smooth and well-balanced red wine with rich berry notes and a subtle hint of oak, perfect for a relaxed and refined experience."
@@ -103,7 +103,7 @@
         "name": "Beer Lager",
         "price": 60,
         "portion": "500ml",
-        "imageUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d",
+        "imageUrl": "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop",
         "category": "Alcohol",
         "type": "Beer",
         "description": "A crisp and refreshing lager with a light golden color and a clean finish, идеально suited for easy drinking and casual moments."
@@ -114,7 +114,7 @@
         "price": 250,
         "discount": 38,
         "portion": "1 portion / 300g",
-        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "imageUrl": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=1200&auto=format&fit=crop",
         "category": "Main Courses",
         "type": "Fish & Seafood",
         "description": "Tender grilled salmon with a light lemon-herb glaze, served with a side of seasonal vegetables for a healthy and flavorful meal."
@@ -125,7 +125,7 @@
         "price": 45,
         "discount": 7,
         "portion": "1 portion / 300ml",
-        "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+        "imageUrl": "https://images.unsplash.com/photo-1497534446932-c925b458314e?q=80&w=1200&auto=format&fit=crop",
         "category": "Drinks",
         "type": "Cold Drinks",
         "description": "Refreshing iced tea brewed from premium tea leaves, lightly sweetened and served chilled with a slice of fresh lemon."
@@ -136,7 +136,7 @@
         "price": 65,
         "discount": 10,
         "portion": "1 portion / 200g",
-        "imageUrl": "https://images.unsplash.com/photo-1543353071-087092ec3934",
+        "imageUrl": "https://images.unsplash.com/photo-1568158879083-c42860933ed7?q=80&w=1200&auto=format&fit=crop",
         "category": "Desserts",
         "type": "Fruit Desserts",
         "description": "A vibrant mix of crisp seasonal fruits, lightly drizzled with honey and fresh mint for a refreshing, sweet treat."
@@ -147,7 +147,7 @@
         "price": 150,
         "discount": 23,
         "portion": "1 portion / 350g",
-        "imageUrl": "https://images.unsplash.com/photo-1603133872870-0d6c9bb5c3b4",
+        "imageUrl": "https://images.unsplash.com/photo-1608756687911-aa1599ab3bd9?q=80&w=1200&auto=format&fit=crop",
         "category": "Main Courses",
         "type": "Pasta & Risotto",
         "description": "Classic spaghetti carbonara with creamy egg sauce, crispy pancetta, and freshly grated parmesan, delivering a rich and comforting flavor."
@@ -158,7 +158,7 @@
         "price": 220,
         "discount": 33,
         "portion": "1 portion / 300g",
-        "imageUrl": "https://images.unsplash.com/photo-1562967916-eb82221dfb8f",
+        "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop",
         "category": "Main Courses",
         "type": "Meat",
         "description": "Perfectly grilled steak, seasoned with a house blend of herbs and spices, offering a juicy and tender bite with a smoky finish."
@@ -169,7 +169,7 @@
         "price": 200,
         "discount": 30,
         "portion": "1 portion / 350g",
-        "imageUrl": "https://images.unsplash.com/photo-1617196032326-df13f1b1fc9f",
+        "imageUrl": "https://images.unsplash.com/photo-1563379091339-03246963d96c?q=80&w=1200&auto=format&fit=crop",
         "category": "Main Courses",
         "type": "Fish & Seafood",
         "description": "Creamy risotto with succulent shrimp, delicately seasoned with garlic and white wine, finished with parmesan and fresh herbs."
@@ -180,7 +180,7 @@
         "price": 45,
         "discount": 7,
         "portion": "1 portion / 250ml",
-        "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+        "imageUrl": "https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?q=80&w=1200&auto=format&fit=crop",
         "category": "Drinks",
         "type": "Sugar-free",
         "description": "A soothing blend of carefully selected herbs, served hot to refresh and relax with every aromatic sip."
@@ -191,7 +191,7 @@
         "price": 130,
         "discount": 20,
         "portion": "1 glass / 250ml",
-        "imageUrl": "https://images.unsplash.com/photo-1582719478170-1e74b8de5c0f",
+        "imageUrl": "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?q=80&w=1200&auto=format&fit=crop",
         "category": "Alcohol",
         "type": "Cocktails",
         "description": "A refreshing mojito with muddled mint leaves, lime, sugar, and rum, topped with soda water for a crisp and zesty taste."
@@ -202,7 +202,7 @@
         "price": 95,
         "discount": 14,
         "portion": "1 portion / 150g",
-        "imageUrl": "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
+        "imageUrl": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52?q=80&w=1200&auto=format&fit=crop",
         "category": "Desserts",
         "type": "Cakes & Pastries",
         "description": "Rich and moist vegan chocolate cake with a deep chocolate flavor, topped with a smooth cocoa glaze for an indulgent treat."
@@ -213,7 +213,7 @@
         "price": 70,
         "discount": 10,
         "portion": "1 portion / 200g",
-        "imageUrl": "https://images.unsplash.com/photo-1572441710742-57de8a0a42b5",
+        "imageUrl": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop",
         "category": "Desserts",
         "type": "Fruit Desserts",
         "description": "A colorful medley of strawberries, blueberries, and raspberries, lightly tossed with honey and mint for a fresh and tangy dessert."
