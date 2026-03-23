@@ -4,12 +4,12 @@ import styles from './CafeCardMenu.module.scss';
 
 import { Dish } from '../../../../shared/types/menu/menuItem';
 
-// //eslint-disable-next-line
-// import DishMobile from '../../../../assets/images/cafe-images/dish-image/dish-image-mobile.png';
-// //eslint-disable-next-line
-// import DishTablet from '../../../../assets/images/cafe-images/dish-image/dish-image-tablet.png';
-// //eslint-disable-next-line
-// import DishTabletDesktop from '../../../../assets/images/cafe-images/dish-image/dish-image-desktop.png';
+//eslint-disable-next-line
+import DishMobile from '../../../../assets/images/cafe-images/dish-image/dish-image-mobile.png';
+//eslint-disable-next-line
+import DishTablet from '../../../../assets/images/cafe-images/dish-image/dish-image-tablet.png';
+//eslint-disable-next-line
+import DishTabletDesktop from '../../../../assets/images/cafe-images/dish-image/dish-image-desktop.png';
 
 type Props = {
   menuItem: Dish;
@@ -18,7 +18,7 @@ type Props = {
 export const CafeCardMenu: React.FC<Props> = ({ menuItem }) => {
   return (
     <article className={styles.menu}>
-      {/* <picture>
+      <picture>
         <source media="(min-width: 639px)" srcSet={DishTablet} />
         <source media="(min-width: 1023px)" srcSet={DishTabletDesktop} />
 
@@ -28,13 +28,13 @@ export const CafeCardMenu: React.FC<Props> = ({ menuItem }) => {
           src={DishMobile}
           alt="Menu image"
         />
-      </picture> */}
+      </picture>
 
-      <img
+      {/* <img
         className={styles.card__image}
         src={menuItem.imageUrl}
         alt="Menu image"
-      />
+      /> */}
 
       <p className={styles.menu__dish}>{menuItem.name}</p>
     </article>

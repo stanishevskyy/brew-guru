@@ -40,7 +40,7 @@ export const Favorites: React.FC<Props> = ({
 
   useEffect(() => {
     dispatch(fetchUserFavoritesCafe(userId as number));
-  }, [favoritesState.userFavorite]);
+  }, [favoritesState.userFavorite?.favorites.length]);
 
   return (
     <div

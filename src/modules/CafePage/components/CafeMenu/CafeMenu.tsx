@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './CafeMenu.module.scss';
 
-import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
+import { useAppSelector } from '../../../../store/hooks';
 
 import { CafeCardMenu } from '../CafeCardMenu';
 
 import ArrowIcon from '../../../../assets/icons/menu-icons/arrow-icon.svg';
-import { fetchCafeMenuThunk } from '../../../../store/menuSlice/menuSlice';
 
 type Props = {
   cafeName: string;
@@ -17,11 +16,6 @@ type Props = {
 
 export const CafeMenu: React.FC<Props> = ({ cafeName, cafeId }) => {
   const menuState = useAppSelector(state => state.menu);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(fetchCafeMenuThunk({ cafeId }));
-  }, []);
 
   return (
     <section className={styles.cardContainer}>

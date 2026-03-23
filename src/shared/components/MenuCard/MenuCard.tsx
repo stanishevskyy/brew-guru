@@ -29,7 +29,7 @@ export const MenuCard: React.FC<Props> = ({ menuItem, isOrdersOpen }) => {
     <article className={styles.card}>
       <div className={styles.card__container}>
         <div className={styles.card__link} aria-label="Open dish modal">
-          {menuItem?.imageUrl ? (
+          {/* {menuItem?.imageUrl ? (
             <img
               className={styles.card__img}
               src={menuItem?.imageUrl}
@@ -42,7 +42,13 @@ export const MenuCard: React.FC<Props> = ({ menuItem, isOrdersOpen }) => {
               <source media="(min-width: 641px)" srcSet={DishTablet} />
               <img className={styles.card__img} src={DishMobile} alt="Dish" />
             </picture>
-          )}
+          )} */}
+          <picture>
+            <source media="(min-width: 1440px)" srcSet={DishDesktopExtra} />
+            <source media="(min-width: 1200px)" srcSet={DishDesktop} />
+            <source media="(min-width: 641px)" srcSet={DishTablet} />
+            <img className={styles.card__img} src={DishMobile} alt="Dish" />
+          </picture>
           <span
             className={styles.cardCafe__cardOverlay}
             aria-hidden="true"

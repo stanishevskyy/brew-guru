@@ -28,6 +28,7 @@ import { CafeHeaderSkeleton } from '../../shared/components/CafeHeaderSkeleton';
 import { CafeMenuSkeleton } from '../../shared/components/CafeMenuSkeleton';
 //eslint-disable-next-line
 import { CafeReviewsSkeleton } from '../../shared/components/CafeReviewsSkeleton';
+import { fetchCafeMenuThunk } from '../../store/menuSlice/menuSlice';
 
 export const CafePage = () => {
   const navigate = useNavigate();
@@ -56,6 +57,7 @@ export const CafePage = () => {
     if (cafeId) {
       dispatch(fetchCafeDetailsThunk(+cafeId));
       dispatch(fetchCafeReviewsThunk(+cafeId));
+      dispatch(fetchCafeMenuThunk({ cafeId: +cafeId }));
     }
   }, [cafeId, dispatch]);
 

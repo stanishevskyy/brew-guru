@@ -55,6 +55,7 @@ export const HomePageMenu = () => {
   const filters = useMemo(() => {
     return searchParams.getAll('filter');
   }, [searchParams]);
+  const filtersKey = filters.join(',');
   const currentPage = searchParams.get('page') || '1';
   const perPage =
     searchParams.get('perPage') || +getItemPerPage('menu', isTablet, isDesktop);
@@ -80,7 +81,7 @@ export const HomePageMenu = () => {
         },
       }),
     );
-  }, [query, sortBy, currentPage, perPage, filters]);
+  }, [query, sortBy, currentPage, perPage, filtersKey]);
 
   return (
     <div className={styles.searchPage} role="main">
@@ -154,9 +155,6 @@ export const HomePageMenu = () => {
                 tabIndex={0}
                 aria-label="Open menu details"
                 onClick={() => setIsInfoMenuOpen(menuItem?.id)}
-                onKeyDown={e =>
-                  e.key === 'Enter' && setIsInfoMenuOpen(menuItem?.id)
-                }
               >
                 <MenuCard menuItem={menuItem} />
               </div>
