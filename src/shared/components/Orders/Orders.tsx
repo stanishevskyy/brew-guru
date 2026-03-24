@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/indent */
 import React, { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import classNames from 'classnames';
 
 import styles from './Orders.module.scss';
@@ -17,6 +18,9 @@ type Props = {
 };
 
 export const Orders: React.FC<Props> = ({ isOrdersOpen, setIsOrdersOpen }) => {
+  const navigate = useNavigate();
+  const { slug } = useParams();
+
   const menuInOrders = useAppSelector(state => state.menuOrder);
   const totalPrice = menuInOrders.reduce((acc, el) => {
     const price = el.menuOrder.discount
@@ -27,6 +31,12 @@ export const Orders: React.FC<Props> = ({ isOrdersOpen, setIsOrdersOpen }) => {
 
     return acc + price * el.quantity;
   }, 0);
+
+  const handleOrder = () => {
+    // navigate(`/${slug}#reservations`);
+    navigate(`/${slug}`, { state: { scrollTo: 'reservation' } });
+    setIsOrdersOpen(false);
+  };
 
   useEffect(() => {
     if (isOrdersOpen) {
@@ -101,6 +111,8 @@ export const Orders: React.FC<Props> = ({ isOrdersOpen, setIsOrdersOpen }) => {
           <button
             className={styles.favourites__orderBtn}
             aria-label="Place order for all items"
+            disabled={menuInOrders.length === 0}
+            onClick={handleOrder}
           >
             Order
           </button>

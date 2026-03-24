@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import classNames from 'classnames';
 
@@ -31,6 +31,7 @@ import { CafeReviewsSkeleton } from '../../shared/components/CafeReviewsSkeleton
 import { fetchCafeMenuThunk } from '../../store/menuSlice/menuSlice';
 
 export const CafePage = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
   const { slug } = useParams();
@@ -52,6 +53,16 @@ export const CafePage = () => {
   const closeTime = currentDayWorking?.closeTime
     ? currentDayWorking.closeTime.slice(0, 5)
     : '';
+
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const el = document.getElementById(location.state.scrollTo);
+
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location.state]);
 
   useEffect(() => {
     if (cafeId) {
@@ -161,7 +172,7 @@ export const CafePage = () => {
           />
         )}
 
-        <div className={styles.cafe__reservations}>
+        <div className={styles.cafe__reservations} id="reservation">
           <Details isModifiedDetails={true} />
           <button className={styles.cafe__apply}>Book</button>
         </div>
