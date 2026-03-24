@@ -7,12 +7,14 @@ import { getSearchWith } from '../../utils/getSearchWith';
 
 type Props = {
   filters: string[];
+  setChooseUserFilters: (value: string[]) => void;
   searchParams: URLSearchParams;
   setSearchParams: SetURLSearchParams;
 };
 
 export const CurrentView: React.FC<Props> = ({
   filters,
+  setChooseUserFilters,
   searchParams,
   setSearchParams,
 }) => {
@@ -43,6 +45,7 @@ export const CurrentView: React.FC<Props> = ({
                   page: '1',
                 });
 
+                setChooseUserFilters([]);
                 setSearchParams(params);
               }}
             >

@@ -11,19 +11,21 @@ import { FiltersType } from '../../types/FiltersType';
 import { getSearchWith } from '../../utils/getSearchWith';
 
 type Props = {
-  filters: string[];
   isSideFiltersOpen: boolean;
   currentFilters: FiltersType;
   searchParams: URLSearchParams;
+  chooseUserFilters: string[];
+  setChooseUserFilters: (value: string[]) => void;
   setSearchParams: SetURLSearchParams;
   setIsSideFiltersOpen: (value: boolean) => void;
 };
 
 export const Filters: React.FC<Props> = ({
-  filters,
   isSideFiltersOpen,
   currentFilters,
   searchParams,
+  chooseUserFilters,
+  setChooseUserFilters,
   setSearchParams,
   setIsSideFiltersOpen,
 }) => {
@@ -44,21 +46,35 @@ export const Filters: React.FC<Props> = ({
   }, [isSideFiltersOpen]);
 
   const chooseFilters = (value: string) => {
-    const current = searchParams.getAll('filter');
-
     let newFilters: string[];
 
-    if (current.includes(value)) {
-      newFilters = current.filter(f => f !== value);
+    if (chooseUserFilters.includes(value)) {
+      newFilters = chooseUserFilters.filter(f => f !== value);
     } else {
-      newFilters = [...current, value];
+      newFilters = [...chooseUserFilters, value];
     }
 
+    setChooseUserFilters(newFilters);
+  };
+
+  const handleClearFilters = () => {
     const params = getSearchWith(searchParams, {
-      filter: newFilters,
+      filter: [],
       page: '1',
     });
 
+    setChooseUserFilters([]);
+    setIsSideFiltersOpen(false);
+    setSearchParams(params);
+  };
+
+  const handleApplyFilters = () => {
+    const params = getSearchWith(searchParams, {
+      filter: chooseUserFilters,
+      page: '1',
+    });
+
+    setIsSideFiltersOpen(false);
     setSearchParams(params);
   };
 
@@ -122,7 +138,7 @@ export const Filters: React.FC<Props> = ({
                   >
                     <input
                       type="checkbox"
-                      checked={filters.includes(option)}
+                      checked={chooseUserFilters.includes(option)}
                       className={styles.filters__checkBox}
                       id={optionId}
                       onChange={() => chooseFilters(option)}
@@ -145,12 +161,14 @@ export const Filters: React.FC<Props> = ({
         <button
           className={styles.filters__btnClear}
           aria-label="Clear selected filters"
+          onClick={handleClearFilters}
         >
           Clear
         </button>
         <button
           className={styles.filters__btnApply}
           aria-label="Apply selected filters"
+          onClick={handleApplyFilters}
         >
           Apply
         </button>

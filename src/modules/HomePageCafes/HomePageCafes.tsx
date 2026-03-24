@@ -48,6 +48,7 @@ export const HomePageCafes = () => {
   const filters = useMemo(() => {
     return searchParams.getAll('filter');
   }, [searchParams]);
+  const [chooseUserFilters, setChooseUserFilters] = useState<string[]>([]);
   const currentPage = searchParams.get('page') || '1';
   const perPage =
     searchParams.get('perPage') || +getItemPerPage('cafe', isTablet, isDesktop);
@@ -89,10 +90,11 @@ export const HomePageCafes = () => {
             />
           ) : (
             <Filters
-              filters={filters}
               isSideFiltersOpen={isSideFiltersOpen}
               currentFilters={cardFilters}
               searchParams={searchParams}
+              chooseUserFilters={chooseUserFilters}
+              setChooseUserFilters={setChooseUserFilters}
               setSearchParams={setSearchParams}
               setIsSideFiltersOpen={setIsSideFiltersOpen}
             />
@@ -124,6 +126,7 @@ export const HomePageCafes = () => {
         >
           <CurrentView
             filters={filters}
+            setChooseUserFilters={setChooseUserFilters}
             searchParams={searchParams}
             setSearchParams={setSearchParams}
           />
@@ -143,6 +146,7 @@ export const HomePageCafes = () => {
           <NoResults
             page={'cafes'}
             searchParams={searchParams}
+            setChooseUserFilters={setChooseUserFilters}
             setSearchValue={setSearchValue}
             setSearchParams={setSearchParams}
           />

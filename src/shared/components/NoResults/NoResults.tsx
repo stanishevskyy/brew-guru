@@ -7,6 +7,7 @@ import { getSearchWith } from '../../utils/getSearchWith';
 type Props = {
   page: 'cafes' | 'menu';
   searchParams: URLSearchParams;
+  setChooseUserFilters: (value: string[]) => void;
   setSearchValue: (value: string) => void;
   setSearchParams: SetURLSearchParams;
 };
@@ -14,6 +15,7 @@ type Props = {
 export const NoResults: React.FC<Props> = ({
   page,
   searchParams,
+  setChooseUserFilters,
   setSearchValue,
   setSearchParams,
 }) => {
@@ -40,6 +42,7 @@ export const NoResults: React.FC<Props> = ({
             page: '1',
           });
 
+          setChooseUserFilters([]);
           setSearchValue('');
           setSearchParams(params);
         }}
