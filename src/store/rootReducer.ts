@@ -9,6 +9,7 @@ import { cafesSlice } from './cafesSlice/cafesSlice';
 import { favoritesSlice } from './favoritesSlice/favoritesSlice';
 import { cafeDetailsSlice } from './cafeDetailsSlice/cafeDetailsSlice';
 import { menuSlice } from './menuSlice/menuSlice';
+import { menuOrderSlice } from './menuOrderSlice/menuOrderSlice';
 
 const rootReducer = combineSlices(
   userSlice,
@@ -21,6 +22,7 @@ const rootReducer = combineSlices(
   favoritesSlice,
   cafeDetailsSlice,
   menuSlice,
+  menuOrderSlice,
 );
 
 export const store = configureStore({

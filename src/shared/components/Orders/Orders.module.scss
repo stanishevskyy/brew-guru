@@ -120,6 +120,7 @@
 
   @include on-desktop {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 
   // --columns: 4;
@@ -142,8 +143,6 @@
 }
 
 .favourites__cafe {
-  flex: 1;
-
   // grid-column: 1 / -1;
 
   // @include on-desktop {

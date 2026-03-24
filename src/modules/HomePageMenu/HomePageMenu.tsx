@@ -43,7 +43,19 @@ export const HomePageMenu = () => {
     useOutletContext();
 
   const menuState = useAppSelector(state => state.menu);
+  const menuInOrders = useAppSelector(state => state.menuOrder);
   const dispatch = useAppDispatch();
+
+  const totalMenu = menuInOrders.length;
+  const totalPrice = menuInOrders.reduce((acc, el) => {
+    const price = el.menuOrder.discount
+      ? Math.trunc(
+          el.menuOrder.price * (1 - (el.menuOrder.discount ?? 0) / 100),
+        )
+      : el.menuOrder.price;
+
+    return acc + price * el.quantity;
+  }, 0);
 
   const isTablet = useMediaQuery('(min-width: 640px) and (max-width: 1022px)');
   const isDesktop = useMediaQuery('(min-width: 1023px)');
@@ -189,14 +201,20 @@ export const HomePageMenu = () => {
           </nav>
         )}
 
-        <button
-          className={styles.searchPage__ordersButton}
-          onClick={() => setIsOrdersOpen(true)}
-          aria-label="Open orders panel, 1 item, total 11.50 dollars"
-        >
-          <span className={styles.searchPage__order}>In order: 1</span>
-          <span className={styles.searchPage__totalPrice}>11.50$</span>
-        </button>
+        {totalMenu !== 0 && (
+          <button
+            className={styles.searchPage__ordersButton}
+            onClick={() => setIsOrdersOpen(true)}
+            aria-label="Open orders panel, 1 item, total 11.50 dollars"
+          >
+            <span
+              className={styles.searchPage__order}
+            >{`In order: ${totalMenu}`}</span>
+            <span
+              className={styles.searchPage__totalPrice}
+            >{`${totalPrice}₴`}</span>
+          </button>
+        )}
       </div>
     </div>
   );

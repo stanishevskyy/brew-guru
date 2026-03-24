@@ -1,11 +1,15 @@
+/* eslint-disable @typescript-eslint/indent */
 import React, { useEffect } from 'react';
 import classNames from 'classnames';
 
 import styles from './Orders.module.scss';
 
+import { useAppSelector } from '../../../store/hooks';
+
+import { MenuCard } from '../MenuCard';
+
 //eslint-disable-next-line
 import CloseFavourites from '../../../assets/icons/favourites-icons/close-favourites-icon.svg';
-import { MenuCard } from '../MenuCard';
 
 type Props = {
   isOrdersOpen: boolean;
@@ -13,6 +17,17 @@ type Props = {
 };
 
 export const Orders: React.FC<Props> = ({ isOrdersOpen, setIsOrdersOpen }) => {
+  const menuInOrders = useAppSelector(state => state.menuOrder);
+  const totalPrice = menuInOrders.reduce((acc, el) => {
+    const price = el.menuOrder.discount
+      ? Math.trunc(
+          el.menuOrder.price * (1 - (el.menuOrder.discount ?? 0) / 100),
+        )
+      : el.menuOrder.price;
+
+    return acc + price * el.quantity;
+  }, 0);
+
   useEffect(() => {
     if (isOrdersOpen) {
       document.body.style.overflow = 'hidden';
@@ -55,18 +70,20 @@ export const Orders: React.FC<Props> = ({ isOrdersOpen, setIsOrdersOpen }) => {
         </div>
 
         <div className={styles.favourites__gridLayout}>
-          <div className={styles.favourites__cafe}>
-            <MenuCard isOrdersOpen={isOrdersOpen} />
-          </div>
-          <div className={styles.favourites__cafe}>
-            <MenuCard isOrdersOpen={isOrdersOpen} />
-          </div>
+          {menuInOrders.map(menuItem => (
+            <div className={styles.favourites__cafe} key={menuItem.id}>
+              <MenuCard
+                isOrdersOpen={isOrdersOpen}
+                menuItem={menuItem.menuOrder}
+              />
+            </div>
+          ))}
         </div>
 
         <div className={styles.favourites__footer}>
           <p className={styles.favourites__total}>
             <span className={styles.favourites__label}>Total amount due:</span>
-            <span className={styles.favourites__value}>11.50$</span>
+            <span className={styles.favourites__value}>{`${totalPrice}₴`}</span>
           </p>
 
           <button

@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import styles from './MenuInfo.module.scss';
 
@@ -16,7 +17,6 @@ import DishTablet from '../../../../../assets/images/menu-images/menu-dialog/dis
 import DishDesktop from '../../../../../assets/images/menu-images/menu-dialog/dish-image-desktop.png';
 //eslint-disable-next-line
 import CloseIcon from '../../../../../assets/icons/menu-icons/close-icon.svg';
-import classNames from 'classnames';
 
 type Props = {
   menuDescription: Dish | null;
@@ -105,14 +105,24 @@ export const MenuInfo: React.FC<Props> = ({
               </span>
             )}
 
-            {isDesktop && <MenuAddButton />}
+            {isDesktop && (
+              <MenuAddButton
+                menuDescription={menuDescription}
+                setIsInfoMenuOpen={setIsInfoMenuOpen}
+              />
+            )}
           </div>
 
           <p className={styles.menu__description}>
             {menuDescription.description}
           </p>
 
-          {isMobile && <MenuAddButton />}
+          {isMobile && (
+            <MenuAddButton
+              menuDescription={menuDescription}
+              setIsInfoMenuOpen={setIsInfoMenuOpen}
+            />
+          )}
         </div>
       </div>
     </article>
