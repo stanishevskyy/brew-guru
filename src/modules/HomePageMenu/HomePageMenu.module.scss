@@ -3,6 +3,7 @@
 .searchPage {
   position: relative;
   background-color: $color-background;
+  min-height: calc(100vh - 60px);
 
   @include content-padding;
 }

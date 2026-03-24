@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { SetURLSearchParams } from 'react-router-dom';
+import debounce from 'lodash/debounce';
 
 import classNames from 'classnames';
 
@@ -16,6 +17,8 @@ type Props = {
   sortBy: string;
   perPage: string | number;
   searchParams: URLSearchParams;
+  searchValue: string;
+  setSearchValue: (value: string) => void;
   setSearchParams: SetURLSearchParams;
   setIsSideFiltersOpen: (value: boolean) => void;
 };
@@ -25,21 +28,32 @@ export const FormWrapper: React.FC<Props> = ({
   sortBy,
   perPage,
   searchParams,
+  searchValue,
+  setSearchValue,
   setSearchParams,
   setIsSideFiltersOpen,
 }) => {
   const [isSortOpen, setIsSortOpen] = useState(false);
 
+  const debounceSetParams = useMemo(
+    () =>
+      debounce((value: string) => {
+        const params = getSearchWith(searchParams, {
+          query: value,
+          page: '1',
+          perPage: perPage.toString(),
+        });
+
+        setSearchParams(params);
+      }, 300),
+    [searchParams, perPage, setSearchParams],
+  );
+
   const handleChangeQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
 
-    const params = getSearchWith(searchParams, {
-      query: value,
-      page: '1',
-      perPage: perPage.toString(),
-    });
-
-    setSearchParams(params);
+    setSearchValue(value);
+    debounceSetParams(value);
   };
 
   const handleChangeSort = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,7 +76,7 @@ export const FormWrapper: React.FC<Props> = ({
         className={styles.form__input}
         placeholder="Search"
         aria-label="Search cafes"
-        value={query}
+        value={searchValue}
         onChange={handleChangeQuery}
       />
 

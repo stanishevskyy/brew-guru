@@ -1,0 +1,83 @@
+@import '../../../assets/styles/main';
+
+.noResults {
+  grid-column: 1/-1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-inline: auto;
+  margin-top: 60px;
+
+  @include on-tablet {
+    gap: 24px;
+  }
+
+  @include on-desktop {
+    grid-column: 5 / 12;
+  }
+}
+
+.noResults__emoji {
+  font-size: 91px;
+  line-height: 91px;
+}
+
+.noResults__title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 31px;
+  color: $color-text-primary;
+  text-align: center;
+
+  @include on-tablet {
+    font-size: 32px;
+    line-height: 41px;
+  }
+}
+
+.noResults__message {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: #696977;
+
+  @include on-tablet {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+
+.noResults__clearFilters {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+
+  border: 1px solid #7e99f6;
+  color: $color-white;
+  background-color: #204dee;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #5b7efa;
+  }
+
+  &:active {
+    background-color: #2044c7;
+    outline: 1.5px solid #15339e;
+  }
+
+  &:disabled {
+    color: #b4c4fd;
+    background-color: #7e99f6;
+    cursor: default;
+  }
+}

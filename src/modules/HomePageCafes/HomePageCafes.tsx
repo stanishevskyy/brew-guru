@@ -28,6 +28,7 @@ import { FiltersSkeleton } from '../../shared/components/FiltersSkeleton';
 import { CardCafe } from '../../shared/components/CardCafe';
 import { Pagination } from '../../shared/components/Pagination';
 import { SortBy } from '../../shared/constants/SortBy';
+import { NoResults } from '../../shared/components/NoResults';
 
 export const HomePageCafes = () => {
   const [isSideFiltersOpen, setIsSideFiltersOpen] = useState(false);
@@ -40,6 +41,7 @@ export const HomePageCafes = () => {
   const isDesktop = useMediaQuery('(min-width: 1023px)');
 
   const [searchParams, setSearchParams] = useSearchParams();
+  const [searchValue, setSearchValue] = useState('');
   const query = searchParams.get('query') || '';
 
   const sortBy = (searchParams.get('sortBy') as SortBy) || SortBy.Popular;
@@ -106,6 +108,8 @@ export const HomePageCafes = () => {
               sortBy={sortBy}
               perPage={perPage}
               searchParams={searchParams}
+              searchValue={searchValue}
+              setSearchValue={setSearchValue}
               setSearchParams={setSearchParams}
               setIsSideFiltersOpen={setIsSideFiltersOpen}
             />
@@ -125,25 +129,34 @@ export const HomePageCafes = () => {
           />
         </section>
 
-        {cafesState.loading
-          ? Array.from({ length: +perPage }).map((_, index) => (
-              <div
-                className={styles.searchPage__cafe}
-                aria-label={`Cafe card skeleton ${index + 1}`}
-                key={index}
-              >
-                <CardCafeSkeleton />
-              </div>
-            ))
-          : cafesState.cafes.map(cafe => (
-              <div
-                className={styles.searchPage__cafe}
-                aria-label={`Cafe card ${cafe.id}`}
-                key={cafe.id}
-              >
-                <CardCafe cafe={cafe} />
-              </div>
-            ))}
+        {cafesState.loading ? (
+          Array.from({ length: +perPage }).map((_, index) => (
+            <div
+              className={styles.searchPage__cafe}
+              aria-label={`Cafe card skeleton ${index + 1}`}
+              key={index}
+            >
+              <CardCafeSkeleton />
+            </div>
+          ))
+        ) : cafesState.cafes.length === 0 ? (
+          <NoResults
+            page={'cafes'}
+            searchParams={searchParams}
+            setSearchValue={setSearchValue}
+            setSearchParams={setSearchParams}
+          />
+        ) : (
+          cafesState.cafes.map(cafe => (
+            <div
+              className={styles.searchPage__cafe}
+              aria-label={`Cafe card ${cafe.id}`}
+              key={cafe.id}
+            >
+              <CardCafe cafe={cafe} />
+            </div>
+          ))
+        )}
 
         {visilbePages.length !== 0 && (
           <nav

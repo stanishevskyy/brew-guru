@@ -32,6 +32,7 @@ import { CurrentView } from '../../shared/components/CurrentView';
 import { MenuSkeleton } from '../../shared/components/MenuSkeleton';
 
 import ArrowLeft from '../../assets/icons/search-icons/left-arrow.svg';
+import { NoResults } from '../../shared/components/NoResults';
 
 export const HomePageMenu = () => {
   const navigate = useNavigate();
@@ -151,30 +152,34 @@ export const HomePageMenu = () => {
           />
         </section>
 
-        {menuState.loading
-          ? Array.from({ length: +perPage }).map((_, index) => (
-              <div
-                key={index}
-                className={styles.searchPage__cafe}
-                role="button"
-                tabIndex={0}
-                aria-label="Open menu details"
-              >
-                <MenuSkeleton />
-              </div>
-            ))
-          : menuState.menuInfo?.menu.items.map(menuItem => (
-              <div
-                key={menuItem.id}
-                className={styles.searchPage__cafe}
-                role="button"
-                tabIndex={0}
-                aria-label="Open menu details"
-                onClick={() => setIsInfoMenuOpen(menuItem?.id)}
-              >
-                <MenuCard orderId={menuItem.id} menuItem={menuItem} />
-              </div>
-            ))}
+        {menuState.loading ? (
+          Array.from({ length: +perPage }).map((_, index) => (
+            <div
+              key={index}
+              className={styles.searchPage__cafe}
+              role="button"
+              tabIndex={0}
+              aria-label="Open menu details"
+            >
+              <MenuSkeleton />
+            </div>
+          ))
+        ) : menuState.menuInfo?.menu.items.length === 0 ? (
+          <NoResults page={'menu'} />
+        ) : (
+          menuState.menuInfo?.menu.items.map(menuItem => (
+            <div
+              key={menuItem.id}
+              className={styles.searchPage__cafe}
+              role="button"
+              tabIndex={0}
+              aria-label="Open menu details"
+              onClick={() => setIsInfoMenuOpen(menuItem?.id)}
+            >
+              <MenuCard orderId={menuItem.id} menuItem={menuItem} />
+            </div>
+          ))
+        )}
 
         {isInfoMenuOpen && (
           <div
@@ -190,7 +195,7 @@ export const HomePageMenu = () => {
           </div>
         )}
 
-        {visilbePages.length !== 0 && (
+        {menuState.menuInfo?.menu.items.length !== 0 && (
           <nav
             className={styles.searchPage__pagination}
             aria-label="Pagination navigation"

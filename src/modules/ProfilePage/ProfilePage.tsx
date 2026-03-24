@@ -24,6 +24,9 @@ import { fetchReportsThunk } from '../../store/reportsSlice/reportsSlice';
 export const ProfilePage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { pathname } = useLocation();
+  const currentPath = pathname.split('/').slice(-1).join();
+  const dropDownLabel =
+    currentPath.slice(0, 1).toUpperCase() + currentPath.slice(1);
 
   const userState = useAppSelector(state => state.user);
   const userReviews = useAppSelector(state => state.reviews.reviews);
@@ -81,7 +84,7 @@ export const ProfilePage = () => {
               aria-expanded={isNavSelectOpen}
               aria-label="Open profile navigation menu"
             >
-              Profile
+              {dropDownLabel}
               <span
                 className={classNames(`${styles.profile__selectIcon}`, {
                   [styles.profile__selectIconActive]: isNavSelectOpen,
