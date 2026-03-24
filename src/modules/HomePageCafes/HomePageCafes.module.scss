@@ -30,6 +30,8 @@
 }
 
 .searchPage__container {
+  position: relative;
+
   @include page-grid;
 
   padding-block: 24px 79px;
@@ -177,4 +179,32 @@
   @include on-desktop {
     grid-column: 4/-1;
   }
+}
+
+.searchPage__authMessage {
+  position: fixed; // щоб завжди спливало поверх контенту
+  bottom: 20px; // відступ від низу
+  left: 50%; // центруємо по горизонталі
+  transform: translateX(-50%);
+
+  background-color: #ff6b6b; // червоний / помаранчевий для помилки
+  color: #fff; // текст білий
+  padding: 10px 20px;
+  border-radius: 8px; // м’які кути
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000; // щоб поверх всього
+  opacity: 0; // спочатку приховано
+  pointer-events: none; // не заважає клікам під ним
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.searchPage__authMessageActive {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
 }

@@ -23,11 +23,13 @@ import {
 type Props = {
   cafe: CafeCardInfo;
   isFavoritesOpen?: boolean;
+  setIsSideMessage?: (value: boolean) => void;
 };
 
 export const CardCafe: React.FC<Props> = ({
   cafe,
   isFavoritesOpen = false,
+  setIsSideMessage = () => {},
 }) => {
   const userId = useAppSelector(state => state.user.user?.id);
   const favoritesState = useAppSelector(
@@ -49,6 +51,51 @@ export const CardCafe: React.FC<Props> = ({
   const closeTime = currentDayWorking?.closeTime
     ? currentDayWorking.closeTime.slice(0, 5)
     : '';
+
+  const handleRemoveFavorite = () => {
+    if (!userId) {
+      return;
+    }
+
+    dispatch(
+      deleteUserFavoritesCafeThunk({
+        userId,
+        favoriteId: cafe.id,
+      }),
+    );
+  };
+
+  const handleFavoriteClick = () => {
+    if (!userId) {
+      setIsSideMessage(true);
+
+      return;
+    }
+
+    if (!isInFavoritesList) {
+      dispatch(
+        addUserFavoritesCafeThunk({
+          userId,
+          favoriteCafe: {
+            id: cafe.id,
+            name: cafe.name,
+            img: cafe.img,
+            address: cafe.address,
+            rating: cafe.rating,
+            averageCheck: cafe.averageCheck,
+            openingHours: cafe.openingHours,
+          },
+        }),
+      );
+    } else {
+      dispatch(
+        deleteUserFavoritesCafeThunk({
+          userId,
+          favoriteId: cafe.id,
+        }),
+      );
+    }
+  };
 
   return (
     <article className={styles.cardCafe__card}>
@@ -107,18 +154,7 @@ export const CardCafe: React.FC<Props> = ({
             <button
               className={styles.cardCafe__deleteBtn}
               aria-label="Remove Black Honey from favorites"
-              onClick={() => {
-                if (!userId) {
-                  return;
-                }
-
-                dispatch(
-                  deleteUserFavoritesCafeThunk({
-                    userId,
-                    favoriteId: cafe.id,
-                  }),
-                );
-              }}
+              onClick={handleRemoveFavorite}
             >
               <img
                 src={BinIcon}
@@ -131,35 +167,7 @@ export const CardCafe: React.FC<Props> = ({
             <button
               className={styles.cardCafe__favoriteBtn}
               aria-label="Add Black Honey to favorites"
-              onClick={() => {
-                if (!userId) {
-                  return;
-                }
-
-                if (!isInFavoritesList) {
-                  dispatch(
-                    addUserFavoritesCafeThunk({
-                      userId,
-                      favoriteCafe: {
-                        id: cafe.id,
-                        name: cafe.name,
-                        img: cafe.img,
-                        address: cafe.address,
-                        rating: cafe.rating,
-                        averageCheck: cafe.averageCheck,
-                        openingHours: cafe.openingHours,
-                      },
-                    }),
-                  );
-                } else {
-                  dispatch(
-                    deleteUserFavoritesCafeThunk({
-                      userId,
-                      favoriteId: cafe.id,
-                    }),
-                  );
-                }
-              }}
+              onClick={handleFavoriteClick}
             >
               <img
                 src={isInFavoritesList ? FavoritesActiveIcon : FavoritesIcon}

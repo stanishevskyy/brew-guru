@@ -74,6 +74,16 @@ export const HomePageCafes = () => {
     );
   }, [query, sortBy, currentPage, perPage, filters]);
 
+  const [isSideMessage, setIsSideMessage] = useState(false);
+
+  useEffect(() => {
+    const timeId = setTimeout(() => {
+      setIsSideMessage(false);
+    }, 1300);
+
+    return () => clearTimeout(timeId);
+  }, [isSideMessage]);
+
   return (
     <div className={styles.searchPage} role="main">
       <div className={styles.searchPage__container}>
@@ -142,7 +152,7 @@ export const HomePageCafes = () => {
               <CardCafeSkeleton />
             </div>
           ))
-        ) : cafesState.cafes.length === 0 ? (
+        ) : cafesState.cafes.length === 0 && !cafesState.loading ? (
           <NoResults
             page={'cafes'}
             searchParams={searchParams}
@@ -157,7 +167,7 @@ export const HomePageCafes = () => {
               aria-label={`Cafe card ${cafe.id}`}
               key={cafe.id}
             >
-              <CardCafe cafe={cafe} />
+              <CardCafe cafe={cafe} setIsSideMessage={setIsSideMessage} />
             </div>
           ))
         )}
@@ -176,6 +186,14 @@ export const HomePageCafes = () => {
             />
           </nav>
         )}
+      </div>
+
+      <div
+        className={classNames(`${styles.searchPage__authMessage}`, {
+          [styles.searchPage__authMessageActive]: !isSideMessage,
+        })}
+      >
+        Only authorized users can add to favorites
       </div>
     </div>
   );

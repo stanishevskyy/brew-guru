@@ -63,11 +63,13 @@ export const HomePageMenu = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') || '';
+  const [searchValue, setSearchValue] = useState('');
 
   const sortBy = (searchParams.get('sortBy') as SortBy) || SortBy.Popular;
   const filters = useMemo(() => {
     return searchParams.getAll('filter');
   }, [searchParams]);
+  const [chooseUserFilters, setChooseUserFilters] = useState<string[]>([]);
   const filtersKey = filters.join(',');
   const currentPage = searchParams.get('page') || '1';
   const perPage =
@@ -119,11 +121,12 @@ export const HomePageMenu = () => {
           aria-label="Filters"
         >
           <Filters
-            filters={filters}
             isSideFiltersOpen={isSideFiltersOpen}
             currentFilters={menuFilters}
-            setIsSideFiltersOpen={setIsSideFiltersOpen}
+            chooseUserFilters={chooseUserFilters}
             searchParams={searchParams}
+            setChooseUserFilters={setChooseUserFilters}
+            setIsSideFiltersOpen={setIsSideFiltersOpen}
             setSearchParams={setSearchParams}
           />
         </section>
@@ -134,6 +137,8 @@ export const HomePageMenu = () => {
             sortBy={sortBy}
             perPage={perPage}
             searchParams={searchParams}
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
             setSearchParams={setSearchParams}
             setIsSideFiltersOpen={setIsSideFiltersOpen}
           />
@@ -147,6 +152,7 @@ export const HomePageMenu = () => {
         >
           <CurrentView
             filters={filters}
+            setChooseUserFilters={setChooseUserFilters}
             searchParams={searchParams}
             setSearchParams={setSearchParams}
           />
@@ -165,7 +171,13 @@ export const HomePageMenu = () => {
             </div>
           ))
         ) : menuState.menuInfo?.menu.items.length === 0 ? (
-          <NoResults page={'menu'} />
+          <NoResults
+            page={'menu'}
+            searchParams={searchParams}
+            setChooseUserFilters={setChooseUserFilters}
+            setSearchValue={setSearchValue}
+            setSearchParams={setSearchParams}
+          />
         ) : (
           menuState.menuInfo?.menu.items.map(menuItem => (
             <div
