@@ -190,7 +190,7 @@ export const HomePageCafes = () => {
 
       <div
         className={classNames(`${styles.searchPage__authMessage}`, {
-          [styles.searchPage__authMessageActive]: !isSideMessage,
+          [styles.searchPage__authMessageActive]: isSideMessage,
         })}
       >
         Only authorized users can add to favorites
