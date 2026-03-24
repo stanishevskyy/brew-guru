@@ -69,16 +69,28 @@ export const Orders: React.FC<Props> = ({ isOrdersOpen, setIsOrdersOpen }) => {
           </button>
         </div>
 
-        <div className={styles.favourites__gridLayout}>
-          {menuInOrders.map(menuItem => (
-            <div className={styles.favourites__cafe} key={menuItem.id}>
-              <MenuCard
-                isOrdersOpen={isOrdersOpen}
-                menuItem={menuItem.menuOrder}
-              />
-            </div>
-          ))}
-        </div>
+        {menuInOrders.length === 0 ? (
+          <div className={styles.favourites__messages}>
+            <p className={styles.favourites__messagesTitle}>
+              Oops, it looks empty here...
+            </p>
+            <p className={styles.favourites__messagesDescription}>
+              Your cart is currently empty. Choose dishes and add them here.
+            </p>
+          </div>
+        ) : (
+          <div className={styles.favourites__gridLayout}>
+            {menuInOrders.map(menuItem => (
+              <div className={styles.favourites__cafe} key={menuItem.id}>
+                <MenuCard
+                  orderId={menuItem.id}
+                  isOrdersOpen={isOrdersOpen}
+                  menuItem={menuItem.menuOrder}
+                />
+              </div>
+            ))}
+          </div>
+        )}
 
         <div className={styles.favourites__footer}>
           <p className={styles.favourites__total}>

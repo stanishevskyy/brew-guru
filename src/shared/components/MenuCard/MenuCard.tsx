@@ -1,6 +1,11 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import styles from './MenuCard.module.scss';
+
+import { useAppDispatch } from '../../../store/hooks';
+// eslint-disable-next-line max-len
+import { deleteMenuInOrder } from '../../../store/menuOrderSlice/menuOrderSlice';
 
 import { Dish } from '../../types/menu/menuItem';
 
@@ -13,17 +18,28 @@ import DishDesktop from '../../../assets/images/menu-images/menu-card/dish-image
 //eslint-disable-next-line
 import DishDesktopExtra from '../../../assets/images/menu-images/menu-card/dish-image-deskop-extra.png';
 import AddIcon from '../../../assets/icons/search-icons/add-icon.svg';
-import classNames from 'classnames';
+import DeleteIcon from '../../../assets/icons/menu-icons/bin-icon.svg';
 
 type Props = {
+  orderId: number;
   menuItem: Dish;
   isOrdersOpen?: boolean;
 };
 
-export const MenuCard: React.FC<Props> = ({ menuItem, isOrdersOpen }) => {
+export const MenuCard: React.FC<Props> = ({
+  orderId,
+  menuItem,
+  isOrdersOpen,
+}) => {
+  const dispatch = useAppDispatch();
+
   const discountedPrice =
     menuItem?.discount &&
     Math.trunc(menuItem?.price * (1 - (menuItem?.discount ?? 0) / 100));
+
+  const handleDeleteOrder = (value: number) => {
+    dispatch(deleteMenuInOrder(value));
+  };
 
   return (
     <article className={styles.card}>
@@ -81,12 +97,20 @@ export const MenuCard: React.FC<Props> = ({ menuItem, isOrdersOpen }) => {
               <p className={styles.card__portion}>{menuItem?.portion}</p>
             </div>
 
-            {!isOrdersOpen && (
+            {!isOrdersOpen ? (
               <button
                 className={styles.card__addDish}
                 aria-label="Add dish to cart"
               >
                 <img src={AddIcon} alt="" />
+              </button>
+            ) : (
+              <button
+                className={styles.card__addDish}
+                aria-label="Add dish to cart"
+                onClick={() => handleDeleteOrder(orderId)}
+              >
+                <img src={DeleteIcon} alt="" />
               </button>
             )}
           </div>

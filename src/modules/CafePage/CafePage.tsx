@@ -69,7 +69,7 @@ export const CafePage = () => {
         <button
           className={styles.cafe__back}
           aria-label="Back to prev page"
-          onClick={() => navigate(-1)}
+          onClick={() => navigate('/')}
         >
           <img src={ArrowLeft} alt="" aria-hidden="true" />
           Back

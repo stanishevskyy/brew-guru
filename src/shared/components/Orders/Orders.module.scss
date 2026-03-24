@@ -113,6 +113,39 @@
   transform: rotate(90deg);
 }
 
+.favourites__messages {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: auto;
+}
+
+.favourites__messagesTitle {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 31px;
+  color: $color-text-primary;
+
+  @include on-tablet {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 41px;
+  }
+}
+
+.favourites__messagesDescription {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #696977;
+
+  @include on-tablet {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+
 .favourites__gridLayout {
   display: flex;
   flex-direction: column;

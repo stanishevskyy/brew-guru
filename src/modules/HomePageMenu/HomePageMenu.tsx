@@ -80,6 +80,10 @@ export const HomePageMenu = () => {
   const menuDescription =
     menuState.menuInfo?.menu.items.find(m => m.id === isInfoMenuOpen) || null;
 
+  const handleNavigateUser = () => {
+    navigate(`/${slug}`);
+  };
+
   useEffect(() => {
     dispatch(
       fetchCafeMenuThunk({
@@ -100,7 +104,7 @@ export const HomePageMenu = () => {
       <button
         className={styles.searchPage__back}
         aria-label="Go back to previous page"
-        onClick={() => navigate(-1)}
+        onClick={() => handleNavigateUser()}
       >
         <img src={ArrowLeft} alt="" aria-hidden="true" />
         Back
@@ -168,7 +172,7 @@ export const HomePageMenu = () => {
                 aria-label="Open menu details"
                 onClick={() => setIsInfoMenuOpen(menuItem?.id)}
               >
-                <MenuCard menuItem={menuItem} />
+                <MenuCard orderId={menuItem.id} menuItem={menuItem} />
               </div>
             ))}
 
