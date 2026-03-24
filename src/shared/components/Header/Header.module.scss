@@ -107,12 +107,12 @@
   }
 
   &:hover::before {
-    width: 120%;
+    width: 100%;
   }
 }
 
 .header__linkActive::before {
-  width: 120%;
+  width: 100%;
 }
 
 .header__wrapper {
