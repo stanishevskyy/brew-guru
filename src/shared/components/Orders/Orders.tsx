@@ -5,12 +5,13 @@ import classNames from 'classnames';
 
 import styles from './Orders.module.scss';
 
-import { useAppSelector } from '../../../store/hooks';
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 
 import { MenuCard } from '../MenuCard';
 
 //eslint-disable-next-line
 import CloseFavourites from '../../../assets/icons/favourites-icons/close-favourites-icon.svg';
+import { clearOrder } from '../../../store/menuOrderSlice/menuOrderSlice';
 
 type Props = {
   isOrdersOpen: boolean;
@@ -22,6 +23,8 @@ export const Orders: React.FC<Props> = ({ isOrdersOpen, setIsOrdersOpen }) => {
   const { slug } = useParams();
 
   const menuInOrders = useAppSelector(state => state.menuOrder);
+  const dispatch = useAppDispatch();
+
   const totalPrice = menuInOrders.reduce((acc, el) => {
     const price = el.menuOrder.discount
       ? Math.trunc(
@@ -49,6 +52,10 @@ export const Orders: React.FC<Props> = ({ isOrdersOpen, setIsOrdersOpen }) => {
       document.body.style.overflow = '';
     };
   }, [isOrdersOpen]);
+
+  useEffect(() => {
+    dispatch(clearOrder());
+  }, [slug]);
 
   return (
     <div

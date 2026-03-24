@@ -97,7 +97,7 @@ export const HomePageMenu = () => {
         },
       }),
     );
-  }, [query, sortBy, currentPage, perPage, filtersKey]);
+  }, [query, sortBy, currentPage, perPage, filtersKey, slug]);
 
   return (
     <div className={styles.searchPage} role="main">
