@@ -3,13 +3,18 @@ import React from 'react';
 import classNames from 'classnames';
 
 import styles from './DetailsTimeButton.module.scss';
+import { IMask, IMaskInput } from 'react-imask';
 
 type Props = {
+  time: string;
+  setTime: (value: string) => void;
   isTimeOpen: boolean;
   setIsTimeOpen: (value: boolean) => void;
 };
 
 export const DetailsTimeButton: React.FC<Props> = ({
+  time,
+  setTime,
   isTimeOpen,
   setIsTimeOpen,
 }) => {
@@ -29,7 +34,7 @@ export const DetailsTimeButton: React.FC<Props> = ({
         aria-expanded={isTimeOpen}
         aria-controls="time-options"
       >
-        12:00
+        {time || 'Choose your time'}
         <span
           className={classNames(`${styles.times__icon}`, {
             [styles.times__iconActive]: isTimeOpen,
@@ -38,40 +43,37 @@ export const DetailsTimeButton: React.FC<Props> = ({
       </button>
 
       <div className={styles.times__wrapper}>
-        <input
-          type="text"
-          defaultValue="12:00"
+        <IMaskInput
+          mask="HH:MM"
+          definitions={{
+            H: /[0-2]/,
+            M: /[0-5]/,
+          }}
+          blocks={{
+            HH: {
+              mask: IMask.MaskedRange,
+              from: 0,
+              to: 23,
+              maxLength: 2,
+            },
+            MM: {
+              mask: IMask.MaskedRange,
+              from: 0,
+              to: 59,
+              maxLength: 2,
+            },
+          }}
+          placeholder="12:00"
+          value={time}
+          onAccept={(value: string) => setTime(value)}
           className={classNames(styles.times__input, {
             [styles.times__inputActive]: isTimeOpen,
           })}
           aria-label="Select reservation time"
-          aria-expanded={isTimeOpen}
+          aria-expanded={false}
           aria-controls="time-options"
         />
       </div>
-
-      {isTimeOpen && (
-        <div
-          id="time-options"
-          className={classNames(`${styles.times__container}`, {
-            [styles.times__containerActive]: isTimeOpen,
-          })}
-          role="list"
-          aria-labelledby="time-label"
-        >
-          {['1 seat', '2 seat', '3 seat', '4 seat'].map(seats => (
-            <button
-              key={seats}
-              type="button"
-              className={styles.times__avaibleButton}
-              aria-label={`Select time 11:45 for ${seats}`}
-              role="listitem"
-            >
-              11:45 <span className={styles.times__buttonSpec}>Table №11</span>
-            </button>
-          ))}
-        </div>
-      )}
     </div>
   );
 };

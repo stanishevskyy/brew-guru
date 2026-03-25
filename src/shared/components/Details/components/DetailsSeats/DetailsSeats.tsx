@@ -5,11 +5,15 @@ import classNames from 'classnames';
 import styles from './DetailsSeats.module.scss';
 
 type Props = {
+  seats: number;
+  setSeats: (value: number) => void;
   isSeatsOpen: boolean;
   setIsSeatsOpen: (value: boolean) => void;
 };
 
 export const DetailsSeats: React.FC<Props> = ({
+  seats,
+  setSeats,
   isSeatsOpen,
   setIsSeatsOpen,
 }) => {
@@ -29,7 +33,7 @@ export const DetailsSeats: React.FC<Props> = ({
         aria-expanded={isSeatsOpen}
         aria-controls="seats-options"
       >
-        1 seat
+        {`${seats} seat`}
         <span
           className={classNames(`${styles.seats__icon}`, {
             [styles.seats__iconActive]: isSeatsOpen,
@@ -45,17 +49,30 @@ export const DetailsSeats: React.FC<Props> = ({
         role="radiogroup"
         aria-labelledby="seats-label"
       >
-        {['1 seat', '2 seat', '3 seat'].map(seats => (
-          <label key={seats} className={styles.seats__label}>
-            <input
-              type="radio"
-              name="seats"
-              className={styles.seats__radio}
-              value={seats}
-            />
-            {seats}
-          </label>
-        ))}
+        {['1 seat', '2 seat', '3 seat'].map(seat => {
+          const seatNumber = parseInt(seat);
+
+          return (
+            <label key={seat} className={styles.seats__label}>
+              <input
+                type="radio"
+                name="seats"
+                checked={seats === seatNumber}
+                className={styles.seats__radio}
+                value={seat}
+                // onChange={() => {
+                //   setSeats(+seat.slice(0, 1));
+                //   setIsSeatsOpen(false);
+                // }}
+                onChange={() => {
+                  setSeats(seatNumber);
+                  setIsSeatsOpen(false);
+                }}
+              />
+              {seat}
+            </label>
+          );
+        })}
       </div>
     </div>
   );

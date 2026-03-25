@@ -46,7 +46,7 @@
   display: flex;
   flex-direction: column;
 
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 
   @include on-desktop {
     flex-direction: row;
@@ -57,13 +57,13 @@
   @include on-desktop-extra {
     flex-direction: row;
     gap: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
   }
 }
 
 // bottom
 .details__times {
-  display: none;
+  padding-inline: 16px;
 
   @include on-desktop {
     display: flex;
@@ -71,34 +71,30 @@
     gap: 24px;
     padding-bottom: 32px;
 
-    // padding-inline: 16px;
+    padding-inline: 0;
   }
 }
 
 .details__timesTitle {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 31px;
-  letter-spacing: 0;
-  color: #4f4f4f;
+  display: none;
+
+  @include on-desktop {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 31px;
+    letter-spacing: 0;
+    color: #4f4f4f;
+  }
 }
 
 .details__timesContainer {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 16px;
-  box-sizing: border-box;
-  width: 100%;
-  margin-top: 16px;
-  padding-bottom: 16px;
 
   @include on-desktop {
-    grid-template-columns: repeat(12, minmax(65px, 1fr));
-    padding: 0;
-  }
-
-  @include on-desktop-extra {
-    grid-template-columns: repeat(14, minmax(65px, 1fr));
+    gap: 24px;
   }
 }
 
@@ -106,9 +102,11 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  min-width: 120px;
+
   padding: 7px;
   border: 1px solid #dcdde6;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 16px;
 
   font-weight: 700;
@@ -118,13 +116,14 @@
   background-color: #fbfbfe;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  grid-column: span 2;
 
   @include on-tablet {
+    min-width: 170px;
     padding-block: 20px;
   }
 
   @include on-desktop {
+    min-width: 148px;
     padding-block: 12px;
   }
 }
@@ -134,4 +133,18 @@
   font-weight: 400;
   line-height: 20px;
   letter-spacing: 0;
+}
+
+.details__line {
+  width: 90%;
+  margin-inline: auto;
+  margin-bottom: 16px;
+
+  @include on-tablet {
+    width: 95%;
+  }
+
+  @include on-desktop {
+    display: none;
+  }
 }

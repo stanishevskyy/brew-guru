@@ -3,17 +3,30 @@ import classNames from 'classnames';
 
 import styles from './DetailsCalendar.module.scss';
 
-import Calendar from '../../../Calendar/Calendar';
+import { Calendar } from '../../../Calendar/Calendar';
 
 type Props = {
+  date: string;
+  setDate: (value: string) => void;
   isCalendarOpen: boolean;
   setIsCalendarOpen: (value: boolean) => void;
 };
 
 export const DetailsCalendar: React.FC<Props> = ({
+  date,
+  setDate,
   isCalendarOpen,
   setIsCalendarOpen,
 }) => {
+  const formattedDate = (date ? new Date(date) : new Date()).toLocaleDateString(
+    'en-US',
+    {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    },
+  );
+
   return (
     <div className={styles.calendar}>
       <p className={styles.calendar__title}>Date</p>
@@ -28,7 +41,7 @@ export const DetailsCalendar: React.FC<Props> = ({
         aria-expanded={isCalendarOpen}
         aria-controls="calendar-panel"
       >
-        January, 13, 2026
+        {formattedDate}
         <span
           className={classNames(`${styles.calendar__icon}`, {
             [styles.calendar__iconActive]: isCalendarOpen,
@@ -44,7 +57,7 @@ export const DetailsCalendar: React.FC<Props> = ({
         role="region"
         aria-labelledby="calendar-label"
       >
-        <Calendar />
+        <Calendar setDate={setDate} setIsCalendarOpen={setIsCalendarOpen} />
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import styles from './Calendar.module.scss';
 
 const WEEKDAYS = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
@@ -6,7 +7,12 @@ const WEEKDAYS = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
 import ArroLeft from '../../../assets/icons/calendar-icons/arrow-left.svg';
 import ArroRigth from '../../../assets/icons/calendar-icons/arrow-right.svg';
 
-export default function Calendar() {
+type Props = {
+  setDate: (value: string) => void;
+  setIsCalendarOpen: (value: boolean) => void;
+};
+
+export const Calendar: React.FC<Props> = ({ setDate, setIsCalendarOpen }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDay, setSelectedDay] = useState<number | null>(null);
 
@@ -43,6 +49,17 @@ export default function Calendar() {
 
   const prevMonth = () => setCurrentDate(new Date(year, month - 1, 1));
   const nextMonth = () => setCurrentDate(new Date(year, month + 1, 1));
+
+  useEffect(() => {
+    // Формуємо дату у форматі YYYY-MM-DD
+    const formattedMonth = String(month + 1).padStart(2, '0'); // місяць 01-12
+    const formattedDay = String(today.getDate()).padStart(2, '0'); // день 01-31
+
+    const formattedDate = `${year}-${formattedMonth}-${formattedDay}`;
+
+    // setDate(formattedDate); // зберігаємо у батьківський state
+    setDate(formattedDate);
+  }, []);
 
   return (
     <div className={styles.calendar}>
@@ -94,6 +111,17 @@ export default function Calendar() {
               onClick={() => {
                 if (!isNextMonth) {
                   setSelectedDay(cell.day);
+
+                  // Формуємо дату у форматі YYYY-MM-DD
+                  const formattedMonth = String(month + 1).padStart(2, '0'); // місяць 01-12
+                  const formattedDay = String(cell.day).padStart(2, '0'); // день 01-31
+
+                  const formattedDate = `${year}-${formattedMonth}-${formattedDay}`;
+
+                  // setDate(formattedDate); // зберігаємо у батьківський state
+
+                  setDate(formattedDate);
+                  setIsCalendarOpen(false);
                 }
               }}
             >
@@ -104,4 +132,4 @@ export default function Calendar() {
       </div>
     </div>
   );
-}
+};
