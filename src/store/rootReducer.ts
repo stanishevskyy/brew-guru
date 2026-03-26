@@ -10,6 +10,10 @@ import { favoritesSlice } from './favoritesSlice/favoritesSlice';
 import { cafeDetailsSlice } from './cafeDetailsSlice/cafeDetailsSlice';
 import { menuSlice } from './menuSlice/menuSlice';
 import { menuOrderSlice } from './menuOrderSlice/menuOrderSlice';
+// eslint-disable-next-line max-len
+import { tableReservationSlice } from './tableReservationSlice/tableReservationSlice';
+// eslint-disable-next-line max-len
+import { userReservationsSlice } from './userReservationsSlice/userReservationsSlice';
 
 const rootReducer = combineSlices(
   userSlice,
@@ -23,6 +27,8 @@ const rootReducer = combineSlices(
   cafeDetailsSlice,
   menuSlice,
   menuOrderSlice,
+  tableReservationSlice,
+  userReservationsSlice,
 );
 
 export const store = configureStore({

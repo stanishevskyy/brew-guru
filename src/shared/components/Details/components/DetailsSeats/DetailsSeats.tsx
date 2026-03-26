@@ -1,22 +1,26 @@
+/* eslint-disable max-len */
 import React from 'react';
 
 import classNames from 'classnames';
+
+import { useAppDispatch } from '../../../../../store/hooks';
+import { setSeats } from '../../../../../store/tableReservationSlice/tableReservationSlice';
 
 import styles from './DetailsSeats.module.scss';
 
 type Props = {
   seats: number;
-  setSeats: (value: number) => void;
   isSeatsOpen: boolean;
   setIsSeatsOpen: (value: boolean) => void;
 };
 
 export const DetailsSeats: React.FC<Props> = ({
   seats,
-  setSeats,
   isSeatsOpen,
   setIsSeatsOpen,
 }) => {
+  const dispatch = useAppDispatch();
+
   return (
     <div className={styles.seats}>
       <p className={styles.seats__title} id="seats-label">
@@ -60,12 +64,8 @@ export const DetailsSeats: React.FC<Props> = ({
                 checked={seats === seatNumber}
                 className={styles.seats__radio}
                 value={seat}
-                // onChange={() => {
-                //   setSeats(+seat.slice(0, 1));
-                //   setIsSeatsOpen(false);
-                // }}
                 onChange={() => {
-                  setSeats(seatNumber);
+                  dispatch(setSeats(seatNumber));
                   setIsSeatsOpen(false);
                 }}
               />

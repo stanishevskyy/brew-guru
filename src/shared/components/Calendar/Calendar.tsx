@@ -2,17 +2,22 @@ import React, { useEffect, useState } from 'react';
 
 import styles from './Calendar.module.scss';
 
+import { useAppDispatch } from '../../../store/hooks';
+// eslint-disable-next-line max-len
+import { setDate } from '../../../store/tableReservationSlice/tableReservationSlice';
+
 const WEEKDAYS = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
 
 import ArroLeft from '../../../assets/icons/calendar-icons/arrow-left.svg';
 import ArroRigth from '../../../assets/icons/calendar-icons/arrow-right.svg';
 
 type Props = {
-  setDate: (value: string) => void;
   setIsCalendarOpen: (value: boolean) => void;
 };
 
-export const Calendar: React.FC<Props> = ({ setDate, setIsCalendarOpen }) => {
+export const Calendar: React.FC<Props> = ({ setIsCalendarOpen }) => {
+  const dispatch = useAppDispatch();
+
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDay, setSelectedDay] = useState<number | null>(null);
 
@@ -57,8 +62,7 @@ export const Calendar: React.FC<Props> = ({ setDate, setIsCalendarOpen }) => {
 
     const formattedDate = `${year}-${formattedMonth}-${formattedDay}`;
 
-    // setDate(formattedDate); // зберігаємо у батьківський state
-    setDate(formattedDate);
+    dispatch(setDate(formattedDate));
   }, []);
 
   return (
@@ -120,7 +124,7 @@ export const Calendar: React.FC<Props> = ({ setDate, setIsCalendarOpen }) => {
 
                   // setDate(formattedDate); // зберігаємо у батьківський state
 
-                  setDate(formattedDate);
+                  dispatch(setDate(formattedDate));
                   setIsCalendarOpen(false);
                 }
               }}

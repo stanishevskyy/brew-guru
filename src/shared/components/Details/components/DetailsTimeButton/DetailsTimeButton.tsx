@@ -2,22 +2,26 @@ import React from 'react';
 
 import classNames from 'classnames';
 
+import { useAppDispatch } from '../../../../../store/hooks';
+// eslint-disable-next-line max-len
+import { setTime } from '../../../../../store/tableReservationSlice/tableReservationSlice';
+
 import styles from './DetailsTimeButton.module.scss';
 import { IMask, IMaskInput } from 'react-imask';
 
 type Props = {
   time: string;
-  setTime: (value: string) => void;
   isTimeOpen: boolean;
   setIsTimeOpen: (value: boolean) => void;
 };
 
 export const DetailsTimeButton: React.FC<Props> = ({
   time,
-  setTime,
   isTimeOpen,
   setIsTimeOpen,
 }) => {
+  const dispatch = useAppDispatch();
+
   return (
     <div className={styles.times}>
       <p className={styles.times__title} id="time-label">
@@ -66,7 +70,7 @@ export const DetailsTimeButton: React.FC<Props> = ({
           placeholder="12:00"
           value={time}
           onAccept={(value: string) => {
-            setTime(value);
+            dispatch(setTime(value));
           }}
           className={classNames(styles.times__input, {
             [styles.times__inputActive]: isTimeOpen,

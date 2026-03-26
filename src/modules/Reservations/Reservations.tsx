@@ -3,6 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import styles from './Reservations.module.scss';
 
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+// eslint-disable-next-line max-len
+import { fetchUserReservationsThunk } from '../../store/userReservationsSlice/userReservationsSlice';
+
 import { DetailsType } from '../../shared/types/DetailsType';
 
 import { Details } from '../../shared/components/Details';
@@ -15,27 +19,32 @@ import { ReservationsSkeleton } from '../../shared/components/ReservationsSkelet
 
 export const Reservations: React.FC = () => {
   const [openDetails, setOpenDetails] = useState<DetailsType>(null);
-  const [isLoading, setIsLoading] = useState(true);
+
+  const userId = useAppSelector(state => state.user.user?.id);
+  const reservationsState = useAppSelector(state => state.userReservations);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 300);
+    dispatch(fetchUserReservationsThunk(userId as number));
   }, []);
 
   return (
     <div className={styles.reserv} style={{ position: 'relative' }}>
       <div className={styles.reserv__container}>
         <h3 className={styles.reserv__Title}>Your reservations</h3>
-        {isLoading ? (
-          <ReservationsSkeleton />
-        ) : (
-          <ReservationCard
-            onOpenDetails={() => setOpenDetails('details')}
-            onOpenCancelConfirm={() => setOpenDetails('cancelConfirm')}
-            onOpenCancelDetails={() => setOpenDetails('cancelDetails')}
-            onOpenCheckStage={() => setOpenDetails('checkStage')}
-          />
+        {reservationsState.reservations.map(reservations =>
+          reservationsState.loading ? (
+            <ReservationsSkeleton key={reservations.id} />
+          ) : (
+            <ReservationCard
+              key={reservations.id}
+              reservations={reservations}
+              onOpenDetails={() => setOpenDetails('details')}
+              onOpenCancelConfirm={() => setOpenDetails('cancelConfirm')}
+              onOpenCancelDetails={() => setOpenDetails('cancelDetails')}
+              onOpenCheckStage={() => setOpenDetails('checkStage')}
+            />
+          ),
         )}
       </div>
 

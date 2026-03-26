@@ -66,8 +66,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  width: 100%;
-  max-width: 82px;
+
   padding: 4px;
   border-radius: 8px;
   background-color: #e1fde7;
@@ -84,6 +83,36 @@
   line-height: 15px;
   letter-spacing: 0;
   color: $color-system-success;
+}
+
+.reserv__status-error {
+  color: $color-system-error;
+  background-color: #ffd9d9;
+}
+
+.reserv__status-warning {
+  color: #b0996d;
+  background-color: #fff7d7;
+}
+
+.reserv__status-check {
+  color: $color-system-success;
+  background-color: #e1fde7;
+}
+
+.reserv__status-error-info {
+  color: $color-system-error;
+  background-color: #ffd9d9;
+}
+
+.reserv__status-warning-info {
+  color: #b0996d;
+  background-color: #fff7d7;
+}
+
+.reserv__status-check-info {
+  color: $color-system-success;
+  background-color: #e1fde7;
 }
 
 .reserv__hr {

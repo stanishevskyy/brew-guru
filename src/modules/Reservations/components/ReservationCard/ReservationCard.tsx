@@ -2,6 +2,8 @@ import React from 'react';
 
 import styles from './ReservationCard.module.scss';
 
+import { Booking } from '../../../../shared/types/reservations/booking';
+
 //eslint-disable-next-line
 import CardImage from '../../../../assets/images/reservations-images/reservations-image.png';
 //eslint-disable-next-line
@@ -18,8 +20,17 @@ import ClockIcon from '../../../../assets/icons/reservations-icons/clock-icon.sv
 import SeatIcon from '../../../../assets/icons/reservations-icons/seat-icon.svg';
 
 import { DetailsType } from '../../../../shared/types/DetailsType';
+// eslint-disable-next-line max-len
+import { ReservationStatus } from '../../../../shared/constants/reservationStatus';
+
+import ErrorIcon from '../../../../assets/icons/reports-icons/error-icon.svg';
+// eslint-disable-next-line max-len
+import WarningIcon from '../../../../assets/icons/reports-icons/warning-icon.svg';
+// eslint-disable-next-line max-len
+import CheckIcon from '../../../../assets/icons/reports-icons/check-mark-icon.svg';
 
 type Props = {
+  reservations: Booking;
   onOpenDetails: (value: React.SetStateAction<DetailsType>) => void;
   onOpenCancelConfirm: (value: React.SetStateAction<DetailsType>) => void;
   onOpenCancelDetails: (value: React.SetStateAction<DetailsType>) => void;
@@ -27,41 +38,91 @@ type Props = {
 };
 
 export const ReservationCard: React.FC<Props> = ({
+  reservations,
   onOpenDetails,
   onOpenCancelConfirm,
   // onOpenCancelDetails,
   // onOpenCheckStage,
 }) => {
+  const getStatusProps = (status: string) => {
+    switch (status) {
+      case ReservationStatus.Cancelled:
+        return {
+          icon: ErrorIcon,
+          style: 'reserv__status-error',
+          label: 'Cancelled',
+        };
+      case ReservationStatus.Pending:
+        return {
+          icon: WarningIcon,
+          style: 'reserv__status-warning',
+          label: 'Pending',
+        };
+      case ReservationStatus.Confirmed:
+        return {
+          icon: CheckIcon,
+          style: 'reserv__status-check',
+          label: 'Reserved',
+        };
+      default:
+        return {
+          icon: ErrorIcon,
+          style: 'reserv__status-error',
+          label: 'Cancelled',
+        };
+    }
+  };
+
+  const reservStatus = getStatusProps(reservations.reservation.status);
+
   return (
     <article className={styles.reserv}>
       <a href="/cartProduct" className={styles.reserv__cardLink}>
-        <picture>
-          <source media="(min-width: 639px)" srcSet={CardImageTablet} />
-          <source media="(min-width: 1023px)" srcSet={CardImageDesktop} />
-
+        {!reservations?.cafe?.img ? (
           <img
             loading="lazy"
-            src={CardImage}
+            src={reservations?.cafe?.img}
             alt="Зображення кафе"
             className={styles.reserv__cardImg}
           />
-        </picture>
+        ) : (
+          <picture>
+            <source media="(min-width: 639px)" srcSet={CardImageTablet} />
+            <source media="(min-width: 1023px)" srcSet={CardImageDesktop} />
+
+            <img
+              loading="lazy"
+              src={CardImage}
+              alt="Зображення кафе"
+              className={styles.reserv__cardImg}
+            />
+          </picture>
+        )}
         <span className={styles.reserv__cardOverlay} aria-hidden="true"></span>
         {/* <span className={styles.reserv__cardLabel}>15% OFF</span> */}
       </a>
 
       <div className={styles.reserv__bottom}>
         <div className={styles.reserv__cardTitleWrap}>
-          <h3 className={styles.reserv__cardTitle}>Cafe name</h3>
-          <div className={styles.reserv__infoWrap}>
+          <h3 className={styles.reserv__cardTitle}>
+            {reservations?.cafe?.name}
+          </h3>
+          <div
+            // className={styles.reserv__infoWrap}
+            className={`${styles.reserv__infoWrap} ${styles[reservStatus.style]}`}
+          >
             <img
-              src={CheckMarkIcon}
+              src={reservStatus.icon}
               alt=""
               aria-hidden="true"
               className={styles.reserv__infoImg}
             />
-            <p className={styles.reserv__infoDesc} aria-live="polite">
-              Reserved
+            <p
+              // className={styles.reserv__infoDesc}
+              className={`${styles.reserv__infoDesc} ${styles[`${reservStatus.style}-info`]}`}
+              aria-live="polite"
+            >
+              {reservStatus.label}
             </p>
           </div>
         </div>
@@ -78,7 +139,9 @@ export const ReservationCard: React.FC<Props> = ({
             />
             <p className={styles.reserv__iconInfo}>
               <span className={styles.reserv__iconTitle}>Location</span>
-              <span className={styles.reserv__iconDesc}>Zolota, 1</span>
+              <span className={styles.reserv__iconDesc}>
+                {reservations?.cafe?.address}
+              </span>
             </p>
           </div>
 
@@ -91,7 +154,9 @@ export const ReservationCard: React.FC<Props> = ({
             />
             <p className={styles.reserv__iconInfo}>
               <span className={styles.reserv__iconTitle}>Reservation time</span>
-              <span className={styles.reserv__iconDesc}>17:00-18:00</span>
+              <span
+                className={styles.reserv__iconDesc}
+              >{`${reservations.reservation.startTime}-${reservations.reservation.endTime}`}</span>
             </p>
           </div>
 
@@ -104,34 +169,50 @@ export const ReservationCard: React.FC<Props> = ({
             />
             <p className={styles.reserv__iconInfo}>
               <span className={styles.reserv__iconTitle}>Table number</span>
-              <span className={styles.reserv__iconDesc}>№21</span>
+              <span
+                className={styles.reserv__iconDesc}
+              >{`№${reservations.reservation.tableNumber}`}</span>
             </p>
           </div>
         </div>
 
         <hr className={styles.reserv__hr} />
 
-        <div className={styles.reserv__buttons}>
-          <button type="button" className={styles.reserv__button}>
-            See on map
+        {reservations.reservation.status === 'confirmed' && (
+          <div className={styles.reserv__buttons}>
+            <button type="button" className={styles.reserv__button}>
+              See on map
+            </button>
+            <button
+              type="button"
+              className={styles.reserv__button}
+              aria-haspopup="dialog"
+              onClick={() => onOpenDetails('details')}
+            >
+              Change details
+            </button>
+            <button
+              type="button"
+              className={styles.reserv__buttonCancel}
+              aria-haspopup="dialog"
+              onClick={() => onOpenCancelConfirm('cancelConfirm')}
+            >
+              Cancel reservation
+            </button>
+          </div>
+        )}
+
+        {reservations.reservation.status === 'pending' && (
+          <button className={styles.reserv__button}>
+            Check reservation stage
           </button>
-          <button
-            type="button"
-            className={styles.reserv__button}
-            aria-haspopup="dialog"
-            onClick={() => onOpenDetails('details')}
-          >
-            Change details
+        )}
+
+        {reservations.reservation.status === 'cancelled' && (
+          <button className={styles.reserv__button}>
+            Cancellation details
           </button>
-          <button
-            type="button"
-            className={styles.reserv__buttonCancel}
-            aria-haspopup="dialog"
-            onClick={() => onOpenCancelConfirm('cancelConfirm')}
-          >
-            Cancel reservation
-          </button>
-        </div>
+        )}
       </div>
     </article>
   );

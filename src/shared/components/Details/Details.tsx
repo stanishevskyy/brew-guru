@@ -1,8 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
+import classNames from 'classnames';
 
 import styles from './Details.module.scss';
 
-import classNames from 'classnames';
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+// eslint-disable-next-line max-len
+import {
+  setSelectedTable,
+  setTime,
+} from '../../../store/tableReservationSlice/tableReservationSlice';
+// eslint-disable-next-line max-len
+import { fetchCafeDetailsThunk } from '../../../store/cafeDetailsSlice/cafeDetailsSlice';
+
+import useMediaQuery from '../../hooks/useMediaQuery';
+
 import { DetailsHeader } from './components/DetailsHeader';
 import { DetailsButtons } from './components/DetailsButtons';
 import { DetailsSeats } from './components/DetailsSeats';
@@ -11,26 +23,21 @@ import { DetailsTimeButton } from './components/DetailsTimeButton';
 
 import { DetailsType } from '../../types/DetailsType';
 import { CafeDetails } from '../../types/cafeDetails/cafeDetails';
-import useMediaQuery from '../../hooks/useMediaQuery';
 
 type Props = {
-  cafe: CafeDetails | null;
+  cafeId: string | undefined;
   isModifiedDetails: boolean;
   onClose?: (value: React.SetStateAction<DetailsType>) => void;
 };
 
 export const Details: React.FC<Props> = ({
-  cafe,
+  cafeId,
   onClose = () => {},
   isModifiedDetails,
 }) => {
   const [isSeatsOpen, setIsSeatsOpen] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [isTimeOpen, setIsTimeOpen] = useState(false);
-
-  const [seats, setSeats] = useState<number>(1);
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
 
   const isMobileOrTablet = useMediaQuery(
     '(min-width: 320px) and (max-width: 1022px)',
@@ -98,7 +105,19 @@ export const Details: React.FC<Props> = ({
     return result;
   };
 
-  const availableTimeSlots = getAvailableSlots(cafe!, date, seats, time);
+  const tableReservation = useAppSelector(state => state.tableReservation);
+  const cafe = useAppSelector(state => state.cafeDetails.cafe);
+  const dispatch = useAppDispatch();
+  const availableTimeSlots = getAvailableSlots(
+    cafe!,
+    tableReservation.date,
+    tableReservation.seats,
+    tableReservation.time,
+  );
+
+  useEffect(() => {
+    dispatch(fetchCafeDetailsThunk(+cafeId!));
+  }, [cafeId]);
 
   return (
     <section
@@ -121,26 +140,23 @@ export const Details: React.FC<Props> = ({
         >
           <div className={styles.details__wrapper}>
             <DetailsSeats
-              seats={seats}
-              setSeats={setSeats}
+              seats={tableReservation.seats}
               isSeatsOpen={isSeatsOpen}
               setIsSeatsOpen={setIsSeatsOpen}
             />
             <DetailsCalendar
-              date={date}
-              setDate={setDate}
+              date={tableReservation.date}
               isCalendarOpen={isCalendarOpen}
               setIsCalendarOpen={setIsCalendarOpen}
             />
             <DetailsTimeButton
-              time={time}
-              setTime={setTime}
+              time={tableReservation.time}
               isTimeOpen={isTimeOpen}
               setIsTimeOpen={setIsTimeOpen}
             />
           </div>
 
-          {((time && !isMobileOrTablet) || isTimeOpen) && (
+          {/* {((time && !isMobileOrTablet) || isTimeOpen) && (
             <div className={styles.details__times}>
               <h3
                 id="details-section-title"
@@ -160,7 +176,50 @@ export const Details: React.FC<Props> = ({
                     type="button"
                     className={styles.details__button}
                     aria-label={`${timeSlots.startTime}, Table №${timeSlots.tableId}`}
-                    onClick={() => setTime(timeSlots.startTime)}
+                    onClick={() => {
+                      setTime(timeSlots.startTime);
+                      setIsTimeOpen(false);
+                    }}
+                  >
+                    {timeSlots.startTime}
+                    <span className={styles.details__buttonSpec}>
+                      {`Table №${timeSlots.tableId}`}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )} */}
+
+          {((tableReservation.time && !isMobileOrTablet) || isTimeOpen) && (
+            <div className={styles.details__times}>
+              <h3
+                id="details-section-title"
+                className={styles.details__timesTitle}
+              >
+                Closest time slots
+              </h3>
+
+              <div
+                className={styles.details__timesContainer}
+                role="list"
+                aria-labelledby="details-section-title"
+              >
+                {availableTimeSlots?.map((timeSlots, index) => (
+                  <button
+                    key={`${timeSlots.startTime}-${index}`}
+                    type="button"
+                    className={classNames(styles.details__button, {
+                      [styles.details__buttonActive]:
+                        tableReservation.selectedTable?.startTime ===
+                        timeSlots.startTime,
+                    })}
+                    aria-label={`${timeSlots.startTime}, Table №${timeSlots.tableId}`}
+                    onClick={() => {
+                      dispatch(setTime(timeSlots.startTime));
+                      dispatch(setSelectedTable(timeSlots));
+                      setIsTimeOpen(false);
+                    }}
                   >
                     {timeSlots.startTime}
                     <span className={styles.details__buttonSpec}>

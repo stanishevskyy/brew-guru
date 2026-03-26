@@ -173,7 +173,7 @@ export const CafePage = () => {
         )}
 
         <div className={styles.cafe__reservations} id="reservation">
-          <Details isModifiedDetails={true} cafe={cafeState.cafe} />
+          <Details isModifiedDetails={true} cafeId={cafeId} />
           <button className={styles.cafe__apply}>Book</button>
         </div>
 

@@ -7,14 +7,12 @@ import { Calendar } from '../../../Calendar/Calendar';
 
 type Props = {
   date: string;
-  setDate: (value: string) => void;
   isCalendarOpen: boolean;
   setIsCalendarOpen: (value: boolean) => void;
 };
 
 export const DetailsCalendar: React.FC<Props> = ({
   date,
-  setDate,
   isCalendarOpen,
   setIsCalendarOpen,
 }) => {
@@ -57,7 +55,7 @@ export const DetailsCalendar: React.FC<Props> = ({
         role="region"
         aria-labelledby="calendar-label"
       >
-        <Calendar setDate={setDate} setIsCalendarOpen={setIsCalendarOpen} />
+        <Calendar setIsCalendarOpen={setIsCalendarOpen} />
       </div>
     </div>
   );
