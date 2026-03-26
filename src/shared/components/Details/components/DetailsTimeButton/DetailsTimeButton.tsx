@@ -65,7 +65,9 @@ export const DetailsTimeButton: React.FC<Props> = ({
           }}
           placeholder="12:00"
           value={time}
-          onAccept={(value: string) => setTime(value)}
+          onAccept={(value: string) => {
+            setTime(value);
+          }}
           className={classNames(styles.times__input, {
             [styles.times__inputActive]: isTimeOpen,
           })}

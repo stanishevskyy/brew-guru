@@ -92,9 +92,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  margin-bottom: 16px;
 
   @include on-desktop {
     gap: 24px;
+    margin: 0;
   }
 }
 
