@@ -28,7 +28,6 @@ export const Details: React.FC<Props> = ({
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [isTimeOpen, setIsTimeOpen] = useState(false);
 
-  // logic
   const [seats, setSeats] = useState<number>(1);
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
@@ -36,36 +35,6 @@ export const Details: React.FC<Props> = ({
   const isMobileOrTablet = useMediaQuery(
     '(min-width: 320px) and (max-width: 1022px)',
   );
-
-  // const [filteredTables, setFilteredTables] = useState<any>(null);
-
-  // const tablesFromDate =
-  //   seats && date ? cafe?.availableTables?.find(el => el.date === date) : null;
-
-  // const filteringTables = (value: string) => {
-  //   if (!tablesFromDate) {
-  //     return;
-  //   }
-
-  //   const p = toMinutes(value);
-
-  //   const result = tablesFromDate.tables.map(table => ({
-  //     ...table,
-  //     availableSlots: table.availableSlots.filter(slot => {
-  //       const start = toMinutes(slot.startTime);
-
-  //       return Math.abs(p - start) <= 60; // 60 хв
-  //     }),
-  //   }));
-
-  //   setFilteredTables(result);
-  // };
-
-  // useEffect(() => {
-  //   if (time.length === 5) {
-  //     filteringTables(time);
-  //   }
-  // }, [time]);
 
   const toMinutes = (chooseTime: string) => {
     const [h, m] = chooseTime.split(':').map(Number);
@@ -83,7 +52,6 @@ export const Details: React.FC<Props> = ({
       return [];
     }
 
-    // 1️⃣ Фільтруємо по даті
     const tablesForDate = currentCafe?.availableTables?.find(
       el => el.date === currentDate,
     );
@@ -92,7 +60,6 @@ export const Details: React.FC<Props> = ({
       return [];
     }
 
-    // 2️⃣ Фільтруємо по кількості місць
     const tablesMatchingSeats = tablesForDate.tables.filter(
       el => el.seats === currentSeats,
     );
@@ -101,11 +68,14 @@ export const Details: React.FC<Props> = ({
       return [];
     }
 
-    // 3️⃣ Фільтруємо слоти по часу та доступності
     const result = tablesMatchingSeats.flatMap(table => {
       const selectedTime = currentTime ? toMinutes(currentTime) : null;
 
       const slots = table.availableSlots?.filter(slot => {
+        if (isMobileOrTablet) {
+          return true;
+        }
+
         if (!selectedTime) {
           return true;
         }
