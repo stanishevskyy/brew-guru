@@ -24,11 +24,11 @@
 }
 
 .noResults__title {
-  font-weight: 700;
   font-size: 24px;
+  font-weight: 700;
   line-height: 31px;
-  color: $color-text-primary;
   text-align: center;
+  color: $color-text-primary;
 
   @include on-tablet {
     font-size: 32px;
@@ -37,8 +37,8 @@
 }
 
 .noResults__message {
-  font-weight: 700;
   font-size: 16px;
+  font-weight: 700;
   line-height: 20px;
   text-align: center;
   color: #696977;
@@ -50,18 +50,18 @@
 }
 
 .noResults__clearFilters {
-  width: 100%;
   box-sizing: border-box;
+  width: 100%;
 
   padding: 12px;
 
+  border: 1px solid #7e99f6;
+
   border-radius: 8px;
+  font-size: 16px;
 
   font-weight: 700;
-  font-size: 16px;
   line-height: 20px;
-
-  border: 1px solid #7e99f6;
   color: $color-white;
   background-color: #204dee;
   cursor: pointer;

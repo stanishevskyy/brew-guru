@@ -31,6 +31,30 @@ export const fetchCafeDetailsThunk = createAsyncThunk<
   }
 });
 
+export const updateCafeDetailsThunk = createAsyncThunk<
+  CafeDetails | undefined,
+  {
+    cafeId: number;
+    date: string;
+    tableId: number;
+    startTime: string;
+  },
+  { rejectValue: string }
+>('cafeDetails/updateCafeDetails', async (params, { rejectWithValue }) => {
+  try {
+    return await cafeDetailsService.updateCafeDetails(
+      params.cafeId,
+      params.date,
+      params.tableId,
+      params.startTime,
+    );
+  } catch (error) {
+    return rejectWithValue(
+      error instanceof Error ? error.message : 'Failed to update cafe details',
+    );
+  }
+});
+
 export const cafeDetailsSlice = createSlice({
   name: 'cafeDetails',
   initialState,
@@ -49,6 +73,11 @@ export const cafeDetailsSlice = createSlice({
       .addCase(fetchCafeDetailsThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload || 'Failed';
+      })
+
+      // 🔥 NEW
+      .addCase(updateCafeDetailsThunk.fulfilled, (state, action) => {
+        state.cafe = action.payload ?? null;
       });
   },
 });

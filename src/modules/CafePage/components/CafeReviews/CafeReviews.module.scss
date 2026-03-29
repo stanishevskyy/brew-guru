@@ -134,19 +134,19 @@
 
 .reviews__confirm {
   position: absolute;
-  right: 16px;
   top: 16px;
+  right: 16px;
   display: inline-block;
   width: 36px; /* задаємо розмір кнопки */
   height: 24px;
+
+  border: none;
   background-color: inherit;
 
   background-image: url('../../../../assets/icons/reviews-icons/send.svg');
   background-size: 36px 24px;
-  background-repeat: no-repeat;
-
-  border: none;
   cursor: pointer;
+  background-repeat: no-repeat;
 
   @include on-desktop {
     display: none;

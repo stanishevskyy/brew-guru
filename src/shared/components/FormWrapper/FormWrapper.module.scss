@@ -43,9 +43,9 @@
   display: none;
 
   @include on-desktop {
-    flex: 3;
     position: relative;
     display: flex;
+    flex: 3;
     justify-content: space-between;
     align-items: center;
     height: 44px;

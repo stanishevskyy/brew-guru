@@ -4,5 +4,5 @@ export interface Customer {
   lastName: string;
   phone: string;
   email: string;
-  reservationIds: string[];
+  reservationIds?: string[];
 }

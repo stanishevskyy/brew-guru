@@ -1,7 +1,6 @@
 import { reservationService } from './reservationsService';
 
 import { Booking } from '../shared/types/reservations/booking';
-import { cafeDetailsService } from './cafeDetailsService';
 
 const STORAGE_KEY = 'reservations';
 
@@ -28,12 +27,12 @@ export const userReservations = {
 
       const updatedReservations = [...reservations, newReservations];
 
-      await cafeDetailsService.updateCafeDetails(
-        userReservation.cafe.id,
-        userReservation.reservation.date,
-        userReservation.reservation.tableNumber,
-        userReservation.reservation.startTime,
-      );
+      // await cafeDetailsService.updateCafeDetails(
+      //   userReservation.cafe.id,
+      //   userReservation.reservation.date,
+      //   userReservation.reservation.tableNumber,
+      //   userReservation.reservation.startTime,
+      // );
 
       localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedReservations));
 

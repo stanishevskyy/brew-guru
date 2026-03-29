@@ -62,6 +62,7 @@
   height: 100%;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
+
   // object-fit: contain;
   object-fit: cover;
   transition: transform 0.4s ease;
@@ -148,8 +149,8 @@
   color: #0a0a0c;
 
   @include on-desktop {
-    font-weight: 700;
     font-size: 24px;
+    font-weight: 700;
     line-height: 31px;
   }
 }

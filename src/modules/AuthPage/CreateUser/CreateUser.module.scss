@@ -80,8 +80,8 @@
   gap: 8px;
   font-size: 12px;
   font-weight: 400;
-  color: #b70000;
   white-space: nowrap;
+  color: #b70000;
 }
 
 .create__errorIcon {
@@ -154,10 +154,10 @@
   font-size: 12px;
   font-weight: 600;
   line-height: 20px;
-  cursor: pointer;
 
   color: #9a9aa9;
   background-color: #fbfbfe;
+  cursor: pointer;
 
   @include on-tablet {
     font-size: 16px;
@@ -204,13 +204,13 @@
 }
 
 .create__item {
-  cursor: pointer;
   width: 100%;
-  text-align: center;
+  padding: 8px;
   font-size: 12px;
   font-weight: 600;
   line-height: 20px;
-  padding: 8px;
+  text-align: center;
+  cursor: pointer;
 
   @include on-tablet {
     font-size: 16px;
@@ -219,9 +219,9 @@
   }
 
   &:hover {
-    color: white;
     border-radius: 8px;
-    background-color: rgba(104, 103, 103, 0.814);
+    color: white;
+    background-color: rgba(104, 103, 103, 0.81);
   }
 }
 

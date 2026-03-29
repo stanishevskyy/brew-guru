@@ -179,13 +179,13 @@
 .reviews__link {
   position: relative;
   display: inline-block;
-  cursor: pointer;
 
   padding: 10px 3px;
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
   color: $color-text-secondary;
+  cursor: pointer;
   transition: color 0.3s linear;
 
   @include on-tablet {

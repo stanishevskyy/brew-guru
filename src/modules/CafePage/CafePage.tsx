@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import classNames from 'classnames';
 
@@ -7,8 +8,15 @@ import styles from './CafePage.module.scss';
 
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 // eslint-disable-next-line max-len
-import { fetchCafeDetailsThunk } from '../../store/cafeDetailsSlice/cafeDetailsSlice';
+import {
+  fetchCafeDetailsThunk,
+  updateCafeDetailsThunk,
+} from '../../store/cafeDetailsSlice/cafeDetailsSlice';
 import { fetchCafeReviewsThunk } from '../../store/reviewsSlice/reviewsSlice';
+
+// eslint-disable-next-line max-len
+import { resetReservation } from '../../store/tableReservationSlice/tableReservationSlice';
+import { clearOrder } from '../../store/menuOrderSlice/menuOrderSlice';
 
 import { openPlace } from './utils/onPlace';
 
@@ -23,12 +31,22 @@ import CardImage from '../../assets/images/cafe-images/cafe-image/cafe-image-mob
 import CardImageTablet from '../../assets/images/cafe-images/cafe-image/cafe-image-tablet.png';
 //eslint-disable-next-line
 import CardImageDesktop from '../../assets/images/cafe-images/cafe-image/cafe-image-desktop.png';
+
+import CheckIcon from '../../assets/icons/cafe-icons/check-icon.svg';
+import SeatsIcon from '../../assets/icons/cafe-icons/seats-icon.svg';
+import DateIcon from '../../assets/icons/cafe-icons/date-icon.svg';
+import TimeIcon from '../../assets/icons/cafe-icons/time-icon.svg';
+
 import { BackSkeleton } from '../../shared/components/BackSkeleton';
 import { CafeHeaderSkeleton } from '../../shared/components/CafeHeaderSkeleton';
 import { CafeMenuSkeleton } from '../../shared/components/CafeMenuSkeleton';
 //eslint-disable-next-line
 import { CafeReviewsSkeleton } from '../../shared/components/CafeReviewsSkeleton';
+
 import { fetchCafeMenuThunk } from '../../store/menuSlice/menuSlice';
+import { userReservations } from '../../services/userReservations';
+import { Reservation } from '../../shared/types/reservations/reservation';
+import { Customer } from '../../shared/types/reservations/customer';
 
 export const CafePage = () => {
   const location = useLocation();
@@ -71,6 +89,112 @@ export const CafePage = () => {
       dispatch(fetchCafeMenuThunk({ cafeId: +cafeId }));
     }
   }, [cafeId, dispatch]);
+
+  const menuState = useAppSelector(state => state.menuOrder);
+  const userState = useAppSelector(state => state.user.user);
+  const tableReservation = useAppSelector(state => state.tableReservation);
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [book, setBook] = useState(false);
+
+  const handleBook = async () => {
+    const selected = tableReservation.selectedTable;
+    const user = userState;
+    const cafe = cafeState.cafe;
+
+    if (
+      !selected ||
+      !selected.date ||
+      !selected.startTime ||
+      !selected.endTime ||
+      !selected.tableId ||
+      !selected.seats
+    ) {
+      throw new Error('Missing reservation data');
+    }
+
+    if (!user) {
+      throw new Error('Missing user data');
+    }
+
+    if (!cafe) {
+      throw new Error('Missing cafe data');
+    }
+
+    // 2. RESERVATION
+    const reservation: Reservation = {
+      id: `RES-${Date.now()}`,
+      date: selected.date,
+      startTime: selected.startTime,
+      endTime: selected.endTime,
+      guestsCount: selected.seats,
+      tableNumber: selected.tableId,
+      status: 'pending',
+    };
+
+    // 3. CUSTOMER (100% SAFE)
+    const customer: Customer = {
+      id: user.id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      phone: user.phone || '',
+      email: user.email,
+    };
+
+    // 4. CAFE (SAFE)
+    const cafeData = {
+      id: cafe.id,
+      name: cafe.name,
+      img: cafe.img,
+      address: cafe.address,
+      phone: cafe.phone,
+    };
+
+    // 5. PREORDER
+    const preorder = {
+      items: menuState.map(el => ({
+        id: el.menuOrder.id,
+        name: el.menuOrder.name,
+        quantity: el.quantity ?? 0,
+        price: el.menuOrder.price,
+      })),
+
+      totalAmount: menuState.reduce(
+        (acc, el) => acc + el.menuOrder.price * (el.quantity ?? 0),
+        0,
+      ),
+
+      currency: 'UAH',
+    };
+
+    // 6. API CALL
+    try {
+      setIsLoading(true);
+
+      await userReservations.addUserReservations({
+        reservation,
+        customer,
+        cafe: cafeData,
+        preorder,
+      });
+
+      await dispatch(
+        updateCafeDetailsThunk({
+          cafeId: cafe.id,
+          date: reservation.date,
+          tableId: reservation.tableNumber,
+          startTime: reservation.startTime,
+        }),
+      );
+
+      dispatch(resetReservation());
+      dispatch(clearOrder());
+    } finally {
+      setIsLoading(false);
+      setBook(false);
+    }
+  };
 
   return (
     <div className={styles.cafe}>
@@ -174,7 +298,13 @@ export const CafePage = () => {
 
         <div className={styles.cafe__reservations} id="reservation">
           <Details isModifiedDetails={true} cafeId={cafeId} />
-          <button className={styles.cafe__apply}>Book</button>
+          <button
+            className={styles.cafe__apply}
+            onClick={() => setBook(true)}
+            disabled={menuState.length === 0}
+          >
+            Book
+          </button>
         </div>
 
         {cafeState.loading ? (
@@ -187,6 +317,84 @@ export const CafePage = () => {
           />
         )}
       </div>
+
+      <AnimatePresence mode="wait">
+        {book && (
+          <motion.div
+            className={styles.test__Details}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+          >
+            <motion.div
+              className={styles.test__modal}
+              initial={{ y: 60, scale: 0.96 }}
+              animate={{ y: 0, scale: 0.98 }}
+              exit={{ y: 60, scale: 0.96 }}
+              transition={{
+                type: 'spring',
+                stiffness: 260,
+                damping: 22,
+              }}
+            >
+              <div className={styles.test}>
+                <div className={styles.test__header}>
+                  <img src={CheckIcon} alt="" className={styles.test__img} />
+                  <p className={styles.test__title}>Booking details</p>
+                </div>
+
+                <p className={styles.test__info}>
+                  You book table at Cafe Name.
+                </p>
+
+                <ul className={styles.test__list}>
+                  <li className={styles.test__item}>
+                    <img
+                      src={SeatsIcon}
+                      alt=""
+                      className={styles.test__itemImg}
+                    />
+                    <p className={styles.test__itemInfo}>1 seat</p>
+                  </li>
+                  <li className={styles.test__item}>
+                    <img
+                      src={DateIcon}
+                      alt=""
+                      className={styles.test__itemImg}
+                    />
+                    <p className={styles.test__itemInfo}>Date: Sat, Jan 3</p>
+                  </li>
+                  <li className={styles.test__item}>
+                    <img
+                      src={TimeIcon}
+                      alt=""
+                      className={styles.test__itemImg}
+                    />
+                    <p className={styles.test__itemInfo}>Time: 12:45</p>
+                  </li>
+                </ul>
+
+                <div className={styles.test__buttons}>
+                  <button
+                    className={styles.test__primary}
+                    onClick={handleBook}
+                    disabled={isLoading}
+                  >
+                    Done
+                  </button>
+                  <button
+                    className={styles.test__secondary}
+                    onClick={() => setBook(false)}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
