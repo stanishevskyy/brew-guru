@@ -68,7 +68,13 @@ export const CheckStage: React.FC<Props> = ({ onClose }) => {
                 aria-current={isCurrent ? 'step' : undefined}
               >
                 <div className={styles.check__ready}>
-                  <span className={styles.check__line}></span>
+                  <span className={styles.check__dot}></span>
+
+                  <span
+                    className={
+                      isLast ? styles.check__lineBottom : styles.check__line
+                    }
+                  ></span>
                 </div>
                 <p className={styles.check__description}>{step}</p>
               </div>

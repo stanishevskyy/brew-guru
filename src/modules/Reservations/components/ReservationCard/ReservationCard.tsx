@@ -28,6 +28,7 @@ import ErrorIcon from '../../../../assets/icons/reports-icons/error-icon.svg';
 import WarningIcon from '../../../../assets/icons/reports-icons/warning-icon.svg';
 // eslint-disable-next-line max-len
 import CheckIcon from '../../../../assets/icons/reports-icons/check-mark-icon.svg';
+import { openPlace } from '../../../CafePage/utils/onPlace';
 
 type Props = {
   reservations: Booking;
@@ -35,14 +36,16 @@ type Props = {
   onOpenCancelConfirm: (value: React.SetStateAction<DetailsType>) => void;
   onOpenCancelDetails: (value: React.SetStateAction<DetailsType>) => void;
   onOpenCheckStage: (value: React.SetStateAction<DetailsType>) => void;
+  setOpenModal: (value: number | null) => void;
 };
 
 export const ReservationCard: React.FC<Props> = ({
   reservations,
   onOpenDetails,
   onOpenCancelConfirm,
-  // onOpenCancelDetails,
-  // onOpenCheckStage,
+  onOpenCancelDetails,
+  onOpenCheckStage,
+  setOpenModal,
 }) => {
   const getStatusProps = (status: string) => {
     switch (status) {
@@ -180,7 +183,11 @@ export const ReservationCard: React.FC<Props> = ({
 
         {reservations.reservation.status === 'confirmed' && (
           <div className={styles.reserv__buttons}>
-            <button type="button" className={styles.reserv__button}>
+            <button
+              type="button"
+              className={styles.reserv__button}
+              onClick={() => openPlace(`${reservations?.cafe?.address}`)}
+            >
               See on map
             </button>
             <button
@@ -203,13 +210,22 @@ export const ReservationCard: React.FC<Props> = ({
         )}
 
         {reservations.reservation.status === 'pending' && (
-          <button className={styles.reserv__button}>
+          <button
+            className={styles.reserv__button}
+            onClick={() => {
+              setOpenModal(+reservations.id);
+              onOpenCheckStage('checkStage');
+            }}
+          >
             Check reservation stage
           </button>
         )}
 
         {reservations.reservation.status === 'cancelled' && (
-          <button className={styles.reserv__button}>
+          <button
+            className={styles.reserv__button}
+            onClick={() => onOpenCancelDetails('cancelDetails')}
+          >
             Cancellation details
           </button>
         )}

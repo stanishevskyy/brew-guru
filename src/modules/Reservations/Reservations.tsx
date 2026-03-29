@@ -17,6 +17,9 @@ import { CheckStage } from './components/CheckStage';
 //eslint-disable-next-line
 import { ReservationsSkeleton } from '../../shared/components/ReservationsSkeleton';
 
+//eslint-disable-next-line
+import { ReservationStatus } from '../../shared/types/reservations/reservationStatus';
+
 export const Reservations: React.FC = () => {
   const [openDetails, setOpenDetails] = useState<DetailsType>(null);
 
@@ -27,6 +30,10 @@ export const Reservations: React.FC = () => {
   useEffect(() => {
     dispatch(fetchUserReservationsThunk(userId as number));
   }, []);
+
+  const [openModal, setOpenModal] = useState<number | null>(null);
+
+  const reserv = reservationsState.reservations.find(r => +r.id === openModal);
 
   return (
     <div className={styles.reserv} style={{ position: 'relative' }}>
@@ -43,6 +50,7 @@ export const Reservations: React.FC = () => {
               onOpenCancelConfirm={() => setOpenDetails('cancelConfirm')}
               onOpenCancelDetails={() => setOpenDetails('cancelDetails')}
               onOpenCheckStage={() => setOpenDetails('checkStage')}
+              setOpenModal={setOpenModal}
             />
           ),
         )}
@@ -80,8 +88,11 @@ export const Reservations: React.FC = () => {
               {openDetails === 'cancelDetails' && (
                 <CancelDetails onClose={() => setOpenDetails(null)} />
               )}
-              {openDetails === 'checkStage' && (
-                <CheckStage onClose={() => setOpenDetails(null)} />
+              {openDetails === 'checkStage' && reserv && (
+                <CheckStage
+                  onClose={() => setOpenDetails(null)}
+                  status={reserv?.reservation.status as ReservationStatus}
+                />
               )}
             </motion.div>
           </motion.div>
