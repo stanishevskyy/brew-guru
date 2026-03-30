@@ -23,17 +23,20 @@ import { DetailsTimeButton } from './components/DetailsTimeButton';
 
 import { DetailsType } from '../../types/DetailsType';
 import { CafeDetails } from '../../types/cafeDetails/cafeDetails';
+import { Booking } from '../../types/reservations/booking';
 
 type Props = {
   cafeId: string | undefined;
   isModifiedDetails: boolean;
   onClose?: (value: React.SetStateAction<DetailsType>) => void;
+  reserv?: Booking;
 };
 
 export const Details: React.FC<Props> = ({
   cafeId,
   onClose = () => {},
   isModifiedDetails,
+  reserv,
 }) => {
   const [isSeatsOpen, setIsSeatsOpen] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
@@ -233,7 +236,11 @@ export const Details: React.FC<Props> = ({
 
           <hr className={styles.details__line} />
 
-          <DetailsButtons isModifiedDetails={isModifiedDetails} />
+          <DetailsButtons
+            isModifiedDetails={isModifiedDetails}
+            reserv={reserv!}
+            tableReservation={tableReservation}
+          />
         </form>
       </div>
     </section>

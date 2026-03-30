@@ -5,6 +5,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { userReservations } from '../../services/userReservations';
 
 import { Booking } from '../../shared/types/reservations/booking';
+import { Reservation } from '../../shared/types/reservations/reservation';
 
 export interface ReservationsState {
   reservations: Booking[];
@@ -32,6 +33,40 @@ export const fetchUserReservationsThunk = createAsyncThunk<
   }
 });
 
+export const addUserReservationThunk = createAsyncThunk<
+  Booking,
+  Omit<Booking, 'id'>,
+  { rejectValue: string }
+>(
+  'userReservations/addReservation',
+  async (newReservation, { rejectWithValue }) => {
+    try {
+      return await userReservations.addUserReservations(newReservation);
+    } catch (error) {
+      return rejectWithValue(
+        error instanceof Error ? error.message : 'Failed to add reservation',
+      );
+    }
+  },
+);
+
+export const updateUserReservationThunk = createAsyncThunk<
+  Booking,
+  Reservation,
+  { rejectValue: string }
+>(
+  'userReservations/updateReservation',
+  async (updatedReservation, { rejectWithValue }) => {
+    try {
+      return await userReservations.updateUserReservations(updatedReservation);
+    } catch (error) {
+      return rejectWithValue(
+        error instanceof Error ? error.message : 'Failed to update reservation',
+      );
+    }
+  },
+);
+
 export const userReservationsSlice = createSlice({
   name: 'userReservations',
   initialState,
@@ -50,6 +85,29 @@ export const userReservationsSlice = createSlice({
       .addCase(fetchUserReservationsThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload || 'Failed';
+      })
+      .addCase(addUserReservationThunk.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(addUserReservationThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.reservations.push(action.payload);
+      })
+      .addCase(addUserReservationThunk.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || 'Failed';
+      })
+      .addCase(updateUserReservationThunk.fulfilled, (state, action) => {
+        state.loading = false;
+
+        const index = state.reservations.findIndex(
+          r => r.id === action.payload.id,
+        );
+
+        if (index !== -1) {
+          state.reservations[index] = action.payload;
+        }
       });
   },
 });

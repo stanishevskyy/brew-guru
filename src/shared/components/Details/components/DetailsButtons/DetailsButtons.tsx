@@ -1,16 +1,84 @@
 import React from 'react';
 import styles from './DetailsButtons.module.scss';
+import { Booking } from '../../../../types/reservations/booking';
+// eslint-disable-next-line max-len
+import {
+  ReservationState,
+  resetReservation,
+} from '../../../../../store/tableReservationSlice/tableReservationSlice';
+import { Reservation } from '../../../../types/reservations/reservation';
+import { useAppDispatch } from '../../../../../store/hooks';
+// eslint-disable-next-line max-len
+import { updateUserReservationThunk } from '../../../../../store/userReservationsSlice/userReservationsSlice';
+// eslint-disable-next-line max-len
+import { updateCafeDetailsThunk } from '../../../../../store/cafeDetailsSlice/cafeDetailsSlice';
+import { clearOrder } from '../../../../../store/menuOrderSlice/menuOrderSlice';
 
 type Props = {
   isModifiedDetails: boolean;
+  reserv: Booking;
+  tableReservation: ReservationState;
 };
 
-export const DetailsButtons: React.FC<Props> = ({ isModifiedDetails }) => {
+export const DetailsButtons: React.FC<Props> = ({
+  isModifiedDetails,
+  reserv,
+  tableReservation,
+}) => {
+  const dispatch = useAppDispatch();
+
+  const handleChange = async () => {
+    const selected = tableReservation.selectedTable;
+
+    if (
+      !selected ||
+      !selected.date ||
+      !selected.startTime ||
+      !selected.endTime ||
+      !selected.tableId ||
+      !selected.seats
+    ) {
+      throw new Error('Missing reservation data');
+    }
+
+    const reservation: Reservation = {
+      id: reserv.reservation.id,
+      date: selected.date,
+      startTime: selected.startTime,
+      endTime: selected.endTime,
+      guestsCount: selected.seats,
+      tableNumber: selected.tableId,
+      status: 'confirmed',
+    };
+
+    // 6. API CALL
+    try {
+      await dispatch(updateUserReservationThunk(reservation));
+
+      await dispatch(
+        updateCafeDetailsThunk({
+          cafeId: reserv.cafe.id,
+          date: reservation.date,
+          tableId: reservation.tableNumber,
+          startTime: reservation.startTime,
+        }),
+      );
+
+      dispatch(resetReservation());
+      dispatch(clearOrder());
+    } finally {
+    }
+  };
+
   return (
     <>
       {!isModifiedDetails && (
         <div className={styles.buttons} role="group" aria-label="Form actions">
-          <button type="button" className={styles.buttons__apply}>
+          <button
+            type="button"
+            className={styles.buttons__apply}
+            onClick={handleChange}
+          >
             Apply
           </button>
           <button type="button" className={styles.buttons__cancel}>

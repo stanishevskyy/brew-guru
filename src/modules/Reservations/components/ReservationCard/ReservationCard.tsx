@@ -194,7 +194,10 @@ export const ReservationCard: React.FC<Props> = ({
               type="button"
               className={styles.reserv__button}
               aria-haspopup="dialog"
-              onClick={() => onOpenDetails('details')}
+              onClick={() => {
+                onOpenDetails('details');
+                setOpenModal(+reservations.id);
+              }}
             >
               Change details
             </button>

@@ -17,9 +17,6 @@ import { CheckStage } from './components/CheckStage';
 //eslint-disable-next-line
 import { ReservationsSkeleton } from '../../shared/components/ReservationsSkeleton';
 
-//eslint-disable-next-line
-import { ReservationStatus } from '../../shared/types/reservations/reservationStatus';
-
 export const Reservations: React.FC = () => {
   const [openDetails, setOpenDetails] = useState<DetailsType>(null);
 
@@ -78,8 +75,10 @@ export const Reservations: React.FC = () => {
             >
               {openDetails === 'details' && (
                 <Details
+                  cafeId={reserv?.cafe.id.toString()}
                   onClose={() => setOpenDetails(null)}
                   isModifiedDetails={false}
+                  reserv={reserv}
                 />
               )}
               {openDetails === 'cancelConfirm' && (
@@ -89,10 +88,7 @@ export const Reservations: React.FC = () => {
                 <CancelDetails onClose={() => setOpenDetails(null)} />
               )}
               {openDetails === 'checkStage' && reserv && (
-                <CheckStage
-                  onClose={() => setOpenDetails(null)}
-                  status={reserv?.reservation.status as ReservationStatus}
-                />
+                <CheckStage onClose={() => setOpenDetails(null)} />
               )}
             </motion.div>
           </motion.div>

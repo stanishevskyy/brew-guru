@@ -15,6 +15,10 @@ import {
 import { fetchCafeReviewsThunk } from '../../store/reviewsSlice/reviewsSlice';
 
 // eslint-disable-next-line max-len
+import { fetchCafeMenuThunk } from '../../store/menuSlice/menuSlice';
+// eslint-disable-next-line max-len
+import { addUserReservationThunk } from '../../store/userReservationsSlice/userReservationsSlice';
+// eslint-disable-next-line max-len
 import { resetReservation } from '../../store/tableReservationSlice/tableReservationSlice';
 import { clearOrder } from '../../store/menuOrderSlice/menuOrderSlice';
 
@@ -43,8 +47,6 @@ import { CafeMenuSkeleton } from '../../shared/components/CafeMenuSkeleton';
 //eslint-disable-next-line
 import { CafeReviewsSkeleton } from '../../shared/components/CafeReviewsSkeleton';
 
-import { fetchCafeMenuThunk } from '../../store/menuSlice/menuSlice';
-import { userReservations } from '../../services/userReservations';
 import { Reservation } from '../../shared/types/reservations/reservation';
 import { Customer } from '../../shared/types/reservations/customer';
 
@@ -124,13 +126,13 @@ export const CafePage = () => {
 
     // 2. RESERVATION
     const reservation: Reservation = {
-      id: `RES-${Date.now()}`,
+      id: `${Date.now()}`,
       date: selected.date,
       startTime: selected.startTime,
       endTime: selected.endTime,
       guestsCount: selected.seats,
       tableNumber: selected.tableId,
-      status: 'pending',
+      status: 'confirmed',
     };
 
     // 3. CUSTOMER (100% SAFE)
@@ -172,12 +174,14 @@ export const CafePage = () => {
     try {
       setIsLoading(true);
 
-      await userReservations.addUserReservations({
-        reservation,
-        customer,
-        cafe: cafeData,
-        preorder,
-      });
+      await dispatch(
+        addUserReservationThunk({
+          reservation,
+          customer,
+          cafe: cafeData,
+          preorder,
+        }),
+      );
 
       await dispatch(
         updateCafeDetailsThunk({
