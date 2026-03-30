@@ -35,18 +35,34 @@ export const updateCafeDetailsThunk = createAsyncThunk<
   CafeDetails | undefined,
   {
     cafeId: number;
-    date: string;
-    tableId: number;
-    startTime: string;
+
+    // NEW
+    newDate: string;
+    newTableId: number;
+    newStartTime: string;
+
+    // OLD (optional — тільки для UPDATE)
+    oldDate?: string;
+    oldTableId?: number;
+    oldStartTime?: string;
+    oldEndTime?: string;
   },
   { rejectValue: string }
 >('cafeDetails/updateCafeDetails', async (params, { rejectWithValue }) => {
   try {
     return await cafeDetailsService.updateCafeDetails(
       params.cafeId,
-      params.date,
-      params.tableId,
-      params.startTime,
+
+      // NEW
+      params.newDate,
+      params.newTableId,
+      params.newStartTime,
+
+      // OLD
+      params.oldDate,
+      params.oldTableId,
+      params.oldStartTime,
+      params.oldEndTime,
     );
   } catch (error) {
     return rejectWithValue(

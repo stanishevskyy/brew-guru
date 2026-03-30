@@ -186,9 +186,9 @@ export const CafePage = () => {
       await dispatch(
         updateCafeDetailsThunk({
           cafeId: cafe.id,
-          date: reservation.date,
-          tableId: reservation.tableNumber,
-          startTime: reservation.startTime,
+          newDate: reservation.date,
+          newTableId: reservation.tableNumber,
+          newStartTime: reservation.startTime,
         }),
       );
 

@@ -2,6 +2,7 @@
 import { request, wait } from './apiService';
 
 import { CafeDetails } from '../shared/types/cafeDetails/cafeDetails';
+import { TimeSlot } from '../shared/types/cafeDetails/availableTables';
 
 const STORAGE_KEY = 'cafesDetails';
 
@@ -69,11 +70,66 @@ export const cafeDetailsService = {
   //     );
   //   } catch (error) {}
   // },
+  // updateCafeDetails: async (
+  //   cafeId: number,
+  //   date: string,
+  //   tableId: number,
+  //   startTime: string,
+  // ) => {
+  //   try {
+  //     const data = await cafeDetailsService.savedCafesDetails();
+
+  //     const updatedData = data.map(cafe => {
+  //       if (cafe.id !== cafeId) {
+  //         return cafe;
+  //       }
+
+  //       return {
+  //         ...cafe,
+  //         availableTables: cafe.availableTables.map(day => {
+  //           if (day.date !== date) {
+  //             return day;
+  //           }
+
+  //           return {
+  //             ...day,
+  //             tables: day.tables.map(table => {
+  //               if (table.id !== tableId) {
+  //                 return table;
+  //               }
+
+  //               return {
+  //                 ...table,
+  //                 availableSlots: table.availableSlots.filter(
+  //                   slot => slot.startTime !== startTime,
+  //                 ),
+  //               };
+  //             }),
+  //           };
+  //         }),
+  //       };
+  //     });
+
+  //     localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedData));
+
+  //     return updatedData.find(c => c.id === cafeId);
+  //   } catch (error) {
+  //     throw new Error(
+  //       error instanceof Error
+  //         ? error.message
+  //         : 'Failed to update cafe details',
+  //     );
+  //   }
+  // },
   updateCafeDetails: async (
     cafeId: number,
-    date: string,
-    tableId: number,
-    startTime: string,
+    newDate: string,
+    newTableId: number,
+    newStartTime: string,
+    oldDate?: string,
+    oldTableId?: number,
+    oldStartTime?: string,
+    oldEndTime?: string,
   ) => {
     try {
       const data = await cafeDetailsService.savedCafesDetails();
@@ -83,29 +139,60 @@ export const cafeDetailsService = {
           return cafe;
         }
 
+        const updatedTables = cafe.availableTables.map(day => {
+          let tables = day.tables;
+
+          if (oldDate && oldTableId && oldStartTime && day.date === oldDate) {
+            tables = tables.map(table => {
+              if (table.id !== oldTableId) {
+                return table;
+              }
+
+              const alreadyExists = table.availableSlots.some(
+                s => s.startTime === oldStartTime,
+              );
+
+              if (alreadyExists) {
+                return table;
+              }
+
+              return {
+                ...table,
+                availableSlots: [
+                  ...table.availableSlots,
+                  {
+                    startTime: oldStartTime,
+                    endTime: oldEndTime ?? '',
+                  } as TimeSlot,
+                ],
+              };
+            });
+          }
+
+          if (day.date === newDate) {
+            tables = tables.map(table => {
+              if (table.id !== newTableId) {
+                return table;
+              }
+
+              return {
+                ...table,
+                availableSlots: table.availableSlots.filter(
+                  slot => slot.startTime !== newStartTime,
+                ),
+              };
+            });
+          }
+
+          return {
+            ...day,
+            tables,
+          };
+        });
+
         return {
           ...cafe,
-          availableTables: cafe.availableTables.map(day => {
-            if (day.date !== date) {
-              return day;
-            }
-
-            return {
-              ...day,
-              tables: day.tables.map(table => {
-                if (table.id !== tableId) {
-                  return table;
-                }
-
-                return {
-                  ...table,
-                  availableSlots: table.availableSlots.filter(
-                    slot => slot.startTime !== startTime,
-                  ),
-                };
-              }),
-            };
-          }),
+          availableTables: updatedTables,
         };
       });
 
