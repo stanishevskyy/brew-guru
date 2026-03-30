@@ -1,14 +1,20 @@
 import React, { useEffect } from 'react';
 import styles from './Cancel.module.scss';
 
+import { useAppDispatch } from '../../../../store/hooks';
+// eslint-disable-next-line max-len
+import { deleteUserReservationThunk } from '../../../../store/userReservationsSlice/userReservationsSlice';
+
 import DeleteIcon from '../../../../assets/icons/cancel-icons/delete-icon.svg';
 import { DetailsType } from '../../../../shared/types/DetailsType';
+import { Booking } from '../../../../shared/types/reservations/booking';
 
 type Props = {
   onClose: (value: React.SetStateAction<DetailsType>) => void;
+  reserv: Booking;
 };
 
-export const CancelConfirm: React.FC<Props> = ({ onClose }) => {
+export const CancelConfirm: React.FC<Props> = ({ onClose, reserv }) => {
   // Close modal with ESC key
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -21,6 +27,12 @@ export const CancelConfirm: React.FC<Props> = ({ onClose }) => {
 
     return () => document.removeEventListener('keydown', handleEsc);
   }, [onClose]);
+
+  const dispatch = useAppDispatch();
+
+  const handleClick = () => {
+    dispatch(deleteUserReservationThunk(reserv.id));
+  };
 
   return (
     <div
@@ -55,7 +67,10 @@ export const CancelConfirm: React.FC<Props> = ({ onClose }) => {
             type="button"
             className={styles.cancel__btnConfirm}
             aria-label="Confirm cancellation"
-            onClick={() => onClose(null)}
+            onClick={() => {
+              onClose(null);
+              handleClick();
+            }}
           >
             Yes
           </button>

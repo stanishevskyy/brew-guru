@@ -205,7 +205,10 @@ export const ReservationCard: React.FC<Props> = ({
               type="button"
               className={styles.reserv__buttonCancel}
               aria-haspopup="dialog"
-              onClick={() => onOpenCancelConfirm('cancelConfirm')}
+              onClick={() => {
+                onOpenCancelConfirm('cancelConfirm');
+                setOpenModal(+reservations.id);
+              }}
             >
               Cancel reservation
             </button>

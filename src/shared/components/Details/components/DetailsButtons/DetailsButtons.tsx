@@ -53,6 +53,8 @@ export const DetailsButtons: React.FC<Props> = ({
 
     // 6. API CALL
     try {
+      await dispatch(updateUserReservationThunk(reservation));
+
       await dispatch(
         updateCafeDetailsThunk({
           cafeId: reserv.cafe.id,
@@ -69,17 +71,6 @@ export const DetailsButtons: React.FC<Props> = ({
           oldEndTime: reserv.reservation.endTime,
         }),
       );
-
-      await dispatch(updateUserReservationThunk(reservation));
-
-      // await dispatch(
-      //   updateCafeDetailsThunk({
-      //     cafeId: reserv.cafe.id,
-      //     date: reservation.date,
-      //     tableId: reservation.tableNumber,
-      //     startTime: reservation.startTime,
-      //   }),
-      // );
 
       dispatch(resetReservation());
       dispatch(clearOrder());

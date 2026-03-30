@@ -67,6 +67,23 @@ export const updateUserReservationThunk = createAsyncThunk<
   },
 );
 
+export const deleteUserReservationThunk = createAsyncThunk<
+  string,
+  string,
+  { rejectValue: string }
+>(
+  'userReservations/deleteReservation',
+  async (reservationId, { rejectWithValue }) => {
+    try {
+      return await userReservations.deleteUserReservations(reservationId);
+    } catch (error) {
+      return rejectWithValue(
+        error instanceof Error ? error.message : 'Failed to delete reservation',
+      );
+    }
+  },
+);
+
 export const userReservationsSlice = createSlice({
   name: 'userReservations',
   initialState,
@@ -108,6 +125,21 @@ export const userReservationsSlice = createSlice({
         if (index !== -1) {
           state.reservations[index] = action.payload;
         }
+      })
+      .addCase(deleteUserReservationThunk.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(deleteUserReservationThunk.fulfilled, (state, action) => {
+        state.loading = false;
+
+        state.reservations = state.reservations.filter(
+          r => r.id !== action.payload,
+        );
+      })
+      .addCase(deleteUserReservationThunk.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || 'Failed';
       });
   },
 });

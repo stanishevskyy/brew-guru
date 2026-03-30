@@ -82,7 +82,10 @@ export const Reservations: React.FC = () => {
                 />
               )}
               {openDetails === 'cancelConfirm' && (
-                <CancelConfirm onClose={() => setOpenDetails(null)} />
+                <CancelConfirm
+                  onClose={() => setOpenDetails(null)}
+                  reserv={reserv!}
+                />
               )}
               {openDetails === 'cancelDetails' && (
                 <CancelDetails onClose={() => setOpenDetails(null)} />

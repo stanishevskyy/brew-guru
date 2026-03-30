@@ -70,4 +70,19 @@ export const userReservations = {
       throw new Error('Failed to update users reservations');
     }
   },
+  deleteUserReservations: async (reservationId: string): Promise<string> => {
+    try {
+      const reservations = await reservationService.getReservations();
+
+      const updatedReservations = reservations.filter(
+        r => r.id !== reservationId,
+      );
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedReservations));
+
+      return reservationId;
+    } catch {
+      throw new Error('Failed to delete user reservation');
+    }
+  },
 };
