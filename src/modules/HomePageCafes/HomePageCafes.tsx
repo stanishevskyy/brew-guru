@@ -84,6 +84,10 @@ export const HomePageCafes = () => {
     return () => clearTimeout(timeId);
   }, [isSideMessage]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   return (
     <div className={styles.searchPage} role="main">
       <div className={styles.searchPage__container}>

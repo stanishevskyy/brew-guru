@@ -102,6 +102,10 @@ export const HomePageMenu = () => {
     );
   }, [query, sortBy, currentPage, perPage, filtersKey, slug]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   return (
     <div className={styles.searchPage} role="main">
       <button

@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import classNames from 'classnames';
 
@@ -19,10 +19,28 @@ export const DetailsSeats: React.FC<Props> = ({
   isSeatsOpen,
   setIsSeatsOpen,
 }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(event.target as Node)
+      ) {
+        setIsSeatsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className={styles.seats}>
+    <div className={styles.seats} ref={wrapperRef}>
       <p className={styles.seats__title} id="seats-label">
         Seats amount
       </p>

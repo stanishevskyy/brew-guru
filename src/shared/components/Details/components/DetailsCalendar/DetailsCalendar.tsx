@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import classNames from 'classnames';
 
 import styles from './DetailsCalendar.module.scss';
@@ -16,6 +16,8 @@ export const DetailsCalendar: React.FC<Props> = ({
   isCalendarOpen,
   setIsCalendarOpen,
 }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
   const formattedDate = (date ? new Date(date) : new Date()).toLocaleDateString(
     'en-US',
     {
@@ -25,8 +27,25 @@ export const DetailsCalendar: React.FC<Props> = ({
     },
   );
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(event.target as Node)
+      ) {
+        setIsCalendarOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className={styles.calendar}>
+    <div className={styles.calendar} ref={wrapperRef}>
       <p className={styles.calendar__title}>Date</p>
 
       <button

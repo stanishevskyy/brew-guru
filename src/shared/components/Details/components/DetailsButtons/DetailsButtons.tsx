@@ -14,16 +14,20 @@ import { updateUserReservationThunk } from '../../../../../store/userReservation
 import { updateCafeDetailsThunk } from '../../../../../store/cafeDetailsSlice/cafeDetailsSlice';
 import { clearOrder } from '../../../../../store/menuOrderSlice/menuOrderSlice';
 
+import { DetailsType } from '../../../../types/DetailsType';
+
 type Props = {
   isModifiedDetails: boolean;
   reserv: Booking;
   tableReservation: ReservationState;
+  onClose?: (value: React.SetStateAction<DetailsType>) => void;
 };
 
 export const DetailsButtons: React.FC<Props> = ({
   isModifiedDetails,
   reserv,
   tableReservation,
+  onClose = () => {},
 }) => {
   const dispatch = useAppDispatch();
 
@@ -53,6 +57,8 @@ export const DetailsButtons: React.FC<Props> = ({
 
     // 6. API CALL
     try {
+      onClose(null);
+
       await dispatch(updateUserReservationThunk(reservation));
 
       await dispatch(
@@ -89,7 +95,11 @@ export const DetailsButtons: React.FC<Props> = ({
           >
             Apply
           </button>
-          <button type="button" className={styles.buttons__cancel}>
+          <button
+            type="button"
+            className={styles.buttons__cancel}
+            onClick={() => onClose(null)}
+          >
             Cancel
           </button>
         </div>

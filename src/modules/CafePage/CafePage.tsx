@@ -80,8 +80,13 @@ export const CafePage = () => {
 
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
+
+        return;
       }
     }
+
+    // fallback — скрол наверх
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [location.state]);
 
   useEffect(() => {
@@ -99,6 +104,7 @@ export const CafePage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const [book, setBook] = useState(false);
+  const [reservationError, setReservationError] = useState('');
 
   const handleBook = async () => {
     const selected = tableReservation.selectedTable;
@@ -113,14 +119,17 @@ export const CafePage = () => {
       !selected.tableId ||
       !selected.seats
     ) {
+      setReservationError('Missing reservation data');
       throw new Error('Missing reservation data');
     }
 
     if (!user) {
+      setReservationError('Missing user data');
       throw new Error('Missing user data');
     }
 
     if (!cafe) {
+      setReservationError('Missing cafe data');
       throw new Error('Missing cafe data');
     }
 
@@ -199,6 +208,14 @@ export const CafePage = () => {
       setBook(false);
     }
   };
+
+  useEffect(() => {
+    const timeId = setTimeout(() => {
+      setReservationError('');
+    }, 1300);
+
+    return () => clearTimeout(timeId);
+  }, [reservationError]);
 
   return (
     <div className={styles.cafe}>
@@ -349,7 +366,7 @@ export const CafePage = () => {
                 </div>
 
                 <p className={styles.test__info}>
-                  You book table at Cafe Name.
+                  {`You book table at ${cafeState.cafe?.name}.`}
                 </p>
 
                 <ul className={styles.test__list}>
@@ -359,7 +376,9 @@ export const CafePage = () => {
                       alt=""
                       className={styles.test__itemImg}
                     />
-                    <p className={styles.test__itemInfo}>1 seat</p>
+                    <p
+                      className={styles.test__itemInfo}
+                    >{`${tableReservation.seats} seat`}</p>
                   </li>
                   <li className={styles.test__item}>
                     <img
@@ -367,7 +386,9 @@ export const CafePage = () => {
                       alt=""
                       className={styles.test__itemImg}
                     />
-                    <p className={styles.test__itemInfo}>Date: Sat, Jan 3</p>
+                    <p
+                      className={styles.test__itemInfo}
+                    >{`Date: ${tableReservation.date}`}</p>
                   </li>
                   <li className={styles.test__item}>
                     <img
@@ -375,7 +396,9 @@ export const CafePage = () => {
                       alt=""
                       className={styles.test__itemImg}
                     />
-                    <p className={styles.test__itemInfo}>Time: 12:45</p>
+                    <p
+                      className={styles.test__itemInfo}
+                    >{`Time: ${tableReservation.time}`}</p>
                   </li>
                 </ul>
 
@@ -399,6 +422,14 @@ export const CafePage = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <div
+        className={classNames(`${styles.cafe__authMessage}`, {
+          [styles.cafe__authMessageActive]: reservationError,
+        })}
+      >
+        {reservationError}
+      </div>
     </div>
   );
 };

@@ -115,6 +115,10 @@ export const userReservationsSlice = createSlice({
         state.loading = false;
         state.error = action.payload || 'Failed';
       })
+      .addCase(updateUserReservationThunk.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
       .addCase(updateUserReservationThunk.fulfilled, (state, action) => {
         state.loading = false;
 
@@ -125,6 +129,10 @@ export const userReservationsSlice = createSlice({
         if (index !== -1) {
           state.reservations[index] = action.payload;
         }
+      })
+      .addCase(updateUserReservationThunk.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || 'Failed';
       })
       .addCase(deleteUserReservationThunk.pending, state => {
         state.loading = true;

@@ -159,41 +159,6 @@ export const Details: React.FC<Props> = ({
             />
           </div>
 
-          {/* {((time && !isMobileOrTablet) || isTimeOpen) && (
-            <div className={styles.details__times}>
-              <h3
-                id="details-section-title"
-                className={styles.details__timesTitle}
-              >
-                Closest time slots
-              </h3>
-
-              <div
-                className={styles.details__timesContainer}
-                role="list"
-                aria-labelledby="details-section-title"
-              >
-                {availableTimeSlots?.map((timeSlots, index) => (
-                  <button
-                    key={`${timeSlots.startTime}-${index}`}
-                    type="button"
-                    className={styles.details__button}
-                    aria-label={`${timeSlots.startTime}, Table №${timeSlots.tableId}`}
-                    onClick={() => {
-                      setTime(timeSlots.startTime);
-                      setIsTimeOpen(false);
-                    }}
-                  >
-                    {timeSlots.startTime}
-                    <span className={styles.details__buttonSpec}>
-                      {`Table №${timeSlots.tableId}`}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )} */}
-
           {((tableReservation.time && !isMobileOrTablet) || isTimeOpen) && (
             <div className={styles.details__times}>
               <h3
@@ -203,34 +168,40 @@ export const Details: React.FC<Props> = ({
                 Closest time slots
               </h3>
 
-              <div
-                className={styles.details__timesContainer}
-                role="list"
-                aria-labelledby="details-section-title"
-              >
-                {availableTimeSlots?.map((timeSlots, index) => (
-                  <button
-                    key={`${timeSlots.startTime}-${index}`}
-                    type="button"
-                    className={classNames(styles.details__button, {
-                      [styles.details__buttonActive]:
-                        tableReservation.selectedTable?.startTime ===
-                        timeSlots.startTime,
-                    })}
-                    aria-label={`${timeSlots.startTime}, Table №${timeSlots.tableId}`}
-                    onClick={() => {
-                      dispatch(setTime(timeSlots.startTime));
-                      dispatch(setSelectedTable(timeSlots));
-                      setIsTimeOpen(false);
-                    }}
-                  >
-                    {timeSlots.startTime}
-                    <span className={styles.details__buttonSpec}>
-                      {`Table №${timeSlots.tableId}`}
-                    </span>
-                  </button>
-                ))}
-              </div>
+              {availableTimeSlots?.length ? (
+                <div
+                  className={styles.details__timesContainer}
+                  role="list"
+                  aria-labelledby="details-section-title"
+                >
+                  {availableTimeSlots.map((timeSlots, index) => (
+                    <button
+                      key={`${timeSlots.startTime}-${index}`}
+                      type="button"
+                      className={classNames(styles.details__button, {
+                        [styles.details__buttonActive]:
+                          tableReservation.time === timeSlots.startTime,
+                      })}
+                      aria-label={`${timeSlots.startTime}, Table №${timeSlots.tableId}`}
+                      onClick={() => {
+                        dispatch(setTime(timeSlots.startTime));
+                        dispatch(setSelectedTable(timeSlots));
+                        setIsTimeOpen(false);
+                      }}
+                    >
+                      {timeSlots.startTime}
+                      <span className={styles.details__buttonSpec}>
+                        {`Table №${timeSlots.tableId}`}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              ) : (
+                <p className={styles.details__noSlots}>
+                  No available tables at this time. Please try selecting another
+                  date or time.
+                </p>
+              )}
             </div>
           )}
 
@@ -240,6 +211,7 @@ export const Details: React.FC<Props> = ({
             isModifiedDetails={isModifiedDetails}
             reserv={reserv!}
             tableReservation={tableReservation}
+            onClose={onClose}
           />
         </form>
       </div>
