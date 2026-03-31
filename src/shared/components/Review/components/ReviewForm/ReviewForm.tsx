@@ -9,7 +9,7 @@ import {
   addUserReplyThunk,
   updateUserReviewThunk,
 } from '../../../../../store/reviewsSlice/reviewsSlice';
-import { EditType, LoadingType } from '../../Review';
+import { CommentFormOpen, EditType, LoadingType } from '../../Review';
 
 // eslint-disable-next-line max-len
 import CloseIcon from '../../../../../assets/icons/reviews-icons/close-icon.svg';
@@ -17,7 +17,7 @@ import { Review } from '../../../../types/reviews/review.type';
 
 type Props = {
   reviewId: number;
-  setIsCommentFormOpen: (value: number | null) => void;
+  setIsCommentFormOpen: (value: CommentFormOpen | null) => void;
   isEdit: EditType | null;
   setIsEdit: React.Dispatch<React.SetStateAction<EditType | null>>;
   setIsEditLoading: React.Dispatch<React.SetStateAction<LoadingType>>;

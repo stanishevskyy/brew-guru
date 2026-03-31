@@ -9,7 +9,7 @@ import {
   updateUserReviewThunk,
 } from '../../../../../store/reviewsSlice/reviewsSlice';
 
-import { EditType } from '../../Review';
+import { CommentFormOpen, EditType } from '../../Review';
 
 import HeartIcon from '../../../../../assets/icons/reviews-icons/heart-icon.svg';
 import LikeIcon from '../../../../../assets/icons/reviews-icons/like.svg';
@@ -26,7 +26,7 @@ import { Reply } from '../../../../types/reviews/replies.type';
 type Props = {
   review: Review;
   reply: Reply;
-  setIsCommentFormOpen: (value: number | null) => void;
+  setIsCommentFormOpen: (value: CommentFormOpen | null) => void;
   setDeletedReply: (value: number | null) => void;
   setIsEdit: React.Dispatch<React.SetStateAction<EditType | null>>;
 };
@@ -139,7 +139,7 @@ export const ReplyFooter: React.FC<Props> = ({
         type="button"
         className={styles.review__actionInfo}
         aria-label="Comment on reply"
-        onClick={() => setIsCommentFormOpen(reply.id)}
+        onClick={() => setIsCommentFormOpen({ type: 'reply', id: reply.id })}
       >
         <img
           src={CommentIcon}
@@ -177,7 +177,7 @@ export const ReplyFooter: React.FC<Props> = ({
                     className={styles.review__menuItem}
                     onMouseDown={() => {
                       setIsEdit({ type: 'reply', id: reply.id });
-                      setIsCommentFormOpen(reply.id);
+                      setIsCommentFormOpen({ type: 'reply', id: reply.id });
                     }}
                   >
                     <img

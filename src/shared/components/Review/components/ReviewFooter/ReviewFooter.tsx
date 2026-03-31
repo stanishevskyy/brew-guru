@@ -9,7 +9,7 @@ import {
   updateUserReviewThunk,
 } from '../../../../../store/reviewsSlice/reviewsSlice';
 
-import { EditType } from '../../Review';
+import { CommentFormOpen, EditType } from '../../Review';
 
 import HeartIcon from '../../../../../assets/icons/reviews-icons/heart-icon.svg';
 import LikeIcon from '../../../../../assets/icons/reviews-icons/like.svg';
@@ -26,7 +26,7 @@ type Props = {
   review: Review;
   setDeletedReview: (value: number | null) => void;
   setIsEdit: React.Dispatch<React.SetStateAction<EditType | null>>;
-  setIsCommentFormOpen: (value: number | null) => void;
+  setIsCommentFormOpen: (value: CommentFormOpen) => void;
 };
 
 export const ReviewFooter: React.FC<Props> = ({
@@ -133,7 +133,7 @@ export const ReviewFooter: React.FC<Props> = ({
         type="button"
         className={styles.review__actionInfo}
         aria-label="Comment on review"
-        onClick={() => setIsCommentFormOpen(review.id)}
+        onClick={() => setIsCommentFormOpen({ type: 'review', id: review.id })}
       >
         <img
           src={CommentIcon}

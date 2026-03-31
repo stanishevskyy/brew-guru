@@ -2,12 +2,11 @@ import React from 'react';
 
 import styles from './ReplyHeader.module.scss';
 
-import { Reply } from '../../../../types/user/user-replies.type';
-
 import { timeAgo } from '../../../../utils/timeAgo';
 
 //eslint-disable-next-line
 import PersonImage from '../../../../../assets/images/cafe-images/cafe-reviews-image/Picture.png';
+import { Reply } from '../../../../types/reviews/replies.type';
 
 type Props = {
   review: Reply;

@@ -16,6 +16,8 @@ import { ReviewForm } from './components/ReviewForm';
 import Arrow from '../../../assets/icons/reviews-icons/arrow-down.svg';
 import { Review as ReviewList } from '../../types/reviews/review.type';
 
+export type CommentFormOpen = { type: 'review' | 'reply'; id: number };
+
 export type EditType = {
   type: 'review' | 'reply';
   id: number;
@@ -42,9 +44,8 @@ export const Review: React.FC<Props> = ({
 
   const [isLoading, setIsLoading] = useState(true);
   const [isAnswerOpen, setIsAnswerOpen] = useState(false);
-  const [isCommentFormOpen, setIsCommentFormOpen] = useState<number | null>(
-    null,
-  );
+  const [isCommentFormOpen, setIsCommentFormOpen] =
+    useState<CommentFormOpen | null>(null);
   const [isEdit, setIsEdit] = useState<EditType | null>(null);
   const [isEditLoading, setIsEditLoading] = useState<LoadingType>({
     reviewId: null,
@@ -80,7 +81,8 @@ export const Review: React.FC<Props> = ({
         setIsCommentFormOpen={setIsCommentFormOpen}
       />
 
-      {(isCommentFormOpen === review.id ||
+      {((isCommentFormOpen?.id === review.id &&
+        isCommentFormOpen.type === 'review') ||
         (isEdit?.type === 'review' && isEdit?.id === review.id)) && (
         <ReviewForm
           reviewId={review.id}
@@ -114,7 +116,8 @@ export const Review: React.FC<Props> = ({
                 setIsEdit={setIsEdit}
               />
 
-              {(isCommentFormOpen === reply.id ||
+              {((isCommentFormOpen?.id === reply.id &&
+                isCommentFormOpen.type === 'reply') ||
                 (isEdit?.type === 'reply' && isEdit?.id === reply.id)) && (
                 <ReviewForm
                   reviewId={review.id}

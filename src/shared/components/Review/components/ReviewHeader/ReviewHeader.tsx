@@ -6,10 +6,10 @@ import { timeAgo } from '../../../../utils/timeAgo';
 
 //eslint-disable-next-line
 import PersonImage from '../../../../../assets/images/cafe-images/cafe-reviews-image/Picture.png';
-import { UserReview } from '../../../../types/user/user-review.type';
+import { Review } from '../../../../types/reviews/review.type';
 
 type Props = {
-  review: UserReview;
+  review: Review;
 };
 
 export const ReviewHeader: React.FC<Props> = ({ review }) => {
