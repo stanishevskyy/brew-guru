@@ -68,7 +68,282 @@
     ],
     "availableTables": [
       {
-        "date": "2026-03-26",
+        "date": "2026-04-15",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-16",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-17",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-18",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-19",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-20",
         "tables": [
           {
             "id": 1,
@@ -133,7 +408,6 @@
     "rating": 4.2,
     "averageCheck": 120,
     "description": "A cozy and welcoming café designed for meaningful conversations and quiet moments. Tea & Talk blends a warm atmosphere with a carefully curated selection of teas from around the world. Soft lighting, wooden textures, and comfortable seating create a relaxing environment perfect for both social gatherings and solo work sessions. Whether you’re here for a calm morning, an afternoon break, or an evening chat, the space invites you to slow down and enjoy the moment. The menu features light breakfasts, fresh desserts, and signature tea blends crafted to complement every mood.",
-
     "openingHours": [
       {
         "id": 8,
@@ -192,7 +466,6 @@
         "isOpen": true
       }
     ],
-
     "availableTables": [
       {
         "date": "2026-03-03",
@@ -225,6 +498,4006 @@
               { "startTime": "09:30", "endTime": "10:30" },
               { "startTime": "12:00", "endTime": "13:00" },
               { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Brew & Bytes",
+    "img": "https://source.unsplash.com/400x300/?workspace,cafe",
+    "address": "78 IT Park Road, Odessa",
+    "phone": "+380 32 987 6543",
+    "rating": 4.8,
+    "averageCheck": 180,
+    "description": "A cozy and welcoming café designed for meaningful conversations and quiet moments. Brew & Bytesblends a warm atmosphere with a carefully curated selection of teas from around the world. Soft lighting, wooden textures, and comfortable seating create a relaxing environment perfect for both social gatherings and solo work sessions. Whether you’re here for a calm morning, an afternoon break, or an evening chat, the space invites you to slow down and enjoy the moment. The menu features light breakfasts, fresh desserts, and signature tea blends crafted to complement every mood.",
+    "openingHours": [
+      {
+        "id": 15,
+        "weekday": 1,
+        "cafeId": 3,
+        "openTime": "07:30:00.000Z",
+        "closeTime": "20:30:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 16,
+        "weekday": 2,
+        "cafeId": 3,
+        "openTime": "07:30:00.000Z",
+        "closeTime": "20:30:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 17,
+        "weekday": 3,
+        "cafeId": 3,
+        "openTime": "07:30:00.000Z",
+        "closeTime": "20:30:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 18,
+        "weekday": 4,
+        "cafeId": 3,
+        "openTime": "07:30:00.000Z",
+        "closeTime": "20:30:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 19,
+        "weekday": 5,
+        "cafeId": 3,
+        "openTime": "07:30:00.000Z",
+        "closeTime": "21:30:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 20,
+        "weekday": 6,
+        "cafeId": 3,
+        "openTime": "08:00:00.000Z",
+        "closeTime": "21:30:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 21,
+        "weekday": 7,
+        "cafeId": 3,
+        "openTime": null,
+        "closeTime": null,
+        "isOpen": false
+      }
+    ],
+    "availableTables": [
+      {
+        "date": "2026-04-15",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-16",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-17",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-18",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-19",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-20",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Morning Roast",
+    "img": "https://source.unsplash.com/400x300/?breakfast,cafe",
+    "address": "12 Sunrise Blvd, Dnipro",
+    "phone": "+380 32 987 6543",
+    "rating": 4.0,
+    "averageCheck": 140,
+    "description": "A cozy and welcoming café designed for meaningful conversations and quiet moments. Morning Roast blends a warm atmosphere with a carefully curated selection of teas from around the world. Soft lighting, wooden textures, and comfortable seating create a relaxing environment perfect for both social gatherings and solo work sessions. Whether you’re here for a calm morning, an afternoon break, or an evening chat, the space invites you to slow down and enjoy the moment. The menu features light breakfasts, fresh desserts, and signature tea blends crafted to complement every mood.",
+    "openingHours": [
+      {
+        "id": 22,
+        "weekday": 1,
+        "cafeId": 4,
+        "openTime": "08:30:00.000Z",
+        "closeTime": "19:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 23,
+        "weekday": 2,
+        "cafeId": 4,
+        "openTime": "08:30:00.000Z",
+        "closeTime": "19:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 24,
+        "weekday": 3,
+        "cafeId": 4,
+        "openTime": "08:30:00.000Z",
+        "closeTime": "19:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 25,
+        "weekday": 4,
+        "cafeId": 4,
+        "openTime": "08:30:00.000Z",
+        "closeTime": "19:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 26,
+        "weekday": 5,
+        "cafeId": 4,
+        "openTime": "08:30:00.000Z",
+        "closeTime": "20:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 27,
+        "weekday": 6,
+        "cafeId": 4,
+        "openTime": "09:00:00.000Z",
+        "closeTime": "20:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 28,
+        "weekday": 7,
+        "cafeId": 4,
+        "openTime": null,
+        "closeTime": null,
+        "isOpen": false
+      }
+    ],
+    "availableTables": [
+      {
+        "date": "2026-04-15",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-16",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-17",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-18",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-19",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-20",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Urban Grind",
+    "img": "https://source.unsplash.com/400x300/?urban,cafe",
+    "address": "101 Central Square, Kharkiv",
+    "phone": "+380 32 987 6543",
+    "rating": 4.7,
+    "averageCheck": 160,
+    "description": "A cozy and welcoming café designed for meaningful conversations and quiet moments. Urban Grind blends a warm atmosphere with a carefully curated selection of teas from around the world. Soft lighting, wooden textures, and comfortable seating create a relaxing environment perfect for both social gatherings and solo work sessions. Whether you’re here for a calm morning, an afternoon break, or an evening chat, the space invites you to slow down and enjoy the moment. The menu features light breakfasts, fresh desserts, and signature tea blends crafted to complement every mood.",
+    "openingHours": [
+      {
+        "id": 29,
+        "weekday": 1,
+        "cafeId": 5,
+        "openTime": "10:00:00.000Z",
+        "closeTime": "23:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 30,
+        "weekday": 2,
+        "cafeId": 5,
+        "openTime": "10:00:00.000Z",
+        "closeTime": "23:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 31,
+        "weekday": 3,
+        "cafeId": 5,
+        "openTime": "10:00:00.000Z",
+        "closeTime": "23:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 32,
+        "weekday": 4,
+        "cafeId": 5,
+        "openTime": "10:00:00.000Z",
+        "closeTime": "23:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 33,
+        "weekday": 5,
+        "cafeId": 5,
+        "openTime": "10:00:00.000Z",
+        "closeTime": "00:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 34,
+        "weekday": 6,
+        "cafeId": 5,
+        "openTime": "11:00:00.000Z",
+        "closeTime": "00:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 35,
+        "weekday": 7,
+        "cafeId": 5,
+        "openTime": "11:00:00.000Z",
+        "closeTime": "20:00:00.000Z",
+        "isOpen": true
+      }
+    ],
+    "availableTables": [
+      {
+        "date": "2026-04-15",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-16",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-17",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-18",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-19",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-20",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Bean & Chill",
+    "img": "https://source.unsplash.com/400x300/?cozy,cafe",
+    "address": "5 Riverside Street, Ternopil",
+    "phone": "+380 32 987 6543",
+    "rating": 4.3,
+    "averageCheck": 130,
+    "description": "A cozy and welcoming café designed for meaningful conversations and quiet moments. Bean & Chill blends a warm atmosphere with a carefully curated selection of teas from around the world. Soft lighting, wooden textures, and comfortable seating create a relaxing environment perfect for both social gatherings and solo work sessions. Whether you’re here for a calm morning, an afternoon break, or an evening chat, the space invites you to slow down and enjoy the moment. The menu features light breakfasts, fresh desserts, and signature tea blends crafted to complement every mood.",
+    "openingHours": [
+      {
+        "id": 36,
+        "weekday": 1,
+        "cafeId": 6,
+        "openTime": "07:00:00.000Z",
+        "closeTime": "18:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 37,
+        "weekday": 2,
+        "cafeId": 6,
+        "openTime": "07:00:00.000Z",
+        "closeTime": "18:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 38,
+        "weekday": 3,
+        "cafeId": 6,
+        "openTime": "07:00:00.000Z",
+        "closeTime": "18:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 39,
+        "weekday": 4,
+        "cafeId": 6,
+        "openTime": "07:00:00.000Z",
+        "closeTime": "18:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 40,
+        "weekday": 5,
+        "cafeId": 6,
+        "openTime": "07:00:00.000Z",
+        "closeTime": "19:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 41,
+        "weekday": 6,
+        "cafeId": 6,
+        "openTime": null,
+        "closeTime": null,
+        "isOpen": false
+      },
+      {
+        "id": 42,
+        "weekday": 7,
+        "cafeId": 6,
+        "openTime": null,
+        "closeTime": null,
+        "isOpen": false
+      }
+    ],
+    "availableTables": [
+      {
+        "date": "2026-04-15",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-16",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-17",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-18",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-19",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-20",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Roast Republic",
+    "img": "https://source.unsplash.com/400x300/?espresso,cafe",
+    "address": "22 Freedom Street, Kyiv",
+    "phone": "+380 32 987 6543",
+    "rating": 4.6,
+    "averageCheck": 155,
+    "description": "A cozy and welcoming café designed for meaningful conversations and quiet moments. Roast Republic blends a warm atmosphere with a carefully curated selection of teas from around the world. Soft lighting, wooden textures, and comfortable seating create a relaxing environment perfect for both social gatherings and solo work sessions. Whether you’re here for a calm morning, an afternoon break, or an evening chat, the space invites you to slow down and enjoy the moment. The menu features light breakfasts, fresh desserts, and signature tea blends crafted to complement every mood.",
+    "openingHours": [
+      {
+        "id": 43,
+        "weekday": 1,
+        "cafeId": 7,
+        "openTime": "08:00:00.000Z",
+        "closeTime": "21:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 44,
+        "weekday": 2,
+        "cafeId": 7,
+        "openTime": "08:00:00.000Z",
+        "closeTime": "21:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 45,
+        "weekday": 3,
+        "cafeId": 7,
+        "openTime": "08:00:00.000Z",
+        "closeTime": "21:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 46,
+        "weekday": 4,
+        "cafeId": 7,
+        "openTime": "08:00:00.000Z",
+        "closeTime": "21:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 47,
+        "weekday": 5,
+        "cafeId": 7,
+        "openTime": "08:00:00.000Z",
+        "closeTime": "22:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 48,
+        "weekday": 6,
+        "cafeId": 7,
+        "openTime": "09:00:00.000Z",
+        "closeTime": "22:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 49,
+        "weekday": 7,
+        "cafeId": 7,
+        "openTime": null,
+        "closeTime": null,
+        "isOpen": false
+      }
+    ],
+    "availableTables": [
+      {
+        "date": "2026-04-15",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-16",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-17",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-18",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-19",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-20",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Steam & Beans",
+    "img": "https://source.unsplash.com/400x300/?latte,cafe",
+    "address": "90 Market Road, Lviv",
+    "phone": "+380 32 987 6543",
+    "rating": 4.4,
+    "averageCheck": 145,
+    "description": "A cozy and welcoming café designed for meaningful conversations and quiet moments. Steam & Beans blends a warm atmosphere with a carefully curated selection of teas from around the world. Soft lighting, wooden textures, and comfortable seating create a relaxing environment perfect for both social gatherings and solo work sessions. Whether you’re here for a calm morning, an afternoon break, or an evening chat, the space invites you to slow down and enjoy the moment. The menu features light breakfasts, fresh desserts, and signature tea blends crafted to complement every mood.",
+    "openingHours": [
+      {
+        "id": 50,
+        "weekday": 1,
+        "cafeId": 8,
+        "openTime": "09:00:00.000Z",
+        "closeTime": "22:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 51,
+        "weekday": 2,
+        "cafeId": 8,
+        "openTime": "09:00:00.000Z",
+        "closeTime": "22:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 52,
+        "weekday": 3,
+        "cafeId": 8,
+        "openTime": "09:00:00.000Z",
+        "closeTime": "22:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 53,
+        "weekday": 4,
+        "cafeId": 8,
+        "openTime": "09:00:00.000Z",
+        "closeTime": "22:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 54,
+        "weekday": 5,
+        "cafeId": 8,
+        "openTime": "09:00:00.000Z",
+        "closeTime": "23:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 55,
+        "weekday": 6,
+        "cafeId": 8,
+        "openTime": "10:00:00.000Z",
+        "closeTime": "23:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 56,
+        "weekday": 7,
+        "cafeId": 8,
+        "openTime": "10:00:00.000Z",
+        "closeTime": "18:00:00.000Z",
+        "isOpen": true
+      }
+    ],
+    "availableTables": [
+      {
+        "date": "2026-04-15",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-16",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-17",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-18",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-19",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-20",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Code & Coffee",
+    "img": "https://source.unsplash.com/400x300/?laptop,cafe",
+    "address": "3 Startup Lane, Odessa",
+    "phone": "+380 32 987 6543",
+    "rating": 4.9,
+    "averageCheck": 190,
+    "description": "A cozy and welcoming café designed for meaningful conversations and quiet moments. Code & Coffee blends a warm atmosphere with a carefully curated selection of teas from around the world. Soft lighting, wooden textures, and comfortable seating create a relaxing environment perfect for both social gatherings and solo work sessions. Whether you’re here for a calm morning, an afternoon break, or an evening chat, the space invites you to slow down and enjoy the moment. The menu features light breakfasts, fresh desserts, and signature tea blends crafted to complement every mood.",
+    "openingHours": [
+      {
+        "id": 57,
+        "weekday": 1,
+        "cafeId": 9,
+        "openTime": "07:00:00.000Z",
+        "closeTime": "20:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 58,
+        "weekday": 2,
+        "cafeId": 9,
+        "openTime": "07:00:00.000Z",
+        "closeTime": "20:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 59,
+        "weekday": 3,
+        "cafeId": 9,
+        "openTime": "07:00:00.000Z",
+        "closeTime": "20:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 60,
+        "weekday": 4,
+        "cafeId": 9,
+        "openTime": "07:00:00.000Z",
+        "closeTime": "20:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 61,
+        "weekday": 5,
+        "cafeId": 9,
+        "openTime": "07:00:00.000Z",
+        "closeTime": "21:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 62,
+        "weekday": 6,
+        "cafeId": 9,
+        "openTime": "08:00:00.000Z",
+        "closeTime": "21:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 63,
+        "weekday": 7,
+        "cafeId": 9,
+        "openTime": null,
+        "closeTime": null,
+        "isOpen": false
+      }
+    ],
+    "availableTables": [
+      {
+        "date": "2026-04-15",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-16",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-17",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-18",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-19",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-20",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Sunny Side Cafe",
+    "img": "https://source.unsplash.com/400x300/?sunny,cafe",
+    "address": "14 River Park, Dnipro",
+    "phone": "+380 32 987 6543",
+    "rating": 4.1,
+    "averageCheck": 125,
+    "description": "A cozy and welcoming café designed for meaningful conversations and quiet moments. Code & Coffee blends a warm atmosphere with a carefully curated selection of teas from around the world. Soft lighting, wooden textures, and comfortable seating create a relaxing environment perfect for both social gatherings and solo work sessions. Whether you’re here for a calm morning, an afternoon break, or an evening chat, the space invites you to slow down and enjoy the moment. The menu features light breakfasts, fresh desserts, and signature tea blends crafted to complement every mood.",
+    "openingHours": [
+      {
+        "id": 64,
+        "weekday": 1,
+        "cafeId": 10,
+        "openTime": "08:30:00.000Z",
+        "closeTime": "19:30:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 65,
+        "weekday": 2,
+        "cafeId": 10,
+        "openTime": "08:30:00.000Z",
+        "closeTime": "19:30:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 66,
+        "weekday": 3,
+        "cafeId": 10,
+        "openTime": "08:30:00.000Z",
+        "closeTime": "19:30:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 67,
+        "weekday": 4,
+        "cafeId": 10,
+        "openTime": "08:30:00.000Z",
+        "closeTime": "19:30:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 68,
+        "weekday": 5,
+        "cafeId": 10,
+        "openTime": "08:30:00.000Z",
+        "closeTime": "20:30:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 69,
+        "weekday": 6,
+        "cafeId": 10,
+        "openTime": "09:00:00.000Z",
+        "closeTime": "20:30:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 70,
+        "weekday": 7,
+        "cafeId": 10,
+        "openTime": null,
+        "closeTime": null,
+        "isOpen": false
+      }
+    ],
+    "availableTables": [
+      {
+        "date": "2026-04-15",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-16",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-17",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-18",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-19",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-20",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Midnight Brew",
+    "img": "https://source.unsplash.com/400x300/?night,cafe",
+    "address": "77 Night Avenue, Kharkiv",
+    "phone": "+380 32 987 6543",
+    "rating": 4.0,
+    "averageCheck": 135,
+    "description": "A cozy and welcoming café designed for meaningful conversations and quiet moments. Midnight Brew blends a warm atmosphere with a carefully curated selection of teas from around the world. Soft lighting, wooden textures, and comfortable seating create a relaxing environment perfect for both social gatherings and solo work sessions. Whether you’re here for a calm morning, an afternoon break, or an evening chat, the space invites you to slow down and enjoy the moment. The menu features light breakfasts, fresh desserts, and signature tea blends crafted to complement every mood.",
+    "openingHours": [
+      {
+        "id": 71,
+        "weekday": 1,
+        "cafeId": 11,
+        "openTime": "16:00:00.000Z",
+        "closeTime": "02:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 72,
+        "weekday": 2,
+        "cafeId": 11,
+        "openTime": "16:00:00.000Z",
+        "closeTime": "02:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 73,
+        "weekday": 3,
+        "cafeId": 11,
+        "openTime": "16:00:00.000Z",
+        "closeTime": "02:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 74,
+        "weekday": 4,
+        "cafeId": 11,
+        "openTime": "16:00:00.000Z",
+        "closeTime": "02:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 75,
+        "weekday": 5,
+        "cafeId": 11,
+        "openTime": "16:00:00.000Z",
+        "closeTime": "03:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 76,
+        "weekday": 6,
+        "cafeId": 11,
+        "openTime": "16:00:00.000Z",
+        "closeTime": "03:00:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 77,
+        "weekday": 7,
+        "cafeId": 11,
+        "openTime": null,
+        "closeTime": null,
+        "isOpen": false
+      }
+    ],
+    "availableTables": [
+      {
+        "date": "2026-04-15",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-16",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-17",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-18",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-19",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-20",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Green Cup",
+    "img": "https://source.unsplash.com/400x300/?eco,cafe",
+    "address": "8 Forest Street, Ivano-Frankivsk",
+    "phone": "+380 32 987 6543",
+    "rating": 4.5,
+    "averageCheck": 140,
+    "description": "A cozy and welcoming café designed for meaningful conversations and quiet moments. Green Cup blends a warm atmosphere with a carefully curated selection of teas from around the world. Soft lighting, wooden textures, and comfortable seating create a relaxing environment perfect for both social gatherings and solo work sessions. Whether you’re here for a calm morning, an afternoon break, or an evening chat, the space invites you to slow down and enjoy the moment. The menu features light breakfasts, fresh desserts, and signature tea blends crafted to complement every mood.",
+    "openingHours": [
+      {
+        "id": 78,
+        "weekday": 1,
+        "cafeId": 12,
+        "openTime": "07:30:00.000Z",
+        "closeTime": "18:30:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 79,
+        "weekday": 2,
+        "cafeId": 12,
+        "openTime": "07:30:00.000Z",
+        "closeTime": "18:30:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 80,
+        "weekday": 3,
+        "cafeId": 12,
+        "openTime": "07:30:00.000Z",
+        "closeTime": "18:30:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 81,
+        "weekday": 4,
+        "cafeId": 12,
+        "openTime": "07:30:00.000Z",
+        "closeTime": "18:30:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 82,
+        "weekday": 5,
+        "cafeId": 12,
+        "openTime": "07:30:00.000Z",
+        "closeTime": "19:30:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 83,
+        "weekday": 6,
+        "cafeId": 12,
+        "openTime": "08:00:00.000Z",
+        "closeTime": "19:30:00.000Z",
+        "isOpen": true
+      },
+      {
+        "id": 84,
+        "weekday": 7,
+        "cafeId": 12,
+        "openTime": null,
+        "closeTime": null,
+        "isOpen": false
+      }
+    ],
+    "availableTables": [
+      {
+        "date": "2026-04-15",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-16",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-17",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-18",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-19",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          }
+        ]
+      },
+      {
+        "date": "2026-04-20",
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "08:30", "endTime": "09:00" },
+              { "startTime": "10:00", "endTime": "11:00" },
+              { "startTime": "14:00", "endTime": "15:00" }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Table 2",
+            "seats": 2,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "11:00", "endTime": "12:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Table 3",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "08:00", "endTime": "09:30" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "16:00", "endTime": "17:00" }
+            ]
+          },
+          {
+            "id": 4,
+            "name": "Table 4",
+            "seats": 3,
+            "availableSlots": [
+              { "startTime": "10:00", "endTime": "11:30" },
+              { "startTime": "13:00", "endTime": "14:00" },
+              { "startTime": "17:00", "endTime": "18:00" }
+            ]
+          },
+          {
+            "id": 5,
+            "name": "Table 5",
+            "seats": 1,
+            "availableSlots": [
+              { "startTime": "09:00", "endTime": "10:00" },
+              { "startTime": "12:00", "endTime": "13:00" },
+              { "startTime": "15:00", "endTime": "16:00" }
             ]
           }
         ]
