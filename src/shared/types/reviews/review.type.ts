@@ -5,7 +5,7 @@ export interface Review {
   cafeId: number;
   user: {
     id: number;
-    img: string;
+    img?: string;
     firstName: string;
     lastName: string;
   };

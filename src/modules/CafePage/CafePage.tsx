@@ -58,9 +58,14 @@ export const CafePage = () => {
   const cafeId = slug?.split('-').pop();
 
   const cafeState = useAppSelector(state => state.cafeDetails);
-
   const reviewsState = useAppSelector(state => state.reviews);
   const dispatch = useAppDispatch();
+
+  const avarageRating = (
+    reviewsState.reviews.reduce((acc, el) => acc + (el.rating ?? 0), 0) /
+      reviewsState.reviews.length || 0
+  ).toFixed(1);
+  const reviewsCount = reviewsState.reviews.length;
 
   const currentDayIndex = ((new Date().getDay() + 6) % 7) + 1;
 
@@ -259,7 +264,7 @@ export const CafePage = () => {
                   <div className={styles.cafe__detailsWrapper}>
                     <p className={styles.cafe__information}>
                       <span className={styles.cafe__iconStar}></span>
-                      {`${cafeState.cafe?.rating} (${reviewsState.reviews.length} reviews)`}
+                      {`${avarageRating} (${reviewsCount} reviews)`}
                     </p>
                     <p className={styles.cafe__information}>
                       <span className={styles.cafe__iconClcok}></span>{' '}

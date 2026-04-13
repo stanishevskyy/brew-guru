@@ -14,7 +14,7 @@ import { Reply } from '../../../../shared/types/reviews/replies.type';
 import { Review } from '../../../../shared/components/Review';
 
 //eslint-disable-next-line
-import PersonImage from '../../../../assets/images/cafe-images/cafe-reviews-image/Picture.png';
+import PersonImage from '../../../../assets/images/profile-images/avatar-mobile.png';
 import { ReviewSkeleton } from '../../../../shared/components/ReviewSkeleton';
 import { addUserReviewThunk } from '../../../../store/reviewsSlice/reviewsSlice';
 

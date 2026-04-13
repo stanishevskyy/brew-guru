@@ -5,7 +5,7 @@ import styles from './ReviewHeader.module.scss';
 import { timeAgo } from '../../../../utils/timeAgo';
 
 //eslint-disable-next-line
-import PersonImage from '../../../../../assets/images/cafe-images/cafe-reviews-image/Picture.png';
+import PersonImage from '../../../../../assets/images/profile-images/avatar-mobile.png';
 import { Review } from '../../../../types/reviews/review.type';
 
 type Props = {
@@ -21,7 +21,7 @@ export const ReviewHeader: React.FC<Props> = ({ review }) => {
 
   return (
     <header className={styles.review}>
-      {!review.user.img ? (
+      {review.user.img ? (
         <img
           src={review.user.img}
           alt="User avatar Darlene Robertson"
