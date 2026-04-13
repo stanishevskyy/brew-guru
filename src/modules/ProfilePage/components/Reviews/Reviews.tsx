@@ -29,6 +29,24 @@ export const Reviews = () => {
 
   const [deletedReview, setDeletedReview] = useState<number | null>(null);
 
+  //logic
+  const ratingCounts: Record<number, number> = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+  const totalReviews = reviewsState.reviews.length;
+
+  reviewsState.reviews.forEach(r => {
+    const rating = Math.round(r.rating!);
+
+    ratingCounts[rating] = (ratingCounts[rating] || 0) + 1;
+  });
+
+  const ratingPercentages: Record<number, number> = {};
+
+  for (let i = 1; i <= 5; i++) {
+    ratingPercentages[i] = totalReviews
+      ? (ratingCounts[i] / totalReviews) * 100
+      : 0;
+  }
+
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
@@ -67,126 +85,40 @@ export const Reviews = () => {
             })}
           >
             <p className={styles.reviews__title}>Rating</p>
-            <div className={styles.reviews__rating}>
-              <div className={styles.reviews__wrapper}>
-                <p className={styles.reviews__score}>
-                  92%
-                  <span className={styles.reviews__count}>(23 Reviews)</span>
-                </p>
 
-                <Rating
-                  name="cafe-rating-dianne"
-                  value={5}
-                  precision={0.5}
-                  readOnly
-                  icon={<StarIcon fontSize="inherit" />}
-                  emptyIcon={<StarIcon fontSize="inherit" />}
-                  size="medium"
-                  getLabelText={(v: number) => `${v} зірок`}
-                  sx={{
-                    color: '#FFCA00',
-                    '& .MuiRating-iconEmpty': { color: '#BBBBC9' },
-                  }}
-                />
-              </div>
-              <div className={styles.reviews__divider}></div>
-            </div>
-            <div className={styles.reviews__rating}>
-              <div className={styles.reviews__wrapper}>
-                <p className={styles.reviews__score}>
-                  92%
-                  <span className={styles.reviews__count}>(23 Reviews)</span>
-                </p>
+            {[5, 4, 3, 2, 1].map(star => (
+              <div key={star} className={styles.reviews__rating}>
+                <div className={styles.reviews__wrapper}>
+                  <p className={styles.reviews__score}>
+                    {Math.round(ratingPercentages[star])}%
+                    <span className={styles.reviews__count}>
+                      ({ratingCounts[star]} Reviews)
+                    </span>
+                  </p>
 
-                <Rating
-                  name="cafe-rating-dianne"
-                  value={4}
-                  precision={0.5}
-                  readOnly
-                  icon={<StarIcon fontSize="inherit" />}
-                  emptyIcon={<StarIcon fontSize="inherit" />}
-                  size="medium"
-                  getLabelText={(v: number) => `${v} зірок`}
-                  sx={{
-                    color: '#FFCA00',
-                    '& .MuiRating-iconEmpty': { color: '#BBBBC9' },
-                  }}
-                />
+                  <Rating
+                    name={`cafe-rating-${star}`}
+                    value={star}
+                    precision={0.5}
+                    readOnly
+                    icon={<StarIcon fontSize="inherit" />}
+                    emptyIcon={<StarIcon fontSize="inherit" />}
+                    size="medium"
+                    getLabelText={v => `${v} зірок`}
+                    sx={{
+                      color: '#FFCA00',
+                      '& .MuiRating-iconEmpty': { color: '#BBBBC9' },
+                    }}
+                  />
+                </div>
+                <div className={styles.reviews__divider}>
+                  <div
+                    className={styles.reviews__fill}
+                    style={{ width: `${ratingPercentages[star]}%` }}
+                  />
+                </div>
               </div>
-              <div className={styles.reviews__divider}></div>
-            </div>
-            <div className={styles.reviews__rating}>
-              <div className={styles.reviews__wrapper}>
-                <p className={styles.reviews__score}>
-                  92%
-                  <span className={styles.reviews__count}>(23 Reviews)</span>
-                </p>
-
-                <Rating
-                  name="cafe-rating-dianne"
-                  value={3}
-                  precision={0.5}
-                  readOnly
-                  icon={<StarIcon fontSize="inherit" />}
-                  emptyIcon={<StarIcon fontSize="inherit" />}
-                  size="medium"
-                  getLabelText={(v: number) => `${v} зірок`}
-                  sx={{
-                    color: '#FFCA00',
-                    '& .MuiRating-iconEmpty': { color: '#BBBBC9' },
-                  }}
-                />
-              </div>
-              <div className={styles.reviews__divider}></div>
-            </div>
-            <div className={styles.reviews__rating}>
-              <div className={styles.reviews__wrapper}>
-                <p className={styles.reviews__score}>
-                  92%
-                  <span className={styles.reviews__count}>(23 Reviews)</span>
-                </p>
-
-                <Rating
-                  name="cafe-rating-dianne"
-                  value={2}
-                  precision={0.5}
-                  readOnly
-                  icon={<StarIcon fontSize="inherit" />}
-                  emptyIcon={<StarIcon fontSize="inherit" />}
-                  size="medium"
-                  getLabelText={(v: number) => `${v} зірок`}
-                  sx={{
-                    color: '#FFCA00',
-                    '& .MuiRating-iconEmpty': { color: '#BBBBC9' },
-                  }}
-                />
-              </div>
-              <div className={styles.reviews__divider}></div>
-            </div>
-            <div className={styles.reviews__rating}>
-              <div className={styles.reviews__wrapper}>
-                <p className={styles.reviews__score}>
-                  92%
-                  <span className={styles.reviews__count}>(23 Reviews)</span>
-                </p>
-
-                <Rating
-                  name="cafe-rating-dianne"
-                  value={1}
-                  precision={0.5}
-                  readOnly
-                  icon={<StarIcon fontSize="inherit" />}
-                  emptyIcon={<StarIcon fontSize="inherit" />}
-                  size="medium"
-                  getLabelText={(v: number) => `${v} зірок`}
-                  sx={{
-                    color: '#FFCA00',
-                    '& .MuiRating-iconEmpty': { color: '#BBBBC9' },
-                  }}
-                />
-              </div>
-              <div className={styles.reviews__divider}></div>
-            </div>
+            ))}
           </div>
         )}
       </div>
