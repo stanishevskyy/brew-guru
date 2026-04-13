@@ -4,6 +4,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { UserHistory } from '../../shared/types/user/user-history.type';
 import { userHistoryService } from '../../services/userHistoryService';
+import { HistoryItem } from '../../shared/types/user/user-history-item';
 
 export interface HistoryState {
   history: UserHistory[];
@@ -32,12 +33,18 @@ export const fetchUserHistoryThunk = createAsyncThunk<
 });
 
 export const addHistoryItemThunk = createAsyncThunk<
-  UserHistory,
-  UserHistory,
+  UserHistory[],
+  {
+    userId: number;
+    date: string;
+    item: HistoryItem;
+  },
   { rejectValue: string }
->('history/addHistoryItem', async (item, { rejectWithValue }) => {
+>('history/addHistoryItem', async (payload, { rejectWithValue }) => {
   try {
-    return await userHistoryService.addHistoryItem(item);
+    const { userId, date, item } = payload;
+
+    return await userHistoryService.addHistoryItem(userId, date, item);
   } catch (error) {
     return rejectWithValue(
       error instanceof Error ? error.message : 'Failed to add history item',
@@ -87,7 +94,7 @@ export const historySlice = createSlice({
       .addCase(addHistoryItemThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.history.push(action.payload);
+        state.history = action.payload;
       })
       .addCase(addHistoryItemThunk.rejected, (state, action) => {
         state.loading = false;

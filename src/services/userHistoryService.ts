@@ -1,5 +1,7 @@
 import { historyService } from './historyService';
+
 import { UserHistory } from '../shared/types/user/user-history.type';
+import { HistoryItem } from '../shared/types/user/user-history-item';
 
 const STORAGE_KEY = 'history';
 
@@ -14,14 +16,32 @@ export const userHistoryService = {
     }
   },
 
-  addHistoryItem: async (item: UserHistory): Promise<UserHistory> => {
+  addHistoryItem: async (
+    userId: number,
+    formattedDate: string,
+    item: HistoryItem,
+  ): Promise<UserHistory[]> => {
     try {
       const allHistory = await historyService.getHistory();
 
-      allHistory.push(item);
+      const index = allHistory.findIndex(
+        h => h.userId === userId && h.date === formattedDate,
+      );
+
+      if (index !== -1) {
+        allHistory[index].items.push(item);
+      } else {
+        allHistory.push({
+          id: Date.now(),
+          userId,
+          date: formattedDate,
+          items: [item],
+        });
+      }
+
       localStorage.setItem(STORAGE_KEY, JSON.stringify(allHistory));
 
-      return item;
+      return allHistory;
     } catch {
       throw new Error('Failed add user history');
     }

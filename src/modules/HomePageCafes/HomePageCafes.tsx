@@ -29,11 +29,15 @@ import { CardCafe } from '../../shared/components/CardCafe';
 import { Pagination } from '../../shared/components/Pagination';
 import { SortBy } from '../../shared/constants/SortBy';
 import { NoResults } from '../../shared/components/NoResults';
+import { Cafe } from '../../shared/types/shared/cafe';
+import { HistoryItem } from '../../shared/types/user/user-history-item';
+import { addHistoryItemThunk } from '../../store/historySlice/historySlice';
 
 export const HomePageCafes = () => {
   const [isSideFiltersOpen, setIsSideFiltersOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  const userState = useAppSelector(state => state.user.user);
   const cafesState = useAppSelector(state => state.cafes);
   const dispatch = useAppDispatch();
 
@@ -87,6 +91,32 @@ export const HomePageCafes = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
+
+  const handleAddUserHistory = (cafe: Cafe) => {
+    const formattedDate = new Date().toLocaleDateString('en-CA');
+
+    const { id, img, name, address, openingHours } = cafe;
+
+    const historyItem: HistoryItem = {
+      id: Date.now(),
+      cafe: {
+        id,
+        img,
+        name,
+        address,
+        openingHours,
+      },
+      time: new Date().toISOString(),
+    };
+
+    dispatch(
+      addHistoryItemThunk({
+        userId: userState?.id as number,
+        date: formattedDate,
+        item: historyItem,
+      }),
+    );
+  };
 
   return (
     <div className={styles.searchPage} role="main">
@@ -170,6 +200,7 @@ export const HomePageCafes = () => {
               className={styles.searchPage__cafe}
               aria-label={`Cafe card ${cafe.id}`}
               key={cafe.id}
+              onClick={() => handleAddUserHistory(cafe)}
             >
               <CardCafe cafe={cafe} setIsSideMessage={setIsSideMessage} />
             </div>
