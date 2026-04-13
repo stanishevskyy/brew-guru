@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/indent */
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -16,6 +17,7 @@ import { CancelDetails } from './components/CancelDetails';
 import { CheckStage } from './components/CheckStage';
 //eslint-disable-next-line
 import { ReservationsSkeleton } from '../../shared/components/ReservationsSkeleton';
+import { ReservationsEmptyState } from './components/ReservationsEmptyState';
 
 export const Reservations: React.FC = () => {
   const [openDetails, setOpenDetails] = useState<DetailsType>(null);
@@ -36,20 +38,25 @@ export const Reservations: React.FC = () => {
     <div className={styles.reserv} style={{ position: 'relative' }}>
       <div className={styles.reserv__container}>
         <h3 className={styles.reserv__Title}>Your reservations</h3>
-        {reservationsState.reservations.map(reservations =>
-          reservationsState.loading ? (
-            <ReservationsSkeleton key={reservations.id} />
-          ) : (
+
+        {reservationsState.loading ? (
+          Array.from({ length: 2 }).map((_, index) => (
+            <ReservationsSkeleton key={index} />
+          ))
+        ) : reservationsState.reservations.length === 0 ? (
+          <ReservationsEmptyState />
+        ) : (
+          reservationsState.reservations.map(reservation => (
             <ReservationCard
-              key={reservations.id}
-              reservations={reservations}
+              key={reservation.id}
+              reservations={reservation}
               onOpenDetails={() => setOpenDetails('details')}
               onOpenCancelConfirm={() => setOpenDetails('cancelConfirm')}
               onOpenCancelDetails={() => setOpenDetails('cancelDetails')}
               onOpenCheckStage={() => setOpenDetails('checkStage')}
               setOpenModal={setOpenModal}
             />
-          ),
+          ))
         )}
       </div>
 
