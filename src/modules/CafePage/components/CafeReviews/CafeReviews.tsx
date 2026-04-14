@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
@@ -17,6 +17,7 @@ import { Review } from '../../../../shared/components/Review';
 import PersonImage from '../../../../assets/images/profile-images/avatar-mobile.png';
 import { ReviewSkeleton } from '../../../../shared/components/ReviewSkeleton';
 import { addUserReviewThunk } from '../../../../store/reviewsSlice/reviewsSlice';
+import { useLocation } from 'react-router-dom';
 
 type Props = {
   cafeId: number;
@@ -29,6 +30,7 @@ export const CafeReviews: React.FC<Props> = ({
   reviews,
   isLoadingState,
 }) => {
+  const location = useLocation();
   const [value, setValue] = useState(3.5);
   const [newCommentValue, setNewCommentValue] = useState('');
   const [deletedReview, setDeletedReview] = useState<number | null>(null);
@@ -72,6 +74,20 @@ export const CafeReviews: React.FC<Props> = ({
 
     setNewCommentValue('');
   };
+
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const el = document.getElementById(location.state.scrollTo);
+
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+
+        return;
+      }
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location.state]);
 
   return (
     <section className={styles.reviews} aria-labelledby="reviews-title">
@@ -146,7 +162,11 @@ export const CafeReviews: React.FC<Props> = ({
                 <ReviewSkeleton />
               </li>
             ) : (
-              <li className={styles.reviews__downComment} key={review.id}>
+              <li
+                className={styles.reviews__downComment}
+                key={review.id}
+                id={`${review.id}`}
+              >
                 <Review
                   isLoadingState={isLoadingState}
                   review={review}

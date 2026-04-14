@@ -55,6 +55,7 @@ export const CafePage = () => {
   const navigate = useNavigate();
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
   const { slug } = useParams();
+
   const cafeId = slug?.split('-').pop();
 
   const cafeState = useAppSelector(state => state.cafeDetails);
@@ -90,7 +91,6 @@ export const CafePage = () => {
       }
     }
 
-    // fallback — скрол наверх
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [location.state]);
 

@@ -171,9 +171,21 @@ export const Reviews = () => {
               />
             ),
           )}
-        {isSectionOpen.reports &&
+        {/* {isSectionOpen.reports &&
           reportsState.reports.map(report => (
             <UserReports key={report.id} report={report} />
+          ))} */}
+
+        {isSectionOpen.reports &&
+          (reportsState.reports.length === 0 ? (
+            <p className={styles.reviews__message}>
+              We couldn&apos;t find any complaints about your comments — and
+              that&apos;s great! 🎉😊
+            </p>
+          ) : (
+            reportsState.reports.map(report => (
+              <UserReports key={report.id} report={report} />
+            ))
           ))}
       </div>
     </section>

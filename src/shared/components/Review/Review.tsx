@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/indent */
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 
 import styles from './Review.module.scss';
@@ -15,6 +15,7 @@ import { ReviewForm } from './components/ReviewForm';
 //eslint-disable-next-line
 import Arrow from '../../../assets/icons/reviews-icons/arrow-down.svg';
 import { Review as ReviewList } from '../../types/reviews/review.type';
+import { cafeDetailsService } from '../../../services/cafeDetailsService';
 
 export type CommentFormOpen = { type: 'review' | 'reply'; id: number };
 
@@ -40,6 +41,7 @@ export const Review: React.FC<Props> = ({
   setDeletedReview,
 }) => {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const isVisibleButton = pathname === '/profile/reviews';
 
   const [isLoading, setIsLoading] = useState(true);
@@ -60,6 +62,13 @@ export const Review: React.FC<Props> = ({
 
     return () => clearTimeout(timerId);
   }, [pathname]);
+
+  const handleViewOnPage = async () => {
+    const cafeDetails = await cafeDetailsService.getCafeDetails(review.cafeId);
+    const url = cafeDetails ? `${cafeDetails.name}-${cafeDetails.id}` : '/';
+
+    navigate(`/${url}`, { state: { scrollTo: `${review.id}` } });
+  };
 
   if (isLoading || isEditLoading.reviewId === review.id) {
     return <ReviewSkeleton />;
@@ -151,7 +160,11 @@ export const Review: React.FC<Props> = ({
           </button>
         )}
         {isVisibleButton && (
-          <button type="button" className={styles.review__viewOnPage}>
+          <button
+            type="button"
+            className={styles.review__viewOnPage}
+            onClick={handleViewOnPage}
+          >
             View on Page
           </button>
         )}

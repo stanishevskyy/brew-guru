@@ -44,7 +44,7 @@ export const MenuInfo: React.FC<Props> = ({
     <article className={styles.menu}>
       <div className={styles.menu__container}>
         <div className={styles.menu__link}>
-          {menuDescription?.imageUrl ? (
+          {!menuDescription?.imageUrl ? (
             <img
               loading="lazy"
               src={menuDescription?.imageUrl}
